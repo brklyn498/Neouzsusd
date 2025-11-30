@@ -1,0 +1,42 @@
+{
+  "last_updated": "2025-11-30 16:41",
+  "cbu": 11902.3,
+  "banks": [
+    {
+      "name": "Kapitalbank",
+      "buy": 11864,
+      "sell": 11937,
+      "logo": ""
+    },
+    {
+      "name": "Hamkorbank",
+      "buy": 11835,
+      "sell": 11922,
+      "logo": ""
+    },
+    {
+      "name": "Ipak Yuli Bank",
+      "buy": 11855,
+      "sell": 11960,
+      "logo": ""
+    },
+    {
+      "name": "OFB",
+      "buy": 11861,
+      "sell": 11923,
+      "logo": ""
+    },
+    {
+      "name": "SQB",
+      "buy": 11862,
+      "sell": 11942,
+      "logo": ""
+    },
+    {
+      "name": "Asaka Bank",
+      "buy": 11862,
+      "sell": 11954,
+      "logo": ""
+    }
+  ]
+}
