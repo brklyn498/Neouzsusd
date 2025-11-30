@@ -16,6 +16,23 @@ This project uses a "Flat Data" approach:
 - **Comparison:** View Buy/Sell rates for major banks.
 - **Calculator:** Instant USD to UZS conversion.
 
+## Deployment on GitHub Pages
+
+This project is configured to deploy automatically using GitHub Actions.
+
+### Steps to Enable:
+
+1.  Push this code to a GitHub repository.
+2.  Go to the repository **Settings**.
+3.  Navigate to **Pages** (in the left sidebar).
+4.  Under **Build and deployment** > **Source**, select **Deploy from a branch**.
+5.  Under **Branch**, select `gh-pages` and folder `/ (root)`. (Note: The `gh-pages` branch will be created automatically after the first successful run of the "Deploy to GitHub Pages" action).
+6.  Click **Save**.
+
+Your site will be live at `https://<your-username>.github.io/<repo-name>/`.
+
+**Note:** The site updates automatically every hour when the scraper runs.
+
 ## Development
 
 ### Prerequisites

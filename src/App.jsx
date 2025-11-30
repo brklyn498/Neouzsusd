@@ -13,7 +13,7 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('/rates.json');
+      const response = await fetch('./rates.json');
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
