@@ -42,3 +42,22 @@
 ### Phase 4: Verification
 - Verified the build process (`npm run build`) works.
 - Confirmed `rates.json` is generated correctly.
+
+## Future Roadmap (Next Steps)
+
+### Option 1: The "Visuals" Update (Charts) 📈
+- **Goal:** Visualise CBU rate history over the last 30 days.
+- **Style:** Brutalist Charts - Jagged black lines, yellow background, no smooth curves.
+
+### Option 2: The "App" Experience (PWA) 📱
+- **Goal:** Turn the React site into a Progressive Web App.
+- **Features:** "Add to Home Screen", offline support, custom splash screen.
+
+### Option 3: Real Data Integration 🕷️
+- **Goal:** Replace mock data with real scraping where possible.
+- **Target:** Hamkorbank (seems less protected than Kapitalbank).
+
+### Option 4: "Reverse" Calculator & UX 🧮
+- **Features:**
+    - Toggle for UZS -> USD calculation.
+    - "Dark Brutalism" mode (Black background, neon text).
