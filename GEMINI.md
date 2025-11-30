@@ -11,11 +11,13 @@
     - [x] Implement CBU fetching
     - [x] Implement Mock Bank data
     - [x] Create GitHub Action workflow
+    - [x] Implement Historical Data Fetching (30 days)
 - [x] **Frontend (React)**
     - [x] Setup Vite + React
     - [x] Implement Design System (CSS)
     - [x] Build Components (Card, Header, List, Calculator)
     - [x] Integration with `rates.json`
+    - [x] Implement 30-Day History Chart (`recharts`)
 - [x] **Verification**
     - [x] Test Scraper
     - [x] Build React App
@@ -43,9 +45,15 @@
 - Verified the build process (`npm run build`) works.
 - Confirmed `rates.json` is generated correctly.
 
+### Phase 5: Visuals (Charts)
+- Updated `scraper.py` to fetch 30 days of historical data from CBU (`https://cbu.uz/en/arkhiv-kursov-valyut/json/all/{date}/`).
+- Installed `recharts` and created `HistoryChart` component.
+- Applied "Neubrutalist" styling to the chart (thick strokes, hard shadows, custom tooltips).
+- Verified chart rendering with Playwright.
+
 ## Future Roadmap (Next Steps)
 
-### Option 1: The "Visuals" Update (Charts) 📈
+### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
 - **Goal:** Visualise CBU rate history over the last 30 days.
 - **Style:** Brutalist Charts - Jagged black lines, yellow background, no smooth curves.
 

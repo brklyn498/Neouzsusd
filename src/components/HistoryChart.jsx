@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 const HistoryChart = ({ history }) => {
   if (!history || history.length === 0) return <div>No Data</div>;
@@ -48,12 +48,29 @@ const HistoryChart = ({ history }) => {
   };
 
   return (
-    <div className="w-full mt-8 mb-8 p-4 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-      <h3 className="font-bold text-xl mb-4 text-black uppercase tracking-tighter">
+    <div style={{
+      width: '100%',
+      marginTop: '2rem',
+      marginBottom: '2rem',
+      padding: '1rem',
+      backgroundColor: 'white',
+      border: '4px solid black',
+      boxShadow: '8px 8px 0px 0px rgba(0,0,0,1)',
+      boxSizing: 'border-box'
+    }}>
+      <h3 style={{
+        fontWeight: 'bold',
+        fontSize: '1.25rem',
+        marginBottom: '1rem',
+        color: 'black',
+        textTransform: 'uppercase',
+        letterSpacing: '-0.05em'
+      }}>
         30-Day Trend
       </h3>
-      <div className="w-full overflow-x-auto">
-          <LineChart width={500} height={200} data={data}>
+      <div style={{ width: '100%', height: '250px' }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data}>
             <XAxis
               dataKey="date"
               stroke="#000"
@@ -83,6 +100,7 @@ const HistoryChart = ({ history }) => {
               isAnimationActive={false}
             />
           </LineChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
