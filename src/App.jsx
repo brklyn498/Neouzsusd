@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import BankList from './components/BankList';
 import Calculator from './components/Calculator';
+import HistoryChart from './components/HistoryChart';
 
 function App() {
   const [data, setData] = useState(null);
@@ -66,6 +67,8 @@ function App() {
       {!loading && !error && data && (
         <>
           <Header cbuRate={data.cbu} />
+
+          <HistoryChart history={data.history} />
 
           <Calculator bestBuy={bestBuyRate} />
 
