@@ -6,7 +6,8 @@ import HistoryChart from './components/HistoryChart';
 import { refreshRates } from './utils/fetchUtils';
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null); // Holds the full nested data
+  const [currency, setCurrency] = useState('USD'); // 'USD' or 'RUB'
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sortType, setSortType] = useState('best_buy');
@@ -34,15 +35,22 @@ function App() {
   const handleManualRefresh = async () => {
     setRefreshing(true);
     try {
-      const freshData = await refreshRates();
+      const freshData = await refreshRates(currency);
 
       if (freshData) {
-        // Update only the CBU rate and timestamp
-        setData(prevData => ({
-          ...prevData,
-          cbu: freshData.cbu,
-          last_updated: freshData.timestamp
-        }));
+        // Update only the CBU rate for current currency and timestamp
+        setData(prevData => {
+            const newData = { ...prevData };
+            newData.last_updated = freshData.timestamp;
+            const key = currency.toLowerCase();
+            if (newData[key]) {
+                newData[key] = {
+                    ...newData[key],
+                    cbu: freshData.cbu
+                };
+            }
+            return newData;
+        });
         setLastRefresh(freshData.timestamp);
       } else {
         throw new Error('Failed to fetch fresh rates');
@@ -59,11 +67,13 @@ function App() {
     fetchData();
   }, []);
 
+  const currentData = data ? data[currency.toLowerCase()] : null;
+
   const getProcessedBanks = () => {
-    if (!data || !data.banks) return [];
+    if (!currentData || !currentData.banks) return [];
 
     // 1. Filter
-    let processed = data.banks;
+    let processed = currentData.banks;
     if (!showAll) {
       // Show only featured if showAll is false
       // Fallback: if no featured flag, show top 5
@@ -81,22 +91,22 @@ function App() {
         case 'alphabetical':
           return a.name.localeCompare(b.name);
         case 'spread':
-          // Spread = Sell - Buy (Lower is tighter/better usually, but here we just sort by magnitude)
+          // Spread = Sell - Buy
           return (a.sell - a.buy) - (b.sell - b.buy);
-        case 'highest_buy': // Highest Buy Rate
+        case 'highest_buy':
           return b.buy - a.buy;
-        case 'highest_sell': // Highest Sell Rate
+        case 'highest_sell':
           return b.sell - a.sell;
-        case 'best_sell': // Lowest Sell Rate (Best for user buying USD)
+        case 'best_sell':
           return a.sell - b.sell;
-        case 'best_buy': // Highest Buy Rate (Best for user selling USD) - Same as highest_buy
+        case 'best_buy':
         default:
           return b.buy - a.buy;
       }
     });
   };
 
-  const bestBuyRate = data && data.banks ? Math.max(...data.banks.map(b => b.buy)) : 0;
+  const bestBuyRate = currentData && currentData.banks ? Math.max(...currentData.banks.map(b => b.buy)) : 0;
 
   return (
     <div className="dashboard-container" style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
@@ -118,20 +128,22 @@ function App() {
         </div>
       )}
 
-      {!loading && !error && data && (
+      {!loading && !error && currentData && (
         <>
           <div className="dashboard-left">
             <Header
-              cbuRate={data.cbu}
+              cbuRate={currentData.cbu}
               onRefresh={handleManualRefresh}
               refreshing={refreshing}
               lastRefresh={lastRefresh}
+              currency={currency}
+              setCurrency={setCurrency}
             />
 
-            <Calculator bestBuy={bestBuyRate} />
+            <Calculator bestBuy={bestBuyRate} currency={currency} />
 
             <div style={{ marginTop: '2rem' }}>
-              <HistoryChart history={data.history} />
+              <HistoryChart history={currentData.history} currency={currency} />
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem', display: 'none' }} className="mobile-footer">
@@ -158,7 +170,7 @@ function App() {
             </div>
 
             <div className="bank-grid">
-              <BankList banks={getProcessedBanks()} />
+              <BankList banks={getProcessedBanks()} currency={currency} />
             </div>
 
             <button
