@@ -7,12 +7,7 @@ const BankLogo = ({ url, name }) => {
 
   if (!url || error) {
     return (
-      <div style={{
-        position: 'absolute',
-        top: '10px',
-        right: '10px',
-        opacity: 0.5
-      }}>
+      <div style={{ opacity: 0.5 }}>
         <BankIcon />
       </div>
     );
@@ -24,13 +19,9 @@ const BankLogo = ({ url, name }) => {
       alt={`${name} logo`}
       onError={() => setError(true)}
       style={{
-        position: 'absolute',
-        top: '10px',
-        right: '10px',
-        width: '40px',
-        height: '40px',
+        width: '60px',
+        height: '60px',
         objectFit: 'contain',
-        // Neubrutalism style: simple
       }}
     />
   );
@@ -57,29 +48,30 @@ const BankList = ({ banks }) => {
             backgroundColor: bank.is_mock ? '#ffcccc' : 'var(--bg-card)',
             border: bank.is_mock ? '2px dashed red' : '3px solid black',
             flexDirection: 'column',
-            gap: '1.5rem',
-            textAlign: 'center',
+            gap: '1rem',
             height: '100%',
-            position: 'relative' // Needed for absolute positioning of logo
+            padding: '1rem'
           }}
           className="bank-card-inner"
         >
-          <BankLogo url={bank.logo} name={bank.name} />
-
-          <div style={{ fontWeight: '900', fontSize: '1.2rem', textTransform: 'uppercase', marginBottom: '0.5rem', marginTop: '1rem' }}>
-            {bank.name}
-            {bank.is_mock && <span style={{ fontSize: '0.6rem', color: 'red', display: 'block' }}>(MOCK DATA)</span>}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+            <div style={{ fontWeight: '900', fontSize: '1.2rem', textTransform: 'uppercase', textAlign: 'left', lineHeight: '1.2' }}>
+              {bank.name}
+              {bank.is_mock && <span style={{ fontSize: '0.6rem', color: 'red', display: 'block' }}>(MOCK DATA)</span>}
+            </div>
+            <BankLogo url={bank.logo} name={bank.name} />
           </div>
+
           <div style={{ display: 'flex', gap: '1rem', width: '100%', justifyContent: 'space-around' }}>
             <div>
-              <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>BUY</div>
-              <div style={{ backgroundColor: 'var(--accent-green)', padding: '2px 5px', border: '2px solid black', fontSize: '1.1rem' }}>
+              <div style={{ fontSize: '0.8rem', opacity: 0.7, textAlign: 'center' }}>BUY</div>
+              <div style={{ backgroundColor: 'var(--accent-green)', padding: '2px 5px', border: '2px solid black', fontSize: '1.1rem', fontWeight: 'bold' }}>
                 {bank.buy.toLocaleString()}
               </div>
             </div>
             <div>
-              <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>SELL</div>
-              <div style={{ backgroundColor: 'var(--accent-pink)', padding: '2px 5px', border: '2px solid black', fontSize: '1.1rem' }}>
+              <div style={{ fontSize: '0.8rem', opacity: 0.7, textAlign: 'center' }}>SELL</div>
+              <div style={{ backgroundColor: 'var(--accent-pink)', padding: '2px 5px', border: '2px solid black', fontSize: '1.1rem', fontWeight: 'bold' }}>
                 {bank.sell.toLocaleString()}
               </div>
             </div>
