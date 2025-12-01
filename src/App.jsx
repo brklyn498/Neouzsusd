@@ -99,11 +99,11 @@ function App() {
   const bestBuyRate = data && data.banks ? Math.max(...data.banks.map(b => b.buy)) : 0;
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
+    <div className="dashboard-container" style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
       <div className="brutal-grid"></div>
 
       {loading && (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', gridColumn: '1 / -1' }}>
           <h1 style={{ fontSize: '3rem', border: '3px solid black', padding: '20px', boxShadow: '8px 8px 0 black', background: 'white' }}>
             LOADING...
           </h1>
@@ -111,7 +111,7 @@ function App() {
       )}
 
       {error && (
-        <div style={{ border: '3px solid black', padding: '20px', background: 'var(--accent-orange)', color: 'black', fontWeight: 'bold' }}>
+        <div style={{ border: '3px solid black', padding: '20px', background: 'var(--accent-orange)', color: 'black', fontWeight: 'bold', gridColumn: '1 / -1' }}>
           ERROR: {error}
           <br />
           <button onClick={fetchData} className="brutal-btn" style={{ marginTop: '10px' }}>RETRY</button>
@@ -120,46 +120,58 @@ function App() {
 
       {!loading && !error && data && (
         <>
-          <Header
-            cbuRate={data.cbu}
-            onRefresh={handleManualRefresh}
-            refreshing={refreshing}
-            lastRefresh={lastRefresh}
-          />
+          <div className="dashboard-left">
+            <Header
+              cbuRate={data.cbu}
+              onRefresh={handleManualRefresh}
+              refreshing={refreshing}
+              lastRefresh={lastRefresh}
+            />
 
-          <HistoryChart history={data.history} />
+            <Calculator bestBuy={bestBuyRate} />
 
-          <Calculator bestBuy={bestBuyRate} />
+            <div style={{ marginTop: '2rem' }}>
+              <HistoryChart history={data.history} />
+            </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '2rem 0 1rem 0', flexWrap: 'wrap', gap: '0.5rem' }}>
-            <h2 style={{ margin: 0 }}>BANKS</h2>
-
-            <select
-              className="brutal-btn"
-              style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
-              value={sortType}
-              onChange={(e) => setSortType(e.target.value)}
-            >
-              <option value="best_buy">BEST BUY (Highest)</option>
-              <option value="best_sell">BEST SELL (Lowest)</option>
-              <option value="highest_sell">HIGHEST SELL</option>
-              <option value="alphabetical">ALPHABETICAL</option>
-              <option value="spread">SPREAD (Low to High)</option>
-            </select>
+            <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem', display: 'none' }} className="mobile-footer">
+              LAST UPDATED: {data.last_updated}
+            </div>
           </div>
 
-          <BankList banks={getProcessedBanks()} />
+          <div className="dashboard-right">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>MARKET RATES</h2>
 
-          <button
-            className="brutal-btn"
-            style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'white' }}
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}
-          </button>
+              <select
+                className="brutal-btn"
+                style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
+                value={sortType}
+                onChange={(e) => setSortType(e.target.value)}
+              >
+                <option value="best_buy">BEST BUY (Highest)</option>
+                <option value="best_sell">BEST SELL (Lowest)</option>
+                <option value="highest_sell">HIGHEST SELL</option>
+                <option value="alphabetical">ALPHABETICAL</option>
+                <option value="spread">SPREAD (Low to High)</option>
+              </select>
+            </div>
 
-          <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem' }}>
-            LAST UPDATED: {data.last_updated}
+            <div className="bank-grid">
+              <BankList banks={getProcessedBanks()} />
+            </div>
+
+            <button
+              className="brutal-btn"
+              style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'white' }}
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}
+            </button>
+
+            <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem' }}>
+              LAST UPDATED: {data.last_updated}
+            </div>
           </div>
         </>
       )}
