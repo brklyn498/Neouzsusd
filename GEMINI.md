@@ -72,6 +72,15 @@
 - **Bank Card Improvements**: Fixed text layout issues by centering content and adjusting spacing.
 - **Mobile Preservation**: Maintained the optimized single-column layout for mobile devices.
 
+### Phase 9: UI/UX Polish & Data Accuracy
+- **Kapitalbank Logo Update**: Switched to official SVG logo for better quality.
+- **Card Layout Refinement**:
+    - Moved Bank Name to the **Left**.
+    - Moved Bank Logo to the **Right**.
+    - Removed absolute positioning for better flow.
+- **Icon Visibility**: Increased bank logo size from 40px to **60px** for better readability.
+- **System Verification**: Verified Python scraper environment and data freshness.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
