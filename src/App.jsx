@@ -3,11 +3,13 @@ import Header from './components/Header';
 import BankList from './components/BankList';
 import Calculator from './components/Calculator';
 import HistoryChart from './components/HistoryChart';
+import OfflineBanner from './components/OfflineBanner';
 import { refreshRates } from './utils/fetchUtils';
 
 function App() {
   const [data, setData] = useState(null); // Holds the full nested data
   const [currency, setCurrency] = useState('USD'); // 'USD' or 'RUB'
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sortType, setSortType] = useState('best_buy');
@@ -28,6 +30,19 @@ function App() {
     }
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
@@ -128,6 +143,8 @@ function App() {
   return (
     <div className="dashboard-container" style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
       <div className="brutal-grid"></div>
+
+      {!isOnline && <OfflineBanner />}
 
       {loading && (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', gridColumn: '1 / -1' }}>
