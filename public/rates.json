@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-01 04:30",
+  "last_updated": "2025-12-01 05:10",
   "cbu": 11940.95,
   "history": [
     {
@@ -132,8 +132,8 @@
     },
     {
       "name": "Hamkorbank",
-      "buy": 11890,
-      "sell": 11990,
+      "buy": 11900,
+      "sell": 11980,
       "is_mock": false
     },
     {
