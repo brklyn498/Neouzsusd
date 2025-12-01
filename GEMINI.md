@@ -64,6 +64,14 @@
 - Error handling with user alerts for failed fetches.
 - Button disabled during refresh to prevent concurrent requests.
 
+### Phase 8: Desktop Layout Refactor (16:9)
+- **Implemented Responsive Dashboard**: Transformed the "long phone page" into a 2-column dashboard for desktop screens (`min-width: 1024px`).
+- **Left Panel (Sticky)**: Contains "Tools" (CBU Rate, Calculator, History Chart).
+- **Right Panel (Scrollable)**: Contains "Market" (Sorting Controls, Bank Grid).
+- **CSS Grid Integration**: Used CSS Grid for the main layout and the bank list.
+- **Bank Card Improvements**: Fixed text layout issues by centering content and adjusting spacing.
+- **Mobile Preservation**: Maintained the optimized single-column layout for mobile devices.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
