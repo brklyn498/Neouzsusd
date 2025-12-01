@@ -9,7 +9,8 @@ function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortType, setSortType] = useState('buy'); // 'buy' or 'sell'
+  const [sortType, setSortType] = useState('best_buy');
+  const [showAll, setShowAll] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [lastRefresh, setLastRefresh] = useState(null);
 
@@ -58,13 +59,39 @@ function App() {
     fetchData();
   }, []);
 
-  const getSortedBanks = () => {
+  const getProcessedBanks = () => {
     if (!data || !data.banks) return [];
-    return [...data.banks].sort((a, b) => {
-      if (sortType === 'buy') {
-        return b.buy - a.buy; // Highest buy rate is best for user selling USD
+
+    // 1. Filter
+    let processed = data.banks;
+    if (!showAll) {
+      // Show only featured if showAll is false
+      // Fallback: if no featured flag, show top 5
+      const hasFeatured = processed.some(b => b.featured);
+      if (hasFeatured) {
+        processed = processed.filter(b => b.featured);
       } else {
-        return a.sell - b.sell; // Lowest sell rate is best for user buying USD
+        processed = processed.slice(0, 5);
+      }
+    }
+
+    // 2. Sort
+    return [...processed].sort((a, b) => {
+      switch (sortType) {
+        case 'alphabetical':
+          return a.name.localeCompare(b.name);
+        case 'spread':
+          // Spread = Sell - Buy (Lower is tighter/better usually, but here we just sort by magnitude)
+          return (a.sell - a.buy) - (b.sell - b.buy);
+        case 'highest_buy': // Highest Buy Rate
+          return b.buy - a.buy;
+        case 'highest_sell': // Highest Sell Rate
+          return b.sell - a.sell;
+        case 'best_sell': // Lowest Sell Rate (Best for user buying USD)
+          return a.sell - b.sell;
+        case 'best_buy': // Highest Buy Rate (Best for user selling USD) - Same as highest_buy
+        default:
+          return b.buy - a.buy;
       }
     });
   };
@@ -72,7 +99,7 @@ function App() {
   const bestBuyRate = data && data.banks ? Math.max(...data.banks.map(b => b.buy)) : 0;
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative' }}>
+    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
       <div className="brutal-grid"></div>
 
       {loading && (
@@ -104,17 +131,32 @@ function App() {
 
           <Calculator bestBuy={bestBuyRate} />
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '2rem 0 1rem 0' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '2rem 0 1rem 0', flexWrap: 'wrap', gap: '0.5rem' }}>
             <h2 style={{ margin: 0 }}>BANKS</h2>
-            <button
+
+            <select
               className="brutal-btn"
-              onClick={() => setSortType(sortType === 'buy' ? 'sell' : 'buy')}
+              style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
+              value={sortType}
+              onChange={(e) => setSortType(e.target.value)}
             >
-              SORT BY: {sortType === 'buy' ? 'BEST BUY' : 'BEST SELL'}
-            </button>
+              <option value="best_buy">BEST BUY (Highest)</option>
+              <option value="best_sell">BEST SELL (Lowest)</option>
+              <option value="highest_sell">HIGHEST SELL</option>
+              <option value="alphabetical">ALPHABETICAL</option>
+              <option value="spread">SPREAD (Low to High)</option>
+            </select>
           </div>
 
-          <BankList banks={getSortedBanks()} />
+          <BankList banks={getProcessedBanks()} />
+
+          <button
+            className="brutal-btn"
+            style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'white' }}
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}
+          </button>
 
           <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem' }}>
             LAST UPDATED: {data.last_updated}

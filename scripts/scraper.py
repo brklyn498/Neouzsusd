@@ -180,19 +180,15 @@ def fetch_bank_uz_rates(cbu_rate):
                     "name": name,
                     "buy": buy,
                     "sell": sell,
-                    "is_mock": False
+                    "is_mock": False,
+                    "featured": False  # Default to False
                 })
 
         # Filter Logic
         # 1. Select 3 Popular Banks
         # Map known popular names to scraped names (fuzzy match or direct)
 
-        final_list = []
         popular_selected = []
-
-        # Normalize names for comparison
-        # "Kapitalbank" vs "Kapitalbank"
-        # "O‘zbekiston Milliy banki" -> NBU
 
         # Helper to find bank in combined_banks
         def find_bank(partial_name):
@@ -232,10 +228,12 @@ def fetch_bank_uz_rates(cbu_rate):
                 if len(deviants_selected) >= 2:
                     break
 
-        # Combine
-        final_list = popular_selected + deviants_selected
+        # Mark featured banks
+        featured_list = popular_selected + deviants_selected
+        for bank in featured_list:
+            bank["featured"] = True
 
-        return final_list
+        return combined_banks  # Return ALL banks, not just final_list
 
     except Exception as e:
         print(f"Error scraping bank.uz: {e}")
@@ -256,7 +254,7 @@ def generate_mock_banks(base_rate):
     ]
 
     results = []
-    for bank in banks:
+    for i, bank in enumerate(banks):
         variance_buy = random.randint(20, 80)
         variance_sell = random.randint(20, 80)
 
@@ -268,7 +266,8 @@ def generate_mock_banks(base_rate):
             "buy": int(buy_rate),
             "sell": int(sell_rate),
             "logo": "",
-            "is_mock": True
+            "is_mock": True,
+            "featured": i < 5 # Mark first 5 as featured
         })
 
     return results
