@@ -85,6 +85,10 @@
 - **Theme Selector Fix**: Removed hardcoded white background from the theme toggle button in dark mode, allowing it to inherit the correct brutalist styles.
 - **Card Background Consistency**: Updated `--card-bg` in dark mode to `#334155` (Slate Gray) to match the page background, creating a seamless look for bank cards while maintaining their borders.
 
+### Phase 11: Synchronization & Maintenance
+- **GitHub Sync**: Synchronized local repository with remote, resolving merge conflicts in `rates.json` by prioritizing local (newer) data.
+- **Documentation**: Updated `GEMINI.md` to reflect the synchronization and maintenance steps.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
