@@ -46,7 +46,7 @@ const BankList = ({ banks, currency }) => {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: bank.is_mock ? 'var(--accent-orange)' : 'var(--card-bg)',
-            border: bank.is_mock ? '2px dashed red' : '3px solid var(--text-color)',
+            border: bank.is_mock ? '2px dashed var(--accent-orange)' : '3px solid var(--text-color)',
             flexDirection: 'column',
             gap: '1rem',
             height: '100%',
@@ -58,7 +58,7 @@ const BankList = ({ banks, currency }) => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
             <div style={{ fontWeight: '900', fontSize: '1.2rem', textTransform: 'uppercase', textAlign: 'left', lineHeight: '1.2' }}>
               {bank.name}
-              {bank.is_mock && <span style={{ fontSize: '0.6rem', color: 'red', display: 'block' }}>(MOCK DATA)</span>}
+              {bank.is_mock && <span style={{ fontSize: '0.6rem', color: 'var(--accent-orange)', display: 'block' }}>(MOCK DATA)</span>}
             </div>
             <BankLogo url={bank.logo} name={bank.name} />
           </div>
