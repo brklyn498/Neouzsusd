@@ -7,17 +7,19 @@
   --accent-cyan: #00FFFF;
   --accent-orange: #FF5200;
   --accent-yellow: #FFFF00;
+  --accent-brand: #9D4EDD;
 }
 
 body.dark-mode {
-  --bg-color: #000000;
+  --bg-color: #334155; /* Slate Gray */
   --text-color: #FFFFFF;
-  --card-bg: #000000;
-  --accent-green: #39FF14; /* Neon Green */
-  --accent-pink: #FF00FF; /* Neon Magenta */
-  --accent-cyan: #00FFFF; /* Neon Cyan */
-  --accent-orange: #FF4500; /* Neon Orange Red */
-  --accent-yellow: #FFFF00; /* Neon Yellow */
+  --card-bg: #1A1B1E; /* Dark Charcoal for Cards - Contrast against Slate BG */
+  --accent-green: #CCFF00; /* Acid Green (Buy) */
+  --accent-pink: #FF5400; /* Coral (Sell) */
+  --accent-cyan: #818CF8; /* Soft Blue / Periwinkle */
+  --accent-orange: #FF5400; /* Match Sell Color */
+  --accent-yellow: #CCFF00; /* Map yellow to Acid Green */
+  --accent-brand: #9D4EDD; /* Electric Purple (Brand) */
 }
 
 body {
@@ -55,8 +57,13 @@ body {
 }
 
 .brutal-btn:hover:not(:disabled) {
-  background-color: var(--accent-yellow);
-  color: #000000; /* Ensure text is readable on yellow */
+  background-color: var(--accent-brand);
+  color: #FFFFFF;
+}
+
+body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
+    background-color: #FFFF00;
+    color: #000000;
 }
 
 .brutal-btn:disabled {
@@ -109,7 +116,6 @@ body {
   pointer-events: none;
 }
 
-/* Desktop Layout Styles */
 @media (min-width: 1024px) {
   .dashboard-container {
     max-width: 1400px !important;
@@ -126,7 +132,6 @@ body {
 
   .dashboard-right {
     min-width: 0;
-    /* Prevents grid blowout */
   }
 
   .bank-grid {
@@ -135,18 +140,15 @@ body {
     gap: 1rem;
   }
 
-  /* Make bank cards same height in grid */
   .bank-grid>div {
     height: 100%;
     margin-bottom: 0 !important;
-    /* Override default margin */
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 }
 
-/* Mobile adjustments for bank cards */
 @media (max-width: 1023px) {
   .bank-card-inner {
     flex-direction: row !important;

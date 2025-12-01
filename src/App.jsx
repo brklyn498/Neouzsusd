@@ -194,7 +194,7 @@ function App() {
 
             <button
               className="brutal-btn"
-              style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'var(--card-bg)' }}
+              style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'var(--card-bg)', color: showAll ? '#000000' : 'var(--text-color)' }}
               onClick={() => setShowAll(!showAll)}
             >
               {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}

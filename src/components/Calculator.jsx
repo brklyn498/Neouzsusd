@@ -44,7 +44,7 @@ const Calculator = ({ bestBuy, bestSell, currency }) => {
   const placeholder = mode === 'foreign_to_uzs' ? '100' : '1000000';
 
   return (
-    <Card style={{ backgroundColor: 'var(--accent-cyan)' }}>
+    <Card style={{ backgroundColor: 'var(--accent-cyan)', color: '#000000' }}>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <h3 style={{ marginTop: 0, textTransform: 'uppercase', margin: 0 }}>Calculator</h3>
           <button

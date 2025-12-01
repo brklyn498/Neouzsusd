@@ -5,7 +5,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
   return (
     <div style={{ marginBottom: '2rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
-        <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase' }}>
+        <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
           UZS / {currency}
         </h1>
 
@@ -30,8 +30,8 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                     onClick={() => setCurrency('USD')}
                     style={{
                         border: 'none',
-                        background: currency === 'USD' ? 'var(--text-color)' : 'var(--card-bg)',
-                        color: currency === 'USD' ? 'var(--bg-color)' : 'var(--text-color)',
+                        background: currency === 'USD' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                        color: currency === 'USD' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
                         padding: '0.5rem 1rem',
                         fontWeight: 'bold',
                         cursor: 'pointer',
@@ -44,8 +44,8 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                     onClick={() => setCurrency('RUB')}
                     style={{
                         border: 'none',
-                        background: currency === 'RUB' ? 'var(--text-color)' : 'var(--card-bg)',
-                        color: currency === 'RUB' ? 'var(--bg-color)' : 'var(--text-color)',
+                        background: currency === 'RUB' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                        color: currency === 'RUB' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
                         padding: '0.5rem 1rem',
                         fontWeight: 'bold',
                         cursor: 'pointer',
@@ -72,7 +72,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
             </button>
         </div>
       </div>
-      <Card style={{ backgroundColor: 'var(--accent-yellow)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Card style={{ backgroundColor: darkMode ? 'var(--accent-brand)' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
           <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
