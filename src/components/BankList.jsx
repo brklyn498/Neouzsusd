@@ -1,5 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
+import { BankIcon } from './Icons';
+
+const BankLogo = ({ url, name }) => {
+  const [error, setError] = useState(false);
+
+  if (!url || error) {
+    return (
+      <div style={{
+        position: 'absolute',
+        top: '10px',
+        right: '10px',
+        opacity: 0.5
+      }}>
+        <BankIcon />
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={url}
+      alt={`${name} logo`}
+      onError={() => setError(true)}
+      style={{
+        position: 'absolute',
+        top: '10px',
+        right: '10px',
+        width: '40px',
+        height: '40px',
+        objectFit: 'contain',
+        // Neubrutalism style: simple
+      }}
+    />
+  );
+};
 
 const BankList = ({ banks }) => {
   if (!banks || banks.length === 0) {
@@ -24,11 +59,14 @@ const BankList = ({ banks }) => {
             flexDirection: 'column',
             gap: '1.5rem',
             textAlign: 'center',
-            height: '100%'
+            height: '100%',
+            position: 'relative' // Needed for absolute positioning of logo
           }}
           className="bank-card-inner"
         >
-          <div style={{ fontWeight: '900', fontSize: '1.2rem', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+          <BankLogo url={bank.logo} name={bank.name} />
+
+          <div style={{ fontWeight: '900', fontSize: '1.2rem', textTransform: 'uppercase', marginBottom: '0.5rem', marginTop: '1rem' }}>
             {bank.name}
             {bank.is_mock && <span style={{ fontSize: '0.6rem', color: 'red', display: 'block' }}>(MOCK DATA)</span>}
           </div>
