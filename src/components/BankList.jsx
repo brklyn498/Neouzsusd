@@ -27,7 +27,7 @@ const BankLogo = ({ url, name }) => {
   );
 };
 
-const BankList = ({ banks }) => {
+const BankList = ({ banks, currency }) => {
   if (!banks || banks.length === 0) {
     return (
       <Card>

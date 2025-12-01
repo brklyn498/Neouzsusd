@@ -3,10 +3,11 @@
  */
 
 /**
- * Fetches the current USD rate from CBU API
- * @returns {Promise<number|null>} The current USD rate or null if fetch fails
+ * Fetches the current rate for a specific currency from CBU API
+ * @param {string} currencyCode - The currency code (e.g., 'USD', 'RUB')
+ * @returns {Promise<number|null>} The current rate or null if fetch fails
  */
-export async function fetchCBURate() {
+export async function fetchCBURate(currencyCode = 'USD') {
   const url = "https://cbu.uz/common/json/";
   
   try {
@@ -19,30 +20,31 @@ export async function fetchCBURate() {
     
     const data = await response.json();
     
-    // Find USD in the response
-    const usdData = data.find(item => item.Ccy === 'USD');
+    // Find the currency in the response
+    const itemData = data.find(item => item.Ccy === currencyCode);
     
-    if (usdData && usdData.Rate) {
-      return parseFloat(usdData.Rate);
+    if (itemData && itemData.Rate) {
+      return parseFloat(itemData.Rate);
     }
     
     return null;
   } catch (error) {
-    console.error('Error fetching CBU rate:', error);
+    console.error(`Error fetching CBU rate for ${currencyCode}:`, error);
     return null;
   }
 }
 
 /**
- * Refreshes the exchange rate data
+ * Refreshes the exchange rate data for a specific currency
+ * @param {string} currencyCode - The currency code (e.g., 'USD', 'RUB')
  * @returns {Promise<{cbu: number, timestamp: string}|null>} Updated rate data or null if fetch fails
  */
-export async function refreshRates() {
+export async function refreshRates(currencyCode = 'USD') {
   try {
-    const cbuRate = await fetchCBURate();
+    const cbuRate = await fetchCBURate(currencyCode);
     
     if (!cbuRate) {
-      throw new Error('Failed to fetch CBU rate');
+      throw new Error(`Failed to fetch CBU rate for ${currencyCode}`);
     }
     
     const now = new Date();

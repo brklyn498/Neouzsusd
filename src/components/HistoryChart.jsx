@@ -1,8 +1,23 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
-const HistoryChart = ({ history }) => {
-  if (!history || history.length === 0) return <div>No Data</div>;
+const HistoryChart = ({ history, currency }) => {
+  if (!history || history.length === 0) return (
+      <div style={{
+          width: '100%',
+          marginTop: '2rem',
+          marginBottom: '2rem',
+          padding: '1rem',
+          backgroundColor: 'white',
+          border: '4px solid black',
+          boxShadow: '8px 8px 0px 0px rgba(0,0,0,1)',
+          boxSizing: 'border-box',
+          textAlign: 'center',
+          fontWeight: 'bold'
+      }}>
+          No History Data Available for {currency}
+      </div>
+  );
 
   const data = history.map(item => {
     // Manually parse YYYY-MM-DD to avoid timezone issues
@@ -66,7 +81,7 @@ const HistoryChart = ({ history }) => {
         textTransform: 'uppercase',
         letterSpacing: '-0.05em'
       }}>
-        30-Day Trend
+        30-Day Trend ({currency})
       </h3>
       <div style={{ width: '100%', height: '250px' }}>
         <ResponsiveContainer width="100%" height="100%">
