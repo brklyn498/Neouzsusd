@@ -407,6 +407,68 @@ def process_currency(currency_code, existing_data):
         "banks": final_banks
     }
 
+def fetch_iqair_data(existing_data):
+    """
+    Fetches air quality data from IQAir API for Tashkent.
+    Uses rate limiting to avoid exceeding 500 calls/day.
+    """
+    print("--- Processing IQAir Weather Data ---")
+
+    api_key = os.environ.get("IQAIR_API_KEY")
+    if not api_key:
+        print("IQAIR_API_KEY not found in environment variables. Skipping.")
+        # Return existing data if available
+        return existing_data.get("weather") if existing_data else None
+
+    # Check if we should fetch (limit: once per hour to be safe)
+    if existing_data and existing_data.get("weather"):
+        last_weather_update = existing_data["weather"].get("last_updated_ts")
+        if last_weather_update:
+            try:
+                last_time = datetime.datetime.fromtimestamp(last_weather_update)
+                now = datetime.datetime.now()
+                # If less than 1 hour passed, use cached
+                if (now - last_time).total_seconds() < 3600:
+                    print("IQAir data is fresh (< 1 hour). Using cached.")
+                    return existing_data["weather"]
+            except Exception as e:
+                print(f"Error parsing timestamp: {e}")
+
+    # Tashkent endpoint: City=Tashkent, State=Toshkent Shahri, Country=Uzbekistan
+    url = f"http://api.airvisual.com/v2/city?city=Tashkent&state=Toshkent%20Shahri&country=Uzbekistan&key={api_key}"
+
+    print("Fetching fresh IQAir data...")
+    response = fetch_url(url)
+
+    if response and response.status_code == 200:
+        try:
+            data = response.json()
+            if data.get("status") == "success":
+                current = data["data"]["current"]
+                weather = current["weather"]
+                pollution = current["pollution"]
+
+                result = {
+                    "city": "Tashkent",
+                    "aqi": pollution["aqius"],
+                    "temp": weather["tp"],
+                    "humidity": weather["hu"],
+                    "icon": weather["ic"],
+                    "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+                    "last_updated_ts": datetime.datetime.now().timestamp()
+                }
+                print(f"IQAir Success: AQI {result['aqi']}")
+                return result
+            else:
+                print(f"IQAir returned failure status: {data}")
+        except Exception as e:
+            print(f"Error parsing IQAir response: {e}")
+    else:
+        print("Failed to fetch IQAir data.")
+
+    # Fallback to existing if fetch failed
+    return existing_data.get("weather") if existing_data else None
+
 def main():
     # Load existing data to check timestamps
     existing_data = None
@@ -420,7 +482,8 @@ def main():
     output = {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "usd": process_currency("USD", existing_data),
-        "rub": process_currency("RUB", existing_data)
+        "rub": process_currency("RUB", existing_data),
+        "weather": fetch_iqair_data(existing_data)
     }
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
