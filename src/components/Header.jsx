@@ -1,13 +1,17 @@
 import React from 'react';
 import Card from './Card';
+import WeatherBadge from './WeatherBadge';
 
-const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode }) => {
+const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather }) => {
   return (
     <div style={{ marginBottom: '2rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
-        <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
-          UZS / {currency}
-        </h1>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+          <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
+            UZS / {currency}
+          </h1>
+          <WeatherBadge weather={weather} />
+        </div>
 
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           {/* Dark Mode Toggle */}

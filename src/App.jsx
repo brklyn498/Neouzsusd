@@ -98,6 +98,7 @@ function App() {
   }, []);
 
   const currentData = data ? data[currency.toLowerCase()] : null;
+  const weatherData = data ? data.weather : null;
 
   const getProcessedBanks = () => {
     if (!currentData || !currentData.banks) return [];
@@ -173,6 +174,7 @@ function App() {
               setCurrency={setCurrency}
               darkMode={darkMode}
               toggleDarkMode={toggleDarkMode}
+              weather={weatherData}
             />
 
             <Calculator bestBuy={bestBuyRate} bestSell={bestSellRate} currency={currency} />
