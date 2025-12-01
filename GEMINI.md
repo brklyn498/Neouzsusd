@@ -89,6 +89,10 @@
 - **GitHub Sync**: Synchronized local repository with remote, resolving merge conflicts in `rates.json` by prioritizing local (newer) data.
 - **Documentation**: Updated `GEMINI.md` to reflect the synchronization and maintenance steps.
 
+### Phase 12: AQI Integration
+- **IQAir API**: Configured `scraper.py` with IQAir API key to fetch real-time weather and air quality data for Tashkent.
+- **Frontend Display**: Verified `WeatherBadge` component correctly displays the fetched AQI (e.g., 402 Hazardous) and temperature.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)

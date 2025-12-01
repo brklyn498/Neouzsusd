@@ -414,7 +414,7 @@ def fetch_iqair_data(existing_data):
     """
     print("--- Processing IQAir Weather Data ---")
 
-    api_key = os.environ.get("IQAIR_API_KEY")
+    api_key = os.environ.get("IQAIR_API_KEY") or "45ea3f6e-dcda-42ce-991f-e697a726f5a2"
     if not api_key:
         print("IQAIR_API_KEY not found in environment variables. Skipping.")
         # Return existing data if available
