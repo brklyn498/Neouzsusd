@@ -66,23 +66,22 @@ function App() {
   const handleManualRefresh = async () => {
     setRefreshing(true);
     try {
-      const freshData = await refreshRates(currency);
+      const freshData = await refreshRates();
 
       if (freshData) {
-        // Update only the CBU rate for current currency and timestamp
-        setData(prevData => {
-            const newData = { ...prevData };
-            newData.last_updated = freshData.timestamp;
-            const key = currency.toLowerCase();
-            if (newData[key]) {
-                newData[key] = {
-                    ...newData[key],
-                    cbu: freshData.cbu
-                };
-            }
-            return newData;
-        });
-        setLastRefresh(freshData.timestamp);
+        setData(freshData);
+
+        const now = new Date();
+        const timestamp = now.toLocaleString('en-GB', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        }).replace(',', '');
+
+        setLastRefresh(timestamp);
       } else {
         throw new Error('Failed to fetch fresh rates');
       }
