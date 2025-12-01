@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency }) => {
+const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode }) => {
   return (
     <div style={{ marginBottom: '2rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
@@ -9,15 +9,29 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           UZS / {currency}
         </h1>
 
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className="brutal-btn"
+              style={{
+                padding: '0.5rem 1rem',
+                fontSize: '0.9rem',
+                backgroundColor: darkMode ? 'white' : 'black',
+                color: darkMode ? 'black' : 'white',
+              }}
+            >
+              {darkMode ? '☀️' : '🌑'}
+            </button>
+
             {/* Currency Toggle */}
-            <div style={{ display: 'flex', border: '3px solid black', boxShadow: '4px 4px 0 black', backgroundColor: 'white' }}>
+            <div style={{ display: 'flex', border: '3px solid var(--text-color)', boxShadow: '4px 4px 0 var(--text-color)', backgroundColor: 'var(--card-bg)' }}>
                 <button
                     onClick={() => setCurrency('USD')}
                     style={{
                         border: 'none',
-                        background: currency === 'USD' ? 'black' : 'white',
-                        color: currency === 'USD' ? 'white' : 'black',
+                        background: currency === 'USD' ? 'var(--text-color)' : 'var(--card-bg)',
+                        color: currency === 'USD' ? 'var(--bg-color)' : 'var(--text-color)',
                         padding: '0.5rem 1rem',
                         fontWeight: 'bold',
                         cursor: 'pointer',
@@ -30,13 +44,13 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                     onClick={() => setCurrency('RUB')}
                     style={{
                         border: 'none',
-                        background: currency === 'RUB' ? 'black' : 'white',
-                        color: currency === 'RUB' ? 'white' : 'black',
+                        background: currency === 'RUB' ? 'var(--text-color)' : 'var(--card-bg)',
+                        color: currency === 'RUB' ? 'var(--bg-color)' : 'var(--text-color)',
                         padding: '0.5rem 1rem',
                         fontWeight: 'bold',
                         cursor: 'pointer',
                         fontFamily: 'inherit',
-                        borderLeft: '3px solid black'
+                        borderLeft: '3px solid var(--text-color)'
                     }}
                 >
                     RUB

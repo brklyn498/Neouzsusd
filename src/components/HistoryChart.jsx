@@ -8,9 +8,9 @@ const HistoryChart = ({ history, currency }) => {
           marginTop: '2rem',
           marginBottom: '2rem',
           padding: '1rem',
-          backgroundColor: 'white',
-          border: '4px solid black',
-          boxShadow: '8px 8px 0px 0px rgba(0,0,0,1)',
+          backgroundColor: 'var(--card-bg)',
+          border: '4px solid var(--text-color)',
+          boxShadow: '8px 8px 0px 0px var(--text-color)',
           boxSizing: 'border-box',
           textAlign: 'center',
           fontWeight: 'bold'
@@ -41,15 +41,16 @@ const HistoryChart = ({ history, currency }) => {
     if (active && payload && payload.length) {
       return (
         <div style={{
-          backgroundColor: '#fff',
-          border: '3px solid #000',
-          boxShadow: '4px 4px 0px #000',
+          backgroundColor: 'var(--card-bg)',
+          color: 'var(--text-color)',
+          border: '3px solid var(--text-color)',
+          boxShadow: '4px 4px 0px var(--text-color)',
           padding: '12px',
           fontFamily: "'JetBrains Mono', monospace",
           fontWeight: 'bold'
         }}>
           <p style={{ margin: 0 }}>{payload[0].payload.originalDate}</p>
-          <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '1.2em' }}>
+          <p style={{ margin: '4px 0 0 0', color: 'var(--text-color)', fontSize: '1.2em' }}>
             {payload[0].value.toLocaleString()} UZS
           </p>
         </div>
@@ -68,16 +69,16 @@ const HistoryChart = ({ history, currency }) => {
       marginTop: '2rem',
       marginBottom: '2rem',
       padding: '1rem',
-      backgroundColor: 'white',
-      border: '4px solid black',
-      boxShadow: '8px 8px 0px 0px rgba(0,0,0,1)',
+      backgroundColor: 'var(--card-bg)',
+      border: '4px solid var(--text-color)',
+      boxShadow: '8px 8px 0px 0px var(--text-color)',
       boxSizing: 'border-box'
     }}>
       <h3 style={{
         fontWeight: 'bold',
         fontSize: '1.25rem',
         marginBottom: '1rem',
-        color: 'black',
+        color: 'var(--text-color)',
         textTransform: 'uppercase',
         letterSpacing: '-0.05em'
       }}>
@@ -88,30 +89,30 @@ const HistoryChart = ({ history, currency }) => {
           <LineChart data={data}>
             <XAxis
               dataKey="date"
-              stroke="#000"
-              tick={{ fill: '#000', fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}
-              tickLine={{ stroke: '#000', strokeWidth: 2 }}
-              axisLine={{ stroke: '#000', strokeWidth: 3 }}
+              stroke="var(--text-color)"
+              tick={{ fill: 'var(--text-color)', fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}
+              tickLine={{ stroke: 'var(--text-color)', strokeWidth: 2 }}
+              axisLine={{ stroke: 'var(--text-color)', strokeWidth: 3 }}
               interval="preserveStartEnd"
               minTickGap={30}
             />
             <YAxis
               domain={[minRate, maxRate]}
-              stroke="#000"
-              tick={{ fill: '#000', fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}
+              stroke="var(--text-color)"
+              tick={{ fill: 'var(--text-color)', fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}
               tickFormatter={formatYAxis}
-              tickLine={{ stroke: '#000', strokeWidth: 2 }}
-              axisLine={{ stroke: '#000', strokeWidth: 3 }}
+              tickLine={{ stroke: 'var(--text-color)', strokeWidth: 2 }}
+              axisLine={{ stroke: 'var(--text-color)', strokeWidth: 3 }}
               width={80}
             />
-            <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#000', strokeWidth: 2, strokeDasharray: '5 5' }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'var(--text-color)', strokeWidth: 2, strokeDasharray: '5 5' }} />
             <Line
               type="linear"
               dataKey="rate"
-              stroke="#000"
+              stroke="var(--text-color)"
               strokeWidth={4}
-              dot={{ stroke: '#000', strokeWidth: 2, fill: '#CCFF00', r: 4 }}
-              activeDot={{ stroke: '#000', strokeWidth: 2, fill: '#FF00FF', r: 6 }}
+              dot={{ stroke: 'var(--text-color)', strokeWidth: 2, fill: '#CCFF00', r: 4 }}
+              activeDot={{ stroke: 'var(--text-color)', strokeWidth: 2, fill: '#FF00FF', r: 6 }}
               isAnimationActive={false}
             />
           </LineChart>
