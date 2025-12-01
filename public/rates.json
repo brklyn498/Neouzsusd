@@ -207,10 +207,10 @@
         "featured": false
       },
       {
-        "name": "MKBank",
+        "name": "O\u2018zsanoatqurilishbank",
         "buy": 11850.0,
-        "sell": 12000.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "sell": 11950.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
         "is_mock": false,
         "featured": false
       },
@@ -236,7 +236,7 @@
         "sell": 12000.0,
         "logo": "https://logo.clearbit.com/saderatbank.uz",
         "is_mock": false,
-        "featured": false
+        "featured": true
       },
       {
         "name": "Turon bank",
@@ -257,6 +257,14 @@
       {
         "name": "Garant bank",
         "buy": 11850.0,
+        "sell": 12000.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 11840.0,
         "sell": 11980.0,
         "logo": "https://logo.clearbit.com/garantbank.uz",
         "is_mock": false,
@@ -335,10 +343,10 @@
         "featured": false
       },
       {
-        "name": "O\u2018zsanoatqurilishbank",
+        "name": "Aloqabank",
         "buy": 11850.0,
-        "sell": 11950.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "sell": 11980.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -527,12 +535,12 @@
         "featured": false
       },
       {
-        "name": "Anorbank",
-        "buy": 90.0,
-        "sell": 154.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
+        "name": "Garant bank",
+        "buy": 100.0,
+        "sell": 180.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
         "is_mock": false,
-        "featured": true
+        "featured": false
       },
       {
         "name": "Kapitalbank",
@@ -540,13 +548,13 @@
         "sell": 155.0,
         "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
-        "featured": true
+        "featured": false
       },
       {
-        "name": "Orient Finans Bank",
-        "buy": 90.0,
-        "sell": 190.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 105.0,
+        "sell": 175.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
         "is_mock": false,
         "featured": false
       },
@@ -556,7 +564,7 @@
         "sell": 180.0,
         "logo": "https://logo.clearbit.com/turonbank.uz",
         "is_mock": false,
-        "featured": false
+        "featured": true
       },
       {
         "name": "Octobank",
@@ -596,13 +604,29 @@
         "sell": 156.0,
         "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 110.0,
+        "sell": 158.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 135.0,
+        "sell": 158.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
         "featured": false
       },
       {
-        "name": "Aloqabank",
-        "buy": 95.0,
-        "sell": 165.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "name": "APEXBANK",
+        "buy": 105.0,
+        "sell": 154.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -631,10 +655,10 @@
         "featured": false
       },
       {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 105.0,
-        "sell": 175.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "name": "Poytaxt bank",
+        "buy": 90.0,
+        "sell": 153.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
         "is_mock": false,
         "featured": false
       },
