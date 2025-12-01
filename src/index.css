@@ -8,26 +8,34 @@
   --accent-orange: #FF5200;
   --accent-yellow: #FFFF00;
   --accent-brand: #9D4EDD;
+  --border-color: var(--text-color);
+  --pill-text-color: #000000;
+  --calculator-bg: var(--accent-cyan);
+  --calculator-text: #000000;
 }
 
 body.dark-mode {
-  --bg-color: #334155;
-  /* Slate Gray */
+  --bg-color: #0f172a;
   --text-color: #FFFFFF;
-  --card-bg: #334155;
-  /* Match BG Color */
-  --accent-green: #CCFF00;
-  /* Acid Green (Buy) */
-  --accent-pink: #FF5400;
-  /* Coral (Sell) */
-  --accent-cyan: #818CF8;
-  /* Soft Blue / Periwinkle */
-  --accent-orange: #FF5400;
-  /* Match Sell Color */
-  --accent-yellow: #CCFF00;
-  /* Map yellow to Acid Green */
-  --accent-brand: #9D4EDD;
-  /* Electric Purple (Brand) */
+
+  /* Glassmorphism Card Background */
+  --card-bg: rgba(30, 41, 59, 0.4);
+
+  /* Muted/Transparent Accents for Dark Mode */
+  --accent-green: rgba(74, 222, 128, 0.2); /* Soft Green Glass */
+  --accent-pink: rgba(251, 113, 133, 0.2); /* Soft Red Glass */
+  --accent-cyan: rgba(56, 189, 248, 0.2); /* Soft Blue Glass */
+  --accent-orange: #FB923C; /* Sunset Orange */
+  --accent-yellow: rgba(250, 204, 21, 0.2);
+  --accent-brand: rgba(255, 255, 255, 0.1); /* Neutral Glass */
+
+  /* Specific overrides for components */
+  --header-card-bg: rgba(255, 255, 255, 0.1);
+  --calculator-bg: rgba(255, 255, 255, 0.05);
+  --calculator-text: #FFFFFF;
+  --pill-text-color: #FFFFFF;
+
+  --border-color: rgba(255, 255, 255, 0.2); /* Subtle Frost Border */
 }
 
 body {
@@ -37,31 +45,39 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
+body.dark-mode {
+  background-image: linear-gradient(180deg, #0F172A 0%, #312E81 40%, #BE185D 80%, #F97316 100%);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .brutal-border {
-  border: 3px solid var(--text-color);
+  border: 3px solid var(--border-color);
 }
 
 .brutal-shadow {
-  box-shadow: 4px 4px 0px 0px var(--text-color);
+  box-shadow: 4px 4px 0px 0px var(--border-color);
 }
 
 .brutal-btn {
   background-color: var(--card-bg);
   color: var(--text-color);
-  border: 3px solid var(--text-color);
-  box-shadow: 4px 4px 0px 0px var(--text-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 4px 4px 0px 0px var(--border-color);
   padding: 10px 20px;
   font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.1s;
+  backdrop-filter: blur(10px);
 }
 
 .brutal-btn:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px 0px var(--text-color);
+  box-shadow: 2px 2px 0px 0px var(--border-color);
 }
 
 .brutal-btn:hover:not(:disabled) {
@@ -85,7 +101,7 @@ body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
 }
 
 .brutal-input {
-  border: 3px solid var(--text-color);
+  border: 3px solid var(--border-color);
   padding: 10px;
   font-family: inherit;
   font-size: 1.2rem;
@@ -94,6 +110,7 @@ body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
   background: var(--card-bg);
   color: var(--text-color);
   border-radius: 0;
+  backdrop-filter: blur(5px);
 }
 
 .brutal-input::placeholder {
@@ -103,10 +120,11 @@ body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
 
 .brutal-card {
   background-color: var(--card-bg);
-  border: 3px solid var(--text-color);
-  box-shadow: 4px 4px 0px 0px var(--text-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 4px 4px 0px 0px var(--border-color);
   padding: 1rem;
   margin-bottom: 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .brutal-grid {
@@ -122,6 +140,12 @@ body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+}
+
+body.dark-mode .brutal-grid {
+  opacity: 0.1; /* Slightly more visible on dark gradient */
+  background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
 }
 
 @media (min-width: 1024px) {

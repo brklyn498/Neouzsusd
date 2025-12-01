@@ -9,8 +9,8 @@ const HistoryChart = ({ history, currency }) => {
           marginBottom: '2rem',
           padding: '1rem',
           backgroundColor: 'var(--card-bg)',
-          border: '4px solid var(--text-color)',
-          boxShadow: '8px 8px 0px 0px var(--text-color)',
+          border: '4px solid var(--border-color)',
+          boxShadow: '8px 8px 0px 0px var(--border-color)',
           boxSizing: 'border-box',
           textAlign: 'center',
           fontWeight: 'bold'
@@ -43,8 +43,8 @@ const HistoryChart = ({ history, currency }) => {
         <div style={{
           backgroundColor: 'var(--card-bg)',
           color: 'var(--text-color)',
-          border: '3px solid var(--text-color)',
-          boxShadow: '4px 4px 0px var(--text-color)',
+          border: '3px solid var(--border-color)',
+          boxShadow: '4px 4px 0px var(--border-color)',
           padding: '12px',
           fontFamily: "'JetBrains Mono', monospace",
           fontWeight: 'bold'
@@ -70,8 +70,8 @@ const HistoryChart = ({ history, currency }) => {
       marginBottom: '2rem',
       padding: '1rem',
       backgroundColor: 'var(--card-bg)',
-      border: '4px solid var(--text-color)',
-      boxShadow: '8px 8px 0px 0px var(--text-color)',
+      border: '4px solid var(--border-color)',
+      boxShadow: '8px 8px 0px 0px var(--border-color)',
       boxSizing: 'border-box'
     }}>
       <h3 style={{

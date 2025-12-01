@@ -23,7 +23,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           </button>
 
           {/* Currency Toggle */}
-          <div style={{ display: 'flex', border: '3px solid var(--text-color)', boxShadow: '4px 4px 0 var(--text-color)', backgroundColor: 'var(--card-bg)' }}>
+          <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
             <button
               onClick={() => setCurrency('USD')}
               style={{
@@ -48,7 +48,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontFamily: 'inherit',
-                borderLeft: '3px solid var(--text-color)'
+                borderLeft: '3px solid var(--border-color)'
               }}
             >
               RUB
@@ -70,7 +70,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           </button>
         </div>
       </div>
-      <Card style={{ backgroundColor: darkMode ? 'var(--accent-brand)' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
           <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
