@@ -148,14 +148,14 @@ function App() {
 
       {loading && (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', gridColumn: '1 / -1' }}>
-          <h1 style={{ fontSize: '3rem', border: '3px solid black', padding: '20px', boxShadow: '8px 8px 0 black', background: 'var(--card-bg)' }}>
+          <h1 style={{ fontSize: '3rem', border: '3px solid var(--text-color)', padding: '20px', boxShadow: '8px 8px 0 var(--text-color)', background: 'var(--card-bg)' }}>
             LOADING...
           </h1>
         </div>
       )}
 
       {error && (
-        <div style={{ border: '3px solid black', padding: '20px', background: 'var(--accent-orange)', color: 'black', fontWeight: 'bold', gridColumn: '1 / -1' }}>
+        <div style={{ border: '3px solid var(--text-color)', padding: '20px', background: 'var(--accent-orange)', color: 'black', fontWeight: 'bold', gridColumn: '1 / -1' }}>
           ERROR: {error}
           <br />
           <button onClick={fetchData} className="brutal-btn" style={{ marginTop: '10px' }}>RETRY</button>

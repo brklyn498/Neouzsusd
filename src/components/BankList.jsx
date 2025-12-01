@@ -46,7 +46,7 @@ const BankList = ({ banks, currency }) => {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: bank.is_mock ? 'var(--accent-orange)' : 'var(--card-bg)',
-            border: bank.is_mock ? '2px dashed var(--accent-orange)' : '3px solid var(--text-color)',
+            border: bank.is_mock ? '2px dashed var(--accent-orange)' : '3px solid var(--border-color)',
             flexDirection: 'column',
             gap: '1rem',
             height: '100%',
@@ -66,13 +66,13 @@ const BankList = ({ banks, currency }) => {
           <div style={{ display: 'flex', gap: '1rem', width: '100%', justifyContent: 'space-around' }}>
             <div>
               <div style={{ fontSize: '0.8rem', opacity: 0.7, textAlign: 'center' }}>BUY</div>
-              <div style={{ backgroundColor: 'var(--accent-green)', color: '#000000', padding: '2px 5px', border: '2px solid var(--text-color)', fontSize: '1.1rem', fontWeight: 'bold' }}>
+              <div style={{ backgroundColor: 'var(--accent-green)', color: 'var(--pill-text-color, #000000)', padding: '2px 5px', border: '2px solid var(--border-color)', fontSize: '1.1rem', fontWeight: 'bold' }}>
                 {bank.buy.toLocaleString()}
               </div>
             </div>
             <div>
               <div style={{ fontSize: '0.8rem', opacity: 0.7, textAlign: 'center' }}>SELL</div>
-              <div style={{ backgroundColor: 'var(--accent-pink)', color: '#000000', padding: '2px 5px', border: '2px solid var(--text-color)', fontSize: '1.1rem', fontWeight: 'bold' }}>
+              <div style={{ backgroundColor: 'var(--accent-pink)', color: 'var(--pill-text-color, #000000)', padding: '2px 5px', border: '2px solid var(--border-color)', fontSize: '1.1rem', fontWeight: 'bold' }}>
                 {bank.sell.toLocaleString()}
               </div>
             </div>
