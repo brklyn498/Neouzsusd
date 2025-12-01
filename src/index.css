@@ -1,11 +1,23 @@
 :root {
   --bg-color: #F0F0F0;
   --text-color: #000000;
+  --card-bg: #FFFFFF;
   --accent-green: #CCFF00;
   --accent-pink: #FF00FF;
   --accent-cyan: #00FFFF;
   --accent-orange: #FF5200;
   --accent-yellow: #FFFF00;
+}
+
+body.dark-mode {
+  --bg-color: #000000;
+  --text-color: #FFFFFF;
+  --card-bg: #000000;
+  --accent-green: #39FF14; /* Neon Green */
+  --accent-pink: #FF00FF; /* Neon Magenta */
+  --accent-cyan: #00FFFF; /* Neon Cyan */
+  --accent-orange: #FF4500; /* Neon Orange Red */
+  --accent-yellow: #FFFF00; /* Neon Yellow */
 }
 
 body {
@@ -14,6 +26,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .brutal-border {
@@ -25,7 +38,8 @@ body {
 }
 
 .brutal-btn {
-  background-color: white;
+  background-color: var(--card-bg);
+  color: var(--text-color);
   border: 3px solid var(--text-color);
   box-shadow: 4px 4px 0px 0px var(--text-color);
   padding: 10px 20px;
@@ -42,6 +56,7 @@ body {
 
 .brutal-btn:hover:not(:disabled) {
   background-color: var(--accent-yellow);
+  color: #000000; /* Ensure text is readable on yellow */
 }
 
 .brutal-btn:disabled {
@@ -61,12 +76,18 @@ body {
   font-size: 1.2rem;
   width: 100%;
   box-sizing: border-box;
-  background: white;
+  background: var(--card-bg);
+  color: var(--text-color);
   border-radius: 0;
 }
 
+.brutal-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
 .brutal-card {
-  background-color: white;
+  background-color: var(--card-bg);
   border: 3px solid var(--text-color);
   box-shadow: 4px 4px 0px 0px var(--text-color);
   padding: 1rem;

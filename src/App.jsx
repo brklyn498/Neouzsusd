@@ -14,6 +14,22 @@ function App() {
   const [showAll, setShowAll] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [lastRefresh, setLastRefresh] = useState(null);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check localStorage or system preference
+    const saved = localStorage.getItem('darkMode');
+    return saved === 'true';
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
+
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   const fetchData = async () => {
     setLoading(true);
@@ -107,6 +123,7 @@ function App() {
   };
 
   const bestBuyRate = currentData && currentData.banks ? Math.max(...currentData.banks.map(b => b.buy)) : 0;
+  const bestSellRate = currentData && currentData.banks ? Math.min(...currentData.banks.map(b => b.sell)) : 0;
 
   return (
     <div className="dashboard-container" style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
@@ -114,7 +131,7 @@ function App() {
 
       {loading && (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', gridColumn: '1 / -1' }}>
-          <h1 style={{ fontSize: '3rem', border: '3px solid black', padding: '20px', boxShadow: '8px 8px 0 black', background: 'white' }}>
+          <h1 style={{ fontSize: '3rem', border: '3px solid black', padding: '20px', boxShadow: '8px 8px 0 black', background: 'var(--card-bg)' }}>
             LOADING...
           </h1>
         </div>
@@ -138,9 +155,11 @@ function App() {
               lastRefresh={lastRefresh}
               currency={currency}
               setCurrency={setCurrency}
+              darkMode={darkMode}
+              toggleDarkMode={toggleDarkMode}
             />
 
-            <Calculator bestBuy={bestBuyRate} currency={currency} />
+            <Calculator bestBuy={bestBuyRate} bestSell={bestSellRate} currency={currency} />
 
             <div style={{ marginTop: '2rem' }}>
               <HistoryChart history={currentData.history} currency={currency} />
@@ -175,7 +194,7 @@ function App() {
 
             <button
               className="brutal-btn"
-              style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'white' }}
+              style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'var(--card-bg)' }}
               onClick={() => setShowAll(!showAll)}
             >
               {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}
