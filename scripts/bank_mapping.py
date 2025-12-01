@@ -17,6 +17,7 @@ BANK_LOGOS = {
     "O‘zsanoatqurilishbank": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
     "APEXBANK": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
     "Xalq Banki": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+    "Kapitalbank": "https://www.kapitalbank.uz/upload/logo/logo.svg",
 
     # Aliases
     "OFB": "https://ofb.uz/upload/images/logo.svg",
@@ -41,7 +42,6 @@ BANK_DOMAINS = {
     "Aloqabank": "aloqabank.uz",
     "Tenge Bank": "tengebank.uz",
     "Agrobank": "agrobank.uz",
-    "Kapitalbank": "kapitalbank.uz",
 }
 
 def get_bank_logo(bank_name):

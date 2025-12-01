@@ -319,24 +319,6 @@
     {
       "name": "Agrobank",
       "buy": 11890,
-      "sell": 11980,
-      "logo": "https://logo.clearbit.com/agrobank.uz",
-      "is_mock": false,
-      "featured": false
-    },
-    {
-      "name": "Kapitalbank",
-      "buy": 11845,
-      "sell": 11960,
-      "logo": "https://logo.clearbit.com/kapitalbank.uz",
-      "is_mock": false,
-      "featured": false
-    },
-    {
-      "name": "Hamkorbank",
-      "buy": 11850,
-      "sell": 11970,
-      "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
       "is_mock": false,
       "featured": true
     },
