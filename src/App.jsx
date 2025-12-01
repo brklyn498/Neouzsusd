@@ -3,12 +3,15 @@ import Header from './components/Header';
 import BankList from './components/BankList';
 import Calculator from './components/Calculator';
 import HistoryChart from './components/HistoryChart';
+import { refreshRates } from './utils/fetchUtils';
 
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sortType, setSortType] = useState('buy'); // 'buy' or 'sell'
+  const [refreshing, setRefreshing] = useState(false);
+  const [lastRefresh, setLastRefresh] = useState(null);
 
   const fetchData = async () => {
     setLoading(true);
@@ -24,6 +27,30 @@ function App() {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleManualRefresh = async () => {
+    setRefreshing(true);
+    try {
+      const freshData = await refreshRates();
+
+      if (freshData) {
+        // Update only the CBU rate and timestamp
+        setData(prevData => ({
+          ...prevData,
+          cbu: freshData.cbu,
+          last_updated: freshData.timestamp
+        }));
+        setLastRefresh(freshData.timestamp);
+      } else {
+        throw new Error('Failed to fetch fresh rates');
+      }
+    } catch (err) {
+      console.error('Manual refresh failed:', err);
+      alert('Failed to refresh rates. Please try again.');
+    } finally {
+      setRefreshing(false);
     }
   };
 
@@ -66,7 +93,12 @@ function App() {
 
       {!loading && !error && data && (
         <>
-          <Header cbuRate={data.cbu} />
+          <Header
+            cbuRate={data.cbu}
+            onRefresh={handleManualRefresh}
+            refreshing={refreshing}
+            lastRefresh={lastRefresh}
+          />
 
           <HistoryChart history={data.history} />
 

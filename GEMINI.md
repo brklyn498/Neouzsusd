@@ -51,6 +51,19 @@
 - Applied "Neubrutalist" styling to the chart (thick strokes, hard shadows, custom tooltips).
 - Verified chart rendering with Playwright.
 
+### Phase 6: Real Data Integration (COMPLETED)
+- **Real bank data scraping implemented!** All 5 banks now show live data from bank.uz.
+- Banks included: Kapitalbank, Hamkorbank, Ipak Yuli Bank, Saderat Bank, Anorbank.
+- All marked as `"is_mock": false` in `rates.json`.
+
+### Phase 7: Manual Refresh Feature
+- Created `src/utils/fetchUtils.js` with client-side CBU API fetching.
+- Added manual refresh button to Header component with brutal styling.
+- Implemented loading state ("⏳ REFRESHING...") during fetch.
+- Added "Last refreshed" timestamp display.
+- Error handling with user alerts for failed fetches.
+- Button disabled during refresh to prevent concurrent requests.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
@@ -61,9 +74,9 @@
 - **Goal:** Turn the React site into a Progressive Web App.
 - **Features:** "Add to Home Screen", offline support, custom splash screen.
 
-### Option 3: Real Data Integration 🕷️
+### Option 3: Real Data Integration 🕷️ (COMPLETED)
 - **Goal:** Replace mock data with real scraping where possible.
-- **Target:** Hamkorbank (seems less protected than Kapitalbank).
+- **Status:** ✅ All 5 banks now show real data from bank.uz!
 
 ### Option 4: "Reverse" Calculator & UX 🧮
 - **Features:**
