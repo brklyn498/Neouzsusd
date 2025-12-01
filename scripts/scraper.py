@@ -5,6 +5,7 @@ import datetime
 import os
 import time
 from bs4 import BeautifulSoup
+from bank_mapping import get_bank_logo
 
 OUTPUT_FILE = "public/rates.json"
 
@@ -180,6 +181,7 @@ def fetch_bank_uz_rates(cbu_rate):
                     "name": name,
                     "buy": buy,
                     "sell": sell,
+                    "logo": get_bank_logo(name),
                     "is_mock": False,
                     "featured": False  # Default to False
                 })
@@ -265,7 +267,7 @@ def generate_mock_banks(base_rate):
             "name": bank["name"],
             "buy": int(buy_rate),
             "sell": int(sell_rate),
-            "logo": "",
+            "logo": get_bank_logo(bank["name"]),
             "is_mock": True,
             "featured": i < 5 # Mark first 5 as featured
         })
