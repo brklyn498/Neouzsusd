@@ -146,7 +146,7 @@
       "sell": 11990,
       "logo": "https://ofb.uz/upload/images/logo.svg",
       "is_mock": false,
-      "featured": false
+      "featured": true
     },
     {
       "name": "Aloqabank",
@@ -157,7 +157,7 @@
       "featured": false
     },
     {
-      "name": "Octobank",
+      "name": "Turon bank",
       "buy": 11885,
       "sell": 11950,
       "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
@@ -210,7 +210,7 @@
       "sell": 11995,
       "logo": "https://logo.clearbit.com/poytaxtbank.uz",
       "is_mock": false,
-      "featured": true
+      "featured": false
     },
     {
       "name": "Turon bank",
@@ -298,7 +298,7 @@
       "sell": 11960,
       "logo": "https://anorbank.uz/images/logo.svg",
       "is_mock": false,
-      "featured": false
+      "featured": true
     },
     {
       "name": "Ziraat Bank",
@@ -330,7 +330,7 @@
       "sell": 11960,
       "logo": "https://logo.clearbit.com/kapitalbank.uz",
       "is_mock": false,
-      "featured": true
+      "featured": false
     },
     {
       "name": "Hamkorbank",
