@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-01 05:10",
+  "last_updated": "2025-12-01 05:02",
   "cbu": 11940.95,
   "history": [
     {
@@ -125,34 +125,200 @@
   ],
   "banks": [
     {
-      "name": "Kapitalbank",
-      "buy": 11890,
-      "sell": 11995,
-      "is_mock": false
-    },
-    {
-      "name": "Hamkorbank",
-      "buy": 11900,
-      "sell": 11980,
-      "is_mock": false
-    },
-    {
-      "name": "Ipak Yuli Bank",
+      "name": "Universal bank",
       "buy": 11890,
       "sell": 11990,
-      "is_mock": false
+      "is_mock": false,
+      "featured": false
     },
     {
-      "name": "Saderat Bank",
-      "buy": 11850,
+      "name": "BRB",
+      "buy": 11890,
       "sell": 12000,
-      "is_mock": false
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Hayot Bank",
+      "buy": 11900,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Garant bank",
+      "buy": 11900,
+      "sell": 11980,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Octobank",
+      "buy": 11885,
+      "sell": 11950,
+      "is_mock": false,
+      "featured": false
     },
     {
       "name": "Anorbank",
       "buy": 11880,
       "sell": 11990,
-      "is_mock": false
+      "is_mock": false,
+      "featured": true
+    },
+    {
+      "name": "Turon bank",
+      "buy": 11885,
+      "sell": 11970,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Poytaxt bank",
+      "buy": 11885,
+      "sell": 11995,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Ipoteka bank",
+      "buy": 11885,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Hamkorbank",
+      "buy": 11890,
+      "sell": 11990,
+      "is_mock": false,
+      "featured": true
+    },
+    {
+      "name": "Ipak Yuli Bank",
+      "buy": 11890,
+      "sell": 11990,
+      "is_mock": false,
+      "featured": true
+    },
+    {
+      "name": "Saderat Bank",
+      "buy": 11850,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": true
+    },
+    {
+      "name": "Infinbank",
+      "buy": 11880,
+      "sell": 11980,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Asia Alliance Bank",
+      "buy": 11895,
+      "sell": 11985,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Ziraat Bank",
+      "buy": 11890,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "O\u2018zbekiston Milliy banki",
+      "buy": 11900,
+      "sell": 11990,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "MKBank",
+      "buy": 11890,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Aloqabank",
+      "buy": 11890,
+      "sell": 11980,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "KDB Bank Uzbekiston",
+      "buy": 11885,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Orient Finans Bank",
+      "buy": 11890,
+      "sell": 11990,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Asakabank",
+      "buy": 11900,
+      "sell": 11990,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Tenge Bank",
+      "buy": 11890,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Agrobank",
+      "buy": 11890,
+      "sell": 11980,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Trastbank",
+      "buy": 11920,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Kapitalbank",
+      "buy": 11890,
+      "sell": 11995,
+      "is_mock": false,
+      "featured": true
+    },
+    {
+      "name": "O\u2018zsanoatqurilishbank",
+      "buy": 11890,
+      "sell": 12000,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "APEXBANK",
+      "buy": 11885,
+      "sell": 11980,
+      "is_mock": false,
+      "featured": false
+    },
+    {
+      "name": "Xalq Banki",
+      "buy": 11885,
+      "sell": 11970,
+      "is_mock": false,
+      "featured": false
     }
   ]
 }
