@@ -81,6 +81,14 @@
 - **Icon Visibility**: Increased bank logo size from 40px to **60px** for better readability.
 - **System Verification**: Verified Python scraper environment and data freshness.
 
+### Phase 10: Multi-Currency Support (RUB Added) 🇷🇺
+- **Backend Overhaul**: Refactored `scripts/scraper.py` to be currency-agnostic. It now supports multiple currencies via configuration.
+- **RUB Scraping**: Added logic to scrape Russian Ruble rates from `https://bank.uz/uz/currency/rossiyskiy-rubl`.
+- **Nested Data Structure**: Updated `rates.json` to store data by currency (e.g., `{"usd": {...}, "rub": {...}}`).
+- **Frontend Toggle**: Added a "USD | RUB" toggle in the Header to switch the entire dashboard view.
+- **Dynamic Components**: Updated Chart, Calculator, and Bank List to react to the selected currency.
+- **Code Cleanup**: Fixed syntax errors in `src/index.css` and improved button styling.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
@@ -99,3 +107,6 @@
 - **Features:**
     - Toggle for UZS -> USD calculation.
     - "Dark Brutalism" mode (Black background, neon text).
+
+### Option 5: More Currencies? 🌍
+- **Goal:** Add Euro (EUR) support using the new scalable architecture.
