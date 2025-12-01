@@ -13,9 +13,19 @@ const BankList = ({ banks }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {banks.map((bank, index) => (
-        <Card key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Card
+          key={index}
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            backgroundColor: bank.is_mock ? '#ffcccc' : 'var(--bg-card)',
+            border: bank.is_mock ? '2px dashed red' : '3px solid black'
+          }}
+        >
           <div style={{ fontWeight: '900', fontSize: '1.2rem', textTransform: 'uppercase' }}>
             {bank.name}
+            {bank.is_mock && <span style={{ fontSize: '0.6rem', color: 'red', display: 'block' }}>(MOCK DATA)</span>}
           </div>
           <div style={{ display: 'flex', gap: '1rem', textAlign: 'right' }}>
             <div>
