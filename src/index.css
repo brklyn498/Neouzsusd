@@ -11,15 +11,23 @@
 }
 
 body.dark-mode {
-  --bg-color: #334155; /* Slate Gray */
+  --bg-color: #334155;
+  /* Slate Gray */
   --text-color: #FFFFFF;
-  --card-bg: #1A1B1E; /* Dark Charcoal for Cards - Contrast against Slate BG */
-  --accent-green: #CCFF00; /* Acid Green (Buy) */
-  --accent-pink: #FF5400; /* Coral (Sell) */
-  --accent-cyan: #818CF8; /* Soft Blue / Periwinkle */
-  --accent-orange: #FF5400; /* Match Sell Color */
-  --accent-yellow: #CCFF00; /* Map yellow to Acid Green */
-  --accent-brand: #9D4EDD; /* Electric Purple (Brand) */
+  --card-bg: #334155;
+  /* Match BG Color */
+  --accent-green: #CCFF00;
+  /* Acid Green (Buy) */
+  --accent-pink: #FF5400;
+  /* Coral (Sell) */
+  --accent-cyan: #818CF8;
+  /* Soft Blue / Periwinkle */
+  --accent-orange: #FF5400;
+  /* Match Sell Color */
+  --accent-yellow: #CCFF00;
+  /* Map yellow to Acid Green */
+  --accent-brand: #9D4EDD;
+  /* Electric Purple (Brand) */
 }
 
 body {
@@ -62,8 +70,8 @@ body {
 }
 
 body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
-    background-color: #FFFF00;
-    color: #000000;
+  background-color: #FFFF00;
+  color: #000000;
 }
 
 .brutal-btn:disabled {
@@ -89,8 +97,8 @@ body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
 }
 
 .brutal-input::placeholder {
-    color: var(--text-color);
-    opacity: 0.5;
+  color: var(--text-color);
+  opacity: 0.5;
 }
 
 .brutal-card {

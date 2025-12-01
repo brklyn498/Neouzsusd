@@ -81,6 +81,10 @@
 - **Icon Visibility**: Increased bank logo size from 40px to **60px** for better readability.
 - **System Verification**: Verified Python scraper environment and data freshness.
 
+### Phase 10: Dark Mode Polish
+- **Theme Selector Fix**: Removed hardcoded white background from the theme toggle button in dark mode, allowing it to inherit the correct brutalist styles.
+- **Card Background Consistency**: Updated `--card-bg` in dark mode to `#334155` (Slate Gray) to match the page background, creating a seamless look for bank cards while maintaining their borders.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)

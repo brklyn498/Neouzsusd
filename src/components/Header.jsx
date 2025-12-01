@@ -10,66 +10,64 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
         </h1>
 
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            {/* Dark Mode Toggle */}
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="brutal-btn"
+            style={{
+              padding: '0.5rem 1rem',
+              fontSize: '0.9rem',
+            }}
+          >
+            {darkMode ? '☀️' : '🌑'}
+          </button>
+
+          {/* Currency Toggle */}
+          <div style={{ display: 'flex', border: '3px solid var(--text-color)', boxShadow: '4px 4px 0 var(--text-color)', backgroundColor: 'var(--card-bg)' }}>
             <button
-              onClick={toggleDarkMode}
-              className="brutal-btn"
+              onClick={() => setCurrency('USD')}
               style={{
+                border: 'none',
+                background: currency === 'USD' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: currency === 'USD' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
                 padding: '0.5rem 1rem',
-                fontSize: '0.9rem',
-                backgroundColor: darkMode ? 'white' : 'black',
-                color: darkMode ? 'black' : 'white',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit'
               }}
             >
-              {darkMode ? '☀️' : '🌑'}
+              USD
             </button>
-
-            {/* Currency Toggle */}
-            <div style={{ display: 'flex', border: '3px solid var(--text-color)', boxShadow: '4px 4px 0 var(--text-color)', backgroundColor: 'var(--card-bg)' }}>
-                <button
-                    onClick={() => setCurrency('USD')}
-                    style={{
-                        border: 'none',
-                        background: currency === 'USD' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
-                        color: currency === 'USD' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                        padding: '0.5rem 1rem',
-                        fontWeight: 'bold',
-                        cursor: 'pointer',
-                        fontFamily: 'inherit'
-                    }}
-                >
-                    USD
-                </button>
-                <button
-                    onClick={() => setCurrency('RUB')}
-                    style={{
-                        border: 'none',
-                        background: currency === 'RUB' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
-                        color: currency === 'RUB' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                        padding: '0.5rem 1rem',
-                        fontWeight: 'bold',
-                        cursor: 'pointer',
-                        fontFamily: 'inherit',
-                        borderLeft: '3px solid var(--text-color)'
-                    }}
-                >
-                    RUB
-                </button>
-            </div>
-
             <button
+              onClick={() => setCurrency('RUB')}
+              style={{
+                border: 'none',
+                background: currency === 'RUB' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: currency === 'RUB' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                borderLeft: '3px solid var(--text-color)'
+              }}
+            >
+              RUB
+            </button>
+          </div>
+
+          <button
             onClick={onRefresh}
             disabled={refreshing}
             className="brutal-btn brutal-refresh-btn"
             style={{
-                padding: '0.5rem 1rem',
-                fontSize: '0.9rem',
-                cursor: refreshing ? 'wait' : 'pointer',
-                opacity: refreshing ? 0.7 : 1
+              padding: '0.5rem 1rem',
+              fontSize: '0.9rem',
+              cursor: refreshing ? 'wait' : 'pointer',
+              opacity: refreshing ? 0.7 : 1
             }}
-            >
+          >
             {refreshing ? 'LOADING...' : 'REFRESH'}
-            </button>
+          </button>
         </div>
       </div>
       <Card style={{ backgroundColor: darkMode ? 'var(--accent-brand)' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
