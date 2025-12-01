@@ -282,7 +282,7 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
         for b in sorted_by_dev:
             if b not in popular_selected:
                 deviants_selected.append(b)
-                if len(deviants_selected) >= 2:
+                if len(deviants_selected) >= 3:
                     break
 
         featured_list = popular_selected + deviants_selected

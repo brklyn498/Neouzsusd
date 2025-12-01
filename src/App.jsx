@@ -111,7 +111,7 @@ function App() {
       if (hasFeatured) {
         processed = processed.filter(b => b.featured);
       } else {
-        processed = processed.slice(0, 5);
+        processed = processed.slice(0, 6);
       }
     }
 
