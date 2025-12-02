@@ -207,7 +207,12 @@ function App() {
             </div>
 
             <div className="bank-grid">
-              <BankList banks={getProcessedBanks()} currency={currency} />
+              <BankList
+                banks={getProcessedBanks()}
+                currency={currency}
+                bestBuy={bestBuyRate}
+                bestSell={bestSellRate}
+              />
             </div>
 
             <button
