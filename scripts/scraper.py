@@ -24,6 +24,12 @@ CURRENCY_CONFIG = {
         "bank_uz_url": "https://bank.uz/uz/currency/rossiyskiy-rubl",
         "fallback_rate": 150.00,
         "mock_variance": (2, 10)
+    },
+    "EUR": {
+        "cbu_code": "EUR",
+        "bank_uz_url": "https://bank.uz/uz/currency/evro",
+        "fallback_rate": 13800.00,
+        "mock_variance": (20, 80)
     }
 }
 
@@ -222,7 +228,8 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
             # Ref rate check
             ref_rate = cbu_rate if cbu_rate else config["fallback_rate"]
 
-            if 0.8 * ref_rate < avg < 1.2 * ref_rate:
+            # Tightened tolerance to 10% to prevent cross-currency scraping (e.g. USD table on EUR page)
+            if 0.9 * ref_rate < avg < 1.1 * ref_rate:
                 target_buy_list = temp_buy
                 target_sell_list = parse_bank_list(sell_container)
                 found = True
@@ -506,6 +513,7 @@ def main():
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "usd": process_currency("USD", existing_data),
         "rub": process_currency("RUB", existing_data),
+        "eur": process_currency("EUR", existing_data),
         "weather": fetch_iqair_data(weather_data_to_pass)
     }
 

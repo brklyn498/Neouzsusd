@@ -57,6 +57,21 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
             >
               RUB
             </button>
+            <button
+              onClick={() => setCurrency('EUR')}
+              style={{
+                border: 'none',
+                background: currency === 'EUR' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: currency === 'EUR' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                borderLeft: '3px solid var(--border-color)'
+              }}
+            >
+              EUR
+            </button>
           </div>
 
           <button
