@@ -98,6 +98,11 @@
 - **Scraper Update**: Added `--force` flag to `scraper.py` to bypass cache limits when manually triggered.
 - **Frontend Integration**: Connected the "Refresh" button to the backend server via a proxy, allowing users to trigger real-time data updates from the UI.
 
+### Phase 14: Euro Support (Synced from Remote)
+- **New Currency**: Added support for Euro (EUR) currency.
+- **Verification**: Added verification images for EUR state.
+- **Header Update**: Updated `Header.jsx` to support the new currency toggle or display.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
