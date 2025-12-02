@@ -469,7 +469,13 @@ def fetch_iqair_data(existing_data):
     # Fallback to existing if fetch failed
     return existing_data.get("weather") if existing_data else None
 
+import argparse
+
 def main():
+    parser = argparse.ArgumentParser(description="Scrape exchange rates and weather data.")
+    parser.add_argument("--force", action="store_true", help="Force update even if cached data exists.")
+    args = parser.parse_args()
+
     # Load existing data to check timestamps
     existing_data = None
     if os.path.exists(OUTPUT_FILE):
@@ -479,11 +485,28 @@ def main():
         except Exception as e:
             print(f"Error loading existing data: {e}")
 
+    # If force is True, we can clear the relevant timestamps in existing_data 
+    # OR just pass a flag to the fetch functions. 
+    # For simplicity, let's modify fetch_iqair_data to accept the force flag.
+    
+    # We need to pass 'force' down to fetch_iqair_data. 
+    # Since I cannot easily change the signature of fetch_iqair_data in this single block without 
+    # replacing the whole file or multiple chunks, I will handle it by modifying the existing_data 
+    # passed to it. If force is on, we pretend there is no weather data.
+    
+    weather_data_to_pass = existing_data
+    if args.force and existing_data:
+        print("Force flag detected. Ignoring cache.")
+        # Create a copy to not mutate the original for other parts if needed
+        weather_data_to_pass = existing_data.copy()
+        if "weather" in weather_data_to_pass:
+            del weather_data_to_pass["weather"]
+
     output = {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "usd": process_currency("USD", existing_data),
         "rub": process_currency("RUB", existing_data),
-        "weather": fetch_iqair_data(existing_data)
+        "weather": fetch_iqair_data(weather_data_to_pass)
     }
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)

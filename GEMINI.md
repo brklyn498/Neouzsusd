@@ -93,6 +93,11 @@
 - **IQAir API**: Configured `scraper.py` with IQAir API key to fetch real-time weather and air quality data for Tashkent.
 - **Frontend Display**: Verified `WeatherBadge` component correctly displays the fetched AQI (e.g., 402 Hazardous) and temperature.
 
+### Phase 13: Automation (Refresh Button)
+- **Backend Server**: Created `server.js` to run the Python scraper on demand.
+- **Scraper Update**: Added `--force` flag to `scraper.py` to bypass cache limits when manually triggered.
+- **Frontend Integration**: Connected the "Refresh" button to the backend server via a proxy, allowing users to trigger real-time data updates from the UI.
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)
