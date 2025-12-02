@@ -22,12 +22,17 @@ body.dark-mode {
   --card-bg: rgba(30, 41, 59, 0.4);
 
   /* Muted/Transparent Accents for Dark Mode */
-  --accent-green: rgba(74, 222, 128, 0.2); /* Soft Green Glass */
-  --accent-pink: rgba(251, 113, 133, 0.2); /* Soft Red Glass */
-  --accent-cyan: rgba(56, 189, 248, 0.2); /* Soft Blue Glass */
-  --accent-orange: #FB923C; /* Sunset Orange */
+  --accent-green: rgba(74, 222, 128, 0.2);
+  /* Soft Green Glass */
+  --accent-pink: rgba(251, 113, 133, 0.2);
+  /* Soft Red Glass */
+  --accent-cyan: rgba(56, 189, 248, 0.2);
+  /* Soft Blue Glass */
+  --accent-orange: #FB923C;
+  /* Sunset Orange */
   --accent-yellow: rgba(250, 204, 21, 0.2);
-  --accent-brand: rgba(255, 255, 255, 0.1); /* Neutral Glass */
+  --accent-brand: rgba(255, 255, 255, 0.1);
+  /* Neutral Glass */
 
   /* Specific overrides for components */
   --header-card-bg: rgba(255, 255, 255, 0.1);
@@ -35,7 +40,8 @@ body.dark-mode {
   --calculator-text: #FFFFFF;
   --pill-text-color: #FFFFFF;
 
-  --border-color: rgba(255, 255, 255, 0.2); /* Subtle Frost Border */
+  --border-color: rgba(255, 255, 255, 0.2);
+  /* Subtle Frost Border */
 }
 
 body {
@@ -143,9 +149,27 @@ body:not(.dark-mode) .brutal-btn:hover:not(:disabled) {
 }
 
 body.dark-mode .brutal-grid {
-  opacity: 0.1; /* Slightly more visible on dark gradient */
-  background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+  opacity: 0.1;
+  /* Slightly more visible on dark gradient */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+}
+
+/* Fix for Select Dropdown in Dark Mode */
+select.brutal-btn {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+select.brutal-btn option {
+  background-color: #1e293b;
+  /* Dark Slate for options background */
+  color: #ffffff;
+}
+
+body:not(.dark-mode) select.brutal-btn option {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 @media (min-width: 1024px) {
