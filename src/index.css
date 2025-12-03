@@ -16,6 +16,12 @@
   --calculator-bg: var(--accent-cyan);
   --calculator-text: #000000;
 
+  /* Gold Theme Colors */
+  --gold-accent: #FFD700;
+  --gold-dark: #B8860B;
+  --success-color: #4ADE80;
+  --danger-color: #EF4444;
+
   /* Badge colors for savings cards */
   --badge-online-bg: #CCFF00;
   --badge-online-text: #000000;
