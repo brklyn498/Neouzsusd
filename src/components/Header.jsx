@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import WeatherBadge from './WeatherBadge';
 
-const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather, viewMode, setViewMode, topSavingsRate }) => {
+const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather, viewMode, setViewMode, topSavingsRate, metalType }) => {
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
@@ -205,9 +205,11 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
         </Card>
       )}
       {viewMode === 'metals' && (
-        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--gold-accent)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : (metalType === 'silver' ? 'var(--silver-accent)' : 'var(--gold-accent)'), color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
-            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>GOLD PRICE (XAU/USD)</div>
+            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>
+                {metalType === 'silver' ? 'SILVER PRICE (XAG/USD)' : 'GOLD PRICE (XAU/USD)'}
+            </div>
             <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
               LIVE DATA
             </div>
@@ -215,7 +217,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
               REAL-TIME METALS MARKET
             </div>
           </div>
-          <div style={{ fontSize: '3rem' }}>🪙</div>
+          <div style={{ fontSize: '3rem' }}>{metalType === 'silver' ? '🥈' : '🪙'}</div>
         </Card>
       )}
       {viewMode === 'savings' && (
