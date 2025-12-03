@@ -932,6 +932,21 @@ def fetch_silver_history(existing_data, force=False):
                 print(f"Error parsing timestamp: {e}")
 
     api_key = os.environ.get("POLYGON_API_KEY")
+
+    # If not in env, try reading from .env file manually (for local dev)
+    if not api_key:
+        try:
+            env_path = os.path.join(os.getcwd(), '.env')
+            if os.path.exists(env_path):
+                with open(env_path, 'r') as f:
+                    for line in f:
+                        if line.strip().startswith('POLYGON_API_KEY='):
+                            api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
+                            # print("Loaded POLYGON_API_KEY from .env file (Silver)")
+                            break
+        except Exception as e:
+            print(f"Error reading .env file: {e}")
+
     if not api_key:
         print("POLYGON_API_KEY not found. Using cached or skipping.")
         return existing_data.get("silver_history") if existing_data else None
@@ -1041,6 +1056,21 @@ def fetch_bitcoin_history(existing_data, force=False):
                 print(f"Error parsing timestamp: {e}")
 
     api_key = os.environ.get("POLYGON_API_KEY")
+
+    # If not in env, try reading from .env file manually (for local dev)
+    if not api_key:
+        try:
+            env_path = os.path.join(os.getcwd(), '.env')
+            if os.path.exists(env_path):
+                with open(env_path, 'r') as f:
+                    for line in f:
+                        if line.strip().startswith('POLYGON_API_KEY='):
+                            api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
+                            # print("Loaded POLYGON_API_KEY from .env file (Bitcoin)")
+                            break
+        except Exception as e:
+            print(f"Error reading .env file: {e}")
+
     if not api_key:
         print("POLYGON_API_KEY not found. Using cached or skipping.")
         return existing_data.get("bitcoin_history") if existing_data else None
