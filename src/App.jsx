@@ -261,7 +261,7 @@ function App() {
                   </select>
                 </div>
 
-                <div className="bank-grid">
+                <div className="bank-grid" style={{ marginBottom: '3rem' }}>
                   <SavingsList
                     savings={savingsData ? savingsData.data : []}
                     sortType={sortType}
@@ -270,7 +270,7 @@ function App() {
               </>
             )}
 
-            <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem' }}>
+            <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.8, fontSize: '0.8rem', color: 'var(--text-color)', fontWeight: 'bold' }}>
               LAST UPDATED: {data.last_updated}
             </div>
           </div>

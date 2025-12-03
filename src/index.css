@@ -10,10 +10,17 @@
   --accent-red: #FF0000;
   --accent-purple: #9D4EDD;
   --accent-brand: #9D4EDD;
+  --rate-color: #9D4EDD;
   --border-color: var(--text-color);
   --pill-text-color: #000000;
   --calculator-bg: var(--accent-cyan);
   --calculator-text: #000000;
+
+  /* Badge colors for savings cards */
+  --badge-online-bg: #CCFF00;
+  --badge-online-text: #000000;
+  --badge-banks-bg: #9D4EDD;
+  --badge-banks-text: #FFFFFF;
 }
 
 body.dark-mode {
@@ -39,6 +46,8 @@ body.dark-mode {
   /* Soft Purple Glass */
   --accent-brand: rgba(255, 255, 255, 0.1);
   /* Neutral Glass */
+  --rate-color: #C084FC;
+  /* Bright Purple for visibility */
 
   /* Specific overrides for components */
   --header-card-bg: rgba(255, 255, 255, 0.1);
@@ -48,6 +57,14 @@ body.dark-mode {
 
   --border-color: rgba(255, 255, 255, 0.2);
   /* Subtle Frost Border */
+
+  /* Badge colors for dark mode - bright and visible */
+  --badge-online-bg: #10B981;
+  /* Bright green */
+  --badge-online-text: #FFFFFF;
+  --badge-banks-bg: #C084FC;
+  /* Bright purple */
+  --badge-banks-text: #000000;
 }
 
 body {

@@ -90,7 +90,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
               fontSize: '0.9rem',
             }}
           >
-            {darkMode ? '☀️' : '🌑'}
+            {darkMode ? '☀️' : '🌙'}
           </button>
 
           {/* Currency Toggle */}

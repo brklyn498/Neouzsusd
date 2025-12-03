@@ -78,7 +78,7 @@ const SavingsCard = ({ savings, isBestRate }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '1rem' }}>
         <div>
           <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', opacity: 0.7 }}>INTEREST RATE</div>
-          <div style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--accent-brand)' }}>
+          <div style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--rate-color, var(--accent-brand))' }}>
             {rate}%
           </div>
         </div>
@@ -86,8 +86,8 @@ const SavingsCard = ({ savings, isBestRate }) => {
         <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '5px' }}>
              {is_online ? (
               <span className="brutal-pill" style={{
-                  backgroundColor: 'var(--accent-green)',
-                  color: 'black',
+                  backgroundColor: 'var(--badge-online-bg)',
+                  color: 'var(--badge-online-text)',
                   alignSelf: 'flex-end',
                   marginBottom: '5px'
               }}>
@@ -95,8 +95,8 @@ const SavingsCard = ({ savings, isBestRate }) => {
               </span>
             ) : (
               <span className="brutal-pill" style={{
-                  backgroundColor: 'var(--accent-purple)',
-                  color: 'white',
+                  backgroundColor: 'var(--badge-banks-bg)',
+                  color: 'var(--badge-banks-text)',
                   alignSelf: 'flex-end',
                   marginBottom: '5px'
               }}>

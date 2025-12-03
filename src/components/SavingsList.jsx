@@ -58,7 +58,7 @@ const SavingsList = ({ savings, sortType }) => {
   const bestRate = Math.max(...savings.map(s => s.rate));
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+    <>
       {sortedSavings.map((item, index) => (
         <SavingsCard
           key={`${item.bank_name}-${index}`}
@@ -66,7 +66,7 @@ const SavingsList = ({ savings, sortType }) => {
           isBestRate={item.rate === bestRate}
         />
       ))}
-    </div>
+    </>
   );
 };
 
