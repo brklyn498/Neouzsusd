@@ -8,12 +8,13 @@ import SavingsList from './components/SavingsList';
 import GoldBarPrices from './components/GoldBarPrices';
 import GoldHistoryChart from './components/GoldHistoryChart';
 import SilverHistoryChart from './components/SilverHistoryChart';
+import BitcoinHistoryChart from './components/BitcoinHistoryChart';
 import { refreshRates } from './utils/fetchUtils';
 
 function App() {
   const [data, setData] = useState(null); // Holds the full nested data
   const [currency, setCurrency] = useState('USD'); // 'USD' or 'RUB'
-  const [metalType, setMetalType] = useState('gold'); // 'gold' or 'silver'
+  const [metalType, setMetalType] = useState('gold'); // 'gold', 'silver' or 'bitcoin'
   const [viewMode, setViewMode] = useState('exchange'); // 'exchange' or 'savings'
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [loading, setLoading] = useState(true);
@@ -109,6 +110,7 @@ function App() {
   const goldBarsData = data ? data.gold_bars : null;
   const goldHistoryData = data ? data.gold_history : null;
   const silverHistoryData = data ? data.silver_history : null;
+  const bitcoinHistoryData = data ? data.bitcoin_history : null;
 
   const getProcessedBanks = () => {
     if (!currentData || !currentData.banks) return [];
@@ -202,7 +204,7 @@ function App() {
                 </div>
               </>
             ) : viewMode === 'metals' ? (
-              // Metals Mode Sidebar Content
+              // Extras/Metals Mode Sidebar Content
               <>
                 {metalType === 'gold' && goldBarsData && (
                   <div>
@@ -214,6 +216,13 @@ function App() {
                        <h3 style={{ marginTop: 0 }}>SILVER BARS</h3>
                        <p>Silver bar prices from local banks are not currently tracked.</p>
                        <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Showing International Spot Price (XAG/USD) instead.</p>
+                   </div>
+                )}
+                {metalType === 'bitcoin' && (
+                   <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                       <h3 style={{ marginTop: 0 }}>BITCOIN</h3>
+                       <p>Real-time data from Polygon.io.</p>
+                       <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Showing Spot Price (BTC/USD).</p>
                    </div>
                 )}
               </>
@@ -271,7 +280,7 @@ function App() {
             ) : viewMode === 'metals' ? (
               <>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>PRECIOUS METALS</h2>
+                  <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>EXTRAS</h2>
 
                   <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
                       <button
@@ -303,6 +312,21 @@ function App() {
                       >
                         SILVER
                       </button>
+                      <button
+                        onClick={() => setMetalType('bitcoin')}
+                        style={{
+                          border: 'none',
+                          background: metalType === 'bitcoin' ? (darkMode ? 'var(--bitcoin-accent)' : 'var(--bitcoin-accent)') : 'var(--card-bg)',
+                          color: metalType === 'bitcoin' ? '#000000' : 'var(--text-color)',
+                          padding: '0.5rem 1rem',
+                          fontWeight: 'bold',
+                          cursor: 'pointer',
+                          fontFamily: 'inherit',
+                          borderLeft: '3px solid var(--border-color)'
+                        }}
+                      >
+                        BITCOIN
+                      </button>
                   </div>
                 </div>
 
@@ -318,10 +342,16 @@ function App() {
                   </div>
                 )}
 
+                {metalType === 'bitcoin' && bitcoinHistoryData && (
+                  <div style={{ marginBottom: '2rem' }}>
+                    <BitcoinHistoryChart bitcoinHistory={bitcoinHistoryData} />
+                  </div>
+                )}
+
                 <div className="brutal-card" style={{ padding: '1.5rem', textAlign: 'center', marginBottom: '2rem', fontSize: '0.9rem' }}>
                    <p style={{ margin: 0, opacity: 0.7 }}>
                      <strong>DATA SOURCES:</strong> Gold Bar prices from Central Bank of Uzbekistan (via bank.uz).
-                     Global Spot Gold (XAU/USD) & Silver (XAG/USD) prices via Massive.com API.
+                     Global Spot Gold, Silver & Bitcoin prices via Massive.com (Polygon.io).
                    </p>
                 </div>
               </>
