@@ -152,10 +152,24 @@ def update_history(existing_history, currency_code, today_rate, today_date_str):
 
     return history
 
+import re
+
 def parse_rate(rate_str):
     """Cleans and converts rate string to int/float."""
     try:
-        clean = rate_str.lower().replace("so'm", "").replace(" ", "").replace(",", "")
+        # Check for range format like "20dan - 21 %" or "22.52dan - 25 %"
+        if "-" in rate_str:
+             # We want the max value.
+             matches = re.findall(r"[-+]?\d*\.\d+|\d+", rate_str.replace(",", "."))
+             if matches:
+                 values = [float(m) for m in matches]
+                 return max(values)
+
+        # Standard number (e.g. "12 800" or "24 %")
+        # Replace comma with dot for decimals (e.g. "25,5" -> "25.5")
+        # But handle thousands separators if any?
+        # Usually bank.uz uses spaces for thousands.
+        clean = rate_str.lower().replace("so'm", "").replace(" ", "").replace(",", ".").replace("%", "")
         return float(clean)
     except Exception:
         return None
@@ -486,6 +500,124 @@ def fetch_iqair_data(existing_data):
     # Fallback to existing if fetch failed
     return existing_data.get("weather") if existing_data else None
 
+def fetch_savings_rates(existing_data, force=False):
+    """
+    Scrapes savings deposits from bank.uz/uz/deposits/sumovye-vklady.
+    Updates once a day (or if force=True).
+    """
+    print("--- Processing Savings Data ---")
+
+    # Check 24h Cache
+    if not force and existing_data and existing_data.get("savings"):
+        last_ts = existing_data["savings"].get("last_updated_ts")
+        if last_ts:
+            last_time = datetime.datetime.fromtimestamp(last_ts)
+            now = datetime.datetime.now()
+            if (now - last_time).total_seconds() < 86400: # 24 hours
+                print("Savings data is fresh (< 24 hours). Using cached.")
+                return existing_data["savings"]
+
+    url = "https://bank.uz/uz/deposits/sumovye-vklady"
+    print(f"Scraping Savings from {url}...")
+
+    response = fetch_url(url)
+    if not response:
+        print("Failed to fetch savings page.")
+        return existing_data.get("savings") if existing_data else None
+
+    try:
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        # We look for all containers that match the card structure
+        # Using the class we found: 'table-card-offers-bottom'
+        cards = soup.find_all(class_='table-card-offers-bottom')
+
+        savings_list = []
+
+        for card in cards:
+            try:
+                # 1. Bank Name and Deposit Name (Block 1)
+                block1 = card.find(class_='table-card-offers-block1')
+                if not block1:
+                    continue
+
+                bank_name_span = block1.find(class_='medium-text')
+                bank_name = bank_name_span.get_text(strip=True) if bank_name_span else "Unknown Bank"
+
+                # Find the text block first to avoid grabbing the image link
+                text_block = block1.find(class_='table-card-offers-block1-text')
+                if text_block:
+                    deposit_link = text_block.find('a')
+                    deposit_name = deposit_link.get_text(strip=True) if deposit_link else "Unknown Deposit"
+                else:
+                    deposit_name = "Unknown Deposit"
+
+                # 2. Rate, Duration, Min Amount (Block All -> Blocks 2, 3, 4)
+                # Sometimes the structure is slightly different, so be careful.
+                # The inspection showed 'table-card-offers-blocks-all' contains blocks 2,3,4,5
+
+                rate_val = 0.0
+                duration_str = ""
+                min_amount_str = ""
+                is_online = False
+
+                block_all = card.find(class_='table-card-offers-blocks-all')
+                if block_all:
+                    # Rate (Block 2)
+                    block2 = block_all.find(class_='table-card-offers-block2')
+                    if block2:
+                         rate_text = block2.find(class_='medium-text').get_text(strip=True)
+                         rate_val = parse_rate(rate_text) or 0.0
+
+                    # Duration (Block 3)
+                    block3 = block_all.find(class_='table-card-offers-block3')
+                    if block3:
+                        duration_str = block3.find(class_='medium-text').get_text(strip=True)
+
+                    # Min Amount (Block 4)
+                    block4 = block_all.find(class_='table-card-offers-block4')
+                    if block4:
+                        min_amount_str = block4.find(class_='medium-text').get_text(strip=True)
+
+                    # Online Badge (Block 5)
+                    block5 = block_all.find(class_='table-card-offers-block5')
+                    if block5:
+                        # Check for "Onlayn" text or icon class
+                        if block5.find(string="Onlayn") or block5.find(class_='online_btn'):
+                            is_online = True
+
+                # If rate is 0, it might be a parsing error or missing data, skip or keep?
+                # Let's keep valid looking entries
+                if rate_val > 0:
+                    savings_list.append({
+                        "bank_name": bank_name,
+                        "deposit_name": deposit_name,
+                        "rate": rate_val,
+                        "duration": duration_str,
+                        "min_amount": min_amount_str,
+                        "is_online": is_online,
+                        "logo": get_bank_logo(bank_name)
+                    })
+
+            except Exception as inner_e:
+                print(f"Error parsing a savings card: {inner_e}")
+                continue
+
+        # Sort by rate descending initially
+        savings_list.sort(key=lambda x: x['rate'], reverse=True)
+
+        print(f"Successfully scraped {len(savings_list)} savings offers.")
+
+        return {
+            "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "last_updated_ts": datetime.datetime.now().timestamp(),
+            "data": savings_list
+        }
+
+    except Exception as e:
+        print(f"Error scraping savings: {e}")
+        return existing_data.get("savings") if existing_data else None
+
 import argparse
 
 def main():
@@ -519,13 +651,17 @@ def main():
         if "weather" in weather_data_to_pass:
             del weather_data_to_pass["weather"]
 
+    # Fetch Savings Data
+    savings_data = fetch_savings_rates(existing_data, force=args.force)
+
     output = {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "usd": process_currency("USD", existing_data),
         "rub": process_currency("RUB", existing_data),
         "eur": process_currency("EUR", existing_data),
         "kzt": process_currency("KZT", existing_data),
-        "weather": fetch_iqair_data(weather_data_to_pass)
+        "weather": fetch_iqair_data(weather_data_to_pass),
+        "savings": savings_data
     }
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
