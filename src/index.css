@@ -412,3 +412,8 @@ body:not(.dark-mode) select.brutal-btn option {
   padding: 0.75rem;
   border: 2px solid var(--border-color);
 }
+/* Dark mode styling for brutal-button */
+body.dark-mode .brutal-button {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}

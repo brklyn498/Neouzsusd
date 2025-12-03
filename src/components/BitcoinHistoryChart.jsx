@@ -90,9 +90,9 @@ export default function BitcoinHistoryChart({ bitcoinHistory }) {
 
         // If first drag (no state yet), initialize state
         if (!badgePosition) {
-             const initialLeft = badgeRect.left - containerRect.left;
-             const initialTop = badgeRect.top - containerRect.top;
-             setBadgePosition({ left: initialLeft, top: initialTop });
+            const initialLeft = badgeRect.left - containerRect.left;
+            const initialTop = badgeRect.top - containerRect.top;
+            setBadgePosition({ left: initialLeft, top: initialTop });
         }
 
         setIsDragging(true);
@@ -173,13 +173,13 @@ export default function BitcoinHistoryChart({ bitcoinHistory }) {
                     </div>
                     <div className="badge-price">${stats.lastPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     <div className="badge-change-row">
-                         <span style={{
-                             color: '#000',
-                             fontWeight: 'bold',
-                             fontSize: '0.9rem'
-                         }}>
+                        <span style={{
+                            color: '#000',
+                            fontWeight: 'bold',
+                            fontSize: '0.9rem'
+                        }}>
                             {stats.todayChange >= 0 ? '▲' : '▼'} {Math.abs(stats.todayChangePercent).toFixed(2)}%
-                         </span>
+                        </span>
                     </div>
                 </div>
 
@@ -211,7 +211,7 @@ export default function BitcoinHistoryChart({ bitcoinHistory }) {
                             stroke="var(--text-color)"
                             strokeWidth={4}
                             tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 13 }}
-                            tickFormatter={(value) => `$${(value/1000).toFixed(0)}k`}
+                            tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
                             domain={['auto', (dataMax) => dataMax * 1.05]}
                         />
                         <Tooltip content={<CustomTooltip />} />
@@ -252,6 +252,12 @@ export default function BitcoinHistoryChart({ bitcoinHistory }) {
                             stroke="var(--bitcoin-accent)"
                             strokeWidth={5}
                             fill="url(#bitcoinGradient)"
+                            activeDot={{
+                                r: 8,
+                                fill: "#FFFFFF",
+                                stroke: "#000000",
+                                strokeWidth: 4
+                            }}
                             dot={false}
                         />
 

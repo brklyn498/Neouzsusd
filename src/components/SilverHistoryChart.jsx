@@ -90,9 +90,9 @@ export default function SilverHistoryChart({ silverHistory }) {
 
         // If first drag (no state yet), initialize state
         if (!badgePosition) {
-             const initialLeft = badgeRect.left - containerRect.left;
-             const initialTop = badgeRect.top - containerRect.top;
-             setBadgePosition({ left: initialLeft, top: initialTop });
+            const initialLeft = badgeRect.left - containerRect.left;
+            const initialTop = badgeRect.top - containerRect.top;
+            setBadgePosition({ left: initialLeft, top: initialTop });
         }
 
         setIsDragging(true);
@@ -174,13 +174,13 @@ export default function SilverHistoryChart({ silverHistory }) {
                     </div>
                     <div className="badge-price">${stats.lastPrice.toFixed(2)}</div>
                     <div className="badge-change-row">
-                         <span style={{
-                             color: '#000',
-                             fontWeight: 'bold',
-                             fontSize: '0.9rem'
-                         }}>
+                        <span style={{
+                            color: '#000',
+                            fontWeight: 'bold',
+                            fontSize: '0.9rem'
+                        }}>
                             {stats.todayChange >= 0 ? '▲' : '▼'} {Math.abs(stats.todayChangePercent).toFixed(2)}%
-                         </span>
+                        </span>
                     </div>
                 </div>
 
@@ -253,6 +253,12 @@ export default function SilverHistoryChart({ silverHistory }) {
                             stroke="var(--silver-accent)"
                             strokeWidth={5}
                             fill="url(#silverGradient)"
+                            activeDot={{
+                                r: 8,
+                                fill: "#FFFFFF",
+                                stroke: "#000000",
+                                strokeWidth: 4
+                            }}
                             dot={false}
                         />
 
