@@ -500,6 +500,71 @@ def fetch_iqair_data(existing_data):
     # Fallback to existing if fetch failed
     return existing_data.get("weather") if existing_data else None
 
+# Bank name translations and standardizations
+BANK_NAME_TRANSLATIONS = {
+    "O'zsanoatqurilishbank": "Uzsanoat Bank",
+    "Ozsanoatqurilishbank": "Uzsanoat Bank",
+    "O'zbekiston Milliy Banki": "Nat'l Bank UZ",
+    "Ozbekiston Milliy Banki": "Nat'l Bank UZ",
+    "Xalq Banki": "Xalq Bank",
+    "Orient Finans Bank": "Orient Finans",
+    "Noshashuvchan": "Sustainable",
+    "Konstruktor": "Constructor",
+    "AVO omonati": "AVO Deposit",
+    "Nostashuvchan omonati: kunlik foizlar": "Sustainable Deposit",
+}
+
+def translate_bank_name(bank_name):
+    """
+    Translates Uzbek bank names to English and shortens long names.
+    Only translates bank names, not deposit product names.
+    """
+    # Direct translation mapping
+    if bank_name in BANK_NAME_TRANSLATIONS:
+        return BANK_NAME_TRANSLATIONS[bank_name]
+
+    # Check for partial matches in translation dict
+    for uz_name, en_name in BANK_NAME_TRANSLATIONS.items():
+        if uz_name.lower() in bank_name.lower() or bank_name.lower() in uz_name.lower():
+            return en_name
+
+    # Pattern-based translations (case insensitive)
+    name_lower = bank_name.lower()
+
+    # Translate common Uzbek words
+    # Handle various encodings of O'zbekiston
+    if 'milliy' in name_lower or 'miliy' in name_lower:
+        if any(word in name_lower for word in ['zbekiston', 'o\'zbekiston', 'ozbekiston', '\u2018zbekiston']):
+            return "Nat'l Bank UZ"
+        bank_name = bank_name.replace('Milliy Banki', 'Nat\'l Bank').replace('milliy banki', 'Nat\'l Bank')
+
+    if 'sanoatqurilish' in name_lower or 'sanoatqurili' in name_lower:
+        return 'Uzsanoat Bank'
+
+    # If it's already a known English bank name, keep it
+    english_banks = ['avo bank', 'uzum bank', 'turon bank', 'asakabank', 'ipak yuli',
+                     'kapitalbank', 'hamkorbank', 'anor bank', 'tenge bank', 'nbu', 'aloqabank']
+
+    for eng_bank in english_banks:
+        if eng_bank in name_lower:
+            return bank_name  # Keep original if already English
+
+    # Shorten very long names (>16 chars)
+    if len(bank_name) > 16:
+        # Try to extract the core bank name
+        if 'bank' in name_lower:
+            # Take up to 'bank' + 'bank'
+            parts = bank_name.split()
+            for i, part in enumerate(parts):
+                if 'bank' in part.lower():
+                    core_name = ' '.join(parts[:i+1])
+                    if len(core_name) <= 16:
+                        return core_name
+        # Fallback: truncate with ellipsis
+        return bank_name[:13] + '...'
+
+    return bank_name
+
 def fetch_savings_rates(existing_data, force=False):
     """
     Scrapes savings deposits from bank.uz/uz/deposits/sumovye-vklady.
@@ -542,7 +607,8 @@ def fetch_savings_rates(existing_data, force=False):
                     continue
 
                 bank_name_span = block1.find(class_='medium-text')
-                bank_name = bank_name_span.get_text(strip=True) if bank_name_span else "Unknown Bank"
+                bank_name_raw = bank_name_span.get_text(strip=True) if bank_name_span else "Unknown Bank"
+                bank_name = translate_bank_name(bank_name_raw)  # Translate/shorten bank name
 
                 # Find the text block first to avoid grabbing the image link
                 text_block = block1.find(class_='table-card-offers-block1-text')

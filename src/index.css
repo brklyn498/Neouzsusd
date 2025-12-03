@@ -7,6 +7,8 @@
   --accent-cyan: #00FFFF;
   --accent-orange: #FF5200;
   --accent-yellow: #FFFF00;
+  --accent-red: #FF0000;
+  --accent-purple: #9D4EDD;
   --accent-brand: #9D4EDD;
   --border-color: var(--text-color);
   --pill-text-color: #000000;
@@ -31,6 +33,10 @@ body.dark-mode {
   --accent-orange: #FB923C;
   /* Sunset Orange */
   --accent-yellow: rgba(250, 204, 21, 0.2);
+  --accent-red: rgba(239, 68, 68, 0.3);
+  /* Soft Red Glass */
+  --accent-purple: rgba(157, 78, 221, 0.3);
+  /* Soft Purple Glass */
   --accent-brand: rgba(255, 255, 255, 0.1);
   /* Neutral Glass */
 
@@ -156,15 +162,21 @@ body.dark-mode .brutal-grid {
 }
 
 /* Fix for Select Dropdown in Dark Mode */
-select.brutal-btn {
-  background-color: var(--card-bg);
-  color: var(--text-color);
+body.dark-mode select.brutal-btn {
+  background-color: #1e293b;
+  /* Force solid dark background */
+  color: #ffffff;
 }
 
-select.brutal-btn option {
+body.dark-mode select.brutal-btn option {
   background-color: #1e293b;
-  /* Dark Slate for options background */
   color: #ffffff;
+}
+
+/* Light mode defaults */
+body:not(.dark-mode) select.brutal-btn {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 body:not(.dark-mode) select.brutal-btn option {

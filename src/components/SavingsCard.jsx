@@ -49,9 +49,28 @@ const SavingsCard = ({ savings, isBestRate }) => {
               onError={(e) => { e.target.onerror = null; e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(bank_name)}&background=random&size=64`; }}
             />
           </div>
-          <div>
-            <h3 style={{ margin: 0, fontSize: '1.2rem', textTransform: 'uppercase' }}>{bank_name}</h3>
-            <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8, fontWeight: 'normal' }}>{deposit_name}</p>
+          <div style={{ maxWidth: '200px' }}>
+            <h3 style={{
+              margin: 0,
+              fontSize: '1.2rem',
+              textTransform: 'uppercase',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}>
+              {bank_name}
+            </h3>
+            <p style={{
+              margin: 0,
+              fontSize: '0.9rem',
+              opacity: 0.8,
+              fontWeight: 'normal',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}>
+              {deposit_name}
+            </p>
           </div>
         </div>
       </div>
@@ -65,7 +84,7 @@ const SavingsCard = ({ savings, isBestRate }) => {
         </div>
 
         <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '5px' }}>
-             {is_online && (
+             {is_online ? (
               <span className="brutal-pill" style={{
                   backgroundColor: 'var(--accent-green)',
                   color: 'black',
@@ -73,6 +92,15 @@ const SavingsCard = ({ savings, isBestRate }) => {
                   marginBottom: '5px'
               }}>
                 ONLINE
+              </span>
+            ) : (
+              <span className="brutal-pill" style={{
+                  backgroundColor: 'var(--accent-purple)',
+                  color: 'white',
+                  alignSelf: 'flex-end',
+                  marginBottom: '5px'
+              }}>
+                BANKS ONLY
               </span>
             )}
            <div style={{ fontSize: '0.9rem' }}>
