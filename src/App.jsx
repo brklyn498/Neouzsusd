@@ -5,6 +5,8 @@ import Calculator from './components/Calculator';
 import HistoryChart from './components/HistoryChart';
 import OfflineBanner from './components/OfflineBanner';
 import SavingsList from './components/SavingsList';
+import GoldBarPrices from './components/GoldBarPrices';
+import GoldHistoryChart from './components/GoldHistoryChart';
 import { refreshRates } from './utils/fetchUtils';
 
 function App() {
@@ -102,6 +104,8 @@ function App() {
   const currentData = data ? data[currency.toLowerCase()] : null;
   const weatherData = data ? data.weather : null;
   const savingsData = data ? data.savings : null;
+  const goldBarsData = data ? data.gold_bars : null;
+  const goldHistoryData = data ? data.gold_history : null;
 
   const getProcessedBanks = () => {
     if (!currentData || !currentData.banks) return [];
@@ -193,13 +197,27 @@ function App() {
                   <HistoryChart history={currentData.history} currency={currency} />
                 </div>
               </>
+            ) : viewMode === 'metals' ? (
+              // Metals Mode Sidebar Content
+              <>
+                {goldBarsData && (
+                  <div>
+                    <GoldBarPrices goldBars={goldBarsData} />
+                  </div>
+                )}
+                {goldHistoryData && (
+                  <div style={{ marginTop: '2rem' }}>
+                    <GoldHistoryChart goldHistory={goldHistoryData} />
+                  </div>
+                )}
+              </>
             ) : (
-               // Savings Mode Sidebar Content
-               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
-                  <h3 style={{ marginTop: 0 }}>SAVINGS TIPS</h3>
-                  <p>Banks offer up to <strong>{topSavingsRate}%</strong> on annual deposits.</p>
-                  <p>Check "Online" badge for easy opening via apps.</p>
-               </div>
+              // Savings Mode Sidebar Content
+              <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                <h3 style={{ marginTop: 0 }}>SAVINGS TIPS</h3>
+                <p>Banks offer up to <strong>{topSavingsRate}%</strong> on annual deposits.</p>
+                <p>Check "Online" badge for easy opening via apps.</p>
+              </div>
             )}
 
             <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem', display: 'none' }} className="mobile-footer">
@@ -208,7 +226,7 @@ function App() {
           </div>
 
           <div className="dashboard-right">
-             {viewMode === 'exchange' ? (
+            {viewMode === 'exchange' ? (
               <>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>MARKET RATES</h2>
@@ -244,9 +262,25 @@ function App() {
                   {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}
                 </button>
               </>
+            ) : viewMode === 'metals' ? (
+              <>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>PRECIOUS METALS</h2>
+                </div>
+
+                <div className="brutal-card" style={{ padding: '2rem', textAlign: 'center', marginBottom: '2rem' }}>
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>📊 LIVE GOLD DATA</h3>
+                  <p style={{ fontSize: '1rem', opacity: 0.8 }}>
+                    Real-time gold bar prices from MB Bank (Uzbekistan) and 30-day historical XAU/USD price charts.
+                  </p>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.6, marginTop: '1rem' }}>
+                    Source: bank.uz + Massive.com API
+                  </p>
+                </div>
+              </>
             ) : (
               <>
-                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>SAVINGS</h2>
 
                   <select

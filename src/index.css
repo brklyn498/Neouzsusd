@@ -250,3 +250,69 @@ body:not(.dark-mode) select.brutal-btn option {
     gap: 1rem !important;
   }
 }
+
+/* Gold Components Styling */
+.gold-bars-card .card-header,
+.gold-history-card .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gold-icon {
+  font-size: 1.5rem;
+}
+
+.gold-bars-card h3,
+.gold-history-card h3 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.gold-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gold-bar-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+}
+
+.gold-bar-item:hover {
+  background: var(--gold-accent);
+}
+
+.gold-weight {
+  font-weight: bold;
+}
+
+.gold-price {
+  font-weight: bold;
+  color: var(--gold-dark);
+}
+
+.price-change {
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border-color);
+}
+
+.price-change.positive { background: var(--success-color); color: #000; }
+.price-change.negative { background: var(--danger-color); color: #fff; }
+
+.chart-container { margin: 1rem 0; }
+.brutal-button { background: var(--card-bg); border: 3px solid var(--border-color); padding: 0.75rem 1.5rem; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+.gold-tooltip { background: var(--card-bg); border: 3px solid var(--border-color); padding: 0.75rem; font-weight: bold; }
+.gold-price-table { width: 100%; border-collapse: collapse; }
+.gold-price-table th { padding: 0.75rem; font-weight: bold; border: 2px solid var(--border-color); }
+.gold-price-table td { padding: 0.75rem; border: 2px solid var(--border-color); }
+

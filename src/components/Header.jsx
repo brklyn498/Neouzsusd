@@ -65,6 +65,21 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
               RATES
             </button>
             <button
+              onClick={() => setViewMode('metals')}
+              style={{
+                border: 'none',
+                background: viewMode === 'metals' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: viewMode === 'metals' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                borderLeft: '3px solid var(--border-color)'
+              }}
+            >
+              METALS
+            </button>
+            <button
               onClick={() => setViewMode('savings')}
               style={{
                 border: 'none',
@@ -95,67 +110,67 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
 
           {/* Currency Toggle */}
           {viewMode === 'exchange' && (
-          <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
-            <button
-              onClick={() => setCurrency('USD')}
-              style={{
-                border: 'none',
-                background: currency === 'USD' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
-                color: currency === 'USD' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                fontFamily: 'inherit'
-              }}
-            >
-              USD
-            </button>
-            <button
-              onClick={() => setCurrency('RUB')}
-              style={{
-                border: 'none',
-                background: currency === 'RUB' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
-                color: currency === 'RUB' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                fontFamily: 'inherit',
-                borderLeft: '3px solid var(--border-color)'
-              }}
-            >
-              RUB
-            </button>
-            <button
-              onClick={() => setCurrency('EUR')}
-              style={{
-                border: 'none',
-                background: currency === 'EUR' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
-                color: currency === 'EUR' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                fontFamily: 'inherit',
-                borderLeft: '3px solid var(--border-color)'
-              }}
-            >
-              EUR
-            </button>
-            <button
-              onClick={() => setCurrency('KZT')}
-              style={{
-                border: 'none',
-                background: currency === 'KZT' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
-                color: currency === 'KZT' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                fontFamily: 'inherit',
-                borderLeft: '3px solid var(--border-color)'
-              }}
-            >
-              KZT
-            </button>
-          </div>
+            <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
+              <button
+                onClick={() => setCurrency('USD')}
+                style={{
+                  border: 'none',
+                  background: currency === 'USD' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                  color: currency === 'USD' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                  padding: '0.5rem 1rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit'
+                }}
+              >
+                USD
+              </button>
+              <button
+                onClick={() => setCurrency('RUB')}
+                style={{
+                  border: 'none',
+                  background: currency === 'RUB' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                  color: currency === 'RUB' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                  padding: '0.5rem 1rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  borderLeft: '3px solid var(--border-color)'
+                }}
+              >
+                RUB
+              </button>
+              <button
+                onClick={() => setCurrency('EUR')}
+                style={{
+                  border: 'none',
+                  background: currency === 'EUR' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                  color: currency === 'EUR' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                  padding: '0.5rem 1rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  borderLeft: '3px solid var(--border-color)'
+                }}
+              >
+                EUR
+              </button>
+              <button
+                onClick={() => setCurrency('KZT')}
+                style={{
+                  border: 'none',
+                  background: currency === 'KZT' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                  color: currency === 'KZT' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                  padding: '0.5rem 1rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  borderLeft: '3px solid var(--border-color)'
+                }}
+              >
+                KZT
+              </button>
+            </div>
           )}
 
           <button
@@ -189,19 +204,33 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           <div style={{ fontSize: '3rem' }}>🏦</div>
         </Card>
       )}
+      {viewMode === 'metals' && (
+        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--gold-accent)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>GOLD PRICE (XAU/USD)</div>
+            <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+              LIVE DATA
+            </div>
+            <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
+              REAL-TIME METALS MARKET
+            </div>
+          </div>
+          <div style={{ fontSize: '3rem' }}>🪙</div>
+        </Card>
+      )}
       {viewMode === 'savings' && (
         <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-green)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>TOP SAVINGS RATE</div>
-          <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
-            {topSavingsRate ? `${topSavingsRate}%` : 'LOADING...'}
+          <div>
+            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>TOP SAVINGS RATE</div>
+            <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+              {topSavingsRate ? `${topSavingsRate}%` : 'LOADING...'}
+            </div>
+            <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
+              FIND THE BEST DEPOSIT
+            </div>
           </div>
-          <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
-             FIND THE BEST DEPOSIT
-          </div>
-        </div>
-        <div style={{ fontSize: '3rem' }}>💰</div>
-      </Card>
+          <div style={{ fontSize: '3rem' }}>💰</div>
+        </Card>
       )}
     </div>
   );

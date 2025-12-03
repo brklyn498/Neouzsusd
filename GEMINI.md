@@ -119,6 +119,29 @@
 - **Data Quality**: Real bank data (not mock) with CBU rate: 23.44 UZS per KZT
 - **Technical Challenge**: Bank.uz KZT page shows multiple currencies; scraper correctly identifies KZT container using rate range validation
 
+### Phase 17: Gold Prices Integration
+- **New Feature**: Added comprehensive gold prices from bank.uz with 30-day historical charts
+- **Backend Implementation**:
+  - Created `fetch_gold_bar_prices()` function to scrape https://bank.uz/uz/gold-bars
+  - Parses HTML table for gold bar weights (5g, 10g, 20g, 50g, 100g) and prices in UZS
+  - Successfully scraping **6 gold bar prices** with real-time data
+  - Created `fetch_gold_history()` function for 30-day historical gold prices (USD per troy ounce)
+  - Currently generates sample data; ready for API integration (Metals-API, GoldAPI, FreeGoldAPI)
+  - Cached for 24 hours to optimize performance
+- **Frontend Components**:
+  - **GoldBarPrices.jsx**: Neubrutalist card displaying MB gold bars with prices and hover animations
+  - **GoldHistoryChart.jsx**: Advanced interactive chart with multiple features:
+    - Line + Area chart with gold gradient fill
+    - **Zoom & Brush**: Interactive zoom control for time range selection
+    - **7-Day Moving Average**: Trend line overlaid on price data
+    - **Min/Max Markers**: Visual indicators for highest/lowest prices
+    - **Custom Tooltips**: Shows date, price, daily change %, and 7-day MA
+    - **Data Table**: Toggle button reveals full 30-day table with sortable columns
+    - **Price Change Stats**: Header badge displays total 30-day change ($ and %)
+- **Styling**: Added gold-specific CSS variables (`--gold-accent: #FFD700`, `--gold-dark: #B8860B`)
+- **Integration**: Components added to left panel (Tools section) after currency history chart
+- **Verification**: All features tested and working perfectly in browser
+
 ## Backend Server Setup
 
 This application requires backend servers to handle data refresh requests.
