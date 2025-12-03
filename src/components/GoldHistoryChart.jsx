@@ -23,6 +23,11 @@ export default function GoldHistoryChart({ goldHistory }) {
         const totalChange = lastPrice - firstPrice;
         const totalChangePercent = (totalChange / firstPrice) * 100;
 
+        // Calculate today's change (vs yesterday)
+        const yesterdayPrice = history.length > 1 ? history[history.length - 2].price_usd_per_oz : lastPrice;
+        const todayChange = lastPrice - yesterdayPrice;
+        const todayChangePercent = (todayChange / yesterdayPrice) * 100;
+
         // Calculate 7-day moving average
         const dataWithMA = history.map((item, index) => {
             if (index < 6) return { ...item, ma7: null };
@@ -31,7 +36,18 @@ export default function GoldHistoryChart({ goldHistory }) {
             return { ...item, ma7: avg };
         });
 
-        return { minPrice, maxPrice, minItem, maxItem, totalChange, totalChangePercent, dataWithMA };
+        return {
+            minPrice,
+            maxPrice,
+            minItem,
+            maxItem,
+            totalChange,
+            totalChangePercent,
+            todayChange,
+            todayChangePercent,
+            dataWithMA,
+            lastPrice
+        };
     }, [history]);
 
     // Custom tooltip
@@ -66,31 +82,38 @@ export default function GoldHistoryChart({ goldHistory }) {
                     <span className="gold-icon">📈</span>
                     <h3>GOLD PRICE HISTORY (30 DAYS)</h3>
                 </div>
-                <div className="gold-stats">
-                    <div className={`price-change ${stats.totalChange >= 0 ? 'positive' : 'negative'}`}>
-                        {stats.totalChange >= 0 ? '▲' : '▼'} ${Math.abs(stats.totalChange).toFixed(2)}
-                        ({stats.totalChangePercent.toFixed(2)}%)
-                    </div>
-                </div>
             </div>
 
             <div className="chart-container" style={{ position: 'relative' }}>
                 {/* Today's Price Badge */}
                 <div className="today-price-badge">
-                    <div className="badge-label">TODAY</div>
-                    <div className="badge-price">${history[history.length - 1].price_usd_per_oz.toFixed(2)}</div>
-                    <div className="badge-unit">per oz</div>
+                    <div className="badge-header">
+                        <span className="badge-label">TODAY</span>
+                    </div>
+                    <div className="badge-price">${stats.lastPrice.toFixed(2)}</div>
+                    <div className="badge-change-row">
+                         <span style={{
+                             color: '#000',
+                             fontWeight: 'bold',
+                             fontSize: '0.9rem'
+                         }}>
+                            {stats.todayChange >= 0 ? '▲' : '▼'} {Math.abs(stats.todayChangePercent).toFixed(2)}%
+                         </span>
+                    </div>
                 </div>
 
                 <ResponsiveContainer width="100%" height={350}>
-                    <AreaChart data={stats.dataWithMA} margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
+                    <AreaChart
+                        data={stats.dataWithMA}
+                        margin={{ top: 20, right: 30, left: 10, bottom: 20 }}
+                    >
                         <defs>
                             <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="5%" stopColor="var(--gold-accent)" stopOpacity={0.7} />
                                 <stop offset="95%" stopColor="var(--gold-accent)" stopOpacity={0.1} />
                             </linearGradient>
                         </defs>
-                        <CartesianGrid strokeDasharray="0" stroke="var(--text-color)" opacity={0.3} strokeWidth={3} />
+                        <CartesianGrid strokeDasharray="0" stroke="var(--text-color)" opacity={0.3} strokeWidth={1} vertical={true} horizontal={false} />
                         <XAxis
                             dataKey="date"
                             stroke="var(--text-color)"
@@ -108,7 +131,7 @@ export default function GoldHistoryChart({ goldHistory }) {
                             strokeWidth={4}
                             tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 13 }}
                             tickFormatter={(value) => `$${value}`}
-                            domain={['auto', 'auto']}
+                            domain={['auto', (dataMax) => dataMax * 1.1]}
                         />
                         <Tooltip content={<CustomTooltip />} />
 
@@ -116,20 +139,30 @@ export default function GoldHistoryChart({ goldHistory }) {
                         <ReferenceDot
                             x={stats.minItem.date}
                             y={stats.minPrice}
-                            r={8}
+                            r={6}
                             fill="var(--danger-color)"
                             stroke="var(--text-color)"
-                            strokeWidth={3}
+                            strokeWidth={2}
                             label={{ value: 'MIN', position: 'bottom', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
                         />
                         <ReferenceDot
                             x={stats.maxItem.date}
                             y={stats.maxPrice}
-                            r={8}
+                            r={6}
                             fill="var(--success-color)"
                             stroke="var(--text-color)"
-                            strokeWidth={3}
+                            strokeWidth={2}
                             label={{ value: 'MAX', position: 'top', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
+                        />
+
+                        {/* Current Price Dot */}
+                        <ReferenceDot
+                            x={stats.dataWithMA[stats.dataWithMA.length - 1].date}
+                            y={stats.lastPrice}
+                            r={8}
+                            fill="var(--gold-accent)"
+                            stroke="var(--text-color)"
+                            strokeWidth={3}
                         />
 
                         <Area
