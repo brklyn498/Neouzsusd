@@ -77,7 +77,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 borderLeft: '3px solid var(--border-color)'
               }}
             >
-              METALS
+              EXTRAS
             </button>
             <button
               onClick={() => setViewMode('savings')}
@@ -205,19 +205,19 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
         </Card>
       )}
       {viewMode === 'metals' && (
-        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : (metalType === 'silver' ? 'var(--silver-accent)' : 'var(--gold-accent)'), color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : (metalType === 'bitcoin' ? 'var(--bitcoin-accent)' : (metalType === 'silver' ? 'var(--silver-accent)' : 'var(--gold-accent)')), color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>
-                {metalType === 'silver' ? 'SILVER PRICE (XAG/USD)' : 'GOLD PRICE (XAU/USD)'}
+                {metalType === 'bitcoin' ? 'BITCOIN PRICE (BTC/USD)' : (metalType === 'silver' ? 'SILVER PRICE (XAG/USD)' : 'GOLD PRICE (XAU/USD)')}
             </div>
             <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
               LIVE DATA
             </div>
             <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
-              REAL-TIME METALS MARKET
+              REAL-TIME MARKET DATA
             </div>
           </div>
-          <div style={{ fontSize: '3rem' }}>{metalType === 'silver' ? '🥈' : '🪙'}</div>
+          <div style={{ fontSize: '3rem' }}>{metalType === 'bitcoin' ? '₿' : (metalType === 'silver' ? '🥈' : '🪙')}</div>
         </Card>
       )}
       {viewMode === 'savings' && (

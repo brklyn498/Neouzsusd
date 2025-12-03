@@ -984,6 +984,114 @@ def fetch_silver_history(existing_data, force=False):
     print("Falling back to cached silver data...")
     return existing_data.get("silver_history") if existing_data else None
 
+def fetch_bitcoin_history(existing_data, force=False):
+    """
+    Fetches 30-day historical bitcoin price data (USD).
+    Uses Massive.com (Polygon.io) API.
+    Updates once per day unless force=True.
+    """
+    print("--- Processing Bitcoin Price History ---")
+
+    # Check cache (update once per day)
+    if not force and existing_data and existing_data.get("bitcoin_history"):
+        last_ts = existing_data["bitcoin_history"].get("last_updated_ts")
+        if last_ts:
+            try:
+                last_time = datetime.datetime.fromtimestamp(last_ts)
+                now = datetime.datetime.now()
+                # Check if same day, or if < 24h.
+                if (now - last_time).total_seconds() < 86400:  # 24 hours
+                    print("Bitcoin history is fresh (< 24 hours). Using cached.")
+                    return existing_data["bitcoin_history"]
+            except Exception as e:
+                print(f"Error parsing timestamp: {e}")
+
+    api_key = os.environ.get("POLYGON_API_KEY")
+    if not api_key:
+        print("POLYGON_API_KEY not found. Using cached or skipping.")
+        return existing_data.get("bitcoin_history") if existing_data else None
+
+    try:
+        print("Fetching bitcoin history from Massive.com (Polygon.io)...")
+
+        # Calculate dates
+        today = datetime.date.today()
+        end_date_str = today.strftime("%Y-%m-%d")
+        start_date = today - datetime.timedelta(days=35) # Fetch a few extra days to handle weekends/holidays and ensure we get 30 datapoints
+        start_date_str = start_date.strftime("%Y-%m-%d")
+
+        # URL for Aggregates (Bars)
+        # X:BTCUSD is the ticker for Bitcoin/USD
+        url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50&apiKey={api_key}"
+
+        response = requests.get(url, timeout=15)
+
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("status") != "OK" and data.get("status") != "DELAYED":
+                 pass
+
+            results = data.get("results", [])
+            if not results:
+                 print("No results found in Polygon response for Bitcoin.")
+                 return existing_data.get("bitcoin_history") if existing_data else None
+
+            history_data = []
+
+            for item in results:
+                # 't' is timestamp in ms
+                ts = item.get("t")
+                if not ts:
+                    continue
+
+                date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
+                price = item.get("c") # Close price
+
+                history_data.append({
+                    "date": date_str,
+                    "price_usd": float(price),
+                    # change_percent will be calculated below
+                })
+
+            # Sort by date just in case
+            history_data.sort(key=lambda x: x['date'])
+
+            # Calculate change percent
+            for i in range(len(history_data)):
+                if i > 0:
+                    prev_price = history_data[i-1]["price_usd"]
+                    curr_price = history_data[i]["price_usd"]
+                    change_percent = ((curr_price - prev_price) / prev_price) * 100
+                    history_data[i]["change_percent"] = round(change_percent, 2)
+                else:
+                    history_data[i]["change_percent"] = 0.0
+
+            # Keep last 30 entries
+            if len(history_data) > 30:
+                history_data = history_data[-30:]
+
+            print(f"Successfully fetched {len(history_data)} days of bitcoin prices.")
+            if history_data:
+                print(f"Latest price: ${history_data[-1]['price_usd']} ({history_data[-1]['date']})")
+
+            return {
+                "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+                "last_updated_ts": datetime.datetime.now().timestamp(),
+                "data": history_data,
+                "source": "Massive.com (Polygon.io)",
+                "note": "Real market data"
+            }
+
+        else:
+            print(f"Polygon API Error for Bitcoin: {response.status_code} - {response.text}")
+
+    except Exception as e:
+        print(f"Error fetching bitcoin prices: {e}")
+
+    # Fallback to cached data if everything fails
+    print("Falling back to cached bitcoin data...")
+    return existing_data.get("bitcoin_history") if existing_data else None
+
 def main():
     parser = argparse.ArgumentParser(description="Scrape exchange rates and weather data.")
     parser.add_argument("--force", action="store_true", help="Force update even if cached data exists.")
@@ -1022,6 +1130,7 @@ def main():
     gold_bars = fetch_gold_bar_prices()
     gold_history = fetch_gold_history(existing_data, force=args.force)
     silver_history = fetch_silver_history(existing_data, force=args.force)
+    bitcoin_history = fetch_bitcoin_history(existing_data, force=args.force)
 
     output = {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -1033,7 +1142,8 @@ def main():
         "savings": savings_data,
         "gold_bars": gold_bars,
         "gold_history": gold_history,
-        "silver_history": silver_history
+        "silver_history": silver_history,
+        "bitcoin_history": bitcoin_history
     }
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
