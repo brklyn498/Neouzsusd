@@ -74,21 +74,28 @@ export default function GoldHistoryChart({ goldHistory }) {
                 </div>
             </div>
 
-            <div className="chart-container">
-                <ResponsiveContainer width="100%" height={400}>
+            <div className="chart-container" style={{ position: 'relative' }}>
+                {/* Today's Price Badge */}
+                <div className="today-price-badge">
+                    <div className="badge-label">TODAY</div>
+                    <div className="badge-price">${history[history.length - 1].price_usd_per_oz.toFixed(2)}</div>
+                    <div className="badge-unit">per oz</div>
+                </div>
+
+                <ResponsiveContainer width="100%" height={350}>
                     <AreaChart data={stats.dataWithMA} margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
                         <defs>
                             <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="var(--gold-accent)" stopOpacity={0.4} />
-                                <stop offset="95%" stopColor="var(--gold-accent)" stopOpacity={0} />
+                                <stop offset="5%" stopColor="var(--gold-accent)" stopOpacity={0.7} />
+                                <stop offset="95%" stopColor="var(--gold-accent)" stopOpacity={0.1} />
                             </linearGradient>
                         </defs>
-                        <CartesianGrid strokeDasharray="0" stroke="var(--text-color)" opacity={0.2} strokeWidth={2} />
+                        <CartesianGrid strokeDasharray="0" stroke="var(--text-color)" opacity={0.3} strokeWidth={3} />
                         <XAxis
                             dataKey="date"
                             stroke="var(--text-color)"
-                            strokeWidth={3}
-                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
+                            strokeWidth={4}
+                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 11 }}
                             tickFormatter={(value) => {
                                 const date = new Date(value);
                                 return `${date.getMonth() + 1}/${date.getDate()}`;
@@ -98,8 +105,8 @@ export default function GoldHistoryChart({ goldHistory }) {
                         />
                         <YAxis
                             stroke="var(--text-color)"
-                            strokeWidth={3}
-                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
+                            strokeWidth={4}
+                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 13 }}
                             tickFormatter={(value) => `$${value}`}
                             domain={['auto', 'auto']}
                         />
@@ -109,27 +116,27 @@ export default function GoldHistoryChart({ goldHistory }) {
                         <ReferenceDot
                             x={stats.minItem.date}
                             y={stats.minPrice}
-                            r={6}
+                            r={8}
                             fill="var(--danger-color)"
                             stroke="var(--text-color)"
-                            strokeWidth={2}
-                            label={{ value: 'MIN', position: 'bottom', fill: 'var(--text-color)', fontWeight: 'bold' }}
+                            strokeWidth={3}
+                            label={{ value: 'MIN', position: 'bottom', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
                         />
                         <ReferenceDot
                             x={stats.maxItem.date}
                             y={stats.maxPrice}
-                            r={6}
+                            r={8}
                             fill="var(--success-color)"
                             stroke="var(--text-color)"
-                            strokeWidth={2}
-                            label={{ value: 'MAX', position: 'top', fill: 'var(--text-color)', fontWeight: 'bold' }}
+                            strokeWidth={3}
+                            label={{ value: 'MAX', position: 'top', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
                         />
 
                         <Area
                             type="monotone"
                             dataKey="price_usd_per_oz"
                             stroke="var(--gold-accent)"
-                            strokeWidth={4}
+                            strokeWidth={5}
                             fill="url(#goldGradient)"
                             dot={false}
                         />
@@ -139,8 +146,8 @@ export default function GoldHistoryChart({ goldHistory }) {
                             type="monotone"
                             dataKey="ma7"
                             stroke="var(--gold-dark)"
-                            strokeWidth={2}
-                            strokeDasharray="5 5"
+                            strokeWidth={3}
+                            strokeDasharray="8 4"
                             dot={false}
                         />
                     </AreaChart>

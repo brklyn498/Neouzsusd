@@ -282,22 +282,74 @@ body:not(.dark-mode) select.brutal-btn option {
 .gold-bar-item {
   display: flex;
   justify-content: space-between;
-  padding: 0.75rem;
-  background: var(--bg-color);
-  border: 2px solid var(--border-color);
+  align-items: center;
+  padding: 1rem;
+  border: 3px solid var(--text-color);
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
 .gold-bar-item:hover {
-  background: var(--gold-accent);
+  transform: translateX(4px) translateY(-2px);
+  box-shadow: 6px 6px 0 var(--border-color) !important;
 }
 
 .gold-weight {
   font-weight: bold;
+  font-size: 1.2rem;
+  color: #000;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .gold-price {
   font-weight: bold;
-  color: var(--gold-dark);
+  font-size: 1.1rem;
+  color: #000;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Gold History Chart */
+.gold-stats {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Today's Price Badge */
+.today-price-badge {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  background: var(--gold-accent);
+  border: 4px solid var(--text-color);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+  padding: 0.75rem 1.25rem;
+  z-index: 10;
+  text-align: center;
+  min-width: 140px;
+}
+
+.badge-label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #000;
+  margin-bottom: 0.25rem;
+}
+
+.badge-price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.badge-unit {
+  font-size: 0.65rem;
+  color: #000;
+  opacity: 0.8;
 }
 
 .price-change {
@@ -306,13 +358,48 @@ body:not(.dark-mode) select.brutal-btn option {
   border: 2px solid var(--border-color);
 }
 
-.price-change.positive { background: var(--success-color); color: #000; }
-.price-change.negative { background: var(--danger-color); color: #fff; }
+.price-change.positive {
+  background: var(--success-color);
+  color: #000;
+}
 
-.chart-container { margin: 1rem 0; }
-.brutal-button { background: var(--card-bg); border: 3px solid var(--border-color); padding: 0.75rem 1.5rem; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-.gold-tooltip { background: var(--card-bg); border: 3px solid var(--border-color); padding: 0.75rem; font-weight: bold; }
-.gold-price-table { width: 100%; border-collapse: collapse; }
-.gold-price-table th { padding: 0.75rem; font-weight: bold; border: 2px solid var(--border-color); }
-.gold-price-table td { padding: 0.75rem; border: 2px solid var(--border-color); }
+.price-change.negative {
+  background: var(--danger-color);
+  color: #fff;
+}
 
+.chart-container {
+  margin: 1rem 0;
+}
+
+.brutal-button {
+  background: var(--card-bg);
+  border: 3px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.gold-tooltip {
+  background: var(--card-bg);
+  border: 3px solid var(--border-color);
+  padding: 0.75rem;
+  font-weight: bold;
+}
+
+.gold-price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gold-price-table th {
+  padding: 0.75rem;
+  font-weight: bold;
+  border: 2px solid var(--border-color);
+}
+
+.gold-price-table td {
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+}
