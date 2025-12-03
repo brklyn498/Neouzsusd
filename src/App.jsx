@@ -4,11 +4,13 @@ import BankList from './components/BankList';
 import Calculator from './components/Calculator';
 import HistoryChart from './components/HistoryChart';
 import OfflineBanner from './components/OfflineBanner';
+import SavingsList from './components/SavingsList';
 import { refreshRates } from './utils/fetchUtils';
 
 function App() {
   const [data, setData] = useState(null); // Holds the full nested data
   const [currency, setCurrency] = useState('USD'); // 'USD' or 'RUB'
+  const [viewMode, setViewMode] = useState('exchange'); // 'exchange' or 'savings'
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -99,6 +101,7 @@ function App() {
 
   const currentData = data ? data[currency.toLowerCase()] : null;
   const weatherData = data ? data.weather : null;
+  const savingsData = data ? data.savings : null;
 
   const getProcessedBanks = () => {
     if (!currentData || !currentData.banks) return [];
@@ -140,6 +143,9 @@ function App() {
   const bestBuyRate = currentData && currentData.banks ? Math.max(...currentData.banks.map(b => b.buy)) : 0;
   const bestSellRate = currentData && currentData.banks ? Math.min(...currentData.banks.map(b => b.sell)) : 0;
 
+  // Calculate top rate for header
+  const topSavingsRate = savingsData && savingsData.data ? Math.max(...savingsData.data.map(s => s.rate)) : 0;
+
   return (
     <div className="dashboard-container" style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
       <div className="brutal-grid"></div>
@@ -175,13 +181,26 @@ function App() {
               darkMode={darkMode}
               toggleDarkMode={toggleDarkMode}
               weather={weatherData}
+              viewMode={viewMode}
+              setViewMode={setViewMode}
+              topSavingsRate={topSavingsRate}
             />
 
-            <Calculator bestBuy={bestBuyRate} bestSell={bestSellRate} currency={currency} />
-
-            <div style={{ marginTop: '2rem' }}>
-              <HistoryChart history={currentData.history} currency={currency} />
-            </div>
+            {viewMode === 'exchange' ? (
+              <>
+                <Calculator bestBuy={bestBuyRate} bestSell={bestSellRate} currency={currency} />
+                <div style={{ marginTop: '2rem' }}>
+                  <HistoryChart history={currentData.history} currency={currency} />
+                </div>
+              </>
+            ) : (
+               // Savings Mode Sidebar Content
+               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                  <h3 style={{ marginTop: 0 }}>SAVINGS TIPS</h3>
+                  <p>Banks offer up to <strong>{topSavingsRate}%</strong> on annual deposits.</p>
+                  <p>Check "Online" badge for easy opening via apps.</p>
+               </div>
+            )}
 
             <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem', display: 'none' }} className="mobile-footer">
               LAST UPDATED: {data.last_updated}
@@ -189,39 +208,67 @@ function App() {
           </div>
 
           <div className="dashboard-right">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>MARKET RATES</h2>
+             {viewMode === 'exchange' ? (
+              <>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>MARKET RATES</h2>
 
-              <select
-                className="brutal-btn"
-                style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
-                value={sortType}
-                onChange={(e) => setSortType(e.target.value)}
-              >
-                <option value="best_buy">BEST BUY (Highest)</option>
-                <option value="best_sell">BEST SELL (Lowest)</option>
-                <option value="highest_sell">HIGHEST SELL</option>
-                <option value="alphabetical">ALPHABETICAL</option>
-                <option value="spread">SPREAD (Low to High)</option>
-              </select>
-            </div>
+                  <select
+                    className="brutal-btn"
+                    style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
+                    value={sortType}
+                    onChange={(e) => setSortType(e.target.value)}
+                  >
+                    <option value="best_buy">BEST BUY (Highest)</option>
+                    <option value="best_sell">BEST SELL (Lowest)</option>
+                    <option value="highest_sell">HIGHEST SELL</option>
+                    <option value="alphabetical">ALPHABETICAL</option>
+                    <option value="spread">SPREAD (Low to High)</option>
+                  </select>
+                </div>
 
-            <div className="bank-grid">
-              <BankList
-                banks={getProcessedBanks()}
-                currency={currency}
-                bestBuy={bestBuyRate}
-                bestSell={bestSellRate}
-              />
-            </div>
+                <div className="bank-grid">
+                  <BankList
+                    banks={getProcessedBanks()}
+                    currency={currency}
+                    bestBuy={bestBuyRate}
+                    bestSell={bestSellRate}
+                  />
+                </div>
 
-            <button
-              className="brutal-btn"
-              style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'var(--card-bg)', color: showAll ? '#000000' : 'var(--text-color)' }}
-              onClick={() => setShowAll(!showAll)}
-            >
-              {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}
-            </button>
+                <button
+                  className="brutal-btn"
+                  style={{ width: '100%', marginTop: '1rem', padding: '1rem', backgroundColor: showAll ? 'var(--accent-cyan)' : 'var(--card-bg)', color: showAll ? '#000000' : 'var(--text-color)' }}
+                  onClick={() => setShowAll(!showAll)}
+                >
+                  {showAll ? 'SHOW FEATURED ONLY' : 'SHOW ALL BANKS'}
+                </button>
+              </>
+            ) : (
+              <>
+                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>SAVINGS</h2>
+
+                  <select
+                    className="brutal-btn"
+                    style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
+                    value={sortType}
+                    onChange={(e) => setSortType(e.target.value)}
+                  >
+                    <option value="rate_desc">HIGHEST RATE</option>
+                    <option value="duration_desc">LONGEST DURATION</option>
+                    <option value="min_amount_asc">LOWEST DEPOSIT</option>
+                  </select>
+                </div>
+
+                <div className="bank-grid">
+                  <SavingsList
+                    savings={savingsData ? savingsData.data : []}
+                    sortType={sortType}
+                  />
+                </div>
+              </>
+            )}
 
             <div style={{ textAlign: 'center', marginTop: '2rem', opacity: 0.5, fontSize: '0.8rem' }}>
               LAST UPDATED: {data.last_updated}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import WeatherBadge from './WeatherBadge';
 
-const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather }) => {
+const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather, viewMode, setViewMode, topSavingsRate }) => {
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
           <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
-            UZS / {currency}
+            NEOUZS
           </h1>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
             <div
@@ -48,6 +48,39 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
         </div>
 
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          {/* View Mode Toggle */}
+          <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
+            <button
+              onClick={() => setViewMode('exchange')}
+              style={{
+                border: 'none',
+                background: viewMode === 'exchange' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: viewMode === 'exchange' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit'
+              }}
+            >
+              RATES
+            </button>
+            <button
+              onClick={() => setViewMode('savings')}
+              style={{
+                border: 'none',
+                background: viewMode === 'savings' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: viewMode === 'savings' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                borderLeft: '3px solid var(--border-color)'
+              }}
+            >
+              SAVINGS
+            </button>
+          </div>
+
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
@@ -61,6 +94,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           </button>
 
           {/* Currency Toggle */}
+          {viewMode === 'exchange' && (
           <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
             <button
               onClick={() => setCurrency('USD')}
@@ -122,6 +156,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
               KZT
             </button>
           </div>
+          )}
 
           <button
             onClick={onRefresh}
@@ -138,20 +173,36 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           </button>
         </div>
       </div>
-      <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
-          <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
-            {cbuRate ? cbuRate.toLocaleString() : 'LOADING...'}
-          </div>
-          {lastRefresh && (
-            <div style={{ fontSize: '0.7rem', opacity: 0.7, marginTop: '0.3rem' }}>
-              Last refreshed: {lastRefresh}
+      {viewMode === 'exchange' && (
+        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
+            <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+              {cbuRate ? cbuRate.toLocaleString() : 'LOADING...'}
             </div>
-          )}
+            {lastRefresh && (
+              <div style={{ fontSize: '0.7rem', opacity: 0.7, marginTop: '0.3rem' }}>
+                Last refreshed: {lastRefresh}
+              </div>
+            )}
+          </div>
+          <div style={{ fontSize: '3rem' }}>🏦</div>
+        </Card>
+      )}
+      {viewMode === 'savings' && (
+        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-green)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>TOP SAVINGS RATE</div>
+          <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+            {topSavingsRate ? `${topSavingsRate}%` : 'LOADING...'}
+          </div>
+          <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
+             FIND THE BEST DEPOSIT
+          </div>
         </div>
-        <div style={{ fontSize: '3rem' }}>🏦</div>
+        <div style={{ fontSize: '3rem' }}>💰</div>
       </Card>
+      )}
     </div>
   );
 };
