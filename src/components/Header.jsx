@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import WeatherBadge from './WeatherBadge';
 
 const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather }) => {
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      // Convert to GMT+5 (Uzbekistan time)
+      const uzbekTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tashkent' }));
+      const hours = uzbekTime.getHours().toString().padStart(2, '0');
+      const minutes = uzbekTime.getMinutes().toString().padStart(2, '0');
+      setCurrentTime(`${hours}:${minutes}`);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div style={{ marginBottom: '2rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
@@ -10,7 +27,24 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
             UZS / {currency}
           </h1>
-          <WeatherBadge weather={weather} />
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div
+              className="brutal-border brutal-shadow"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '6px 12px',
+                backgroundColor: 'var(--card-bg)',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                minWidth: '100px',
+                justifyContent: 'center'
+              }}
+            >
+              {currentTime}
+            </div>
+            <WeatherBadge weather={weather} />
+          </div>
         </div>
 
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
@@ -71,6 +105,21 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
               }}
             >
               EUR
+            </button>
+            <button
+              onClick={() => setCurrency('KZT')}
+              style={{
+                border: 'none',
+                background: currency === 'KZT' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: currency === 'KZT' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                borderLeft: '3px solid var(--border-color)'
+              }}
+            >
+              KZT
             </button>
           </div>
 

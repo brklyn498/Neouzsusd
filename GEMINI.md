@@ -103,6 +103,81 @@
 - **Verification**: Added verification images for EUR state.
 - **Header Update**: Updated `Header.jsx` to support the new currency toggle or display.
 
+### Phase 15: Time Display & Backend Server Configuration
+- **GMT+5 Clock**: Added live updating clock showing Uzbekistan time (GMT+5) in the header.
+- **Backend Server Setup**: Updated backend server configuration to use ports 3050 and 3051 for redundancy.
+- **Documentation**: Added comprehensive backend server setup instructions.
+
+### Phase 16: KZT (Kazakhstani Tenge) Support
+- **New Currency**: Added full support for KZT (Kazakhstani Tenge) currency.
+- **Backend Integration**:
+  - Added KZT configuration to `scraper.py` with CBU code, bank.uz URL, and fallback rates
+  - Implemented scraping from `https://bank.uz/uz/currency/kzt`
+  - Successfully scraping real data from 7 banks (Tenge Bank, NBU, Kapitalbank, etc.)
+  - Adjusted tolerance to 30% for KZT due to higher spread variance (vs 10% for other currencies)
+- **Frontend Update**: Added KZT toggle button to Header component matching USD/RUB/EUR styling
+- **Data Quality**: Real bank data (not mock) with CBU rate: 23.44 UZS per KZT
+- **Technical Challenge**: Bank.uz KZT page shows multiple currencies; scraper correctly identifies KZT container using rate range validation
+
+## Backend Server Setup
+
+This application requires backend servers to handle data refresh requests.
+
+### Running the Backend Servers
+
+The application uses two backend server instances for redundancy:
+
+**Server 1 (Port 3050):**
+```bash
+node server.js --port=3050
+```
+
+**Server 2 (Port 3051):**
+```bash
+node server.js --port=3051
+```
+
+### Development Workflow
+
+1. **Start the Vite dev server:**
+   ```bash
+   npm run dev
+   ```
+
+2. **Start backend server 1 (in a separate terminal):**
+   ```bash
+   node server.js --port=3050
+   ```
+
+3. **Start backend server 2 (in a separate terminal):**
+   ```bash
+   node server.js --port=3051
+   ```
+
+### What the Backend Servers Do
+
+- Handle `/api/refresh` POST requests
+- Trigger the Python scraper (`scripts/scraper.py`) with `--force` flag
+- Update exchange rates and weather/AQI data
+- The scraper fetches:
+  - CBU exchange rates for USD, RUB, EUR, KZT
+  - Commercial bank rates from bank.uz
+  - Air quality data from IQAir API for Tashkent
+
+### Troubleshooting
+
+If the refresh button doesn't update AQI data:
+1. Ensure at least one backend server is running
+2. Check that the server is accessible at the configured port
+3. Verify the Python scraper can run: `python scripts/scraper.py --force`
+4. Check the IQAir API key in `scripts/scraper.py` (default key is included)
+
+### Port Configuration
+
+The Vite development server proxies `/api` requests to the backend servers:
+- Primary: `http://localhost:3050`
+- Fallback: `http://localhost:3051`
+
 ## Future Roadmap (Next Steps)
 
 ### Option 1: The "Visuals" Update (Charts) 📈 (COMPLETED)

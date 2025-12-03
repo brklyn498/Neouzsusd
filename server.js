@@ -6,7 +6,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = 3001;
+// Parse command line arguments for port
+const args = process.argv.slice(2);
+const portArg = args.find(arg => arg.startsWith('--port='));
+const PORT = portArg ? parseInt(portArg.split('=')[1]) : 3050;
 
 const server = http.createServer((req, res) => {
     // Set CORS headers to allow requests from the frontend (if not using proxy)
