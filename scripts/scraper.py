@@ -822,9 +822,10 @@ def fetch_gold_history(existing_data, force=False):
         
         # URL for Aggregates (Bars)
         # C:XAUUSD is the ticker for Gold Spot US Dollar
-        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50&apiKey={api_key}"
+        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
         
-        response = requests.get(url, timeout=15)
+        headers = {"Authorization": f"Bearer {api_key}"}
+        response = requests.get(url, headers=headers, timeout=15)
 
         if response.status_code == 200:
             data = response.json()
@@ -931,9 +932,10 @@ def fetch_silver_history(existing_data, force=False):
 
         # URL for Aggregates (Bars)
         # C:XAGUSD is the ticker for Silver Spot US Dollar
-        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAGUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50&apiKey={api_key}"
+        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAGUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
 
-        response = requests.get(url, timeout=15)
+        headers = {"Authorization": f"Bearer {api_key}"}
+        response = requests.get(url, headers=headers, timeout=15)
 
         if response.status_code == 200:
             data = response.json()
@@ -1039,9 +1041,10 @@ def fetch_bitcoin_history(existing_data, force=False):
 
         # URL for Aggregates (Bars)
         # X:BTCUSD is the ticker for Bitcoin/USD
-        url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50&apiKey={api_key}"
+        url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
 
-        response = requests.get(url, timeout=15)
+        headers = {"Authorization": f"Bearer {api_key}"}
+        response = requests.get(url, headers=headers, timeout=15)
 
         if response.status_code == 200:
             data = response.json()
