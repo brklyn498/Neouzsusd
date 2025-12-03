@@ -448,8 +448,23 @@ def fetch_iqair_data(existing_data):
     print("--- Processing IQAir Weather Data ---")
 
     api_key = os.environ.get("IQAIR_API_KEY")
+    
+    # If not in env, try reading from .env file manually (for local dev)
     if not api_key:
-        print("IQAIR_API_KEY not found in environment variables. Skipping.")
+        try:
+            env_path = os.path.join(os.getcwd(), '.env')
+            if os.path.exists(env_path):
+                with open(env_path, 'r') as f:
+                    for line in f:
+                        if line.strip().startswith('IQAIR_API_KEY='):
+                            api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
+                            print("Loaded IQAIR_API_KEY from .env file")
+                            break
+        except Exception as e:
+            print(f"Error reading .env file: {e}")
+
+    if not api_key:
+        print("IQAIR_API_KEY not found in environment variables or .env file. Skipping.")
         # Return existing data if available
         return existing_data.get("weather") if existing_data else None
 
