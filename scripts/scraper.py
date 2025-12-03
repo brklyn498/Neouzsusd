@@ -59,8 +59,10 @@ def fetch_url(url, retries=3, delay=2):
                 time.sleep(delay)
             else:
                 print(f"Status {response.status_code} at {url}.")
-        except Exception as e:
+        except requests.RequestException as e:
             print(f"Error fetching {url}: {e}")
+        except Exception as e:
+            print(f"Unexpected error fetching {url}: {e}")
 
         time.sleep(delay)
 
@@ -445,7 +447,7 @@ def fetch_iqair_data(existing_data):
     """
     print("--- Processing IQAir Weather Data ---")
 
-    api_key = os.environ.get("IQAIR_API_KEY") or "45ea3f6e-dcda-42ce-991f-e697a726f5a2"
+    api_key = os.environ.get("IQAIR_API_KEY")
     if not api_key:
         print("IQAIR_API_KEY not found in environment variables. Skipping.")
         # Return existing data if available
@@ -466,7 +468,7 @@ def fetch_iqair_data(existing_data):
                 print(f"Error parsing timestamp: {e}")
 
     # Tashkent endpoint: City=Tashkent, State=Toshkent Shahri, Country=Uzbekistan
-    url = f"http://api.airvisual.com/v2/city?city=Tashkent&state=Toshkent%20Shahri&country=Uzbekistan&key={api_key}"
+    url = f"https://api.airvisual.com/v2/city?city=Tashkent&state=Toshkent%20Shahri&country=Uzbekistan&key={api_key}"
 
     print("Fetching fresh IQAir data...")
     response = fetch_url(url)
