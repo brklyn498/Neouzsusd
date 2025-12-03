@@ -272,7 +272,7 @@ function App() {
                 <div className="brutal-card" style={{ padding: '1.5rem', textAlign: 'center', marginBottom: '2rem', fontSize: '0.9rem' }}>
                    <p style={{ margin: 0, opacity: 0.7 }}>
                      <strong>DATA SOURCES:</strong> Gold Bar prices from Central Bank of Uzbekistan (via bank.uz).
-                     Global Spot Gold (XAU/USD) prices via Massive.com API.
+                     Global Spot Gold (XAU/USD) prices via Massive.com API. (Tip: You can drag the 'Today' badge on the chart)
                    </p>
                 </div>
               </>

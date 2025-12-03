@@ -1,8 +1,13 @@
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Brush, ReferenceDot } from 'recharts';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 
 export default function GoldHistoryChart({ goldHistory }) {
     const [showTable, setShowTable] = useState(false);
+    const containerRef = useRef(null);
+    const badgeRef = useRef(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [badgePosition, setBadgePosition] = useState(null); // { left: x, top: y }
+    const dragOffset = useRef({ x: 0, y: 0 });
 
     if (!goldHistory || !goldHistory.data || goldHistory.data.length === 0) {
         return null;
@@ -75,6 +80,67 @@ export default function GoldHistoryChart({ goldHistory }) {
         );
     };
 
+    const handleMouseDown = (e) => {
+        if (!badgeRef.current || !containerRef.current) return;
+
+        e.preventDefault(); // Prevent text selection
+
+        const badgeRect = badgeRef.current.getBoundingClientRect();
+        const containerRect = containerRef.current.getBoundingClientRect();
+
+        // If first drag (no state yet), initialize state
+        if (!badgePosition) {
+             const initialLeft = badgeRect.left - containerRect.left;
+             const initialTop = badgeRect.top - containerRect.top;
+             setBadgePosition({ left: initialLeft, top: initialTop });
+        }
+
+        setIsDragging(true);
+
+        // Offset relative to the badge itself
+        dragOffset.current = {
+            x: e.clientX - badgeRect.left,
+            y: e.clientY - badgeRect.top
+        };
+    };
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            if (!isDragging || !containerRef.current || !badgeRef.current) return;
+
+            const containerRect = containerRef.current.getBoundingClientRect();
+
+            let newLeft = e.clientX - containerRect.left - dragOffset.current.x;
+            let newTop = e.clientY - containerRect.top - dragOffset.current.y;
+
+            // Constrain
+            const badgeWidth = badgeRef.current.offsetWidth;
+            const badgeHeight = badgeRef.current.offsetHeight;
+            const containerWidth = containerRef.current.offsetWidth;
+            const containerHeight = containerRef.current.offsetHeight;
+
+            // Clamp
+            newLeft = Math.max(0, Math.min(newLeft, containerWidth - badgeWidth));
+            newTop = Math.max(0, Math.min(newTop, containerHeight - badgeHeight));
+
+            setBadgePosition({ left: newLeft, top: newTop });
+        };
+
+        const handleMouseUp = () => {
+            setIsDragging(false);
+        };
+
+        if (isDragging) {
+            window.addEventListener('mousemove', handleMouseMove);
+            window.addEventListener('mouseup', handleMouseUp);
+        }
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [isDragging]);
+
     return (
         <div className="brutal-card gold-history-card">
             <div className="card-header">
@@ -84,9 +150,23 @@ export default function GoldHistoryChart({ goldHistory }) {
                 </div>
             </div>
 
-            <div className="chart-container" style={{ position: 'relative' }}>
+            <div className="chart-container" style={{ position: 'relative' }} ref={containerRef}>
                 {/* Today's Price Badge */}
-                <div className="today-price-badge">
+                <div
+                    className="today-price-badge"
+                    ref={badgeRef}
+                    onMouseDown={handleMouseDown}
+                    style={{
+                        cursor: isDragging ? 'grabbing' : 'grab',
+                        ...(badgePosition ? {
+                            left: badgePosition.left,
+                            top: badgePosition.top,
+                            right: 'auto',
+                            bottom: 'auto',
+                            position: 'absolute'
+                        } : {})
+                    }}
+                >
                     <div className="badge-header">
                         <span className="badge-label">TODAY</span>
                     </div>
