@@ -748,6 +748,17 @@ def fetch_gold_bar_prices():
                 print(f"Error parsing gold bar row: {inner_e}")
                 continue
         
+        # Sort gold bars by weight (asc) and then price (asc)
+        # Parse weight to int: "5g" -> 5
+        def get_weight_val(bar):
+            w_str = bar['weight'].lower().replace('g', '')
+            try:
+                return int(w_str)
+            except ValueError:
+                return 0
+
+        gold_bars.sort(key=lambda x: (get_weight_val(x), x['price']))
+
         print(f"Successfully scraped {len(gold_bars)} gold bar prices.")
         return gold_bars
         
