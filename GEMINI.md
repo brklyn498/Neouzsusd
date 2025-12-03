@@ -142,6 +142,19 @@
 - **Integration**: Components added to left panel (Tools section) after currency history chart
 - **Verification**: All features tested and working perfectly in browser
 
+### Phase 18: UI Polish - Chart Visibility & Dark Mode Improvements
+- **Chart Hover Indicators**: Improved visibility of chart hover dots across all precious metal charts
+  - Replaced small colored dots with **white dots (8px radius)** with **thick black borders (4px stroke)**
+  - Applied to `GoldHistoryChart.jsx`, `SilverHistoryChart.jsx`, and `BitcoinHistoryChart.jsx`
+  - Much easier to see which data point you're hovering over in both light and dark modes
+  - Implemented via `activeDot` prop on Area components in recharts
+- **Dark Mode Button Visibility**: Fixed "SHOW TABLE"/"HIDE TABLE" button text invisibility in dark mode
+  - Added dark mode CSS override for `.brutal-button` class in `src/index.css`
+  - Applied `color: #FFFFFF` and `border-color: #FFFFFF` for better contrast against purple gradient background
+  - Maintains original Neobrutalist design while ensuring readability
+- **Git Workflow**: Successfully stashed local changes, pulled latest from remote, and reapplied changes without conflicts
+
+
 ## Backend Server Setup
 
 This application requires backend servers to handle data refresh requests.
