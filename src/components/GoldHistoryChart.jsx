@@ -75,11 +75,11 @@ export default function GoldHistoryChart({ goldHistory }) {
             </div>
 
             <div className="chart-container">
-                <ResponsiveContainer width="100%" height={300}>
-                    <AreaChart data={stats.dataWithMA} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                <ResponsiveContainer width="100%" height={400}>
+                    <AreaChart data={stats.dataWithMA} margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
                         <defs>
                             <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="var(--gold-accent)" stopOpacity={0.3} />
+                                <stop offset="5%" stopColor="var(--gold-accent)" stopOpacity={0.4} />
                                 <stop offset="95%" stopColor="var(--gold-accent)" stopOpacity={0} />
                             </linearGradient>
                         </defs>
@@ -88,31 +88,22 @@ export default function GoldHistoryChart({ goldHistory }) {
                             dataKey="date"
                             stroke="var(--text-color)"
                             strokeWidth={3}
-                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 10 }}
+                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
                             tickFormatter={(value) => {
                                 const date = new Date(value);
                                 return `${date.getMonth() + 1}/${date.getDate()}`;
                             }}
                             interval="preserveStartEnd"
+                            dy={10}
                         />
                         <YAxis
                             stroke="var(--text-color)"
                             strokeWidth={3}
                             tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
                             tickFormatter={(value) => `$${value}`}
-                            domain={['dataMin - 10', 'dataMax + 10']}
+                            domain={['auto', 'auto']}
                         />
                         <Tooltip content={<CustomTooltip />} />
-                        <Brush
-                            dataKey="date"
-                            height={30}
-                            stroke="var(--gold-accent)"
-                            fill="var(--bg-color)"
-                            tickFormatter={(value) => {
-                                const date = new Date(value);
-                                return `${date.getMonth() + 1}/${date.getDate()}`;
-                            }}
-                        />
 
                         {/* Min/Max markers */}
                         <ReferenceDot

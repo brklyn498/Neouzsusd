@@ -758,7 +758,7 @@ def fetch_gold_bar_prices():
 def fetch_gold_history(existing_data, force=False):
     """
     Fetches 30-day historical gold price data (USD per troy ounce).
-    Uses free gold price API for real market data.
+    Uses Massive.com (Polygon.io) API.
     Updates once per day unless force=True.
     """
     print("--- Processing Gold Price History ---")
@@ -770,90 +770,96 @@ def fetch_gold_history(existing_data, force=False):
             try:
                 last_time = datetime.datetime.fromtimestamp(last_ts)
                 now = datetime.datetime.now()
+                # Check if same day, or if < 24h.
+                # Since gold market closes on weekends, 24h cache is reasonable.
                 if (now - last_time).total_seconds() < 86400:  # 24 hours
                     print("Gold history is fresh (< 24 hours). Using cached.")
                     return existing_data["gold_history"]
             except Exception as e:
                 print(f"Error parsing timestamp: {e}")
     
+    api_key = os.environ.get("POLYGON_API_KEY")
+    if not api_key:
+        print("POLYGON_API_KEY not found. Using cached or skipping.")
+        return existing_data.get("gold_history") if existing_data else None
+
     try:
-        print("Fetching gold history from free API...")
+        print("Fetching gold history from Massive.com (Polygon.io)...")
         
-        # Use goldapi.io free tier (1000 requests/month, no auth needed for current price)
-        # For historical data, we'll use current price and generate realistic variations
-        # This gives us real current price (~$4200/oz) with historical trend
-        
-        # Get current gold price
-        current_url = "https://www.goldapi.io/api/XAU/USD"
-        response = fetch_url(current_url)
-        
-        current_price = None
-        if response and response.status_code == 200:
-            try:
-                data = response.json()
-                # goldapi.io returns price per ounce
-                current_price = data.get("price_gram_24k", 0) * 31.1035  # Convert to troy ounce
-                if current_price == 0:
-                    # Try alternate field
-                    current_price = data.get("price", 2650)  # Fallback
-                print(f"Current gold price: ${current_price:.2f}/oz")
-            except Exception as e:
-                print(f"Error parsing gold API response: {e}")
-        
-        # If API fails, try alternate free source
-        if not current_price:
-            print("Trying alternate API...")
-            # Use metals-api.com sample endpoint or other free source
-            current_price = 2650.00  # Realistic fallback
-        
-        # Generate 30-day history with realistic variations based on current price
-        history_data = []
+        # Calculate dates
         today = datetime.date.today()
+        end_date_str = today.strftime("%Y-%m-%d")
+        start_date = today - datetime.timedelta(days=35) # Fetch a few extra days to handle weekends/holidays and ensure we get 30 datapoints
+        start_date_str = start_date.strftime("%Y-%m-%d")
         
-        # Start from 30 days ago at slightly lower price (realistic trend)
-        base_price = current_price - 50  # Start $50 lower than current
+        # URL for Aggregates (Bars)
+        # C:XAUUSD is the ticker for Gold Spot US Dollar
+        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50&apiKey={api_key}"
         
-        for i in range(30):
-            date_obj = today - datetime.timedelta(days=29-i)
-            date_str = date_obj.strftime("%Y-%m-%d")
+        response = requests.get(url, timeout=15)
+
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("status") != "OK" and data.get("status") != "DELAYED": # DELAYED is also fine usually
+                # Sometimes status is OK even if empty results
+                 pass
+
+            results = data.get("results", [])
+            if not results:
+                 print("No results found in Polygon response.")
+                 return existing_data.get("gold_history") if existing_data else None
+
+            history_data = []
             
-            # Add realistic daily variation (±1-2%)
-            daily_variation = random.uniform(-0.02, 0.02)
-            # Gradual upward trend to match current price
-            trend = (i / 29) * 50  # Gradually increase to current price
+            for item in results:
+                # 't' is timestamp in ms
+                ts = item.get("t")
+                if not ts:
+                    continue
+
+                date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
+                price = item.get("c") # Close price
+
+                history_data.append({
+                    "date": date_str,
+                    "price_usd_per_oz": float(price),
+                    # change_percent will be calculated below
+                })
             
-            price = base_price + trend + (base_price * daily_variation)
+            # Sort by date just in case
+            history_data.sort(key=lambda x: x['date'])
             
-            # Ensure last day matches current price
-            if i == 29 and current_price:
-                price = current_price
+            # Calculate change percent
+            for i in range(len(history_data)):
+                if i > 0:
+                    prev_price = history_data[i-1]["price_usd_per_oz"]
+                    curr_price = history_data[i]["price_usd_per_oz"]
+                    change_percent = ((curr_price - prev_price) / prev_price) * 100
+                    history_data[i]["change_percent"] = round(change_percent, 2)
+                else:
+                    history_data[i]["change_percent"] = 0.0
             
-            if i > 0:
-                prev_price = history_data[i-1]["price_usd_per_oz"]
-                change_percent = ((price - prev_price) / prev_price) * 100
-            else:
-                change_percent = 0.0
+            # Keep last 30 entries
+            if len(history_data) > 30:
+                history_data = history_data[-30:]
             
-            history_data.append({
-                "date": date_str,
-                "price_usd_per_oz": round(price, 2),
-                "change_percent": round(change_percent, 2)
-            })
-        
-        print(f"Generated {len(history_data)} days of gold price history (based on current market price).")
-        
-        return {
-            "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-            "last_updated_ts": datetime.datetime.now().timestamp(),
-            "data": history_data,
-            "source": "goldapi.io",
-            "note": "Historical data based on current market price with realistic variations"
-        }
-    
+            print(f"Successfully fetched {len(history_data)} days of gold prices.")
+            if history_data:
+                print(f"Latest price: ${history_data[-1]['price_usd_per_oz']}/oz ({history_data[-1]['date']})")
+
+            return {
+                "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+                "last_updated_ts": datetime.datetime.now().timestamp(),
+                "data": history_data,
+                "source": "Massive.com (Polygon.io)",
+                "note": "Real market data"
+            }
+
+        else:
+            print(f"Polygon API Error: {response.status_code} - {response.text}")
+
     except Exception as e:
         print(f"Error fetching gold prices: {e}")
-        import traceback
-        traceback.print_exc()
     
     # Fallback to cached data if everything fails
     print("Falling back to cached data...")
