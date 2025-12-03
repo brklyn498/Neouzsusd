@@ -205,11 +205,6 @@ function App() {
                     <GoldBarPrices goldBars={goldBarsData} />
                   </div>
                 )}
-                {goldHistoryData && (
-                  <div style={{ marginTop: '2rem' }}>
-                    <GoldHistoryChart goldHistory={goldHistoryData} />
-                  </div>
-                )}
               </>
             ) : (
               // Savings Mode Sidebar Content
@@ -268,14 +263,17 @@ function App() {
                   <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>PRECIOUS METALS</h2>
                 </div>
 
-                <div className="brutal-card" style={{ padding: '2rem', textAlign: 'center', marginBottom: '2rem' }}>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>📊 LIVE GOLD DATA</h3>
-                  <p style={{ fontSize: '1rem', opacity: 0.8 }}>
-                    Real-time gold bar prices from MB Bank (Uzbekistan) and 30-day historical XAU/USD price charts.
-                  </p>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.6, marginTop: '1rem' }}>
-                    Source: bank.uz + Massive.com API
-                  </p>
+                {goldHistoryData && (
+                  <div style={{ marginBottom: '2rem' }}>
+                    <GoldHistoryChart goldHistory={goldHistoryData} />
+                  </div>
+                )}
+
+                <div className="brutal-card" style={{ padding: '1.5rem', textAlign: 'center', marginBottom: '2rem', fontSize: '0.9rem' }}>
+                   <p style={{ margin: 0, opacity: 0.7 }}>
+                     <strong>DATA SOURCES:</strong> Gold Bar prices from Central Bank of Uzbekistan (via bank.uz).
+                     Global Spot Gold (XAU/USD) prices via Massive.com API.
+                   </p>
                 </div>
               </>
             ) : (
