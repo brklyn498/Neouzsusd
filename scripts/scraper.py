@@ -6,6 +6,8 @@ import os
 import time
 from bs4 import BeautifulSoup
 from bank_mapping import get_bank_logo
+import firebase_admin
+from firebase_admin import credentials, messaging
 
 OUTPUT_FILE = "public/rates.json"
 
@@ -1157,6 +1159,82 @@ def fetch_bitcoin_history(existing_data, force=False):
     print("Falling back to cached bitcoin data...")
     return existing_data.get("bitcoin_history") if existing_data else None
 
+def send_notifications(new_data, old_data):
+    """
+    Checks for significant rate changes and sends notifications via Firebase.
+    """
+    print("--- Checking for Rate Changes ---")
+
+    # Check if Firebase credentials are provided
+    if not os.environ.get("FIREBASE_CREDENTIALS"):
+        print("No FIREBASE_CREDENTIALS env var found. Skipping notifications.")
+        return
+
+    try:
+        # Check for target device token
+        device_token = os.environ.get("FCM_DEVICE_TOKEN")
+        if not device_token:
+            print("No FCM_DEVICE_TOKEN env var found. Skipping.")
+            return
+
+        # Initialize Firebase App
+        if not firebase_admin._apps:
+            cred_dict = json.loads(os.environ.get("FIREBASE_CREDENTIALS"))
+            cred = credentials.Certificate(cred_dict)
+            firebase_admin.initialize_app(cred)
+
+        # Compare rates
+        currencies = ['usd', 'eur', 'rub', 'kzt']
+        thresholds = {'usd': 50, 'eur': 50, 'rub': 5, 'kzt': 2}
+
+        alerts = []
+
+        for curr in currencies:
+            if not old_data or curr not in old_data or curr not in new_data:
+                continue
+
+            new_banks = new_data[curr].get('banks', [])
+            old_banks = old_data[curr].get('banks', [])
+
+            if not new_banks or not old_banks:
+                continue
+
+            # Calculate best rates
+            new_best_buy = max([b['buy'] for b in new_banks])
+            new_best_sell = min([b['sell'] for b in new_banks])
+
+            old_best_buy = max([b['buy'] for b in old_banks])
+            old_best_sell = min([b['sell'] for b in old_banks])
+
+            threshold = thresholds.get(curr, 50)
+
+            # Check Buy Rate Increase (Good for sellers)
+            if new_best_buy > old_best_buy + threshold:
+                alerts.append(f"{curr.upper()} Buy Rate UP: {old_best_buy} -> {new_best_buy} UZS")
+
+            # Check Sell Rate Decrease (Good for buyers)
+            if new_best_sell < old_best_sell - threshold:
+                 alerts.append(f"{curr.upper()} Sell Rate DOWN: {old_best_sell} -> {new_best_sell} UZS")
+
+        if alerts:
+            message_body = "\n".join(alerts)
+            print(f"Sending notification: {message_body}")
+
+            # Send message to single device
+            message = messaging.Message(
+                notification=messaging.Notification(
+                    title='NeoUZS Rate Alert 🚀',
+                    body=message_body,
+                ),
+                token=device_token,
+            )
+
+            response = messaging.send(message)
+            print(f"Successfully sent message: {response}")
+
+    except Exception as e:
+        print(f"Error sending notifications: {e}")
+
 def main():
     parser = argparse.ArgumentParser(description="Scrape exchange rates and weather data.")
     parser.add_argument("--force", action="store_true", help="Force update even if cached data exists.")
@@ -1217,6 +1295,10 @@ def main():
         json.dump(output, f, indent=2)
 
     print(f"Data saved to {OUTPUT_FILE}")
+
+    # Send Notifications if changes found
+    if existing_data:
+        send_notifications(output, existing_data)
 
 if __name__ == "__main__":
     main()

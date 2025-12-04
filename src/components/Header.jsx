@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import WeatherBadge from './WeatherBadge';
+import NotificationToggle from './NotificationToggle';
 
 const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather, viewMode, setViewMode, topSavingsRate, metalType }) => {
   const [currentTime, setCurrentTime] = useState('');
@@ -22,6 +23,9 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
 
   return (
     <div style={{ marginBottom: '2rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.5rem' }}>
+         <NotificationToggle />
+      </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
           <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
