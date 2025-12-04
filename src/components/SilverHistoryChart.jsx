@@ -142,7 +142,7 @@ export default function SilverHistoryChart({ silverHistory }) {
     }, [isDragging]);
 
     return (
-        <div className="brutal-card gold-history-card" style={{ borderColor: 'var(--silver-dark)' }}>
+        <div className="brutal-card gold-history-card animate-slide-in" style={{ borderColor: 'var(--silver-dark)' }}>
             <div className="card-header">
                 <div>
                     <span className="gold-icon">📈</span>

@@ -142,7 +142,7 @@ export default function GoldHistoryChart({ goldHistory }) {
     }, [isDragging]);
 
     return (
-        <div className="brutal-card gold-history-card">
+        <div className="brutal-card gold-history-card animate-slide-in">
             <div className="card-header">
                 <div>
                     <span className="gold-icon">📈</span>

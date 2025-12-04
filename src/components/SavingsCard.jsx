@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const SavingsCard = ({ savings, isBestRate }) => {
+const SavingsCard = ({ savings, isBestRate, className = '' }) => {
   const { bank_name, deposit_name, rate, duration, min_amount, is_online, logo } = savings;
 
   // Function to determine logo source
@@ -11,7 +11,7 @@ const SavingsCard = ({ savings, isBestRate }) => {
   };
 
   return (
-    <Card className="brutal-card-hover" style={{ position: 'relative', overflow: 'hidden' }}>
+    <Card className={`brutal-card-hover ${className}`} style={{ position: 'relative', overflow: 'hidden' }}>
       {isBestRate && (
         <div style={{
           position: 'absolute',
@@ -42,7 +42,7 @@ const SavingsCard = ({ savings, isBestRate }) => {
             flexShrink: 0,
             background: 'white'
           }}>
-             <img
+            <img
               src={getLogoSrc()}
               alt={bank_name}
               style={{ width: '100%', height: '100%', objectFit: 'contain' }}
@@ -84,31 +84,31 @@ const SavingsCard = ({ savings, isBestRate }) => {
         </div>
 
         <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '5px' }}>
-             {is_online ? (
-              <span className="brutal-pill" style={{
-                  backgroundColor: 'var(--badge-online-bg)',
-                  color: 'var(--badge-online-text)',
-                  alignSelf: 'flex-end',
-                  marginBottom: '5px'
-              }}>
-                ONLINE
-              </span>
-            ) : (
-              <span className="brutal-pill" style={{
-                  backgroundColor: 'var(--badge-banks-bg)',
-                  color: 'var(--badge-banks-text)',
-                  alignSelf: 'flex-end',
-                  marginBottom: '5px'
-              }}>
-                BANKS ONLY
-              </span>
-            )}
-           <div style={{ fontSize: '0.9rem' }}>
+          {is_online ? (
+            <span className="brutal-pill" style={{
+              backgroundColor: 'var(--badge-online-bg)',
+              color: 'var(--badge-online-text)',
+              alignSelf: 'flex-end',
+              marginBottom: '5px'
+            }}>
+              ONLINE
+            </span>
+          ) : (
+            <span className="brutal-pill" style={{
+              backgroundColor: 'var(--badge-banks-bg)',
+              color: 'var(--badge-banks-text)',
+              alignSelf: 'flex-end',
+              marginBottom: '5px'
+            }}>
+              BANKS ONLY
+            </span>
+          )}
+          <div style={{ fontSize: '0.9rem' }}>
             <span style={{ opacity: 0.7 }}>Duration: </span> <strong>{duration}</strong>
-           </div>
-           <div style={{ fontSize: '0.9rem' }}>
+          </div>
+          <div style={{ fontSize: '0.9rem' }}>
             <span style={{ opacity: 0.7 }}>Min: </span> <strong>{min_amount}</strong>
-           </div>
+          </div>
         </div>
       </div>
     </Card>

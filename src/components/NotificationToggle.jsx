@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { requestForToken, unsubscribeUser, onMessageListener } from '../firebase-config';
+import { requestForToken, unsubscribeUser, onMessageListener, isFirebaseConfigured } from '../firebase-config';
 
 const NotificationToggle = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -7,6 +7,11 @@ const NotificationToggle = () => {
   const [notification, setNotification] = useState({title: '', body: ''});
 
   useEffect(() => {
+    // Don't initialize if Firebase is not configured
+    if (!isFirebaseConfigured) {
+      return;
+    }
+
     // Check if user has already granted permission
     if (Notification.permission === 'granted') {
        setIsSubscribed(true);
@@ -45,6 +50,11 @@ const NotificationToggle = () => {
     }
     setLoading(false);
   };
+
+  // Don't render if Firebase is not configured
+  if (!isFirebaseConfigured) {
+    return null;
+  }
 
   return (
     <div style={{ marginBottom: '1rem', textAlign: 'right' }}>

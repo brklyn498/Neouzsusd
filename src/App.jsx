@@ -266,6 +266,7 @@ function App() {
                     currency={currency}
                     bestBuy={bestBuyRate}
                     bestSell={bestSellRate}
+                    cbuRate={currentData.cbu}
                   />
                 </div>
 

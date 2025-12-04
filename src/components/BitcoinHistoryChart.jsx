@@ -142,7 +142,7 @@ export default function BitcoinHistoryChart({ bitcoinHistory }) {
     }, [isDragging]);
 
     return (
-        <div className="brutal-card gold-history-card" style={{ borderColor: 'var(--bitcoin-accent)', boxShadow: '4px 4px 0 var(--bitcoin-accent)' }}>
+        <div className="brutal-card gold-history-card animate-slide-in" style={{ borderColor: 'var(--bitcoin-accent)', boxShadow: '4px 4px 0 var(--bitcoin-accent)' }}>
             <div className="card-header">
                 <div>
                     <span className="gold-icon">₿</span>

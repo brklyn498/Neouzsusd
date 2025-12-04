@@ -24,11 +24,11 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
   return (
     <div style={{ marginBottom: '2rem' }}>
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.5rem' }}>
-         <NotificationToggle />
+        <NotificationToggle />
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-          <h1 style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
+          <h1 className="animate-pop-in" style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
             NEOUZS
           </h1>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -208,7 +208,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
         </div>
       </div>
       {viewMode === 'exchange' && (
-        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Card className="animate-slide-in" style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
             <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
@@ -224,10 +224,10 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
         </Card>
       )}
       {viewMode === 'metals' && (
-        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : (metalType === 'bitcoin' ? 'var(--bitcoin-accent)' : (metalType === 'silver' ? 'var(--silver-accent)' : 'var(--gold-accent)')), color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Card className="animate-slide-in" style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : (metalType === 'bitcoin' ? 'var(--bitcoin-accent)' : (metalType === 'silver' ? 'var(--silver-accent)' : 'var(--gold-accent)')), color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>
-                {metalType === 'bitcoin' ? 'BITCOIN PRICE (BTC/USD)' : (metalType === 'silver' ? 'SILVER PRICE (XAG/USD)' : 'GOLD PRICE (XAU/USD)')}
+              {metalType === 'bitcoin' ? 'BITCOIN PRICE (BTC/USD)' : (metalType === 'silver' ? 'SILVER PRICE (XAG/USD)' : 'GOLD PRICE (XAU/USD)')}
             </div>
             <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
               LIVE DATA
@@ -240,7 +240,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
         </Card>
       )}
       {viewMode === 'savings' && (
-        <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-green)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Card className="animate-slide-in" style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-green)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>TOP SAVINGS RATE</div>
             <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>

@@ -154,6 +154,15 @@
   - Maintains original Neobrutalist design while ensuring readability
 - **Git Workflow**: Successfully stashed local changes, pulled latest from remote, and reapplied changes without conflicts
 
+### Phase 19: Animations & Backend Fixes
+- **Backend Fix**: Resolved missing `firebase-admin` dependency issue that was causing the scraper to fail.
+- **Neubrutalist Animations**: Implemented a comprehensive animation system:
+  - **Global Keyframes**: Added `slideInBrutal`, `popInBrutal`, and `glitchBrutal` to `index.css`.
+  - **Staggered Entry**: Bank cards and Savings cards now slide in one by one with staggered delays.
+  - **Header Animations**: "NEOUZS" title pops in, and rate cards slide in.
+  - **Component Animations**: Applied slide-in effects to Gold Bar Prices and all History Charts.
+- **Result**: The application now feels significantly more dynamic and "alive" while maintaining its brutalist aesthetic.
+
 
 ## Backend Server Setup
 

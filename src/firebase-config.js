@@ -13,12 +13,23 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
-const db = getFirestore(app);
+// Check if Firebase is configured
+const isFirebaseConfigured = firebaseConfig.projectId && firebaseConfig.apiKey;
+
+// Initialize Firebase only if configured
+let app, messaging, db;
+if (isFirebaseConfigured) {
+  app = initializeApp(firebaseConfig);
+  messaging = getMessaging(app);
+  db = getFirestore(app);
+}
 
 export const requestForToken = async () => {
+  if (!isFirebaseConfigured) {
+    console.log('Firebase is not configured. Skipping token request.');
+    return null;
+  }
+
   try {
     const currentToken = await getToken(messaging, { vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY });
     if (currentToken) {
@@ -46,6 +57,11 @@ export const requestForToken = async () => {
 
 // Modified to accept a callback for continuous listening
 export const onMessageListener = (callback) => {
+    if (!isFirebaseConfigured) {
+      console.log('Firebase is not configured. Skipping message listener.');
+      return () => {}; // Return empty unsubscribe function
+    }
+
     return onMessage(messaging, (payload) => {
       console.log("payload", payload);
       callback(payload);
@@ -53,6 +69,11 @@ export const onMessageListener = (callback) => {
 };
 
 export const unsubscribeUser = async () => {
+    if (!isFirebaseConfigured) {
+      console.log('Firebase is not configured. Skipping unsubscribe.');
+      return false;
+    }
+
     try {
         const currentToken = await getToken(messaging, { vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY });
         if (currentToken) {
@@ -66,3 +87,5 @@ export const unsubscribeUser = async () => {
         return false;
     }
 }
+
+export { isFirebaseConfigured };
