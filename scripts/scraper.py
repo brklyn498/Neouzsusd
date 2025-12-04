@@ -8,6 +8,9 @@ from bs4 import BeautifulSoup
 from bank_mapping import get_bank_logo
 import firebase_admin
 from firebase_admin import credentials, messaging, firestore
+import feedparser
+from dateutil import parser as date_parser
+import hashlib
 
 OUTPUT_FILE = "public/rates.json"
 
@@ -709,6 +712,104 @@ def fetch_savings_rates(existing_data, force=False):
         print(f"Error scraping savings: {e}")
         return existing_data.get("savings") if existing_data else None
 
+def fetch_news(existing_data, force=False):
+    """
+    Fetches financial news from RSS feeds.
+    Updates every 30 minutes unless force=True.
+    """
+    print("--- Processing News Feed ---")
+
+    # Check 30m Cache
+    if not force and existing_data and existing_data.get("news"):
+        last_ts = existing_data["news"].get("last_updated_ts")
+        if last_ts:
+            try:
+                last_time = datetime.datetime.fromtimestamp(last_ts)
+                now = datetime.datetime.now()
+                if (now - last_time).total_seconds() < 1800: # 30 minutes
+                    print("News data is fresh (< 30 minutes). Using cached.")
+                    return existing_data["news"]
+            except Exception as e:
+                print(f"Error parsing timestamp: {e}")
+
+    sources = [
+        {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/feeds/news.xml", "category": "general"},
+        {"name": "Daryo.uz", "rss": "https://daryo.uz/en/feed/", "category": "general"},
+        {"name": "UzDaily", "rss": "https://uzdaily.uz/en/rss", "category": "business"},
+    ]
+
+    all_news = []
+
+    for source in sources:
+        try:
+            print(f"Fetching RSS: {source['name']}")
+            feed = feedparser.parse(source["rss"])
+
+            for entry in feed.entries[:10]: # Limit per source
+                # Generate stable ID
+                id_str = f"{source['name']}-{entry.link}"
+                item_id = hashlib.md5(id_str.encode()).hexdigest()
+
+                # Parse date
+                published_at = ""
+                published_ts = 0
+                if hasattr(entry, 'published'):
+                    try:
+                        dt = date_parser.parse(entry.published)
+                        published_at = dt.isoformat()
+                        published_ts = dt.timestamp()
+                    except:
+                        pass
+
+                # Image extraction
+                image_url = None
+                if hasattr(entry, 'media_content'):
+                     # Often media_content is a list of dicts
+                     for media in entry.media_content:
+                         if 'url' in media:
+                             image_url = media['url']
+                             break
+
+                # Fallback for image in summary/content (Gazeta often puts it there)
+                if not image_url and hasattr(entry, 'summary'):
+                    soup = BeautifulSoup(entry.summary, 'html.parser')
+                    img_tag = soup.find('img')
+                    if img_tag and img_tag.get('src'):
+                        image_url = img_tag['src']
+
+                # Clean summary
+                summary = entry.get("summary", "")
+                summary_clean = BeautifulSoup(summary, "html.parser").get_text(strip=True)[:200] + "..."
+
+                all_news.append({
+                    "id": item_id,
+                    "title": entry.title,
+                    "summary": summary_clean,
+                    "source": source["name"],
+                    "source_url": entry.link,
+                    "category": source["category"], # Placeholder for now
+                    "published_at": published_at,
+                    "published_ts": published_ts,
+                    "image_url": image_url,
+                    "is_breaking": False
+                })
+        except Exception as e:
+            print(f"Error fetching RSS for {source['name']}: {e}")
+
+    # Sort by date descending
+    all_news.sort(key=lambda x: x["published_ts"], reverse=True)
+
+    # Keep top 30
+    final_news = all_news[:30]
+
+    print(f"Successfully fetched {len(final_news)} news items.")
+
+    return {
+        "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "last_updated_ts": datetime.datetime.now().timestamp(),
+        "items": final_news
+    }
+
 import argparse
 
 def fetch_gold_bar_prices():
@@ -1298,6 +1399,9 @@ def main():
     # Fetch Savings Data
     savings_data = fetch_savings_rates(existing_data, force=args.force)
     
+    # Fetch News Data
+    news_data = fetch_news(existing_data, force=args.force)
+
     # Fetch Gold Data
     gold_bars = fetch_gold_bar_prices()
     gold_history = fetch_gold_history(existing_data, force=args.force)
@@ -1313,6 +1417,7 @@ def main():
         "gbp": process_currency("GBP", existing_data),
         "weather": fetch_iqair_data(weather_data_to_pass),
         "savings": savings_data,
+        "news": news_data,
         "gold_bars": gold_bars,
         "gold_history": gold_history,
         "silver_history": silver_history,

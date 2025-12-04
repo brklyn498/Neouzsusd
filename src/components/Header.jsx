@@ -74,6 +74,21 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
             >
               SAVINGS
             </button>
+            <button
+              onClick={() => setViewMode('news')}
+              style={{
+                border: 'none',
+                background: viewMode === 'news' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: viewMode === 'news' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                borderLeft: '3px solid var(--border-color)'
+              }}
+            >
+              NEWS
+            </button>
           </div>
 
           {/* Dark Mode Toggle */}
@@ -237,6 +252,24 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 </div>
               </div>
               <div style={{ fontSize: '3rem' }}>💰</div>
+            </Card>
+          </div>
+        )
+      }
+      {
+        viewMode === 'news' && (
+          <div className="animate-slide-in">
+            <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-cyan)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>MARKET NEWS</div>
+                <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+                  LATEST
+                </div>
+                <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
+                  FINANCE, ECONOMY & BUSINESS
+                </div>
+              </div>
+              <div style={{ fontSize: '3rem' }}>📰</div>
             </Card>
           </div>
         )
