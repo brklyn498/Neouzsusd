@@ -12,8 +12,10 @@ jobs:
   update-rates:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          ref: main  # We need the scraper script from main
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -31,11 +33,42 @@ jobs:
           POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
         run: python scripts/scraper.py
 
-      - name: Commit and Push
+      - name: Push to Data Branch
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add public/rates.json
-          # Removed [skip ci] so this commit triggers the deploy workflow
-          git commit -m "Update exchange rates" || exit 0
-          git push
+           # 1. We have the new public/rates.json generated in the current workspace (main branch)
+           NEW_RATES_PATH=$(pwd)/public/rates.json
+
+           # 2. Setup a separate directory for the data branch
+           mkdir -p ../data-branch
+           cd ../data-branch
+
+           # 3. Initialize git
+           git init
+           git config user.name 'github-actions[bot]'
+           git config user.email 'github-actions[bot]@users.noreply.github.com'
+           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+           # 4. Fetch the data branch if it exists
+           git fetch origin rates-data || echo "Branch rates-data does not exist yet"
+
+           # 5. Checkout or create orphan
+           if git show-ref --verify --quiet refs/remotes/origin/rates-data; then
+             git checkout -b rates-data origin/rates-data
+           else
+             git checkout --orphan rates-data
+             # Remove all files from the index/worktree to truly be orphan
+             git rm -rf . || true
+           fi
+
+           # 6. Copy the new file
+           mkdir -p public
+           cp "$NEW_RATES_PATH" public/rates.json
+
+           # 7. Commit and Push
+           git add public/rates.json
+           if git diff --staged --quiet; then
+             echo "No changes in rates.json"
+           else
+             git commit -m "Update exchange rates"
+             git push -u origin rates-data
+           fi
