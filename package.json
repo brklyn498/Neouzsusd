@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/generate-sw.js && vite",
-    "build": "node scripts/generate-sw.js && vite build",
+    "fetch-rates": "node scripts/fetch-rates.js",
+    "dev": "npm run fetch-rates && node scripts/generate-sw.js && vite",
+    "build": "npm run fetch-rates && node scripts/generate-sw.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
