@@ -9,6 +9,7 @@ import GoldBarPrices from './components/GoldBarPrices';
 import GoldHistoryChart from './components/GoldHistoryChart';
 import SilverHistoryChart from './components/SilverHistoryChart';
 import BitcoinHistoryChart from './components/BitcoinHistoryChart';
+import Footer from './components/Footer';
 import { refreshRates } from './utils/fetchUtils';
 
 function App() {
@@ -212,18 +213,18 @@ function App() {
                   </div>
                 )}
                 {metalType === 'silver' && (
-                   <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
-                       <h3 style={{ marginTop: 0 }}>SILVER BARS</h3>
-                       <p>Silver bar prices from local banks are not currently tracked.</p>
-                       <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Showing International Spot Price (XAG/USD) instead.</p>
-                   </div>
+                  <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                    <h3 style={{ marginTop: 0 }}>SILVER BARS</h3>
+                    <p>Silver bar prices from local banks are not currently tracked.</p>
+                    <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Showing International Spot Price (XAG/USD) instead.</p>
+                  </div>
                 )}
                 {metalType === 'bitcoin' && (
-                   <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
-                       <h3 style={{ marginTop: 0 }}>BITCOIN</h3>
-                       <p>Real-time data from Polygon.io.</p>
-                       <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Showing Spot Price (BTC/USD).</p>
-                   </div>
+                  <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                    <h3 style={{ marginTop: 0 }}>BITCOIN</h3>
+                    <p>Real-time data from Polygon.io.</p>
+                    <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Showing Spot Price (BTC/USD).</p>
+                  </div>
                 )}
               </>
             ) : (
@@ -284,50 +285,50 @@ function App() {
                   <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>EXTRAS</h2>
 
                   <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
-                      <button
-                        onClick={() => setMetalType('gold')}
-                        style={{
-                          border: 'none',
-                          background: metalType === 'gold' ? (darkMode ? 'var(--gold-accent)' : 'var(--gold-accent)') : 'var(--card-bg)',
-                          color: metalType === 'gold' ? '#000000' : 'var(--text-color)',
-                          padding: '0.5rem 1rem',
-                          fontWeight: 'bold',
-                          cursor: 'pointer',
-                          fontFamily: 'inherit'
-                        }}
-                      >
-                        GOLD
-                      </button>
-                      <button
-                        onClick={() => setMetalType('silver')}
-                        style={{
-                          border: 'none',
-                          background: metalType === 'silver' ? (darkMode ? 'var(--silver-accent)' : 'var(--silver-accent)') : 'var(--card-bg)',
-                          color: metalType === 'silver' ? '#000000' : 'var(--text-color)',
-                          padding: '0.5rem 1rem',
-                          fontWeight: 'bold',
-                          cursor: 'pointer',
-                          fontFamily: 'inherit',
-                          borderLeft: '3px solid var(--border-color)'
-                        }}
-                      >
-                        SILVER
-                      </button>
-                      <button
-                        onClick={() => setMetalType('bitcoin')}
-                        style={{
-                          border: 'none',
-                          background: metalType === 'bitcoin' ? (darkMode ? 'var(--bitcoin-accent)' : 'var(--bitcoin-accent)') : 'var(--card-bg)',
-                          color: metalType === 'bitcoin' ? '#000000' : 'var(--text-color)',
-                          padding: '0.5rem 1rem',
-                          fontWeight: 'bold',
-                          cursor: 'pointer',
-                          fontFamily: 'inherit',
-                          borderLeft: '3px solid var(--border-color)'
-                        }}
-                      >
-                        BITCOIN
-                      </button>
+                    <button
+                      onClick={() => setMetalType('gold')}
+                      style={{
+                        border: 'none',
+                        background: metalType === 'gold' ? (darkMode ? 'var(--gold-accent)' : 'var(--gold-accent)') : 'var(--card-bg)',
+                        color: metalType === 'gold' ? '#000000' : 'var(--text-color)',
+                        padding: '0.5rem 1rem',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        fontFamily: 'inherit'
+                      }}
+                    >
+                      GOLD
+                    </button>
+                    <button
+                      onClick={() => setMetalType('silver')}
+                      style={{
+                        border: 'none',
+                        background: metalType === 'silver' ? (darkMode ? 'var(--silver-accent)' : 'var(--silver-accent)') : 'var(--card-bg)',
+                        color: metalType === 'silver' ? '#000000' : 'var(--text-color)',
+                        padding: '0.5rem 1rem',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        fontFamily: 'inherit',
+                        borderLeft: '3px solid var(--border-color)'
+                      }}
+                    >
+                      SILVER
+                    </button>
+                    <button
+                      onClick={() => setMetalType('bitcoin')}
+                      style={{
+                        border: 'none',
+                        background: metalType === 'bitcoin' ? (darkMode ? 'var(--bitcoin-accent)' : 'var(--bitcoin-accent)') : 'var(--card-bg)',
+                        color: metalType === 'bitcoin' ? '#000000' : 'var(--text-color)',
+                        padding: '0.5rem 1rem',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        fontFamily: 'inherit',
+                        borderLeft: '3px solid var(--border-color)'
+                      }}
+                    >
+                      BITCOIN
+                    </button>
                   </div>
                 </div>
 
@@ -350,10 +351,10 @@ function App() {
                 )}
 
                 <div className="brutal-card" style={{ padding: '1.5rem', textAlign: 'center', marginBottom: '2rem', fontSize: '0.9rem' }}>
-                   <p style={{ margin: 0, opacity: 0.7 }}>
-                     <strong>DATA SOURCES:</strong> Gold Bar prices from Central Bank of Uzbekistan (via bank.uz).
-                     Global Spot Gold, Silver & Bitcoin prices via Massive.com (Polygon.io).
-                   </p>
+                  <p style={{ margin: 0, opacity: 0.7 }}>
+                    <strong>DATA SOURCES:</strong> Gold Bar prices from Central Bank of Uzbekistan (via bank.uz).
+                    Global Spot Gold, Silver & Bitcoin prices via Massive.com (Polygon.io).
+                  </p>
                 </div>
               </>
             ) : (
@@ -388,6 +389,8 @@ function App() {
           </div>
         </>
       )}
+
+      {!loading && !error && <Footer />}
     </div>
   );
 }

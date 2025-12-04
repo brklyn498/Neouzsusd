@@ -4,6 +4,7 @@ import WeatherBadge from './WeatherBadge';
 import NotificationToggle from './NotificationToggle';
 
 import GlitchLogo from './GlitchLogo';
+import Skeleton from './Skeleton';
 import Clock from './Clock';
 
 const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather, viewMode, setViewMode, topSavingsRate, metalType }) => {
@@ -16,7 +17,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-          <h1 className="animate-pop-in" style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
+          <h1 className="animate-pop-in" style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: 'var(--logo-color)' }}>
             <GlitchLogo text="NEOUZS" />
           </h1>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -188,7 +189,7 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
             <div>
               <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
               <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
-                {cbuRate ? cbuRate.toLocaleString() : 'LOADING...'}
+                {cbuRate ? cbuRate.toLocaleString() : <Skeleton width="200px" height="3rem" />}
               </div>
               {lastRefresh && (
                 <div style={{ fontSize: '0.7rem', opacity: 0.7, marginTop: '0.3rem' }}>
@@ -196,7 +197,9 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 </div>
               )}
             </div>
-            <div style={{ fontSize: '3rem' }}>🏦</div>
+            <div style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src="/cbu-logo.png" alt="CBU Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: darkMode ? 'brightness(0) invert(1)' : 'none' }} />
+            </div>
           </Card>
         </div>
       )}

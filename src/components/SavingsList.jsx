@@ -1,5 +1,6 @@
 import React from 'react';
 import SavingsCard from './SavingsCard';
+import Skeleton from './Skeleton';
 
 const SavingsList = ({ savings, sortType }) => {
   if (!savings || savings.length === 0) {
@@ -59,14 +60,39 @@ const SavingsList = ({ savings, sortType }) => {
 
   return (
     <>
-      {sortedSavings.map((item, index) => (
-        <div key={`${item.bank_name}-${index}`} className={`animate-slide-in delay-${index % 20}`}>
-          <SavingsCard
-            savings={item}
-            isBestRate={item.rate === bestRate}
-          />
-        </div>
-      ))}
+      {savings.length === 0 ? (
+        // Skeleton Loading State
+        [1, 2, 3].map((i) => (
+          <div key={i} className="animate-slide-in" style={{ animationDelay: `${i * 0.1}s` }}>
+            <div className="brutal-border brutal-shadow" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)', marginBottom: '1rem', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <Skeleton width="60px" height="60px" style={{ borderRadius: '50%' }} />
+                <div>
+                  <Skeleton width="150px" height="1.5rem" style={{ marginBottom: '10px' }} />
+                  <Skeleton width="100px" height="1rem" />
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                <Skeleton width="100px" height="3rem" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', alignItems: 'flex-end' }}>
+                  <Skeleton width="80px" height="1.5rem" style={{ borderRadius: '999px' }} />
+                  <Skeleton width="120px" height="1rem" />
+                  <Skeleton width="100px" height="1rem" />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        sortedSavings.map((item, index) => (
+          <div key={`${item.bank_name}-${index}`} className={`animate-slide-in delay-${index % 20}`}>
+            <SavingsCard
+              savings={item}
+              isBestRate={item.rate === bestRate}
+            />
+          </div>
+        ))
+      )}
     </>
   );
 };

@@ -239,9 +239,28 @@ The Vite development server proxies `/api` requests to the backend servers:
 - **Goal:** Visualise CBU rate history over the last 30 days.
 - **Style:** Brutalist Charts - Jagged black lines, yellow background, no smooth curves.
 
-### Option 2: The "App" Experience (PWA) 📱
+### Option 2: The "App" Experience (PWA) 📱 (COMPLETED)
 - **Goal:** Turn the React site into a Progressive Web App.
 - **Features:** "Add to Home Screen", offline support, custom splash screen.
+- **Status:** ✅ Visual polish (Scrollbar, Skeleton Loading) completed to give "App-like" feel.
+
+### Phase 21: Visual Polish & "App-Like" Feel
+- **Custom Brutalist Scrollbar**: Implemented a chunky, square scrollbar with high-contrast colors (Purple/Pink) to match the theme.
+- **Skeleton Loading**: Replaced text-based loading states with shimmering gray/metallic blocks for a smoother, premium experience.
+- **CBU Logo Update**: Switched to the official Central Bank of Uzbekistan logo (PNG) for better authenticity.
+- **Dark Mode Refinements**:
+  - Fixed "NEOUZS" logo color to be white in dark mode.
+  - Adjusted CBU card background to a softer yellow (`#FFF59D`) for better contrast.
+- **Result**: The application now feels significantly more polished and native.
+
+### Phase 22: Brutalist Footer
+- **New Component**: Created `Footer.jsx` with "NEOUZS" branding, "Made in Tashkent" credits, and social links.
+- **Styling**: Applied thick borders, brutal buttons, and ensured it sits at the bottom of the page using `grid-column: 1 / -1`.
+- **Dark Mode Fix**: Updated `GlitchLogo` to use white text in dark mode for better visibility.
+
+### Phase 23: GitHub Synchronization
+- **Sync**: Committed all local changes (Scrollbar, Skeletons, Footer) and synchronized with the remote repository.
+- **Conflict Resolution**: (If any) Handled during pull.
 
 ### Option 3: Real Data Integration 🕷️ (COMPLETED)
 - **Goal:** Replace mock data with real scraping where possible.

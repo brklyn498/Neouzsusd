@@ -1,12 +1,13 @@
 :root {
   --bg-color: #F0F0F0;
   --text-color: #000000;
+  --logo-color: var(--text-color);
   --card-bg: #FFFFFF;
   --accent-green: #CCFF00;
   --accent-pink: #FF00FF;
   --accent-cyan: #00FFFF;
   --accent-orange: #FF5200;
-  --accent-yellow: #FFFF00;
+  --accent-yellow: #FFF59D;
   --accent-red: #FF0000;
   --accent-purple: #9D4EDD;
   --accent-brand: #9D4EDD;
@@ -35,6 +36,7 @@
 body.dark-mode {
   --bg-color: #0f172a;
   --text-color: #FFFFFF;
+  --logo-color: #FFFFFF;
 
   /* Glassmorphism Card Background */
   --card-bg: rgba(30, 41, 59, 0.4);
@@ -655,7 +657,7 @@ body.dark-mode .rate-changed {
 
 /* Dark mode override handled by parent passing color or context */
 body.dark-mode .glitch-text {
-  color: var(--accent-brand);
+  color: var(--logo-color);
 }
 
 .glitch-text::before,
@@ -1042,4 +1044,30 @@ body.dark-mode .glitch-text {
   100% {
     clip-path: inset(25% 0 65% 0);
   }
+}
+
+/* --- Custom Brutalist Scrollbar --- */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 3px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rate-color);
+  border: 3px solid var(--border-color);
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-pink);
+}
+
+/* Firefox support */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--rate-color) var(--bg-color);
 }
