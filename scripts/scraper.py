@@ -38,6 +38,12 @@ CURRENCY_CONFIG = {
         "bank_uz_url": "https://bank.uz/uz/currency/kzt",
         "fallback_rate": 23.00,
         "mock_variance": (1, 3)
+    },
+    "GBP": {
+        "cbu_code": "GBP",
+        "bank_uz_url": "https://bank.uz/uz/currency/funt-sterlingov",
+        "fallback_rate": 16500.00,
+        "mock_variance": (50, 200)
     }
 }
 
@@ -1304,6 +1310,7 @@ def main():
         "rub": process_currency("RUB", existing_data),
         "eur": process_currency("EUR", existing_data),
         "kzt": process_currency("KZT", existing_data),
+        "gbp": process_currency("GBP", existing_data),
         "weather": fetch_iqair_data(weather_data_to_pass),
         "savings": savings_data,
         "gold_bars": gold_bars,
