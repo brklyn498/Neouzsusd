@@ -1,26 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { requestForToken, unsubscribeUser, onMessageListener } from '../firebase-config';
+import { requestForToken, onMessageListener } from '../firebase-config';
 
 const NotificationToggle = () => {
-  const [isSubscribed, setIsSubscribed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState({title: '', body: ''});
+  const [token, setToken] = useState('');
 
   useEffect(() => {
-    // Check if user has already granted permission
-    if (Notification.permission === 'granted') {
-       setIsSubscribed(true);
-    }
-
-    // Set up listener for foreground messages
     const unsubscribe = onMessageListener((payload) => {
         setNotification({
             title: payload.notification.title,
             body: payload.notification.body
         });
     });
-
-    // Cleanup listener on unmount
     return () => {
         if (unsubscribe) unsubscribe();
     };
@@ -28,20 +20,18 @@ const NotificationToggle = () => {
 
   const handleSubscription = async () => {
     setLoading(true);
-    if (isSubscribed) {
-      // Unsubscribe logic
-      await unsubscribeUser();
-      setIsSubscribed(false);
-      alert("Unsubscribed from rate alerts.");
-    } else {
-      // Subscribe logic
-      const token = await requestForToken();
-      if (token) {
-        setIsSubscribed(true);
-        alert("Subscribed to rate alerts! You will be notified of major changes.");
-      } else {
-        alert("Failed to subscribe. Please enable notifications in your browser settings.");
+    const fetchedToken = await requestForToken();
+    if (fetchedToken) {
+      setToken(fetchedToken);
+      // Copy to clipboard automatically if possible
+      try {
+        await navigator.clipboard.writeText(fetchedToken);
+        alert("Token copied to clipboard! Add this to your GitHub Secrets as 'FCM_DEVICE_TOKEN'.");
+      } catch (err) {
+        console.error('Failed to copy: ', err);
       }
+    } else {
+      alert("Failed to get token. Please allow notifications.");
     }
     setLoading(false);
   };
@@ -55,12 +45,20 @@ const NotificationToggle = () => {
             style={{
                 fontSize: '0.8rem',
                 padding: '0.5rem 1rem',
-                backgroundColor: isSubscribed ? 'var(--accent-pink)' : 'var(--card-bg)',
-                color: isSubscribed ? '#FFFFFF' : 'var(--text-color)'
+                backgroundColor: 'var(--card-bg)',
+                color: 'var(--text-color)'
             }}
         >
-            {loading ? 'PROCESSING...' : (isSubscribed ? '🔕 DISABLE ALERTS' : '🔔 ENABLE ALERTS')}
+            {loading ? 'GETTING TOKEN...' : '🔔 SETUP ALERTS'}
         </button>
+
+        {token && (
+            <div style={{ marginTop: '10px', fontSize: '0.7rem', wordBreak: 'break-all', textAlign: 'left', background: 'var(--card-bg)', padding: '5px', border: '1px solid var(--border-color)' }}>
+                <strong>YOUR TOKEN (Add to GitHub Secrets):</strong><br/>
+                {token}
+            </div>
+        )}
+
         {notification.title && (
             <div style={{
                 position: 'fixed',

@@ -7,7 +7,7 @@ import time
 from bs4 import BeautifulSoup
 from bank_mapping import get_bank_logo
 import firebase_admin
-from firebase_admin import credentials, messaging, firestore
+from firebase_admin import credentials, messaging
 
 OUTPUT_FILE = "public/rates.json"
 
@@ -1171,13 +1171,17 @@ def send_notifications(new_data, old_data):
         return
 
     try:
+        # Check for target device token
+        device_token = os.environ.get("FCM_DEVICE_TOKEN")
+        if not device_token:
+            print("No FCM_DEVICE_TOKEN env var found. Skipping.")
+            return
+
         # Initialize Firebase App
         if not firebase_admin._apps:
             cred_dict = json.loads(os.environ.get("FIREBASE_CREDENTIALS"))
             cred = credentials.Certificate(cred_dict)
             firebase_admin.initialize_app(cred)
-
-        db = firestore.client()
 
         # Compare rates
         currencies = ['usd', 'eur', 'rub', 'kzt']
@@ -1216,44 +1220,17 @@ def send_notifications(new_data, old_data):
             message_body = "\n".join(alerts)
             print(f"Sending notification: {message_body}")
 
-            # Fetch tokens from Firestore
-            tokens_ref = db.collection(u'fcm_tokens')
-            docs = tokens_ref.stream()
+            # Send message to single device
+            message = messaging.Message(
+                notification=messaging.Notification(
+                    title='NeoUZS Rate Alert 🚀',
+                    body=message_body,
+                ),
+                token=device_token,
+            )
 
-            tokens = [doc.to_dict()['token'] for doc in docs]
-
-            if not tokens:
-                print("No users subscribed to notifications.")
-                return
-
-            # Send multicast message (Batching in chunks of 500)
-            batch_size = 500
-            for i in range(0, len(tokens), batch_size):
-                batch_tokens = tokens[i:i + batch_size]
-
-                message = messaging.MulticastMessage(
-                    notification=messaging.Notification(
-                        title='NeoUZS Rate Alert 🚀',
-                        body=message_body,
-                    ),
-                    tokens=batch_tokens,
-                )
-
-                response = messaging.send_multicast(message)
-                print(f'Batch {i//batch_size + 1}: {response.success_count} messages sent successfully')
-
-                # Cleanup invalid tokens
-                if response.failure_count > 0:
-                    responses = response.responses
-                    for idx, resp in enumerate(responses):
-                        if not resp.success:
-                            # The order of responses corresponds to the order of the registration tokens.
-                            # failed_token = batch_tokens[idx]
-                            # print(f"Failure reason: {resp.exception}")
-                            pass
-
-                    # Optionally delete invalid tokens from Firestore here
-                    # (Skipping for now to keep it simple, but recommended for production)
+            response = messaging.send(message)
+            print(f"Successfully sent message: {response}")
 
     except Exception as e:
         print(f"Error sending notifications: {e}")
