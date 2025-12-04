@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-04 16:04",
+  "last_updated": "2025-12-04 17:06",
   "usd": {
     "cbu": 11912.38,
     "cbu_last_updated": "2025-12-04",
@@ -127,42 +127,18 @@
     ],
     "banks": [
       {
-        "name": "Turon bank",
-        "buy": 11870.0,
+        "name": "Asakabank",
+        "buy": 11910.0,
         "sell": 12010.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "Garant bank",
-        "buy": 11875.0,
-        "sell": 12000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
       },
       {
         "name": "Xalq Banki",
         "buy": 11855.0,
         "sell": 12010.0,
         "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipak Yuli Bank",
-        "buy": 11880.0,
-        "sell": 12010.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Agrobank",
-        "buy": 11860.0,
-        "sell": 12000.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -175,90 +151,10 @@
         "featured": false
       },
       {
-        "name": "Universal bank",
-        "buy": 11860.0,
-        "sell": 12010.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 11860.0,
-        "sell": 12000.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 11855.0,
-        "sell": 12015.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 11860.0,
-        "sell": 11970.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "BRB",
-        "buy": 11890.0,
-        "sell": 12010.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 11890.0,
-        "sell": 12000.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 11920.0,
-        "sell": 12000.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 11860.0,
-        "sell": 12010.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 11860.0,
-        "sell": 11980.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asakabank",
-        "buy": 11910.0,
-        "sell": 12010.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hayot Bank",
+        "name": "Trastbank",
         "buy": 11880.0,
-        "sell": 12000.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "sell": 12010.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -271,42 +167,42 @@
         "featured": false
       },
       {
-        "name": "Aloqabank",
-        "buy": 11860.0,
-        "sell": 11990.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "name": "BRB",
+        "buy": 11890.0,
+        "sell": 12010.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Trastbank",
+        "name": "Universal bank",
+        "buy": 11860.0,
+        "sell": 12010.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 11890.0,
+        "sell": 12000.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hayot Bank",
         "buy": 11880.0,
-        "sell": 12010.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "sell": 12000.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Hamkorbank",
-        "buy": 11900.0,
+        "name": "Turon bank",
+        "buy": 11870.0,
         "sell": 12010.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "KDB Bank Uzbekiston",
-        "buy": 11855.0,
-        "sell": 12015.0,
-        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Saderat Bank",
-        "buy": 11860.0,
-        "sell": 12010.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "logo": "https://logo.clearbit.com/turonbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -327,10 +223,50 @@
         "featured": false
       },
       {
-        "name": "Infinbank",
-        "buy": 11915.0,
+        "name": "Hamkorbank",
+        "buy": 11900.0,
         "sell": 12010.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 11880.0,
+        "sell": 12010.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Saderat Bank",
+        "buy": 11860.0,
+        "sell": 12010.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 11860.0,
+        "sell": 11990.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
+        "buy": 11860.0,
+        "sell": 12000.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ziraat Bank",
+        "buy": 11900.0,
+        "sell": 12010.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -343,10 +279,74 @@
         "featured": true
       },
       {
-        "name": "Ziraat Bank",
-        "buy": 11900.0,
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 11860.0,
+        "sell": 11980.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 11860.0,
+        "sell": 11970.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Infinbank",
+        "buy": 11915.0,
         "sell": 12010.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 11920.0,
+        "sell": 12000.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 11860.0,
+        "sell": 12010.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "KDB Bank Uzbekiston",
+        "buy": 11855.0,
+        "sell": 12015.0,
+        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 11855.0,
+        "sell": 12015.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Octobank",
+        "buy": 11860.0,
+        "sell": 12000.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Garant bank",
+        "buy": 11875.0,
+        "sell": 12000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
         "is_mock": false,
         "featured": false
       }
@@ -479,28 +479,12 @@
     ],
     "banks": [
       {
-        "name": "Turon bank",
-        "buy": 100.0,
-        "sell": 180.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "name": "Asakabank",
+        "buy": 125.0,
+        "sell": 160.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
         "is_mock": false,
         "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 100.0,
-        "sell": 180.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipak Yuli Bank",
-        "buy": 110.0,
-        "sell": 159.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
       },
       {
         "name": "Asia Alliance Bank",
@@ -511,28 +495,12 @@
         "featured": false
       },
       {
-        "name": "Octobank",
-        "buy": 144.0,
-        "sell": 155.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 100.0,
-        "sell": 158.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 135.0,
+        "name": "Trastbank",
+        "buy": 90.0,
         "sell": 157.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
-        "featured": false
+        "featured": true
       },
       {
         "name": "BRB",
@@ -551,10 +519,90 @@
         "featured": true
       },
       {
+        "name": "Hayot Bank",
+        "buy": 138.0,
+        "sell": 155.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 100.0,
+        "sell": 180.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 90.0,
+        "sell": 155.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Anorbank",
+        "buy": 90.0,
+        "sell": 155.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 137.0,
+        "sell": 156.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 110.0,
+        "sell": 159.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 95.0,
+        "sell": 165.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "O\u2018zsanoatqurilishbank",
         "buy": 140.0,
         "sell": 154.0,
         "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 145.0,
+        "sell": 157.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 135.0,
+        "sell": 157.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Infinbank",
+        "buy": 144.0,
+        "sell": 154.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -572,79 +620,31 @@
         "sell": 190.0,
         "logo": "https://ofb.uz/upload/images/logo.svg",
         "is_mock": false,
-        "featured": true
+        "featured": false
       },
       {
-        "name": "Asakabank",
-        "buy": 125.0,
-        "sell": 160.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "name": "Ipoteka bank",
+        "buy": 100.0,
+        "sell": 158.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Hayot Bank",
-        "buy": 138.0,
-        "sell": 155.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 95.0,
-        "sell": 165.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 90.0,
-        "sell": 157.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 137.0,
-        "sell": 156.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Poytaxt bank",
-        "buy": 90.0,
-        "sell": 155.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 90.0,
-        "sell": 155.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Infinbank",
+        "name": "Octobank",
         "buy": 144.0,
-        "sell": 154.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "sell": 155.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Kapitalbank",
-        "buy": 145.0,
-        "sell": 157.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "name": "Garant bank",
+        "buy": 100.0,
+        "sell": 180.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
         "is_mock": false,
-        "featured": true
+        "featured": false
       }
     ]
   },
@@ -775,22 +775,6 @@
     ],
     "banks": [
       {
-        "name": "Turon bank",
-        "buy": 13000.0,
-        "sell": 14500.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 13000.0,
-        "sell": 15000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Xalq Banki",
         "buy": 13000.0,
         "sell": 14300.0,
@@ -799,18 +783,10 @@
         "featured": false
       },
       {
-        "name": "Ipak Yuli Bank",
-        "buy": 13300.0,
-        "sell": 14300.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Agrobank",
-        "buy": 13500.0,
-        "sell": 14200.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "name": "Asakabank",
+        "buy": 13000.0,
+        "sell": 14400.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
         "is_mock": false,
         "featured": false
       },
@@ -823,44 +799,28 @@
         "featured": false
       },
       {
+        "name": "Trastbank",
+        "buy": 13350.0,
+        "sell": 13950.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "MKBank",
+        "buy": 13200.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Universal bank",
         "buy": 13000.0,
         "sell": 15200.0,
         "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "Octobank",
-        "buy": 13550.0,
-        "sell": 14100.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13000.0,
-        "sell": 14000.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 13100.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "BRB",
-        "buy": 13500.0,
-        "sell": 14200.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
-        "is_mock": false,
-        "featured": false
       },
       {
         "name": "APEXBANK",
@@ -871,10 +831,114 @@
         "featured": false
       },
       {
+        "name": "Hayot Bank",
+        "buy": 13400.0,
+        "sell": 14090.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 13000.0,
+        "sell": 14500.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 13000.0,
+        "sell": 13900.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Anorbank",
+        "buy": 13080.0,
+        "sell": 14030.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 13200.0,
+        "sell": 14000.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 13300.0,
+        "sell": 14300.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Saderat Bank",
+        "buy": 13000.0,
+        "sell": 15500.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 13500.0,
+        "sell": 14500.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
+        "buy": 13500.0,
+        "sell": 14200.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ziraat Bank",
+        "buy": 13530.0,
+        "sell": 14220.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "O\u2018zsanoatqurilishbank",
         "buy": 13600.0,
         "sell": 14200.0,
         "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 13480.0,
+        "sell": 14170.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 13100.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Infinbank",
+        "buy": 13640.0,
+        "sell": 13860.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -895,54 +959,6 @@
         "featured": true
       },
       {
-        "name": "Asakabank",
-        "buy": 13000.0,
-        "sell": 14400.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 13400.0,
-        "sell": 14090.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "MKBank",
-        "buy": 13200.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 13500.0,
-        "sell": 14500.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 13350.0,
-        "sell": 13950.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 13200.0,
-        "sell": 14000.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
         "name": "KDB Bank Uzbekiston",
         "buy": 13300.0,
         "sell": 15000.0,
@@ -951,50 +967,34 @@
         "featured": false
       },
       {
-        "name": "Saderat Bank",
+        "name": "Ipoteka bank",
         "buy": 13000.0,
-        "sell": 15500.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "sell": 14000.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
-        "featured": true
+        "featured": false
       },
       {
-        "name": "Poytaxt bank",
+        "name": "Garant bank",
         "buy": 13000.0,
-        "sell": 13900.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "sell": 15000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Anorbank",
-        "buy": 13080.0,
-        "sell": 14030.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
+        "name": "Octobank",
+        "buy": 13550.0,
+        "sell": 14100.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Infinbank",
-        "buy": 13640.0,
-        "sell": 13860.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 13480.0,
-        "sell": 14170.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Ziraat Bank",
-        "buy": 13530.0,
-        "sell": 14220.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "name": "BRB",
+        "buy": 13500.0,
+        "sell": 14200.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
         "is_mock": false,
         "featured": false
       }
@@ -1127,22 +1127,6 @@
     ],
     "banks": [
       {
-        "name": "Tenge Bank",
-        "buy": 16.0,
-        "sell": 24.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Turon bank",
-        "buy": 15.0,
-        "sell": 30.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
         "name": "O\u2018zbekiston Milliy banki",
         "buy": 15.0,
         "sell": 24.0,
@@ -1159,10 +1143,34 @@
         "featured": true
       },
       {
+        "name": "Kapitalbank",
+        "buy": 22.0,
+        "sell": 25.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Hayot Bank",
         "buy": 15.0,
         "sell": 24.0,
         "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Turon bank",
+        "buy": 15.0,
+        "sell": 30.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 16.0,
+        "sell": 24.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -1171,14 +1179,6 @@
         "buy": 14.0,
         "sell": 25.0,
         "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 22.0,
-        "sell": 25.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
         "featured": true
       }
@@ -1311,18 +1311,10 @@
     ],
     "banks": [
       {
-        "name": "Turon bank",
-        "buy": 15000.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 14800.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "name": "Asakabank",
+        "buy": 15200.0,
+        "sell": 16400.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
         "is_mock": false,
         "featured": false
       },
@@ -1335,122 +1327,10 @@
         "featured": true
       },
       {
-        "name": "Ipak Yuli Bank",
-        "buy": 15200.0,
-        "sell": 16300.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Agrobank",
-        "buy": 15100.0,
-        "sell": 16200.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Asia Alliance Bank",
         "buy": 15510.0,
         "sell": 16280.0,
         "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Universal bank",
-        "buy": 16000.0,
-        "sell": 18500.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Octobank",
-        "buy": 15200.0,
-        "sell": 17900.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13600.0,
-        "sell": 16950.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 15200.0,
-        "sell": 16200.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "BRB",
-        "buy": 15500.0,
-        "sell": 16200.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 15520.0,
-        "sell": 16220.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 15500.0,
-        "sell": 16500.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 14800.0,
-        "sell": 18000.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asakabank",
-        "buy": 15200.0,
-        "sell": 16400.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 15100.0,
-        "sell": 16400.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "MKBank",
-        "buy": 15100.0,
-        "sell": 16100.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 15300.0,
-        "sell": 16300.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -1463,6 +1343,46 @@
         "featured": false
       },
       {
+        "name": "MKBank",
+        "buy": 15100.0,
+        "sell": 16100.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Universal bank",
+        "buy": 16000.0,
+        "sell": 18500.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 15100.0,
+        "sell": 16400.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 15000.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 15000.0,
+        "sell": 18000.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Hamkorbank",
         "buy": 15000.0,
         "sell": 16600.0,
@@ -1471,10 +1391,50 @@
         "featured": true
       },
       {
-        "name": "Poytaxt bank",
-        "buy": 15000.0,
-        "sell": 18000.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "name": "Ipak Yuli Bank",
+        "buy": 15200.0,
+        "sell": 16300.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 15300.0,
+        "sell": 16300.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
+        "buy": 15100.0,
+        "sell": 16200.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 15500.0,
+        "sell": 16500.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 15370.0,
+        "sell": 16500.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 15200.0,
+        "sell": 16200.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -1487,19 +1447,59 @@
         "featured": false
       },
       {
-        "name": "Kapitalbank",
-        "buy": 15370.0,
-        "sell": 16500.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 15520.0,
+        "sell": 16220.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 14800.0,
+        "sell": 18000.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 13600.0,
+        "sell": 16950.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
         "featured": true
+      },
+      {
+        "name": "Garant bank",
+        "buy": 14800.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Octobank",
+        "buy": 15200.0,
+        "sell": 17900.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 15500.0,
+        "sell": 16200.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
       }
     ]
   },
   "weather": null,
   "savings": {
-    "last_updated": "2025-12-04 16:04",
-    "last_updated_ts": 1764864288.072883,
+    "last_updated": "2025-12-04 17:06",
+    "last_updated_ts": 1764867965.234733,
     "data": [
       {
         "bank_name": "Uzum Bank",
@@ -1612,9 +1612,135 @@
     ]
   },
   "news": {
-    "last_updated": "2025-12-04 16:04",
-    "last_updated_ts": 1764864295.244328,
+    "last_updated": "2025-12-04 17:06",
+    "last_updated_ts": 1764867973.58439,
     "items": [
+      {
+        "id": "5189fe21e54417b20ec38a50a5080d72",
+        "title": "Construction Begins on Uzbek-Russian Agro-Logistics Center in Kuva",
+        "summary": "Construction has begun on an agro-logistics complex worth US$50 million in the Kuva district of Ferghana Region as part of the Uzbek-Russian joint venture LLC \u201cEnergy-land,\u201d the press service of the F...",
+        "full_content": "Construction has begun on an agro-logistics complex worth US$50 million in the Kuva district of Ferghana Region as part of the Uzbek-Russian joint venture LLC \u201cEnergy-land,\u201d the press service of the Ferghana regional administration reported.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/construction-begins-on-uzbek-russian-agro-logistics-center-in-kuva/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T22:04:00+05:00",
+        "published_ts": 1764867840.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "08716c7e070f8d4c63b67cce81b3090f",
+        "title": "Uzbekistan and Japan Discuss Expansion of Strategic Partnership",
+        "summary": "On 4 December 2025, Uzbekistan\u2019s Deputy Foreign Minister B. Usmanov met with Japan\u2019s Ambassador Extraordinary and Plenipotentiary, Kenji Hirata.",
+        "full_content": "On 4 December 2025, Uzbekistan\u2019s Deputy Foreign Minister B. Usmanov met with Japan\u2019s Ambassador Extraordinary and Plenipotentiary, Kenji Hirata.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekistan-and-japan-discuss-expansion-of-strategic-partnership-04-12-2025/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T21:52:00+05:00",
+        "published_ts": 1764867120.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "a288c2abeefd3551a341ad92ab4e31a7",
+        "title": "UNG Implements International Stage-Gate Project Management Model",
+        "summary": "JSC \u201cUzbekneftegaz,\u201d with the support of the international company SASOL, is beginning the implementation of the Stage-Gate methodology to enhance the efficiency of investment project management.",
+        "full_content": "JSC \u201cUzbekneftegaz,\u201d with the support of the international company SASOL, is beginning the implementation of the Stage-Gate methodology to enhance the efficiency of investment project management.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/ung-implements-international-stage-gate-project-management-model/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T21:40:00+05:00",
+        "published_ts": 1764866400.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "bfa207c3d996b0e3c0acf6874b9fe3fc",
+        "title": "Illegal Gold Smuggling from Kyrgyzstan Stopped in Namangan Region",
+        "summary": "Officers from the Border Troops, the Department of State Security Service for Namangan Region, and law enforcement agencies have prevented an attempt to illegally import gold from Kyrgyzstan into Uzbe...",
+        "full_content": "Officers from the Border Troops, the Department of State Security Service for Namangan Region, and law enforcement agencies have prevented an attempt to illegally import gold from Kyrgyzstan into Uzbekistan.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/illegal-gold-smuggling-from-kyrgyzstan-stopped-in-namangan-region/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T21:30:00+05:00",
+        "published_ts": 1764865800.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "350143790728947fa9bd9b2c2732550e",
+        "title": "A Session on the Termez Dialogue on Connectivity between Central and South Asia to be Held at the Doha Forum",
+        "summary": "On 7 December 2025, within the framework of the annual Doha Forum, a dedicated session will be held on the Termez Dialogue on connectivity between Central and South Asia under the theme: \u201cReviving Afg...",
+        "full_content": "On 7 December 2025, within the framework of the annual Doha Forum, a dedicated session will be held on the Termez Dialogue on connectivity between Central and South Asia under the theme: \u201cReviving Afghanistan through Regional Connectivity: The Termez Dialogue.\u201d",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/a-session-on-the-termez-dialogue-on-connectivity-between-central-and-south-asia-to-be-held-at-the-doha-forum/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T21:18:00+05:00",
+        "published_ts": 1764865080.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "7c581e4ef76e7d11e1c72dff9e5ccee1",
+        "title": "\u201cNatsproektstroy\u201d Shows Interest in Tashkent\u2013Samarkand High-Speed Railway Project",
+        "summary": "The Russian company \u201cNatsproektstroy\u201d has expressed interest in the construction of the Tashkent\u2013Samarkand high-speed railway, Alexey Krapivin, CEO of the group of companies, stated in an interview wi...",
+        "full_content": "The Russian company \u201cNatsproektstroy\u201d has expressed interest in the construction of the Tashkent\u2013Samarkand high-speed railway, Alexey Krapivin, CEO of the group of companies, stated in an interview with Uzbekiston 24 TV channel.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/natsproektstroy-shows-interest-in-tashkent-samarkand-high-speed-railway-project/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T21:11:00+05:00",
+        "published_ts": 1764864660.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "8cffb21dbfcb750ab16735f5e3c1c335",
+        "title": "Russia to Play Two Futsal Matches Against Uzbekistan in Bukhara",
+        "summary": "The Russian national futsal team will play two friendly matches against Uzbekistan. The games are scheduled for December 19 and 21 at the Sports Complex of Bukhara State University, with kick-off at 1...",
+        "full_content": "The Russian national futsal team will play two friendly matches against Uzbekistan. The games are scheduled for December 19 and 21 at the Sports Complex of Bukhara State University, with kick-off at 17:00 local time.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/russia-to-play-two-futsal-matches-against-uzbekistan-in-bukhara/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T21:04:00+05:00",
+        "published_ts": 1764864240.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "d392063d14143193393aeee110609804",
+        "title": "Oracle PL/SQL nima va\u00a0unga bozorda talab yuqorimi?",
+        "summary": "Uzum\u2019da Oracle PL/SQL team lead\u2019i Sardorbek Xo\u2018jayev Spot\u2019ga ma\u2019lumot bazalari bilan ishlash, jamoa yetakchilari duch keladigan muammolar va\u00a0ularning yechimlari haqida so\u2018zlab berdi.",
+        "full_content": "Uzum\u2019da Oracle PL/SQL team lead\u2019i Sardorbek Xo\u2018jayev Spot\u2019ga ma\u2019lumot bazalari bilan ishlash, jamoa yetakchilari duch keladigan muammolar va\u00a0ularning yechimlari haqida so\u2018zlab berdi.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/oz/2025/12/04/sardorbek-xujayev/",
+        "category": "business",
+        "language": "UZ",
+        "published_at": "2025-12-04T16:00:00+00:00",
+        "published_ts": 1764864000.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "83e50c670fb44e41e5451acc93f5739f",
+        "title": "Uzbekistan Opens Office for Joint Project with Azerbaijan: Ustyurt Operating Company",
+        "summary": "Today, the office of Ustyurt Operating Company officially began operations. The company was established as part of a cooperative initiative between Uzbekistan and Azerbaijan.",
+        "full_content": "Today, the office of Ustyurt Operating Company officially began operations. The company was established as part of a cooperative initiative between Uzbekistan and Azerbaijan.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekistan-opens-office-for-joint-project-with-azerbaijan-ustyurt-operating-company/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T20:12:00+05:00",
+        "published_ts": 1764861120.0,
+        "image_url": null,
+        "is_breaking": false
+      },
       {
         "id": "518deb294bdcc41e1b45b8f24bc80c9f",
         "title": "Vengriya kompaniyasi Sirdaryoda texnopark ochib, $300 mln investitsiya kiritmoqchi",
@@ -1640,6 +1766,20 @@
         "language": "RU",
         "published_at": "2025-12-04T15:05:00+00:00",
         "published_ts": 1764860700.0,
+        "image_url": null,
+        "is_breaking": false
+      },
+      {
+        "id": "a561b2b5a2fe2aa9ce8d7095a4fcb553",
+        "title": "Uzbekneftegaz and Cargill Sign US$3\u20135 Billion Financing Agreement",
+        "summary": "UNG Overseas, the international trade and investment subsidiary of Uzbekneftegaz, and the U.S. corporation Cargill have signed a strategic cooperation agreement aimed at strengthening Uzbekistan\u2019s ene...",
+        "full_content": "UNG Overseas, the international trade and investment subsidiary of Uzbekneftegaz, and the U.S. corporation Cargill have signed a strategic cooperation agreement aimed at strengthening Uzbekistan\u2019s energy security, the state company\u2019s press service reported.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekneftegaz-and-cargill-sign-us3-5-billion-financing-agreement/",
+        "category": "business",
+        "language": "EN",
+        "published_at": "2025-12-04T20:04:00+05:00",
+        "published_ts": 1764860640.0,
         "image_url": null,
         "is_breaking": false
       },
@@ -1672,20 +1812,6 @@
         "is_breaking": false
       },
       {
-        "id": "386bd327cccd3fc0239d189bc16a8733",
-        "title": "President: Families of Victims in Gulistan Caf\u00e9 Explosion to Receive 100 Million Sums in Assistance",
-        "summary": "At a session of the Syrdarya Regional Kengash of People\u2019s Deputies, President Shavkat Mirziyoyev expressed his deep condolences to the families of citizens who died in the explosion at a caf\u00e9 in the c...",
-        "full_content": "At a session of the Syrdarya Regional Kengash of People\u2019s Deputies, President Shavkat Mirziyoyev expressed his deep condolences to the families of citizens who died in the explosion at a caf\u00e9 in the city of Gulistan.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/president-families-of-victims-in-gulistan-cafe-explosion-to-receive-100-million-sums-in-assistance/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T19:41:00+05:00",
-        "published_ts": 1764859260.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
         "id": "b5e59b222f22f7d7858deb7d40fbd17f",
         "title": "O\u2018zbekneftgaz AQSHning Cargill korporatsiyasi bilan birga $3 mlrdgacha jalb qiladi",
         "summary": "Tomonlar moliyalashtirish hajmini $5 mlrdgacha oshirish imkoniyatini nazarda tutgan holda kelishuv imzoladi.",
@@ -1700,20 +1826,6 @@
         "is_breaking": false
       },
       {
-        "id": "8c9ece9cde1341b54dba93ff3829a49f",
-        "title": "Syrdarya Region to Establish Hungarian Technopark and \u201cSmart Villages\u201d",
-        "summary": "At an extraordinary session of the Syrdarya Regional Kengash of People\u2019s Deputies, President of Uzbekistan Shavkat Mirziyoyev presented new investment projects involving Hungarian entrepreneurs aimed ...",
-        "full_content": "At an extraordinary session of the Syrdarya Regional Kengash of People\u2019s Deputies, President of Uzbekistan Shavkat Mirziyoyev presented new investment projects involving Hungarian entrepreneurs aimed at developing the regional economy and increasing the efficiency of economic activity.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/syrdarya-region-to-establish-hungarian-technopark-and-smart-villages/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T19:27:00+05:00",
-        "published_ts": 1764858420.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
         "id": "1fbc2ada5e5af5c766a6d8f42f1a6859",
         "title": "\u00ab\u0423\u0437\u0431\u0435\u043a\u043d\u0435\u0444\u0442\u0435\u0433\u0430\u0437\u00bb \u043f\u0440\u0438\u0432\u043b\u0435\u0447\u0435\u0442 \u0434\u043e $3 \u043c\u043b\u0440\u0434 \u0432\u00a0\u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u0435 \u0441\u00a0\u0430\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u043a\u043e\u0439 Cargill",
         "summary": "\u0421\u0442\u043e\u0440\u043e\u043d\u044b \u043f\u043e\u0434\u043f\u0438\u0441\u0430\u043b\u0438 \u0441\u043e\u0433\u043b\u0430\u0448\u0435\u043d\u0438\u0435 \u0441\u00a0\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c\u044e \u0443\u0432\u0435\u043b\u0438\u0447\u0435\u043d\u0438\u044f \u043b\u0438\u043c\u0438\u0442\u0430 \u0434\u043e $5 \u043c\u043b\u0440\u0434. Cargill \u043f\u043e\u043c\u043e\u0436\u0435\u0442 \u043f\u0440\u0438\u0432\u043b\u0435\u0447\u044c \u0444\u0438\u043d\u0430\u043d\u0441\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435.",
@@ -1724,20 +1836,6 @@
         "language": "RU",
         "published_at": "2025-12-04T14:15:00+00:00",
         "published_ts": 1764857700.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "0c682b06012862dc1644c67593423fe1",
-        "title": "President Highlights Syrdarya\u2019s Achievements and Sets Goals for 2026",
-        "summary": "An extraordinary session of the Council of People\u2019s Deputies of Syrdarya Region was held with the participation of President Shavkat Mirziyoyev.",
-        "full_content": "An extraordinary session of the Council of People\u2019s Deputies of Syrdarya Region was held with the participation of President Shavkat Mirziyoyev.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/president-highlights-syrdaryas-achievements-and-sets-goals-for-2026/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T19:14:00+05:00",
-        "published_ts": 1764857640.0,
         "image_url": null,
         "is_breaking": false
       },
@@ -1826,20 +1924,6 @@
         "is_breaking": false
       },
       {
-        "id": "d392063d14143193393aeee110609804",
-        "title": "Oracle PL/SQL nima va\u00a0unga bozorda talab yuqorimi?",
-        "summary": "Uzum\u2019da Oracle PL/SQL team lead\u2019i Sardorbek Xo\u2018jayev Spot\u2019ga ma\u2019lumot bazalari bilan ishlash, jamoa yetakchilari duch keladigan muammolar va\u00a0ularning yechimlari haqida so\u2018zlab berdi.",
-        "full_content": "Uzum\u2019da Oracle PL/SQL team lead\u2019i Sardorbek Xo\u2018jayev Spot\u2019ga ma\u2019lumot bazalari bilan ishlash, jamoa yetakchilari duch keladigan muammolar va\u00a0ularning yechimlari haqida so\u2018zlab berdi.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/oz/2025/12/04/sardorbek-xujayev/",
-        "category": "business",
-        "language": "UZ",
-        "published_at": "2025-12-04T12:40:00+00:00",
-        "published_ts": 1764852000.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
         "id": "795b28a511d9f9c47e34a27a457cd5ed",
         "title": "Amerikalik bloger MrBeast o\u2018zining mobil operatorini ishga tushirmoqda",
         "summary": "Qayd etilishicha, operator T-Mobile yoki Verizon kabi AQSHning yirilk aloqa operatorlaridan tarmoq resurslarini ijaraga oladi.",
@@ -1882,34 +1966,6 @@
         "is_breaking": false
       },
       {
-        "id": "5c05d7b47b804f5983a78080fe110b50",
-        "title": "International Partners and Central Asian Countries Develop New Approaches to River Basin Management",
-        "summary": "The Day of Dialogues on the Amu Darya and Syr Darya river basins was held in Tashkent, a key event under the program \u201cWater Resources Management in Central Asia in the Context of Climate Change,\u201d fund...",
-        "full_content": "The Day of Dialogues on the Amu Darya and Syr Darya river basins was held in Tashkent, a key event under the program \u201cWater Resources Management in Central Asia in the Context of Climate Change,\u201d funded by Germany, Switzerland, and the European Union.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/international-partners-and-central-asian-countries-develop-new-approaches-to-river-basin-management/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T17:07:00+05:00",
-        "published_ts": 1764850020.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "8d2b4e28a64a435916d9e522bcdebb9e",
-        "title": "Erkin Turdimov Appointed as Hokim of Syrdarya Region",
-        "summary": "Erkin Turdimov has been officially appointed as the Hokim (Governor) of Syrdarya Region. Previously, he served as the acting head of the region.",
-        "full_content": "Erkin Turdimov has been officially appointed as the Hokim (Governor) of Syrdarya Region. Previously, he served as the acting head of the region.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/erkin-turdimov-appointed-as-hokim-of-syrdarya-region/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T17:06:00+05:00",
-        "published_ts": 1764849960.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
         "id": "678a9d846de2c88b8e8b0ffd99f303f9",
         "title": "\u042d\u0440\u043a\u0438\u043d\u0436\u043e\u043d \u0422\u0443\u0440\u0434\u0438\u043c\u043e\u0432 \u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d \u043d\u0430\u00a0\u043f\u043e\u0441\u0442\u0443 \u0445\u043e\u043a\u0438\u043c\u0430 \u0421\u044b\u0440\u0434\u0430\u0440\u044c\u0438\u043d\u0441\u043a\u043e\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u0438",
         "summary": "\u042d\u0442\u043e \u0443\u0436\u0435 \u0442\u0440\u0435\u0442\u0438\u0439 \u0433\u043b\u0430\u0432\u0430 \u0440\u0435\u0433\u0438\u043e\u043d\u0430, \u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u043d\u044b\u0439 \u0432\u00a0\u0441\u0432\u043e\u0435\u0439 \u0434\u043e\u043b\u0436\u043d\u043e\u0441\u0442\u0438 \u0441\u00a0\u043d\u0430\u0447\u0430\u043b\u0430 \u043f\u0440\u043e\u0448\u043b\u043e\u0439 \u043d\u0435\u0434\u0435\u043b\u0438.",
@@ -1920,20 +1976,6 @@
         "language": "RU",
         "published_at": "2025-12-04T11:58:00+00:00",
         "published_ts": 1764849480.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "8742bd71b72eedb7ef65cb47f540d4f8",
-        "title": "Australian Company Invests Over US$2 Million in Scientific Capacity of Uzbek University",
-        "summary": "Australian company Micromine Australia Pty Ltd and the Almalyk branch of the National University of Science and Technology \u201cMISiS\u201d have signed a comprehensive cooperation agreement aimed at training h...",
-        "full_content": "Australian company Micromine Australia Pty Ltd and the Almalyk branch of the National University of Science and Technology \u201cMISiS\u201d have signed a comprehensive cooperation agreement aimed at training highly qualified personnel and implementing innovative solutions for the mining and metallurgical industry.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/australian-company-invests-over-us2-million-in-scientific-capacity-of-uzbek-university/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T16:57:00+05:00",
-        "published_ts": 1764849420.0,
         "image_url": null,
         "is_breaking": false
       },
@@ -1952,20 +1994,6 @@
         "is_breaking": false
       },
       {
-        "id": "606440314f8398ddbde011bfed1a06f5",
-        "title": "Uzbekistan and Hungary Sign Memorandum on Cooperation in Public Administration",
-        "summary": "On 3 December, a working meeting was held in Tashkent with the participation of Hungary\u2019s Minister of Public Administration and Regional Development Tibor Navracsics, Syrdarya Region Hokim Erkin Turdi...",
-        "full_content": "On 3 December, a working meeting was held in Tashkent with the participation of Hungary\u2019s Minister of Public Administration and Regional Development Tibor Navracsics, Syrdarya Region Hokim Erkin Turdimov, and Acting Director of Uzbekistan\u2019s Agency for Management Efficiency under the President Ulugbek Khusaynov.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-and-hungary-sign-memorandum-on-cooperation-in-public-administration/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T16:43:00+05:00",
-        "published_ts": 1764848580.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
         "id": "bb01eb6d540a74d15e0df99c1c2a3298",
         "title": "\u0412\u00a0\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435 \u043f\u0440\u043e\u0439\u0434\u0435\u0442 \u0441\u0430\u043c\u043c\u0438\u0442 \u0432\u00a0\u0441\u0444\u0435\u0440\u0435 \u043d\u0435\u0434\u0432\u0438\u0436\u0438\u043c\u043e\u0441\u0442\u0438 Move Real Estate Summit",
         "summary": "\u041d\u0430\u00a0\u043c\u0435\u0440\u043e\u043f\u0440\u0438\u044f\u0442\u0438\u0438 \u0431\u0443\u0434\u0443\u0442 \u043e\u0431\u0441\u0443\u0436\u0434\u0430\u0442\u044c\u0441\u044f \u043f\u043e\u0442\u0435\u043d\u0446\u0438\u0430\u043b \u043c\u0435\u0441\u0442\u043d\u043e\u0433\u043e \u0440\u044b\u043d\u043a\u0430 \u0434\u0435\u0432\u0435\u043b\u043e\u043f\u043c\u0435\u043d\u0442\u0430, \u043c\u0438\u0440\u043e\u0432\u044b\u0435 \u0442\u0440\u0435\u043d\u0434\u044b \u0432\u00a0\u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u0435 \u0438\u00a0\u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u0435.",
@@ -1976,34 +2004,6 @@
         "language": "RU",
         "published_at": "2025-12-04T11:29:00+00:00",
         "published_ts": 1764847740.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "41556d41987465ba7c33a940dbd1c7b9",
-        "title": "Uzbekistan Imports Nearly 13,500 Tons of Baby Food Worth US$83.1 Million",
-        "summary": "In the first ten months of 2025, Uzbekistan imported nearly 13,500 tons of baby food, totaling US$83.1 million, the press service of the National Statistics Committee reported.",
-        "full_content": "In the first ten months of 2025, Uzbekistan imported nearly 13,500 tons of baby food, totaling US$83.1 million, the press service of the National Statistics Committee reported.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-imports-nearly-13500-tons-of-baby-food-worth-us831-million/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T16:24:00+05:00",
-        "published_ts": 1764847440.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "0ef8455a2a9dd1579b43084ba42265f7",
-        "title": "Uzbekistan Approves New Measures to Boost Tourism and Support Entrepreneurs",
-        "summary": "The President of Uzbekistan has approved Resolution No. PP\u2013348 dated 19\u00a0November 2025, \u201cOn Measures for Organizing the Activities of the Uzbekistan Tourism Committee and Accelerating the Development o...",
-        "full_content": "The President of Uzbekistan has approved Resolution No. PP\u2013348 dated 19\u00a0November 2025, \u201cOn Measures for Organizing the Activities of the Uzbekistan Tourism Committee and Accelerating the Development of the Tourism Sector.\u201d",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-approves-new-measures-to-boost-tourism-and-support-entrepreneurs/",
-        "category": "business",
-        "language": "EN",
-        "published_at": "2025-12-04T16:12:00+05:00",
-        "published_ts": 1764846720.0,
         "image_url": null,
         "is_breaking": false
       },
@@ -2064,8 +2064,8 @@
     }
   ],
   "gold_history": {
-    "last_updated": "2025-12-04 16:04",
-    "last_updated_ts": 1764864296.180495,
+    "last_updated": "2025-12-04 17:06",
+    "last_updated_ts": 1764867974.477596,
     "data": [
       {
         "date": "2025-10-30",
@@ -2222,8 +2222,8 @@
     "note": "Real market data"
   },
   "silver_history": {
-    "last_updated": "2025-12-04 16:04",
-    "last_updated_ts": 1764864296.286394,
+    "last_updated": "2025-12-04 17:06",
+    "last_updated_ts": 1764867974.615924,
     "data": [
       {
         "date": "2025-10-30",
@@ -2380,8 +2380,8 @@
     "note": "Real market data"
   },
   "bitcoin_history": {
-    "last_updated": "2025-12-04 16:04",
-    "last_updated_ts": 1764864296.404575,
+    "last_updated": "2025-12-04 17:06",
+    "last_updated_ts": 1764867974.779182,
     "data": [
       {
         "date": "2025-11-04",
