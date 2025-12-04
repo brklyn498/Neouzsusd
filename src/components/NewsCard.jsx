@@ -72,6 +72,20 @@ const NewsCard = ({ item, darkMode, onClick }) => {
     );
   };
 
+  // Category colors mapping
+  const getCategoryColor = (cat) => {
+    switch(cat?.toLowerCase()) {
+      case 'economy': return '#CCFF00'; // Lime
+      case 'banking': return '#00FFFF'; // Cyan
+      case 'markets': return '#FF00FF'; // Magenta
+      case 'business': return '#FF5200'; // Orange
+      case 'regulation': return '#9D4EDD'; // Purple
+      default: return '#00FFFF'; // Default Cyan
+    }
+  };
+
+  const categoryColor = getCategoryColor(category);
+
   return (
     <div
       className="brutal-card animate-slide-in news-card-clickable"
@@ -93,7 +107,7 @@ const NewsCard = ({ item, darkMode, onClick }) => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
           <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <span style={{
-              backgroundColor: '#00FFFF',
+              backgroundColor: '#FFFFFF',
               color: '#000',
               padding: '2px 6px',
               border: '2px solid var(--border-color)'
@@ -102,7 +116,7 @@ const NewsCard = ({ item, darkMode, onClick }) => {
             </span>
             <LanguageBadge lang={language} />
             <span style={{
-              backgroundColor: '#FF00FF',
+              backgroundColor: categoryColor,
               color: '#000',
               padding: '2px 6px',
               border: '2px solid var(--border-color)'

@@ -247,9 +247,9 @@ function App() {
 
                 {/* Tags Filter Card */}
                 <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)', marginTop: '1rem' }}>
-                  <h3 style={{ marginTop: 0 }}>FILTER BY TAGS</h3>
+                  <h3 style={{ marginTop: 0 }}>FILTER BY CATEGORY</h3>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    {['Economy', 'Business', 'Markets', 'Banks', 'Currency', 'Politics', 'Tech', 'Tashkent'].map((tag) => (
+                    {['Economy', 'Banking', 'Markets', 'Business', 'Regulation'].map((tag) => (
                       <button
                         key={tag}
                         onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
