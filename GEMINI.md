@@ -173,6 +173,27 @@
   - **Robustness**: Used `Intl.DateTimeFormat` for reliable GMT+5 time formatting.
 - **Animation Fixes**: Resolved conflicts between "Slide In" entry animations and "Hover Pop" effects by separating them into wrapper `divs`.
 
+### Phase 21: News Feed Enhancements
+- **SVG Flag Badges**: Replaced emoji flags with proper SVG images from Wikipedia for language indicators
+  - UK, Russia, and Uzbekistan flag SVGs for EN, RU, UZ articles
+  - Consistent white backgrounds with black text for visibility in dark mode
+- **Glassmorphism Buttons**: Applied frosted glass effect to "READ MORE" and "CLOSE" buttons
+  - `backdrop-filter: blur(10px)` with semi-transparent backgrounds
+  - "READ ORIGINAL ARTICLE" stays bright cyan as primary action
+- **Modal Close Animation**: Added smooth exit animation for article modal
+  - Fades out with `opacity: 0` 
+  - Scales down with `scale(0.95)` and slides down
+  - 200ms transition for smooth UX
+- **Tag-Based Filtering**: New "FILTER BY TAGS" sidebar card
+  - 8 clickable tags: Economy, Business, Markets, Banks, Currency, Politics, Tech, Tashkent
+  - Filters news articles by keyword matching in title, summary, and category
+  - Shows article count and active filter badge
+- **Independent Sidebar Scroll**: Fixed sidebar scroll behavior
+  - Left panel now scrollable independently with `max-height: calc(100vh - 2rem)`
+  - Custom minimal scrollbar styling
+  - Added padding to prevent card hover clipping
+- **Updated News Sources**: Simplified to show Gazeta.uz, Daryo.uz, UzDaily, Spot.uz
+
 
 ## Backend Server Setup
 
@@ -281,3 +302,28 @@ The Vite development server proxies `/api` requests to the backend servers:
     - Create `NewsFeed` and `NewsCard` components.
     - Add "NEWS" view mode to `App.jsx` and `Header.jsx`.
     - Apply Neubrutalist styling to news cards.
+
+### Phase 24: News Feed Enhancements (Spot.uz + Language Badges)
+- **New Source**: Added Spot.uz business news with multi-language support.
+  - Russian feed: `https://www.spot.uz/rss`
+  - Uzbek feed: `https://www.spot.uz/oz/rss/`
+- **Language Badges**: Each news card now displays a language badge:
+  - 🇬🇧 EN (cyan) - English sources (Gazeta.uz, Daryo.uz, UzDaily)
+  - 🇷🇺 RU (magenta) - Russian Spot.uz
+  - 🇺🇿 UZ (lime green) - Uzbek Spot.uz
+- **Backend Changes**: Updated `scraper.py` to include `lang` field in source config and news items.
+- **Frontend Changes**: Updated `NewsCard.jsx` with conditional language badge rendering using flag emojis and distinct colors.
+
+### Phase 25: Article Modal Viewer
+- **Full Content Fetching**: Updated `scraper.py` to extract full article content from RSS (up to 2000 chars).
+  - Uses `content:encoded` field when available, falls back to `summary`.
+  - Stores both `summary` (200 char preview) and `full_content` (full text) in `rates.json`.
+- **New Component**: Created `ArticleModal.jsx` - a Neubrutalist modal for reading full articles:
+  - Header image display (if available)
+  - Metadata badges (source, language with flag, category)
+  - Full article text with proper formatting
+  - "READ ORIGINAL ARTICLE" button to visit source
+  - Keyboard support (Escape to close)
+  - Body scroll lock when open
+- **NewsCard Updates**: Added "📖 READ MORE" button and made cards clickable to open modal.
+- **NewsFeed Integration**: Added modal state management with `selectedArticle` useState hook.

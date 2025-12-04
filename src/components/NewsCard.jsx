@@ -1,7 +1,14 @@
 import React from 'react';
 
-const NewsCard = ({ item, darkMode }) => {
-  const { title, summary, source, published_at, category, image_url, source_url } = item;
+// Flag SVG URLs
+const FLAG_URLS = {
+  EN: 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg',
+  RU: 'https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg',
+  UZ: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg',
+};
+
+const NewsCard = ({ item, darkMode, onClick }) => {
+  const { title, summary, source, published_at, category, language, image_url, source_url } = item;
 
   // Format relative time (e.g., "2 hours ago")
   const getRelativeTime = (isoString) => {
@@ -21,9 +28,54 @@ const NewsCard = ({ item, darkMode }) => {
 
   const timeAgo = getRelativeTime(published_at);
 
+  // Handle card click (but not on direct link clicks)
+  const handleCardClick = (e) => {
+    // Don't trigger if clicking on the external link
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+      return;
+    }
+    if (onClick) onClick(item);
+  };
+
+  // Language badge component with SVG flag
+  const LanguageBadge = ({ lang }) => {
+    if (!lang) return null;
+    const flagUrl = FLAG_URLS[lang];
+    const langLabel = lang === 'EN' ? 'EN' : lang === 'RU' ? 'RU' : lang === 'UZ' ? 'UZ' : lang;
+
+    return (
+      <span style={{
+        backgroundColor: '#FFFFFF',
+        color: '#000',
+        padding: '2px 8px',
+        border: '2px solid var(--border-color)',
+        fontWeight: 'bold',
+        fontSize: '0.65rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '4px'
+      }}>
+        {flagUrl && (
+          <img
+            src={flagUrl}
+            alt={`${lang} flag`}
+            style={{
+              width: '16px',
+              height: '12px',
+              objectFit: 'cover',
+              border: '1px solid #ccc'
+            }}
+          />
+        )}
+        {langLabel}
+      </span>
+    );
+  };
+
   return (
     <div
-      className="brutal-card animate-slide-in"
+      className="brutal-card animate-slide-in news-card-clickable"
+      onClick={handleCardClick}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -34,21 +86,23 @@ const NewsCard = ({ item, darkMode }) => {
         overflow: 'hidden',
         position: 'relative',
         transition: 'transform 0.2s, box-shadow 0.2s',
+        cursor: 'pointer',
       }}
     >
       <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
-          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <span style={{
-              backgroundColor: 'var(--accent-cyan)',
+              backgroundColor: '#00FFFF',
               color: '#000',
               padding: '2px 6px',
               border: '2px solid var(--border-color)'
             }}>
               {source}
             </span>
+            <LanguageBadge lang={language} />
             <span style={{
-              backgroundColor: 'var(--accent-pink)',
+              backgroundColor: '#FF00FF',
               color: '#000',
               padding: '2px 6px',
               border: '2px solid var(--border-color)'
@@ -60,9 +114,7 @@ const NewsCard = ({ item, darkMode }) => {
         </div>
 
         <h3 style={{ margin: '0.5rem 0', fontSize: '1.2rem', lineHeight: '1.3' }}>
-          <a href={source_url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
-            {title}
-          </a>
+          {title}
         </h3>
 
         <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
@@ -75,23 +127,43 @@ const NewsCard = ({ item, darkMode }) => {
           </div>
         )}
 
-        <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'space-between' }}>
-            <a
-              href={source_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="brutal-btn"
-              style={{
-                textDecoration: 'none',
-                fontSize: '0.8rem',
-                padding: '0.5rem 1rem',
-                backgroundColor: 'var(--bg-color)',
-                width: '100%',
-                textAlign: 'center'
-              }}
-            >
-              READ FULL ARTICLE ↗
-            </a>
+        <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem' }}>
+          <button
+            className="brutal-btn"
+            style={{
+              fontSize: '0.8rem',
+              padding: '0.5rem 1rem',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              color: '#FFFFFF',
+              flex: 1,
+              textAlign: 'center',
+              fontWeight: 'bold'
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onClick) onClick(item);
+            }}
+          >
+            READ MORE
+          </button>
+          <a
+            href={source_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutal-btn"
+            style={{
+              textDecoration: 'none',
+              fontSize: '0.8rem',
+              padding: '0.5rem 1rem',
+              backgroundColor: '#FFFFFF',
+              color: '#000',
+              textAlign: 'center'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            ↗
+          </a>
         </div>
       </div>
     </div>

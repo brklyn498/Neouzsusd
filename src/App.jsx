@@ -25,6 +25,7 @@ function App() {
   const [showAll, setShowAll] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [lastRefresh, setLastRefresh] = useState(null);
+  const [selectedTag, setSelectedTag] = useState(null); // For news filtering
   const [darkMode, setDarkMode] = useState(() => {
     // Check localStorage or system preference
     const saved = localStorage.getItem('darkMode');
@@ -231,16 +232,64 @@ function App() {
               </>
             ) : viewMode === 'news' ? (
               // News Mode Sidebar Content
-               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
-                <h3 style={{ marginTop: 0 }}>NEWS SOURCES</h3>
-                <p>Aggregated from trusted local sources:</p>
-                <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem' }}>
-                  <li>Gazeta.uz</li>
-                  <li>Daryo.uz</li>
-                  <li>UzDaily</li>
-                </ul>
-                <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Updates every 30 minutes.</p>
-              </div>
+              <>
+                <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                  <h3 style={{ marginTop: 0 }}>NEWS SOURCES</h3>
+                  <p>Aggregated from trusted local sources:</p>
+                  <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem', lineHeight: '1.8' }}>
+                    <li>Gazeta.uz</li>
+                    <li>Daryo.uz</li>
+                    <li>UzDaily</li>
+                    <li>Spot.uz</li>
+                  </ul>
+                  <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Updates every 30 minutes.</p>
+                </div>
+
+                {/* Tags Filter Card */}
+                <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)', marginTop: '1rem' }}>
+                  <h3 style={{ marginTop: 0 }}>FILTER BY TAGS</h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {['Economy', 'Business', 'Markets', 'Banks', 'Currency', 'Politics', 'Tech', 'Tashkent'].map((tag) => (
+                      <button
+                        key={tag}
+                        onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+                        style={{
+                          padding: '0.4rem 0.8rem',
+                          fontSize: '0.75rem',
+                          fontWeight: 'bold',
+                          textTransform: 'uppercase',
+                          border: '2px solid var(--border-color)',
+                          backgroundColor: selectedTag === tag ? '#00FFFF' : 'rgba(255,255,255,0.1)',
+                          color: selectedTag === tag ? '#000' : 'var(--text-color)',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s',
+                          backdropFilter: 'blur(5px)'
+                        }}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                  {selectedTag && (
+                    <p style={{ fontSize: '0.75rem', marginTop: '0.75rem', opacity: 0.8 }}>
+                      Showing: <strong>{selectedTag}</strong>
+                      <button
+                        onClick={() => setSelectedTag(null)}
+                        style={{
+                          marginLeft: '0.5rem',
+                          background: 'none',
+                          border: 'none',
+                          color: '#FF00FF',
+                          cursor: 'pointer',
+                          fontWeight: 'bold'
+                        }}
+                      >
+                        ✕ Clear
+                      </button>
+                    </p>
+                  )}
+                </div>
+              </>
             ) : (
               // Savings Mode Sidebar Content
               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
@@ -372,7 +421,7 @@ function App() {
                 </div>
               </>
             ) : viewMode === 'news' ? (
-              <NewsFeed news={newsData} darkMode={darkMode} />
+              <NewsFeed news={newsData} darkMode={darkMode} selectedTag={selectedTag} />
             ) : (
               <>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>

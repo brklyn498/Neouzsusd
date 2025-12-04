@@ -733,9 +733,11 @@ def fetch_news(existing_data, force=False):
                 print(f"Error parsing timestamp: {e}")
 
     sources = [
-        {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/feeds/news.xml", "category": "general"},
-        {"name": "Daryo.uz", "rss": "https://daryo.uz/en/feed/", "category": "general"},
-        {"name": "UzDaily", "rss": "https://uzdaily.uz/en/rss", "category": "business"},
+        {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/feeds/news.xml", "category": "general", "lang": "EN"},
+        {"name": "Daryo.uz", "rss": "https://daryo.uz/en/feed/", "category": "general", "lang": "EN"},
+        {"name": "UzDaily", "rss": "https://uzdaily.uz/en/rss", "category": "business", "lang": "EN"},
+        {"name": "Spot.uz", "rss": "https://www.spot.uz/rss", "category": "business", "lang": "RU"},
+        {"name": "Spot.uz", "rss": "https://www.spot.uz/oz/rss/", "category": "business", "lang": "UZ"},
     ]
 
     all_news = []
@@ -777,17 +779,30 @@ def fetch_news(existing_data, force=False):
                     if img_tag and img_tag.get('src'):
                         image_url = img_tag['src']
 
-                # Clean summary
-                summary = entry.get("summary", "")
-                summary_clean = BeautifulSoup(summary, "html.parser").get_text(strip=True)[:200] + "..."
+                # Get full content from RSS (some feeds have content:encoded or full summary)
+                full_content = ""
+                if hasattr(entry, 'content') and entry.content:
+                    # content:encoded field (often has full article)
+                    full_content = BeautifulSoup(entry.content[0].get('value', ''), 'html.parser').get_text(strip=True)
+                elif hasattr(entry, 'summary'):
+                    full_content = BeautifulSoup(entry.summary, 'html.parser').get_text(strip=True)
+                
+                # Limit full content to reasonable size (2000 chars)
+                if len(full_content) > 2000:
+                    full_content = full_content[:2000] + "..."
+                
+                # Short summary for card preview (200 chars)
+                summary_clean = full_content[:200] + "..." if len(full_content) > 200 else full_content
 
                 all_news.append({
                     "id": item_id,
                     "title": entry.title,
                     "summary": summary_clean,
+                    "full_content": full_content,  # Full article text for modal view
                     "source": source["name"],
                     "source_url": entry.link,
                     "category": source["category"], # Placeholder for now
+                    "language": source["lang"],  # Language code: EN, RU, or UZ
                     "published_at": published_at,
                     "published_ts": published_ts,
                     "image_url": image_url,
