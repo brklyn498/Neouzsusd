@@ -5,6 +5,7 @@ import Calculator from './components/Calculator';
 import HistoryChart from './components/HistoryChart';
 import OfflineBanner from './components/OfflineBanner';
 import SavingsList from './components/SavingsList';
+import NewsFeed from './components/NewsFeed';
 import GoldBarPrices from './components/GoldBarPrices';
 import GoldHistoryChart from './components/GoldHistoryChart';
 import SilverHistoryChart from './components/SilverHistoryChart';
@@ -107,6 +108,7 @@ function App() {
   const currentData = data ? data[currency.toLowerCase()] : null;
   const weatherData = data ? data.weather : null;
   const savingsData = data ? data.savings : null;
+  const newsData = data ? data.news : null;
   const goldBarsData = data ? data.gold_bars : null;
   const goldHistoryData = data ? data.gold_history : null;
   const silverHistoryData = data ? data.silver_history : null;
@@ -226,6 +228,18 @@ function App() {
                    </div>
                 )}
               </>
+            ) : viewMode === 'news' ? (
+              // News Mode Sidebar Content
+               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                <h3 style={{ marginTop: 0 }}>NEWS SOURCES</h3>
+                <p>Aggregated from trusted local sources:</p>
+                <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem' }}>
+                  <li>Gazeta.uz</li>
+                  <li>Daryo.uz</li>
+                  <li>UzDaily</li>
+                </ul>
+                <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Updates every 30 minutes.</p>
+              </div>
             ) : (
               // Savings Mode Sidebar Content
               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
@@ -356,6 +370,8 @@ function App() {
                    </p>
                 </div>
               </>
+            ) : viewMode === 'news' ? (
+              <NewsFeed news={newsData} darkMode={darkMode} />
             ) : (
               <>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>

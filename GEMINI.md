@@ -251,3 +251,14 @@ The Vite development server proxies `/api` requests to the backend servers:
 - **Features:**
     - Toggle for UZS -> USD calculation.
     - "Dark Brutalism" mode (Black background, neon text).
+
+### Phase 21: News Feed Implementation (Phase 1) 📰
+- **Goal**: Implement a financial news feed aggregation system.
+- **Backend**:
+    - Add `feedparser` and `python-dateutil` dependencies.
+    - Implement RSS fetching for Gazeta.uz, Daryo.uz, and UzDaily in `scraper.py`.
+    - Update `rates.json` schema to include a `news` section.
+- **Frontend**:
+    - Create `NewsFeed` and `NewsCard` components.
+    - Add "NEWS" view mode to `App.jsx` and `Header.jsx`.
+    - Apply Neubrutalist styling to news cards.
