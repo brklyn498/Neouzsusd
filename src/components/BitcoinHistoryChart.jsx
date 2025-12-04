@@ -142,185 +142,187 @@ export default function BitcoinHistoryChart({ bitcoinHistory }) {
     }, [isDragging]);
 
     return (
-        <div className="brutal-card gold-history-card animate-slide-in" style={{ borderColor: 'var(--bitcoin-accent)', boxShadow: '4px 4px 0 var(--bitcoin-accent)' }}>
-            <div className="card-header">
-                <div>
-                    <span className="gold-icon">₿</span>
-                    <h3>BITCOIN PRICE HISTORY (30 DAYS)</h3>
-                </div>
-            </div>
-
-            <div className="chart-container" style={{ position: 'relative' }} ref={containerRef}>
-                {/* Today's Price Badge */}
-                <div
-                    className="today-price-badge"
-                    ref={badgeRef}
-                    onMouseDown={handleMouseDown}
-                    style={{
-                        cursor: isDragging ? 'grabbing' : 'grab',
-                        background: 'var(--bitcoin-accent)',
-                        ...(badgePosition ? {
-                            left: badgePosition.left,
-                            top: badgePosition.top,
-                            right: 'auto',
-                            bottom: 'auto',
-                            position: 'absolute'
-                        } : {})
-                    }}
-                >
-                    <div className="badge-header">
-                        <span className="badge-label">TODAY</span>
-                    </div>
-                    <div className="badge-price">${stats.lastPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                    <div className="badge-change-row">
-                        <span style={{
-                            color: '#000',
-                            fontWeight: 'bold',
-                            fontSize: '0.9rem'
-                        }}>
-                            {stats.todayChange >= 0 ? '▲' : '▼'} {Math.abs(stats.todayChangePercent).toFixed(2)}%
-                        </span>
+        <div className="animate-slide-in">
+            <div className="brutal-card gold-history-card" style={{ borderColor: 'var(--bitcoin-accent)', boxShadow: '4px 4px 0 var(--bitcoin-accent)' }}>
+                <div className="card-header">
+                    <div>
+                        <span className="gold-icon">₿</span>
+                        <h3>BITCOIN PRICE HISTORY (30 DAYS)</h3>
                     </div>
                 </div>
 
-                <ResponsiveContainer width="100%" height={350}>
-                    <AreaChart
-                        data={stats.dataWithMA}
-                        margin={{ top: 20, right: 30, left: 10, bottom: 20 }}
+                <div className="chart-container" style={{ position: 'relative' }} ref={containerRef}>
+                    {/* Today's Price Badge */}
+                    <div
+                        className="today-price-badge"
+                        ref={badgeRef}
+                        onMouseDown={handleMouseDown}
+                        style={{
+                            cursor: isDragging ? 'grabbing' : 'grab',
+                            background: 'var(--bitcoin-accent)',
+                            ...(badgePosition ? {
+                                left: badgePosition.left,
+                                top: badgePosition.top,
+                                right: 'auto',
+                                bottom: 'auto',
+                                position: 'absolute'
+                            } : {})
+                        }}
                     >
-                        <defs>
-                            <linearGradient id="bitcoinGradient" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="var(--bitcoin-accent)" stopOpacity={0.7} />
-                                <stop offset="95%" stopColor="var(--bitcoin-accent)" stopOpacity={0.1} />
-                            </linearGradient>
-                        </defs>
-                        <CartesianGrid strokeDasharray="0" stroke="var(--text-color)" opacity={0.3} strokeWidth={1} vertical={true} horizontal={false} />
-                        <XAxis
-                            dataKey="date"
-                            stroke="var(--text-color)"
-                            strokeWidth={4}
-                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 11 }}
-                            tickFormatter={(value) => {
-                                const date = new Date(value);
-                                return `${date.getMonth() + 1}/${date.getDate()}`;
-                            }}
-                            interval="preserveStartEnd"
-                            dy={10}
-                        />
-                        <YAxis
-                            stroke="var(--text-color)"
-                            strokeWidth={4}
-                            tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 13 }}
-                            tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
-                            domain={['auto', (dataMax) => dataMax * 1.05]}
-                        />
-                        <Tooltip content={<CustomTooltip />} />
+                        <div className="badge-header">
+                            <span className="badge-label">TODAY</span>
+                        </div>
+                        <div className="badge-price">${stats.lastPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className="badge-change-row">
+                            <span style={{
+                                color: '#000',
+                                fontWeight: 'bold',
+                                fontSize: '0.9rem'
+                            }}>
+                                {stats.todayChange >= 0 ? '▲' : '▼'} {Math.abs(stats.todayChangePercent).toFixed(2)}%
+                            </span>
+                        </div>
+                    </div>
 
-                        {/* Min/Max markers */}
-                        <ReferenceDot
-                            x={stats.minItem.date}
-                            y={stats.minPrice}
-                            r={6}
-                            fill="var(--danger-color)"
-                            stroke="var(--text-color)"
-                            strokeWidth={2}
-                            label={{ value: 'MIN', position: 'bottom', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
-                        />
-                        <ReferenceDot
-                            x={stats.maxItem.date}
-                            y={stats.maxPrice}
-                            r={6}
-                            fill="var(--success-color)"
-                            stroke="var(--text-color)"
-                            strokeWidth={2}
-                            label={{ value: 'MAX', position: 'top', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
-                        />
+                    <ResponsiveContainer width="100%" height={350}>
+                        <AreaChart
+                            data={stats.dataWithMA}
+                            margin={{ top: 20, right: 30, left: 10, bottom: 20 }}
+                        >
+                            <defs>
+                                <linearGradient id="bitcoinGradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="5%" stopColor="var(--bitcoin-accent)" stopOpacity={0.7} />
+                                    <stop offset="95%" stopColor="var(--bitcoin-accent)" stopOpacity={0.1} />
+                                </linearGradient>
+                            </defs>
+                            <CartesianGrid strokeDasharray="0" stroke="var(--text-color)" opacity={0.3} strokeWidth={1} vertical={true} horizontal={false} />
+                            <XAxis
+                                dataKey="date"
+                                stroke="var(--text-color)"
+                                strokeWidth={4}
+                                tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 11 }}
+                                tickFormatter={(value) => {
+                                    const date = new Date(value);
+                                    return `${date.getMonth() + 1}/${date.getDate()}`;
+                                }}
+                                interval="preserveStartEnd"
+                                dy={10}
+                            />
+                            <YAxis
+                                stroke="var(--text-color)"
+                                strokeWidth={4}
+                                tick={{ fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 13 }}
+                                tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+                                domain={['auto', (dataMax) => dataMax * 1.05]}
+                            />
+                            <Tooltip content={<CustomTooltip />} />
 
-                        {/* Current Price Dot */}
-                        <ReferenceDot
-                            x={stats.dataWithMA[stats.dataWithMA.length - 1].date}
-                            y={stats.lastPrice}
-                            r={8}
-                            fill="var(--bitcoin-accent)"
-                            stroke="var(--text-color)"
-                            strokeWidth={3}
-                        />
+                            {/* Min/Max markers */}
+                            <ReferenceDot
+                                x={stats.minItem.date}
+                                y={stats.minPrice}
+                                r={6}
+                                fill="var(--danger-color)"
+                                stroke="var(--text-color)"
+                                strokeWidth={2}
+                                label={{ value: 'MIN', position: 'bottom', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
+                            />
+                            <ReferenceDot
+                                x={stats.maxItem.date}
+                                y={stats.maxPrice}
+                                r={6}
+                                fill="var(--success-color)"
+                                stroke="var(--text-color)"
+                                strokeWidth={2}
+                                label={{ value: 'MAX', position: 'top', fill: 'var(--text-color)', fontWeight: 'bold', fontSize: 12 }}
+                            />
 
-                        <Area
-                            type="monotone"
-                            dataKey="price_usd"
-                            stroke="var(--bitcoin-accent)"
-                            strokeWidth={5}
-                            fill="url(#bitcoinGradient)"
-                            activeDot={{
-                                r: 8,
-                                fill: "#FFFFFF",
-                                stroke: "#000000",
-                                strokeWidth: 4
-                            }}
-                            dot={false}
-                        />
+                            {/* Current Price Dot */}
+                            <ReferenceDot
+                                x={stats.dataWithMA[stats.dataWithMA.length - 1].date}
+                                y={stats.lastPrice}
+                                r={8}
+                                fill="var(--bitcoin-accent)"
+                                stroke="var(--text-color)"
+                                strokeWidth={3}
+                            />
 
-                        {/* 7-day moving average line */}
-                        <Line
-                            type="monotone"
-                            dataKey="ma7"
-                            stroke="var(--gold-dark)"
-                            strokeWidth={3}
-                            strokeDasharray="8 4"
-                            dot={false}
-                        />
-                    </AreaChart>
-                </ResponsiveContainer>
-            </div>
+                            <Area
+                                type="monotone"
+                                dataKey="price_usd"
+                                stroke="var(--bitcoin-accent)"
+                                strokeWidth={5}
+                                fill="url(#bitcoinGradient)"
+                                activeDot={{
+                                    r: 8,
+                                    fill: "#FFFFFF",
+                                    stroke: "#000000",
+                                    strokeWidth: 4
+                                }}
+                                dot={false}
+                            />
 
-            <div className="chart-controls">
-                <button className="brutal-button" onClick={() => setShowTable(!showTable)}>
-                    {showTable ? 'HIDE TABLE' : 'SHOW TABLE'}
-                </button>
-            </div>
-
-            {showTable && (
-                <div className="gold-table-container">
-                    <table className="gold-price-table">
-                        <thead>
-                            <tr>
-                                <th>DATE</th>
-                                <th>PRICE (USD)</th>
-                                <th>CHANGE</th>
-                                <th>7-DAY AVG</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {stats.dataWithMA.slice().reverse().map((item, index) => {
-                                const actualIndex = stats.dataWithMA.length - 1 - index;
-                                const prevPrice = actualIndex > 0 ? stats.dataWithMA[actualIndex - 1].price_usd : item.price_usd;
-                                const change = item.price_usd - prevPrice;
-                                const changePercent = (change / prevPrice) * 100;
-                                const isMin = item.price_usd === stats.minPrice;
-                                const isMax = item.price_usd === stats.maxPrice;
-
-                                return (
-                                    <tr key={item.date} className={`${isMin ? 'min-row' : ''} ${isMax ? 'max-row' : ''}`}>
-                                        <td>{item.date}</td>
-                                        <td className="price-cell">${item.price_usd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                                        <td className={`change-cell ${change >= 0 ? 'positive' : 'negative'}`}>
-                                            {actualIndex > 0 && (
-                                                <>
-                                                    {change >= 0 ? '▲' : '▼'} ${Math.abs(change).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                                                    <span className="change-percent">({changePercent.toFixed(2)}%)</span>
-                                                </>
-                                            )}
-                                            {actualIndex === 0 && '-'}
-                                        </td>
-                                        <td>{item.ma7 ? `$${item.ma7.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '-'}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                            {/* 7-day moving average line */}
+                            <Line
+                                type="monotone"
+                                dataKey="ma7"
+                                stroke="var(--gold-dark)"
+                                strokeWidth={3}
+                                strokeDasharray="8 4"
+                                dot={false}
+                            />
+                        </AreaChart>
+                    </ResponsiveContainer>
                 </div>
-            )}
+
+                <div className="chart-controls">
+                    <button className="brutal-button" onClick={() => setShowTable(!showTable)}>
+                        {showTable ? 'HIDE TABLE' : 'SHOW TABLE'}
+                    </button>
+                </div>
+
+                {showTable && (
+                    <div className="gold-table-container">
+                        <table className="gold-price-table">
+                            <thead>
+                                <tr>
+                                    <th>DATE</th>
+                                    <th>PRICE (USD)</th>
+                                    <th>CHANGE</th>
+                                    <th>7-DAY AVG</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {stats.dataWithMA.slice().reverse().map((item, index) => {
+                                    const actualIndex = stats.dataWithMA.length - 1 - index;
+                                    const prevPrice = actualIndex > 0 ? stats.dataWithMA[actualIndex - 1].price_usd : item.price_usd;
+                                    const change = item.price_usd - prevPrice;
+                                    const changePercent = (change / prevPrice) * 100;
+                                    const isMin = item.price_usd === stats.minPrice;
+                                    const isMax = item.price_usd === stats.maxPrice;
+
+                                    return (
+                                        <tr key={item.date} className={`${isMin ? 'min-row' : ''} ${isMax ? 'max-row' : ''}`}>
+                                            <td>{item.date}</td>
+                                            <td className="price-cell">${item.price_usd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                                            <td className={`change-cell ${change >= 0 ? 'positive' : 'negative'}`}>
+                                                {actualIndex > 0 && (
+                                                    <>
+                                                        {change >= 0 ? '▲' : '▼'} ${Math.abs(change).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                        <span className="change-percent">({changePercent.toFixed(2)}%)</span>
+                                                    </>
+                                                )}
+                                                {actualIndex === 0 && '-'}
+                                            </td>
+                                            <td>{item.ma7 ? `$${item.ma7.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '-'}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

@@ -163,6 +163,16 @@
   - **Component Animations**: Applied slide-in effects to Gold Bar Prices and all History Charts.
 - **Result**: The application now feels significantly more dynamic and "alive" while maintaining its brutalist aesthetic.
 
+### Phase 20: Glitch & Clock Animations
+- **Glitch Logo**: Replaced the static "NEOUZS" header with a custom `<GlitchLogo />` component.
+  - **Implementation**: Uses a "CSS Stack" method with 3 layers (Base, Red, Blue) and `clip-path` animations.
+  - **Refinement**: Tuned the animation to be slower (6-8s loop) with random pauses for a "stable but glitchy" cyberpunk look.
+- **Clock Animation**: Implemented a live `<Clock />` component.
+  - **Tick Pop**: Digits animate with a `tick-pop` effect (slide up + fade in) whenever they change.
+  - **Alignment**: Switched to `JetBrains Mono` monospace font to ensure perfect alignment and prevent jitter.
+  - **Robustness**: Used `Intl.DateTimeFormat` for reliable GMT+5 time formatting.
+- **Animation Fixes**: Resolved conflicts between "Slide In" entry animations and "Hover Pop" effects by separating them into wrapper `divs`.
+
 
 ## Backend Server Setup
 

@@ -3,23 +3,11 @@ import Card from './Card';
 import WeatherBadge from './WeatherBadge';
 import NotificationToggle from './NotificationToggle';
 
+import GlitchLogo from './GlitchLogo';
+import Clock from './Clock';
+
 const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurrency, darkMode, toggleDarkMode, weather, viewMode, setViewMode, topSavingsRate, metalType }) => {
-  const [currentTime, setCurrentTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      // Convert to GMT+5 (Uzbekistan time)
-      const uzbekTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tashkent' }));
-      const hours = uzbekTime.getHours().toString().padStart(2, '0');
-      const minutes = uzbekTime.getMinutes().toString().padStart(2, '0');
-      setCurrentTime(`${hours}:${minutes}`);
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  // Removed internal time state as it's now handled by Clock component
 
   return (
     <div style={{ marginBottom: '2rem' }}>
@@ -29,27 +17,14 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
           <h1 className="animate-pop-in" style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: darkMode ? 'var(--accent-brand)' : 'var(--text-color)' }}>
-            NEOUZS
+            <GlitchLogo text="NEOUZS" />
           </h1>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <div
-              className="brutal-border brutal-shadow"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '6px 12px',
-                backgroundColor: 'var(--card-bg)',
-                fontSize: '1.2rem',
-                fontWeight: 'bold',
-                minWidth: '100px',
-                justifyContent: 'center'
-              }}
-            >
-              {currentTime}
-            </div>
+            <Clock />
             <WeatherBadge weather={weather} />
           </div>
         </div>
+
 
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           {/* View Mode Toggle */}
@@ -206,54 +181,64 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
             {refreshing ? 'LOADING...' : 'REFRESH'}
           </button>
         </div>
-      </div>
+      </div >
       {viewMode === 'exchange' && (
-        <Card className="animate-slide-in" style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
-            <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
-              {cbuRate ? cbuRate.toLocaleString() : 'LOADING...'}
-            </div>
-            {lastRefresh && (
-              <div style={{ fontSize: '0.7rem', opacity: 0.7, marginTop: '0.3rem' }}>
-                Last refreshed: {lastRefresh}
+        <div className="animate-slide-in">
+          <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-yellow)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>CBU RATE ({currency})</div>
+              <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+                {cbuRate ? cbuRate.toLocaleString() : 'LOADING...'}
               </div>
-            )}
-          </div>
-          <div style={{ fontSize: '3rem' }}>🏦</div>
-        </Card>
+              {lastRefresh && (
+                <div style={{ fontSize: '0.7rem', opacity: 0.7, marginTop: '0.3rem' }}>
+                  Last refreshed: {lastRefresh}
+                </div>
+              )}
+            </div>
+            <div style={{ fontSize: '3rem' }}>🏦</div>
+          </Card>
+        </div>
       )}
-      {viewMode === 'metals' && (
-        <Card className="animate-slide-in" style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : (metalType === 'bitcoin' ? 'var(--bitcoin-accent)' : (metalType === 'silver' ? 'var(--silver-accent)' : 'var(--gold-accent)')), color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>
-              {metalType === 'bitcoin' ? 'BITCOIN PRICE (BTC/USD)' : (metalType === 'silver' ? 'SILVER PRICE (XAG/USD)' : 'GOLD PRICE (XAU/USD)')}
-            </div>
-            <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
-              LIVE DATA
-            </div>
-            <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
-              REAL-TIME MARKET DATA
-            </div>
+      {
+        viewMode === 'metals' && (
+          <div className="animate-slide-in">
+            <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : (metalType === 'bitcoin' ? 'var(--bitcoin-accent)' : (metalType === 'silver' ? 'var(--silver-accent)' : 'var(--gold-accent)')), color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>
+                  {metalType === 'bitcoin' ? 'BITCOIN PRICE (BTC/USD)' : (metalType === 'silver' ? 'SILVER PRICE (XAG/USD)' : 'GOLD PRICE (XAU/USD)')}
+                </div>
+                <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+                  LIVE DATA
+                </div>
+                <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
+                  REAL-TIME MARKET DATA
+                </div>
+              </div>
+              <div style={{ fontSize: '3rem' }}>{metalType === 'bitcoin' ? '₿' : (metalType === 'silver' ? '🥈' : '🪙')}</div>
+            </Card>
           </div>
-          <div style={{ fontSize: '3rem' }}>{metalType === 'bitcoin' ? '₿' : (metalType === 'silver' ? '🥈' : '🪙')}</div>
-        </Card>
-      )}
-      {viewMode === 'savings' && (
-        <Card className="animate-slide-in" style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-green)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>TOP SAVINGS RATE</div>
-            <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
-              {topSavingsRate ? `${topSavingsRate}%` : 'LOADING...'}
-            </div>
-            <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
-              FIND THE BEST DEPOSIT
-            </div>
+        )
+      }
+      {
+        viewMode === 'savings' && (
+          <div className="animate-slide-in">
+            <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : 'var(--accent-green)', color: darkMode ? '#FFFFFF' : 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>TOP SAVINGS RATE</div>
+                <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+                  {topSavingsRate ? `${topSavingsRate}%` : 'LOADING...'}
+                </div>
+                <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
+                  FIND THE BEST DEPOSIT
+                </div>
+              </div>
+              <div style={{ fontSize: '3rem' }}>💰</div>
+            </Card>
           </div>
-          <div style={{ fontSize: '3rem' }}>💰</div>
-        </Card>
-      )}
-    </div>
+        )
+      }
+    </div >
   );
 };
 

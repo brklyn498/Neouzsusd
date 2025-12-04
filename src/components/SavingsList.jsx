@@ -60,12 +60,12 @@ const SavingsList = ({ savings, sortType }) => {
   return (
     <>
       {sortedSavings.map((item, index) => (
-        <SavingsCard
-          key={`${item.bank_name}-${index}`}
-          savings={item}
-          isBestRate={item.rate === bestRate}
-          className={`animate-slide-in delay-${index % 20}`}
-        />
+        <div key={`${item.bank_name}-${index}`} className={`animate-slide-in delay-${index % 20}`}>
+          <SavingsCard
+            savings={item}
+            isBestRate={item.rate === bestRate}
+          />
+        </div>
       ))}
     </>
   );

@@ -23,25 +23,27 @@ export default function GoldBarPrices({ goldBars }) {
     };
 
     return (
-        <div className="brutal-card gold-bars-card animate-slide-in">
-            <div className="card-header">
-                <span className="gold-icon">🪙</span>
-                <h3>MB GOLD BARS</h3>
-            </div>
-            <div className="gold-bars-list">
-                {goldBars.map((bar, index) => (
-                    <div
-                        key={bar.weight}
-                        className={`gold-bar-item animate-slide-in delay-${index % 20}`}
-                        style={{
-                            background: getGoldGradient(bar.weight),
-                            boxShadow: '4px 4px 0 var(--border-color)'
-                        }}
-                    >
-                        <div className="gold-weight">{bar.weight}</div>
-                        <div className="gold-price">{formatPrice(bar.price)} сўм</div>
-                    </div>
-                ))}
+        <div className="animate-slide-in">
+            <div className="brutal-card gold-bars-card">
+                <div className="card-header">
+                    <span className="gold-icon">🪙</span>
+                    <h3>MB GOLD BARS</h3>
+                </div>
+                <div className="gold-bars-list">
+                    {goldBars.map((bar, index) => (
+                        <div
+                            key={bar.weight}
+                            className={`gold-bar-item animate-slide-in delay-${index % 20}`}
+                            style={{
+                                background: getGoldGradient(bar.weight),
+                                boxShadow: '4px 4px 0 var(--border-color)'
+                            }}
+                        >
+                            <div className="gold-weight">{bar.weight}</div>
+                            <div className="gold-price">{formatPrice(bar.price)} сўм</div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
