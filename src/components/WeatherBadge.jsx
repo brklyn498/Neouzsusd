@@ -37,28 +37,39 @@ const WeatherBadge = ({ weather }) => {
   // We'll style it as a badge.
 
   return (
-    <div
-      className="brutal-border brutal-shadow"
+    <a
+      href="https://www.iqair.com/uzbekistan/toshkent-shahri/tashkent"
+      target="_blank"
+      rel="noopener noreferrer"
       style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '8px',
-        padding: '6px 12px',
-        backgroundColor: 'var(--card-bg)',
-        fontSize: '0.9rem',
-        fontWeight: 'bold',
-        cursor: 'help',
+        textDecoration: 'none',
+        color: 'inherit',
         marginLeft: 'auto', // Push to right if in flex container
-        marginTop: '10px' // Spacing if stacked
+        marginTop: '10px', // Spacing if stacked
+        display: 'inline-flex' // Ensure anchor behaves like the flex container it wraps
       }}
-      title={`${city}: ${temp}°C, Humidity ${humidity}%, PM2.5 details available via tooltip`}
     >
-      <span style={{ fontSize: '1.2rem' }}>{statusEmoji}</span>
-      <span style={{ display: 'flex', flexDirection: 'column', lineHeight: '1' }}>
-        <span style={{ fontSize: '0.8rem', opacity: 0.8 }}>AQI {aqi}</span>
-        <span style={{ fontSize: '0.7rem' }}>{temp}°C</span>
-      </span>
-    </div>
+      <div
+        className="brutal-border brutal-shadow"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '6px 12px',
+          backgroundColor: 'var(--card-bg)',
+          fontSize: '0.9rem',
+          fontWeight: 'bold',
+          cursor: 'pointer'
+        }}
+        title={`${city}: ${temp}°C, Humidity ${humidity}%, PM2.5 details available via tooltip`}
+      >
+        <span style={{ fontSize: '1.2rem' }}>{statusEmoji}</span>
+        <span style={{ display: 'flex', flexDirection: 'column', lineHeight: '1' }}>
+          <span style={{ fontSize: '0.8rem', opacity: 0.8 }}>AQI {aqi}</span>
+          <span style={{ fontSize: '0.7rem' }}>{temp}°C</span>
+        </span>
+      </div>
+    </a>
   );
 };
 
