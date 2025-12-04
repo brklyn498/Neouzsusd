@@ -733,12 +733,33 @@ def fetch_news(existing_data, force=False):
                 print(f"Error parsing timestamp: {e}")
 
     sources = [
-        {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/feeds/news.xml", "category": "general", "lang": "EN"},
-        {"name": "Daryo.uz", "rss": "https://daryo.uz/en/feed/", "category": "general", "lang": "EN"},
-        {"name": "UzDaily", "rss": "https://uzdaily.uz/en/rss", "category": "business", "lang": "EN"},
-        {"name": "Spot.uz", "rss": "https://www.spot.uz/rss", "category": "business", "lang": "RU"},
-        {"name": "Spot.uz", "rss": "https://www.spot.uz/oz/rss/", "category": "business", "lang": "UZ"},
+        {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/feeds/news.xml", "default_cat": "general", "lang": "EN"},
+        {"name": "Daryo.uz", "rss": "https://daryo.uz/en/feed/", "default_cat": "general", "lang": "EN"},
+        {"name": "UzDaily", "rss": "https://uzdaily.uz/en/rss", "default_cat": "business", "lang": "EN"},
+        {"name": "Spot.uz", "rss": "https://www.spot.uz/rss", "default_cat": "business", "lang": "RU"},
+        {"name": "Spot.uz", "rss": "https://www.spot.uz/oz/rss/", "default_cat": "business", "lang": "UZ"},
     ]
+
+    # Keyword mapping for categorization
+    CATEGORIES = {
+        "economy": ["gdp", "inflation", "cpi", "fiscal", "budget", "imf", "world bank", "adb", "growth", "tax", "reform", "debt"],
+        "banking": ["cbu", "central bank", "deposit", "loan", "interest rate", "mortgage", "atm", "visa", "mastercard", "fintech"],
+        "markets": ["stock", "exchange", "uzse", "ipo", "dividend", "commodity", "gold", "silver", "oil", "gas", "bitcoin", "crypto"],
+        "business": ["startup", "investment", "profit", "revenue", "merger", "acquisition", "export", "import", "trade", "company"],
+        "regulation": ["law", "decree", "president", "parliament", "cabinet", "policy", "rule", "license", "ban", "permit"]
+    }
+
+    def determine_category(title, summary, default):
+        text = (title + " " + summary).lower()
+
+        # Check against keywords
+        for cat, keywords in CATEGORIES.items():
+            for keyword in keywords:
+                if keyword in text:
+                    return cat.capitalize() # Return Capitalized version (e.g. "Economy")
+
+        # If no match, return default (Capitalized)
+        return default.capitalize()
 
     all_news = []
 
@@ -794,6 +815,9 @@ def fetch_news(existing_data, force=False):
                 # Short summary for card preview (200 chars)
                 summary_clean = full_content[:200] + "..." if len(full_content) > 200 else full_content
 
+                # Determine category
+                category = determine_category(entry.title, summary_clean, source["default_cat"])
+
                 all_news.append({
                     "id": item_id,
                     "title": entry.title,
@@ -801,7 +825,7 @@ def fetch_news(existing_data, force=False):
                     "full_content": full_content,  # Full article text for modal view
                     "source": source["name"],
                     "source_url": entry.link,
-                    "category": source["category"], # Placeholder for now
+                    "category": category,
                     "language": source["lang"],  # Language code: EN, RU, or UZ
                     "published_at": published_at,
                     "published_ts": published_ts,
