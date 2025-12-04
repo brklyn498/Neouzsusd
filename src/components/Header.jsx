@@ -174,6 +174,21 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
               >
                 KZT
               </button>
+              <button
+                onClick={() => setCurrency('GBP')}
+                style={{
+                  border: 'none',
+                  background: currency === 'GBP' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                  color: currency === 'GBP' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                  padding: '0.5rem 1rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  borderLeft: '3px solid var(--border-color)'
+                }}
+              >
+                GBP
+              </button>
             </div>
           )}
 
