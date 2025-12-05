@@ -26,6 +26,7 @@ function App() {
   const [refreshing, setRefreshing] = useState(false);
   const [lastRefresh, setLastRefresh] = useState(null);
   const [selectedTag, setSelectedTag] = useState(null); // For news filtering
+  const [selectedSource, setSelectedSource] = useState(null); // For news source filtering
   const [darkMode, setDarkMode] = useState(() => {
     // Check localStorage or system preference
     const saved = localStorage.getItem('darkMode');
@@ -235,14 +236,52 @@ function App() {
               <>
                 <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
                   <h3 style={{ marginTop: 0 }}>NEWS SOURCES</h3>
-                  <p>Aggregated from trusted local sources:</p>
-                  <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem', lineHeight: '1.8' }}>
-                    <li>Gazeta.uz</li>
-                    <li>Daryo.uz</li>
-                    <li>UzDaily</li>
-                    <li>Spot.uz</li>
+                  <p style={{ fontSize: '0.85rem', marginBottom: '0.75rem' }}>Click a source to filter:</p>
+                  <ul style={{ paddingLeft: '0', marginTop: '0.5rem', lineHeight: '2', listStyle: 'none' }}>
+                    {[
+                      { name: 'Gazeta.uz', key: 'Gazeta.uz' },
+                      { name: 'Daryo.uz', key: 'Daryo.uz' },
+                      { name: 'UzDaily', key: 'UzDaily' },
+                      { name: 'Spot.uz', key: 'Spot.uz' },
+                      { name: 'Central Bank (CBU)', key: 'CBU' },
+                      { name: 'WorldNews', key: 'uz' }
+                    ].map((source) => (
+                      <li
+                        key={source.key}
+                        onClick={() => setSelectedSource(selectedSource === source.key ? null : source.key)}
+                        style={{
+                          cursor: 'pointer',
+                          padding: '0.3rem 0.6rem',
+                          marginBottom: '0.25rem',
+                          backgroundColor: selectedSource === source.key ? '#00FFFF' : 'transparent',
+                          color: selectedSource === source.key ? '#000' : 'var(--text-color)',
+                          border: selectedSource === source.key ? '2px solid var(--border-color)' : '2px solid transparent',
+                          fontWeight: selectedSource === source.key ? 'bold' : 'normal',
+                          transition: 'all 0.15s'
+                        }}
+                      >
+                        • {source.name}
+                      </li>
+                    ))}
                   </ul>
-                  <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Updates every 30 minutes.</p>
+                  {selectedSource && (
+                    <button
+                      onClick={() => setSelectedSource(null)}
+                      style={{
+                        marginTop: '0.5rem',
+                        padding: '0.4rem 0.8rem',
+                        background: 'none',
+                        border: '2px solid #FF00FF',
+                        color: '#FF00FF',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        fontSize: '0.75rem'
+                      }}
+                    >
+                      ✕ CLEAR FILTER
+                    </button>
+                  )}
+                  <p style={{ fontSize: '0.75rem', opacity: 0.7, marginTop: '0.75rem' }}>Updates every 30 minutes.</p>
                 </div>
 
                 {/* Tags Filter Card */}
@@ -421,7 +460,7 @@ function App() {
                 </div>
               </>
             ) : viewMode === 'news' ? (
-              <NewsFeed news={newsData} darkMode={darkMode} selectedTag={selectedTag} />
+              <NewsFeed news={newsData} darkMode={darkMode} selectedTag={selectedTag} selectedSource={selectedSource} />
             ) : (
               <>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
