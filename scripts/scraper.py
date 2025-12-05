@@ -1080,10 +1080,9 @@ def fetch_gold_history(existing_data, force=False):
             try:
                 last_time = datetime.datetime.fromtimestamp(last_ts)
                 now = datetime.datetime.now()
-                # Check if same day, or if < 24h.
-                # Since gold market closes on weekends, 24h cache is reasonable.
-                if (now - last_time).total_seconds() < 86400:  # 24 hours
-                    print("Gold history is fresh (< 24 hours). Using cached.")
+                # Check if < 30 minutes old
+                if (now - last_time).total_seconds() < 1800:  # 30 minutes
+                    print("Gold history is fresh (< 30 min). Using cached.")
                     return existing_data["gold_history"]
             except Exception as e:
                 print(f"Error parsing timestamp: {e}")
@@ -1206,9 +1205,9 @@ def fetch_silver_history(existing_data, force=False):
             try:
                 last_time = datetime.datetime.fromtimestamp(last_ts)
                 now = datetime.datetime.now()
-                # Check if same day, or if < 24h.
-                if (now - last_time).total_seconds() < 86400:  # 24 hours
-                    print("Silver history is fresh (< 24 hours). Using cached.")
+                # Check if < 30 minutes old
+                if (now - last_time).total_seconds() < 1800:  # 30 minutes
+                    print("Silver history is fresh (< 30 min). Using cached.")
                     return existing_data["silver_history"]
             except Exception as e:
                 print(f"Error parsing timestamp: {e}")
@@ -1330,9 +1329,9 @@ def fetch_bitcoin_history(existing_data, force=False):
             try:
                 last_time = datetime.datetime.fromtimestamp(last_ts)
                 now = datetime.datetime.now()
-                # Check if same day, or if < 24h.
-                if (now - last_time).total_seconds() < 86400:  # 24 hours
-                    print("Bitcoin history is fresh (< 24 hours). Using cached.")
+                # Check if < 30 minutes old
+                if (now - last_time).total_seconds() < 1800:  # 30 minutes
+                    print("Bitcoin history is fresh (< 30 min). Using cached.")
                     return existing_data["bitcoin_history"]
             except Exception as e:
                 print(f"Error parsing timestamp: {e}")
