@@ -129,8 +129,8 @@ const BankList = ({ banks, currency, bestBuy, bestSell, cbuRate, onBankClick }) 
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  backgroundColor: bank.is_mock ? 'var(--accent-orange)' : 'var(--card-bg)',
-                  border: bank.is_mock ? '2px dashed var(--accent-orange)' : '3px solid var(--border-color)',
+                  backgroundColor: 'var(--card-bg)',
+                  border: '3px solid var(--border-color)',
                   flexDirection: 'column',
                   gap: '1rem',
                   height: '100%',
@@ -188,14 +188,7 @@ const BankList = ({ banks, currency, bestBuy, bestSell, cbuRate, onBankClick }) 
                       </div>
                     )}
                     {isBestBuy && (
-                      <div style={{
-                        marginTop: '5px',
-                        fontSize: '0.7rem',
-                        fontWeight: 'bold',
-                        backgroundColor: 'var(--text-color)',
-                        color: 'var(--card-bg)',
-                        padding: '2px 4px'
-                      }}>
+                      <div className="best-rate-badge">
                         BEST BUY
                       </div>
                     )}
@@ -238,14 +231,7 @@ const BankList = ({ banks, currency, bestBuy, bestSell, cbuRate, onBankClick }) 
                       </div>
                     )}
                     {isBestSell && (
-                      <div style={{
-                        marginTop: '5px',
-                        fontSize: '0.7rem',
-                        fontWeight: 'bold',
-                        backgroundColor: 'var(--text-color)',
-                        color: 'var(--card-bg)',
-                        padding: '2px 4px'
-                      }}>
+                      <div className="best-rate-badge">
                         BEST SELL
                       </div>
                     )}

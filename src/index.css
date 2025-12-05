@@ -39,7 +39,7 @@ body.dark-mode {
   --logo-color: #FFFFFF;
 
   /* Glassmorphism Card Background */
-  --card-bg: rgba(30, 41, 59, 0.4);
+  --card-bg: rgba(255, 255, 255, 0.05);
 
   /* Muted/Transparent Accents for Dark Mode */
   --accent-green: rgba(74, 222, 128, 0.2);
@@ -2438,4 +2438,27 @@ body.dark-mode .refreshing-btn {
   color: #000;
   transform: translateY(-2px);
   box-shadow: 0 4px 0 #000;
+}
+
+/* --- Best Rate Badge Styling --- */
+.best-rate-badge {
+  margin-top: 5px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 4px;
+  text-transform: uppercase;
+}
+
+/* Light Mode: Inverse (Black bg, White text) */
+body:not(.dark-mode) .best-rate-badge {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+/* Dark Mode: Glassmorphism */
+body.dark-mode .best-rate-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
 }
