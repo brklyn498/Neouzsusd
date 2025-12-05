@@ -8,6 +8,7 @@ import SavingsList from './components/SavingsList';
 import NewsFeed from './components/NewsFeed';
 import GoldBarPrices from './components/GoldBarPrices';
 import GoldHistoryChart from './components/GoldHistoryChart';
+import GoldInvestmentBanks from './components/GoldInvestmentBanks';
 import SilverHistoryChart from './components/SilverHistoryChart';
 import BitcoinHistoryChart from './components/BitcoinHistoryChart';
 import Footer from './components/Footer';
@@ -500,6 +501,10 @@ function App() {
                   <div style={{ marginBottom: '2rem' }}>
                     <GoldHistoryChart goldHistory={goldHistoryData} />
                   </div>
+                )}
+
+                {metalType === 'gold' && (
+                  <GoldInvestmentBanks />
                 )}
 
                 {metalType === 'silver' && silverHistoryData && (

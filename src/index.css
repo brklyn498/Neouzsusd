@@ -2311,3 +2311,131 @@ body.dark-mode .refreshing-btn {
 .dark-mode .savings-deposit-amount {
   color: #FFFFFF;
 }
+
+/* --- Gold Investment Banks --- */
+.gold-investment-section .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gold-investment-section h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.gold-banks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .gold-banks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gold-bank-card {
+  background: linear-gradient(135deg, #FFE5B4 0%, #FFD700 50%, #B8860B 100%);
+  border: 3px solid var(--text-color);
+  box-shadow: 4px 4px 0 var(--border-color);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gold-bank-card.hovered {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--border-color);
+}
+
+.gold-bank-card .bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gold-bank-card .bank-name-section h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #000;
+}
+
+.gold-bank-card .bank-type-badge {
+  font-size: 0.65rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.2);
+  color: #000;
+  padding: 0.15rem 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gold-bank-card .bank-product {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  color: #000;
+}
+
+.gold-bank-card .product-label {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.gold-bank-card .product-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.gold-bank-card .bank-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  color: #000;
+}
+
+.gold-bank-card .bank-features li {
+  margin-bottom: 0.25rem;
+}
+
+.gold-bank-card .bank-app {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #000;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.gold-bank-card .app-icon {
+  font-size: 1.1rem;
+}
+
+.gold-bank-card .gold-learn-more {
+  background: #000;
+  color: #FFD700;
+  border: 3px solid #000;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+  margin-top: auto;
+}
+
+.gold-bank-card .gold-learn-more:hover {
+  background: #FFD700;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 #000;
+}

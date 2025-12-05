@@ -472,3 +472,25 @@ When the user provides `extra_info.xlsx` with additional bank data (working hour
   - Bright green (#00C853) for interest display
   - Theme-aware colors (black/white text for light/dark modes)
 - **Files Modified**: `SavingsCard.jsx`, `index.css`
+
+### Phase 35: Gold Investment Banks
+- **New Feature**: Added "Invest in Real Gold" section to Metals/Gold view
+- **Banks Displayed**:
+  - **NBU (National Bank of Uzbekistan)**: Золотой депозит (Golden Deposit)
+    - Min investment: 5g in-branch, 0.1g via Milliy app
+    - No commission, VAT exempt, partial withdrawals allowed
+    - Website: https://nbu.uz/ru/fizicheskim-litsam-vklady/zolotoy-depozit
+  - **SQB (Sanoat Qurilish Bank)**: Gold via SQB Mobile
+    - 1-25g per transaction
+    - Buy/sell via app, daily rate monitoring
+    - Available to residents & non-residents
+    - Contact: +99871 200 43 43
+    - Website: https://sqb.uz/press-center/ads-ru/investiruyte-v-zoloto-legko-i-bezopasno/
+- **New Files**:
+  - `src/components/GoldInvestmentBanks.jsx` - Component with bank data and LEARN MORE links
+- **Styling**:
+  - Gold gradient cards with Neubrutalist design
+  - Hover effects (lift + shadow)
+  - Responsive layout (stacks on mobile)
+- **Note**: Reference information only, not affiliate links. Both are state-owned banks.
+
