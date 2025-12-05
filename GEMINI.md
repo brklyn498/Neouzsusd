@@ -458,3 +458,17 @@ When the user provides `extra_info.xlsx` with additional bank data (working hour
 - Bank comparison feature (select 2-3 banks to compare)
 - Historical rate chart per bank
 - User reviews/ratings
+
+### Phase 34: Savings Card Embedded Calculator
+- **New Feature**: Each savings card now has an embedded neobrutalist calculator
+- **Toggle Button**: "▼ CALCULATE EARNINGS" / "▲ HIDE CALCULATOR"
+- **Slider Controls**:
+  - UZS deposits: Min amount → 200M UZS (1M steps)
+  - USD deposits: $500 → $100,000 ($100 steps)
+- **Calculations**: Shows 1-year interest + total amount
+- **Styling**:
+  - Slide-down animation on open
+  - Custom neobrutalist slider thumb
+  - Bright green (#00C853) for interest display
+  - Theme-aware colors (black/white text for light/dark modes)
+- **Files Modified**: `SavingsCard.jsx`, `index.css`

@@ -2211,3 +2211,103 @@ body.dark-mode .refreshing-btn {
     transform: translateX(-4px);
   }
 }
+
+/* --- Savings Calculator Embedded --- */
+@keyframes slideDownCalc {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    max-height: 300px;
+    transform: translateY(0);
+  }
+}
+
+.savings-calc-toggle {
+  box-shadow: 2px 2px 0 var(--border-color);
+}
+
+.savings-calc-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--border-color);
+}
+
+.savings-calculator {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Neobrutalist Slider */
+.savings-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.savings-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--accent-brand);
+  border: 3px solid var(--border-color);
+  cursor: grab;
+  box-shadow: 2px 2px 0 var(--border-color);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.savings-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 3px 3px 0 var(--border-color);
+}
+
+.savings-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+  box-shadow: 1px 1px 0 var(--border-color);
+}
+
+.savings-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--accent-brand);
+  border: 3px solid var(--border-color);
+  cursor: grab;
+  box-shadow: 2px 2px 0 var(--border-color);
+  border-radius: 0;
+}
+
+/* Dark mode adjustments */
+.dark-mode .savings-calculator {
+  background: #1e293b;
+}
+
+/* Interest value - bright green in both themes */
+.savings-interest-value {
+  color: #00C853 !important;
+  /* Bright pronounced green */
+  text-shadow: 0 0 1px rgba(0, 200, 83, 0.3);
+}
+
+/* Hide Calculator button - black in light mode, white in dark mode */
+.savings-calc-toggle.active {
+  color: #000000 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .savings-calc-toggle.active {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Deposit amount - black in light mode, white in dark mode */
+.savings-deposit-amount {
+  color: #000000;
+}
+
+.dark-mode .savings-deposit-amount {
+  color: #FFFFFF;
+}
