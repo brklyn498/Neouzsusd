@@ -244,7 +244,7 @@ function App() {
                       { name: 'UzDaily', key: 'UzDaily' },
                       { name: 'Spot.uz', key: 'Spot.uz' },
                       { name: 'Central Bank (CBU)', key: 'CBU' },
-                      { name: 'WorldNews', key: 'uz' }
+                      { name: 'WorldNews', key: 'WorldNews' }
                     ].map((source) => (
                       <li
                         key={source.key}

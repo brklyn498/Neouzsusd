@@ -1068,7 +1068,7 @@ def fetch_worldnews_api():
                     "title": item.get("title", ""),
                     "summary": summary,
                     "full_content": full_text,
-                    "source": item.get("source_country", "WorldNews"),
+                    "source": "WorldNews",  # Use consistent name for filtering
                     "source_url": item.get("url", ""),
                     "category": category,
                     "language": "EN",  # WorldNewsAPI returns English content
