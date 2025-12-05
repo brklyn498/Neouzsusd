@@ -733,8 +733,9 @@ def fetch_news(existing_data, force=False):
                 print(f"Error parsing timestamp: {e}")
 
     sources = [
-        {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/feeds/news.xml", "default_cat": "general", "lang": "EN"},
-        {"name": "Daryo.uz", "rss": "https://daryo.uz/en/feed/", "default_cat": "general", "lang": "EN"},
+        {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/rss/", "default_cat": "general", "lang": "EN"},
+        {"name": "Kapital.uz", "rss": "https://kapital.uz/feed/", "default_cat": "business", "lang": "RU"},
+        {"name": "Kursiv.uz", "rss": "https://uz.kursiv.media/rss", "default_cat": "economy", "lang": "RU"},
         {"name": "UzDaily", "rss": "https://uzdaily.uz/en/rss", "default_cat": "business", "lang": "EN"},
         {"name": "Spot.uz", "rss": "https://www.spot.uz/rss", "default_cat": "business", "lang": "RU"},
         {"name": "Spot.uz", "rss": "https://www.spot.uz/oz/rss/", "default_cat": "business", "lang": "UZ"},
@@ -742,11 +743,16 @@ def fetch_news(existing_data, force=False):
 
     # Keyword mapping for categorization
     CATEGORIES = {
-        "economy": ["gdp", "inflation", "cpi", "fiscal", "budget", "imf", "world bank", "adb", "growth", "tax", "reform", "debt"],
-        "banking": ["cbu", "central bank", "deposit", "loan", "interest rate", "mortgage", "atm", "visa", "mastercard", "fintech"],
-        "markets": ["stock", "exchange", "uzse", "ipo", "dividend", "commodity", "gold", "silver", "oil", "gas", "bitcoin", "crypto"],
-        "business": ["startup", "investment", "profit", "revenue", "merger", "acquisition", "export", "import", "trade", "company"],
-        "regulation": ["law", "decree", "president", "parliament", "cabinet", "policy", "rule", "license", "ban", "permit"]
+        "economy": ["gdp", "inflation", "cpi", "fiscal", "budget", "imf", "world bank", "adb", "growth", "tax", "reform", "debt",
+                    "ввп", "инфляция", "бюджет", "мвф", "всемирный банк", "рост", "налог", "реформа", "долг", "экономика"],
+        "banking": ["cbu", "central bank", "deposit", "loan", "interest rate", "mortgage", "atm", "visa", "mastercard", "fintech",
+                    "цб", "центробанк", "банк", "вклад", "кредит", "ставка", "ипотека", "банкомат", "финтех", "cb"],
+        "markets": ["stock", "exchange", "uzse", "ipo", "dividend", "commodity", "gold", "silver", "oil", "gas", "bitcoin", "crypto",
+                    "биржа", "акции", "рфб", "ipo", "дивиденд", "сырье", "золото", "серебро", "нефть", "газ", "биткоин", "крипто", "рынок"],
+        "business": ["startup", "investment", "profit", "revenue", "merger", "acquisition", "export", "import", "trade", "company",
+                    "стартап", "инвестиции", "прибыль", "выручка", "слияние", "поглощение", "экспорт", "импорт", "торговля", "компания", "бизнес"],
+        "regulation": ["law", "decree", "president", "parliament", "cabinet", "policy", "rule", "license", "ban", "permit",
+                      "закон", "указ", "президент", "парламент", "кабмин", "политика", "правило", "лицензия", "запрет", "разрешение"]
     }
 
     def determine_category(title, summary, default):
