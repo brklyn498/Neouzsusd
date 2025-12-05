@@ -110,16 +110,17 @@ const BankProfileModal = ({ bankName, bankData, onClose, darkMode }) => {
                             🌐 WEBSITE
                         </a>
                     )}
-                    {profile?.savings_url && (
-                        <a
-                            href={profile.savings_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bank-action-btn savings"
-                        >
-                            💰 DEPOSITS
-                        </a>
-                    )}
+                    {/* Always show deposits button - links to our savings page */}
+                    <button
+                        onClick={() => {
+                            onClose();
+                            // Navigate to savings view - we'll trigger this via a custom approach
+                            window.dispatchEvent(new CustomEvent('navigate-to-savings'));
+                        }}
+                        className="bank-action-btn savings"
+                    >
+                        💰 DEPOSITS
+                    </button>
                     {profile?.telegram && (
                         <a
                             href={profile.telegram}

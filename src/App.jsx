@@ -47,6 +47,15 @@ function App() {
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
+  // Listen for navigate-to-savings event from BankProfileModal
+  useEffect(() => {
+    const handleNavigateToSavings = () => {
+      setViewMode('savings');
+    };
+    window.addEventListener('navigate-to-savings', handleNavigateToSavings);
+    return () => window.removeEventListener('navigate-to-savings', handleNavigateToSavings);
+  }, []);
+
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);

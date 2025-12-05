@@ -2167,3 +2167,47 @@ body.dark-mode .refreshing-btn {
   display: inline-block;
   vertical-align: middle;
 }
+
+/* --- Animated Back Button --- */
+.back-button-animated {
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.back-button-animated:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--border-color) !important;
+}
+
+.back-button-animated:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0 var(--border-color) !important;
+}
+
+/* Arrow animation on hover */
+.back-button-animated:hover span:first-child {
+  animation: arrowBounce 0.4s ease infinite;
+}
+
+@keyframes arrowBounce {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-4px);
+  }
+}

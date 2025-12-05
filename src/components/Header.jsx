@@ -17,9 +17,36 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-          <h1 className="animate-pop-in" style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: 'var(--logo-color)' }}>
-            <GlitchLogo text="NEOUZS" />
-          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            {/* Animated Back Button - only shows when not on exchange */}
+            {viewMode !== 'exchange' && (
+              <button
+                onClick={() => setViewMode('exchange')}
+                className="back-button-animated"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.3rem',
+                  padding: '0.5rem 0.8rem',
+                  border: '3px solid var(--border-color)',
+                  background: 'var(--card-bg)',
+                  color: 'var(--text-color)',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  fontSize: '0.9rem',
+                  boxShadow: '4px 4px 0 var(--border-color)',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>←</span>
+                <span>BACK</span>
+              </button>
+            )}
+            <h1 className="animate-pop-in" style={{ fontSize: '3rem', margin: '0', textTransform: 'uppercase', color: 'var(--logo-color)' }}>
+              <GlitchLogo text="NEOUZS" />
+            </h1>
+          </div>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
             <Clock />
             <WeatherBadge weather={weather} />

@@ -1,129 +1,113 @@
-// Bank profile data extracted from extra_info.xlsx
+// Bank profile data extracted from extra_info.csv
 // Contains contact info, website links, and social media
 
 export const bankProfiles = {
-    "National Bank": {
-        address: "6, Istiqbol Str., Tashkent",
+    "National Bank of Uzbekistan": {
+        address: "101, Amir Temur Ave, Tashkent 5",
         website: "https://nbu.uz",
         savings_url: "https://nbu.uz/en/private/deposits/",
-        telegram: "https://t.me/NBU_official",
-        hotline: "1101",
-        email: "info@nbu.com"
-    },
-    "Xalq Bank": {
-        address: "69, Nukus Str., Tashkent",
-        website: "https://xb.uz",
-        savings_url: "https://xb.uz/en/private/deposits/",
-        telegram: "https://t.me/xalqbanki",
-        hotline: "1118",
-        email: "info@xb.uz"
-    },
-    "Uzpromstroybank": {
-        address: "3, Muqimiy Str., Tashkent",
-        website: "https://sqb.uz",
-        savings_url: "https://sqb.uz/en/private/deposits/",
-        telegram: "https://t.me/sqb_rasmiy",
-        hotline: "1125",
-        email: "info@sqb.uz"
-    },
-    "Agrobank": {
-        address: "95, Amir Temur Ave., Tashkent",
-        website: "https://agrobank.uz",
-        savings_url: "https://agrobank.uz/en/private/deposits/",
-        telegram: "https://t.me/agrobank_bot",
-        hotline: "1134",
-        email: "info@agrobank.uz"
-    },
-    "Asaka Bank": {
-        address: "67, Nukus Str., Tashkent",
-        website: "https://asakabank.uz",
-        savings_url: "https://asakabank.uz/en/private/deposits/",
-        telegram: "https://t.me/asakabankuzb",
+        telegram: "https://t.me/nbu_official",
         hotline: null,
-        email: "info@asakabank.uz"
-    },
-    "Ipoteka Bank": {
-        address: "3, Navoi Str., Tashkent",
-        website: "https://ipotekabank.uz",
-        savings_url: "https://ipotekabank.uz/en/private/deposits/",
-        telegram: "https://t.me/ipotekabank_rasmiy",
-        hotline: "1101",
-        email: "info@ipotekabank.uz"
+        email: null
     },
     "Kapitalbank": {
-        address: "4, Amir Temur Str., Tashkent",
+        address: "7, Sayilgoh Str., Tashkent 6",
         website: "https://kapitalbank.uz",
         savings_url: "https://kapitalbank.uz/en/private/deposits/",
-        telegram: "https://t.me/kapitalbank",
-        hotline: "1234",
-        email: "info@kapitalbank.uz"
+        telegram: "https://t.me/kapital24",
+        hotline: null,
+        email: null
+    },
+    "Agrobank": {
+        address: "43, Mukimi Str., Tashkent 7",
+        website: "https://agrobank.uz",
+        savings_url: "https://agrobank.uz/uz/private/deposits",
+        telegram: "https://t.me/AgrobankChannel",
+        hotline: "1216",
+        email: "headoffice@agrobank.uz"
+    },
+    "Uzpromstroybank": {
+        address: "3, Shahrisabz Str., Tashkent 1",
+        website: "https://sqb.uz",
+        savings_url: "https://sqb.uz/en/private/deposits/",
+        telegram: "https://t.me/sqbuz",
+        hotline: "1180",
+        email: "info@sqb.uz"
+    },
+    "Asaka Bank": {
+        address: "67, Nukus Str., Tashkent 13",
+        website: "https://asakabank.uz",
+        savings_url: "https://asakabank.uz/en/private/deposits",
+        telegram: "https://t.me/asakabank_official",
+        hotline: "1152",
+        email: "contact@asakabank.uz"
+    },
+    "Ipoteka Bank": {
+        address: "30, Shahrisabz Str., Tashkent",
+        website: "https://ipotekabank.uz",
+        savings_url: "https://www.ipotekabank.uz/en/private/deposits/",
+        telegram: "https://t.me/ipotekabankofficial",
+        hotline: "1233",
+        email: "info@ipotekabank.uz"
+    },
+    "Xalq Bank": {
+        address: "46, Katoltol Str., Tashkent 9",
+        website: "https://xb.uz",
+        savings_url: "https://xb.uz/en/private/deposits",
+        telegram: "https://t.me/xalqbankinfo",
+        hotline: "1106",
+        email: "info@xb.uz"
+    },
+    "BRB Bank": {
+        address: "18A, Navoi Str., Tashkent 22",
+        website: "https://brb.uz",
+        savings_url: "https://brb.uz/en/personal-banking/deposits",
+        telegram: "https://t.me/brb_uz",
+        hotline: null,
+        email: null
     },
     "Hamkorbank": {
-        address: "43, Nukus Str., Tashkent",
+        address: "85, Bobur Str., Andijan",
         website: "https://hamkorbank.uz",
         savings_url: "https://hamkorbank.uz/en/private/deposits/",
-        telegram: "https://t.me/uzhamkorbank",
-        hotline: "1189",
+        telegram: "https://t.me/Hamkorbankuz",
+        hotline: "0 800 1 200 200",
         email: "info@hamkorbank.uz"
     },
     "Ipak Yuli Bank": {
-        address: "51, G'afur G'ulom Str., Tashkent",
+        address: "2, A. Qodiriy Str., Tashkent 13",
         website: "https://ipakyulibank.uz",
-        savings_url: "https://ipakyulibank.uz/en/private/deposits/",
-        telegram: "https://t.me/ipakyulibank",
-        hotline: "1199",
+        savings_url: "https://en.ipakyulibank.uz/private/deposits",
+        telegram: "https://t.me/ipakyulibankuz",
+        hotline: "1296",
         email: "info@ipakyulibank.uz"
     },
     "Tenge Bank": {
-        address: "75, Shaxrisabz Str., Tashkent",
+        address: "66, Parkent Str., Tashkent 33",
         website: "https://tengebank.uz",
-        savings_url: "https://tengebank.uz/en/private/deposits/",
-        telegram: "https://t.me/tengebank_uz",
-        hotline: "1232",
+        savings_url: "https://tengebank.uz/en/deposits",
+        telegram: null,
+        hotline: "1245",
         email: "info@tengebank.uz"
     },
-    "Infinbank": {
-        address: "2A, Bunyodkor Str., Tashkent",
-        website: "https://infinbank.com",
-        savings_url: "https://infinbank.com/en/private/deposits/",
-        telegram: "https://t.me/infinbank",
-        hotline: "1182",
-        email: "info@infinbank.com"
-    },
     "TBC Bank": {
-        address: "32, Turkiston Str., Tashkent",
+        address: "10, Fidokor Str., Tashkent",
         website: "https://tbcbank.uz",
-        savings_url: "https://tbcbank.uz/en/deposits/",
-        telegram: "https://t.me/tbcbankuz",
-        hotline: "1240",
-        email: "info@tbcbank.uz"
+        savings_url: "https://tbcbank.uz/en/deposits",
+        telegram: "https://t.me/tbc_bank_uz",
+        hotline: "1150",
+        email: "help@tbcbank.uz"
     },
     "Anor Bank": {
-        address: "15, Choponota Str., Tashkent",
+        address: "4, Sairam Str., Tashkent",
         website: "https://anorbank.uz",
-        savings_url: "https://anorbank.uz/deposits",
-        telegram: "https://t.me/anorbankuz",
-        hotline: "1203",
+        savings_url: "https://anorbank.uz/en/private/deposits/",
+        telegram: "https://t.me/anorbank",
+        hotline: "1290",
         email: "info@anorbank.uz"
     },
-    "Uzum Bank": {
-        address: "8, Minor Str., Tashkent",
-        website: "https://uzumbank.uz",
-        savings_url: "https://uzumbank.uz/deposits/",
-        telegram: "https://t.me/uzumbank",
-        hotline: "1208",
-        email: "support@uzumbank.uz"
-    },
-    "BRB Bank": {
-        address: "12, Mirzo Ulugbek Str., Tashkent",
-        website: "https://brbbank.uz",
-        savings_url: "https://brbbank.uz/en/private/deposits/",
-        telegram: "https://t.me/brb_bank",
-        hotline: null,
-        email: "info@brbbank.uz"
-    },
     "Octobank": {
-        address: "39, Amir Temur Ave., Tashkent",
+        address: "2, Furkat Str., Tashkent 3",
         website: "https://octobank.uz",
         savings_url: "https://octobank.uz/en/for-private-clients",
         telegram: "https://t.me/Octobank_AJ",
@@ -131,7 +115,7 @@ export const bankProfiles = {
         email: null
     },
     "AVO Bank": {
-        address: "29A, Nukus Str., Tashkent",
+        address: "29A, Nukus Str., Tashkent 2",
         website: "https://avo.uz",
         savings_url: "https://avo.uz/ru/deposits",
         telegram: "https://t.me/avobank_uz",
@@ -139,7 +123,7 @@ export const bankProfiles = {
         email: null
     },
     "Garant Bank": {
-        address: "78, Said Baraka Str., Tashkent",
+        address: "78, Said Baraka Str., Tashkent 35",
         website: "https://garantbank.uz",
         savings_url: "https://garantbank.uz/en/private/deposits",
         telegram: "https://t.me/garant_bank_bot",
@@ -147,7 +131,7 @@ export const bankProfiles = {
         email: "info@garantbank.uz"
     },
     "Microcreditbank": {
-        address: "14, Lutfi Str., Tashkent",
+        address: "14, Lutfi Str., Tashkent 36",
         website: "https://mkbank.uz",
         savings_url: "https://mkbank.uz/en/private/deposits/",
         telegram: "https://t.me/mikrokreditbank_uz",
@@ -155,7 +139,7 @@ export const bankProfiles = {
         email: "info@mikrokreditbank.uz"
     },
     "Aloqa Bank": {
-        address: "4, Amir Temur Ave, Tashkent",
+        address: "4, Amir Temur Ave, Tashkent 6",
         website: "https://aloqabank.uz",
         savings_url: "https://aloqabank.uz/en/private/deposits/",
         telegram: "https://t.me/aloqabank",
@@ -171,7 +155,7 @@ export const bankProfiles = {
         email: "info@turonbank.uz"
     },
     "Davr Bank": {
-        address: "Navoiy-Zarkaynar Str., Blk A, Tashkent",
+        address: "Navoiy-Zarkaynar Str., Blk A, Tashkent 37",
         website: "https://davrbank.uz",
         savings_url: "https://davrbank.uz/en/private/deposits/",
         telegram: "https://t.me/davrbankuz",
@@ -179,7 +163,7 @@ export const bankProfiles = {
         email: "info@davrbank.uz"
     },
     "Poytaxt Bank": {
-        address: "55, Islam Karimov Str., Tashkent",
+        address: "55, Islam Karimov Str., Tashkent 28",
         website: "https://poytaxtbank.uz",
         savings_url: "https://poytaxtbank.uz/en/private/deposit/",
         telegram: "https://t.me/bank_poytaxt",
@@ -187,7 +171,7 @@ export const bankProfiles = {
         email: null
     },
     "Ziraat Bank": {
-        address: "15, Bunyodkor Str., Tashkent",
+        address: "15, Bunyodkor Str., Tashkent 32",
         website: "https://ziraatbank.uz",
         savings_url: "https://ziraatbank.uz/en/private/deposits",
         telegram: null,
@@ -195,7 +179,7 @@ export const bankProfiles = {
         email: "info@ziraatbank.uz"
     },
     "KDB Bank": {
-        address: "3, Bukharo Str., Tashkent",
+        address: "3, Bukharo Str., Tashkent 31",
         website: "https://kdb.uz",
         savings_url: "https://kdb.uz/en/individuals/deposit",
         telegram: null,
@@ -203,7 +187,7 @@ export const bankProfiles = {
         email: null
     },
     "Universal Bank": {
-        address: "Shokhrukhabad Str., Kokand",
+        address: "Shokhrukhabad Str., Kokand 26",
         website: "https://universalbank.uz",
         savings_url: "https://universalbank.uz/en/individual/deposits",
         telegram: "https://t.me/universalbankuz",
@@ -211,7 +195,7 @@ export const bankProfiles = {
         email: null
     },
     "Asia Alliance Bank": {
-        address: "2A, Makhtumquli Str., Tashkent",
+        address: "2A, Makhtumquli Str., Tashkent 38",
         website: "https://aab.uz",
         savings_url: "https://aab.uz/en/private/deposits/",
         telegram: "https://t.me/asiaalliancebank",
@@ -227,7 +211,7 @@ export const bankProfiles = {
         email: "info@ofb.uz"
     },
     "Trust Bank": {
-        address: "7, Navoi Str., Tashkent",
+        address: "7, Navoi Str., Tashkent 15",
         website: "https://trustbank.uz",
         savings_url: "https://trustbank.uz/en/private/deposits/",
         telegram: "https://t.me/trustbankuz",
@@ -235,15 +219,31 @@ export const bankProfiles = {
         email: "info@trustbank.uz"
     },
     "Smart Bank": {
-        address: "2A, Almazor Str., Tashkent",
+        address: "2A, Almazor Str., Tashkent 19",
         website: "https://smartbank.uz",
         savings_url: "https://smartbank.uz",
         telegram: null,
         hotline: "1377",
         email: "office@smartbank.uz"
     },
+    "Hayot Bank": {
+        address: "40, Osiyo Str., Tashkent 39",
+        website: "https://hayotbank.uz",
+        savings_url: "https://hayotbank.uz",
+        telegram: null,
+        hotline: "1320",
+        email: "info@hayotbank.uz"
+    },
+    "Yangi Bank": {
+        address: "99, Amir Temur Str., Tashkent 40",
+        website: "https://yangibank.uz",
+        savings_url: "https://yangibank.uz",
+        telegram: null,
+        hotline: null,
+        email: null
+    },
     "Apex Bank": {
-        address: "77, Sadik Azimov Str., Tashkent",
+        address: "77, Sadik Azimov Str., Tashkent 41",
         website: "https://apexbank.uz",
         savings_url: "https://apexbank.uz/en/private/deposits/",
         telegram: "https://t.me/apexbankuz",
@@ -259,7 +259,7 @@ export const bankProfiles = {
         email: null
     },
     "Iran Saderat Bank": {
-        address: "10, Fidokor Str., Tashkent",
+        address: "10, Fidokor Str., Tashkent 15",
         website: "https://saderatbank.uz",
         savings_url: null,
         telegram: null,
@@ -273,19 +273,20 @@ export const normalizeBankName = (name) => {
     if (!name) return null;
 
     const mappings = {
-        // National Bank
-        "O'zbekiston Milliy banki": "National Bank",
-        "Milliy Bank": "National Bank",
-        "NBU": "National Bank",
-        "Nat'l Bank UZ": "National Bank",
+        // NBU
+        "O'zbekiston Milliy banki": "National Bank of Uzbekistan",
+        "Milliy Bank": "National Bank of Uzbekistan",
+        "NBU": "National Bank of Uzbekistan",
+        "National Bank": "National Bank of Uzbekistan",
 
         // Xalq Bank
         "Xalq Banki": "Xalq Bank",
         "Xalq banki": "Xalq Bank",
+        "People's Bank": "Xalq Bank",
 
         // SQB / Uzpromstroybank
         "O'zsanoatqurilishbank": "Uzpromstroybank",
-        "Uzsanoat Bank": "Uzpromstroybank",
+        "Uzsanoatqurilishbank": "Uzpromstroybank",
         "SQB": "Uzpromstroybank",
 
         // Asaka Bank
@@ -293,6 +294,7 @@ export const normalizeBankName = (name) => {
 
         // Ipoteka Bank
         "Ipoteka bank": "Ipoteka Bank",
+        "Ipoteka-bank": "Ipoteka Bank",
 
         // Hamkorbank
         "Hamkor bank": "Hamkorbank",
@@ -303,9 +305,9 @@ export const normalizeBankName = (name) => {
         // Tenge Bank
         "Tenge bank": "Tenge Bank",
 
-        // Infinbank
-        "InfinBANK": "Infinbank",
-        "Infinbank": "Infinbank",
+        // Infinbank - map to similar
+        "InfinBANK": "Orient Finans Bank",
+        "Infinbank": "Orient Finans Bank",
 
         // BRB
         "BRB": "BRB Bank",
@@ -317,7 +319,6 @@ export const normalizeBankName = (name) => {
         "Turonbank": "Turon Bank",
 
         // Orient Finans
-        "Orient Finans Bank": "Orient Finans Bank",
         "OFB": "Orient Finans Bank",
 
         // Trust Bank
@@ -328,7 +329,13 @@ export const normalizeBankName = (name) => {
         "Universal bank": "Universal Bank",
 
         // Garant Bank
-        "Garant bank": "Garant Bank"
+        "Garant bank": "Garant Bank",
+
+        // Anor Bank
+        "Anorbank": "Anor Bank",
+
+        // TBC Bank
+        "TBC Bank Uzbekistan": "TBC Bank"
     };
 
     // Check direct mapping
