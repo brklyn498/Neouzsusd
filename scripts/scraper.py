@@ -734,6 +734,145 @@ def fetch_savings_rates(existing_data, force=False):
         print(f"Error scraping savings: {e}")
         return existing_data.get("savings") if existing_data else None
 
+def fetch_usd_savings_rates(existing_data, force=False):
+    """
+    Scrapes USD/foreign currency deposits from bank.uz/uz/deposits/valyutnye-vklady.
+    This page has pagination (5 pages).
+    Updates once a day (or if force=True).
+    """
+    print("--- Processing USD Savings Data ---")
+
+    # Check 24h Cache
+    if not force and existing_data and existing_data.get("savings_usd"):
+        last_ts = existing_data["savings_usd"].get("last_updated_ts")
+        if last_ts:
+            last_time = datetime.datetime.fromtimestamp(last_ts)
+            now = datetime.datetime.now()
+            if (now - last_time).total_seconds() < 86400:  # 24 hours
+                print("USD Savings data is fresh (< 24 hours). Using cached.")
+                return existing_data["savings_usd"]
+
+    base_url = "https://bank.uz/uz/deposits/valyutnye-vklady"
+    savings_list = []
+    
+    # Iterate through all 5 pages
+    for page_num in range(1, 6):
+        if page_num == 1:
+            url = base_url
+        else:
+            url = f"{base_url}?PAGEN_3={page_num}"
+        
+        print(f"Scraping USD Savings from {url}...")
+
+        response = fetch_url(url)
+        if not response:
+            print(f"Failed to fetch USD savings page {page_num}.")
+            continue
+
+        try:
+            soup = BeautifulSoup(response.content, 'html.parser')
+            cards = soup.find_all(class_='table-card-offers-bottom')
+
+            for card in cards:
+                try:
+                    # 1. Bank Name and Deposit Name (Block 1)
+                    block1 = card.find(class_='table-card-offers-block1')
+                    if not block1:
+                        continue
+
+                    bank_name_span = block1.find(class_='medium-text')
+                    bank_name_raw = bank_name_span.get_text(strip=True) if bank_name_span else "Unknown Bank"
+                    bank_name = translate_bank_name(bank_name_raw)
+
+                    text_block = block1.find(class_='table-card-offers-block1-text')
+                    if text_block:
+                        deposit_link = text_block.find('a')
+                        deposit_name = deposit_link.get_text(strip=True) if deposit_link else "Unknown Deposit"
+                    else:
+                        deposit_name = "Unknown Deposit"
+
+                    # 2. Rate, Duration, Min Amount (Block All -> Blocks 2, 3, 4)
+                    rate_val = 0.0
+                    duration_str = ""
+                    min_amount_str = ""
+                    is_online = False
+                    currency = "USD"  # Default, may be EUR
+
+                    block_all = card.find(class_='table-card-offers-blocks-all')
+                    if block_all:
+                        # Rate (Block 2)
+                        block2 = block_all.find(class_='table-card-offers-block2')
+                        if block2:
+                            rate_text = block2.find(class_='medium-text').get_text(strip=True)
+                            rate_val = parse_rate(rate_text) or 0.0
+
+                        # Duration (Block 3)
+                        block3 = block_all.find(class_='table-card-offers-block3')
+                        if block3:
+                            duration_str = block3.find(class_='medium-text').get_text(strip=True)
+
+                        # Min Amount (Block 4)
+                        block4 = block_all.find(class_='table-card-offers-block4')
+                        if block4:
+                            min_amount_str = block4.find(class_='medium-text').get_text(strip=True)
+                            # Detect currency from min amount ($ or €)
+                            if '€' in min_amount_str or 'EUR' in min_amount_str.upper() or 'evro' in min_amount_str.lower():
+                                currency = "EUR"
+
+                        # Online Badge (Block 5)
+                        block5 = block_all.find(class_='table-card-offers-block5')
+                        if block5:
+                            if block5.find(string="Onlayn") or block5.find(class_='online_btn'):
+                                is_online = True
+
+                    # Also check deposit name for currency hints
+                    name_lower = deposit_name.lower()
+                    if 'evro' in name_lower or 'eur' in name_lower or 'euro' in name_lower:
+                        currency = "EUR"
+                    elif 'usd' in name_lower or 'dollar' in name_lower:
+                        currency = "USD"
+
+                    if rate_val > 0:
+                        savings_list.append({
+                            "bank_name": bank_name,
+                            "deposit_name": deposit_name,
+                            "rate": rate_val,
+                            "duration": duration_str,
+                            "min_amount": min_amount_str,
+                            "is_online": is_online,
+                            "currency": currency,
+                            "logo": get_bank_logo(bank_name)
+                        })
+
+                except Exception as inner_e:
+                    print(f"Error parsing a USD savings card: {inner_e}")
+                    continue
+
+        except Exception as e:
+            print(f"Error scraping USD savings page {page_num}: {e}")
+            continue
+
+    # Remove duplicates based on bank_name + deposit_name
+    seen = set()
+    unique_list = []
+    for item in savings_list:
+        key = f"{item['bank_name']}-{item['deposit_name']}"
+        if key not in seen:
+            seen.add(key)
+            unique_list.append(item)
+    
+    # Sort by rate descending
+    unique_list.sort(key=lambda x: x['rate'], reverse=True)
+
+    print(f"Successfully scraped {len(unique_list)} USD/EUR savings offers.")
+
+    return {
+        "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "last_updated_ts": datetime.datetime.now().timestamp(),
+        "data": unique_list
+    }
+
+
 def fetch_news(existing_data, force=False):
     """
     Fetches financial news from RSS feeds.
@@ -2203,6 +2342,7 @@ def main():
     elif args.scope == "savings":
         print("--- Scope: SAVINGS ---")
         output["savings"] = fetch_savings_rates(existing_data, force=args.force)
+        output["savings_usd"] = fetch_usd_savings_rates(existing_data, force=args.force)
 
     # Scope: NEWS
     elif args.scope == "news":
@@ -2236,6 +2376,7 @@ def main():
 
         # Savings
         output["savings"] = fetch_savings_rates(existing_data, force=args.force)
+        output["savings_usd"] = fetch_usd_savings_rates(existing_data, force=args.force)
         
         # News
         output["news"] = fetch_news(existing_data, force=args.force)

@@ -1599,3 +1599,230 @@ body.dark-mode .indicator-bar-container {
 .animate-slide-down {
   animation: slideDownBrutal 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
+
+/* --- Loading Screen Animation --- */
+.loading-text {
+  animation: loadingPulse 2s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+
+  0%,
+  100% {
+    box-shadow: 8px 8px 0 var(--text-color);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 12px 12px 0 var(--text-color);
+    transform: scale(1.02);
+  }
+}
+
+.loading-glitch {
+  position: relative;
+  display: inline-block;
+  color: var(--text-color);
+  font-weight: 900;
+  animation: loadingGlitch 3s infinite;
+}
+
+.loading-glitch::before,
+.loading-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loading-glitch::before {
+  color: #ff00ff;
+  animation: glitchLeft 1.5s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.loading-glitch::after {
+  color: #00ffff;
+  animation: glitchRight 1.5s infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes loadingGlitch {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 1px);
+  }
+
+  40% {
+    transform: translate(2px, -1px);
+  }
+
+  60% {
+    transform: translate(-1px, -1px);
+  }
+
+  80% {
+    transform: translate(1px, 2px);
+  }
+}
+
+@keyframes glitchLeft {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(-3px, 0);
+  }
+
+  50% {
+    transform: translate(3px, 0);
+  }
+
+  75% {
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes glitchRight {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(3px, 0);
+  }
+
+  50% {
+    transform: translate(-3px, 0);
+  }
+
+  75% {
+    transform: translate(2px, 0);
+  }
+}
+
+/* Bouncing Dots */
+.loading-dots {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.loading-dots .dot {
+  width: 16px;
+  height: 16px;
+  background: var(--text-color);
+  border: 3px solid var(--text-color);
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.loading-dots .dot:nth-child(1) {
+  animation-delay: 0s;
+  background: #ff00ff;
+}
+
+.loading-dots .dot:nth-child(2) {
+  animation-delay: 0.2s;
+  background: #00ffff;
+}
+
+.loading-dots .dot:nth-child(3) {
+  animation-delay: 0.4s;
+  background: #CCFF00;
+}
+
+@keyframes dotBounce {
+
+  0%,
+  80%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  40% {
+    transform: translateY(-20px) scale(1.2);
+  }
+}
+
+/* --- Refresh Button Animation --- */
+.refreshing-btn {
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink), var(--accent-cyan)) !important;
+  background-size: 300% 100% !important;
+  animation: refreshGradient 2s ease-in-out infinite, refreshPulse 1s ease-in-out infinite !important;
+  color: #000 !important;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .refreshing-btn {
+  background: linear-gradient(90deg, #9D4EDD, #FF00FF, #00FFFF, #9D4EDD) !important;
+  background-size: 300% 100% !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 20px rgba(157, 78, 221, 0.5), 4px 4px 0 var(--border-color) !important;
+}
+
+@keyframes refreshGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes refreshPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 4px 4px 0 var(--border-color);
+  }
+
+  50% {
+    transform: scale(1.02);
+    box-shadow: 6px 6px 0 var(--border-color);
+  }
+}
+
+.refresh-spinner {
+  display: inline-block;
+  animation: spinRefresh 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  font-size: 1.1em;
+}
+
+@keyframes spinRefresh {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.refresh-text-pulse {
+  animation: textPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}

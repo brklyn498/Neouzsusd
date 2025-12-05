@@ -47,7 +47,7 @@ const server = http.createServer((req, res) => {
             const scriptPath = path.join(__dirname, 'scripts', 'scraper.py');
             const command = `python "${scriptPath}" --force --scope ${scope}`;
 
-            exec(command, (error, stdout, stderr) => {
+            exec(command, { windowsHide: true }, (error, stdout, stderr) => {
                 if (error) {
                     console.error(`Error executing scraper: ${error.message}`);
                     res.writeHead(500, { 'Content-Type': 'application/json' });

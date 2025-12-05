@@ -84,25 +84,32 @@ const SavingsCard = ({ savings, isBestRate, className = '' }) => {
         </div>
 
         <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '5px' }}>
-          {is_online ? (
-            <span className="brutal-pill" style={{
-              backgroundColor: 'var(--badge-online-bg)',
-              color: 'var(--badge-online-text)',
-              alignSelf: 'flex-end',
-              marginBottom: '5px'
-            }}>
-              ONLINE
-            </span>
-          ) : (
-            <span className="brutal-pill" style={{
-              backgroundColor: 'var(--badge-banks-bg)',
-              color: 'var(--badge-banks-text)',
-              alignSelf: 'flex-end',
-              marginBottom: '5px'
-            }}>
-              BANKS ONLY
-            </span>
-          )}
+          <div style={{ display: 'flex', gap: '5px', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+            {/* Currency badge for USD/EUR deposits */}
+            {savings.currency && savings.currency !== 'UZS' && (
+              <span className="brutal-pill" style={{
+                backgroundColor: savings.currency === 'EUR' ? '#003399' : '#006400',
+                color: 'white',
+              }}>
+                {savings.currency}
+              </span>
+            )}
+            {is_online ? (
+              <span className="brutal-pill" style={{
+                backgroundColor: 'var(--badge-online-bg)',
+                color: 'var(--badge-online-text)',
+              }}>
+                ONLINE
+              </span>
+            ) : (
+              <span className="brutal-pill" style={{
+                backgroundColor: 'var(--badge-banks-bg)',
+                color: 'var(--badge-banks-text)',
+              }}>
+                BANKS ONLY
+              </span>
+            )}
+          </div>
           <div style={{ fontSize: '0.9rem' }}>
             <span style={{ opacity: 0.7 }}>Duration: </span> <strong>{duration}</strong>
           </div>

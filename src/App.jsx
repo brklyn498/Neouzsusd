@@ -29,6 +29,7 @@ function App() {
   const [lastRefresh, setLastRefresh] = useState(null);
   const [selectedTag, setSelectedTag] = useState(null); // For news filtering
   const [selectedSource, setSelectedSource] = useState(null); // For news source filtering
+  const [savingsCurrency, setSavingsCurrency] = useState('UZS'); // 'UZS' or 'USD' for savings view
   const [darkMode, setDarkMode] = useState(() => {
     // Check localStorage or system preference
     const saved = localStorage.getItem('darkMode');
@@ -120,6 +121,7 @@ function App() {
   const currentData = data ? data[currency.toLowerCase()] : null;
   const weatherData = data ? data.weather : null;
   const savingsData = data ? data.savings : null;
+  const savingsUsdData = data ? data.savings_usd : null;
   const newsData = data ? data.news : null;
   const goldBarsData = data ? data.gold_bars : null;
   const goldHistoryData = data ? data.gold_history : null;
@@ -169,6 +171,8 @@ function App() {
 
   // Calculate top rate for header
   const topSavingsRate = savingsData && savingsData.data ? Math.max(...savingsData.data.map(s => s.rate)) : 0;
+  const topSavingsUsdRate = savingsUsdData && savingsUsdData.data ? Math.max(...savingsUsdData.data.map(s => s.rate)) : 0;
+  const currentTopSavingsRate = savingsCurrency === 'USD' ? topSavingsUsdRate : topSavingsRate;
 
   return (
     <div className="dashboard-container" style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem', position: 'relative', paddingBottom: '3rem' }}>
@@ -177,10 +181,25 @@ function App() {
       {!isOnline && <OfflineBanner />}
 
       {loading && (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', gridColumn: '1 / -1' }}>
-          <h1 style={{ fontSize: '3rem', border: '3px solid var(--text-color)', padding: '20px', boxShadow: '8px 8px 0 var(--text-color)', background: 'var(--card-bg)' }}>
-            LOADING...
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', gridColumn: '1 / -1', gap: '2rem' }}>
+          <h1
+            className="loading-text"
+            style={{
+              fontSize: '3rem',
+              border: '3px solid var(--text-color)',
+              padding: '20px 40px',
+              boxShadow: '8px 8px 0 var(--text-color)',
+              background: 'var(--card-bg)',
+              position: 'relative'
+            }}
+          >
+            <span className="loading-glitch" data-text="NEOUZS">NEOUZS</span>
           </h1>
+          <div className="loading-dots">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+          </div>
         </div>
       )}
 
@@ -207,7 +226,7 @@ function App() {
               weather={weatherData}
               viewMode={viewMode}
               setViewMode={setViewMode}
-              topSavingsRate={topSavingsRate}
+              topSavingsRate={currentTopSavingsRate}
               metalType={metalType}
             />
 
@@ -353,11 +372,18 @@ function App() {
                   <li>Activity Rankings</li>
                 </ul>
               </div>
+            ) : viewMode === 'reliability' ? (
+              // Reliability Mode Sidebar Content
+              <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                <h3 style={{ marginTop: 0 }}>TRUST SCORE</h3>
+                <p>Scores are based on official CBU & CERR data.</p>
+                <p>Check "A" grade banks for highest stability.</p>
+              </div>
             ) : (
               // Savings Mode Sidebar Content
               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
                 <h3 style={{ marginTop: 0 }}>SAVINGS TIPS</h3>
-                <p>Banks offer up to <strong>{topSavingsRate}%</strong> on annual deposits.</p>
+                <p>Banks offer up to <strong>{currentTopSavingsRate}%</strong> on {savingsCurrency} deposits.</p>
                 <p>Check "Online" badge for easy opening via apps.</p>
               </div>
             )}
@@ -494,22 +520,62 @@ function App() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <h2 style={{ margin: 0, fontSize: '2rem', textTransform: 'uppercase' }}>SAVINGS</h2>
 
-                  <select
-                    className="brutal-btn"
-                    style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
-                    value={sortType}
-                    onChange={(e) => setSortType(e.target.value)}
-                  >
-                    <option value="rate_desc">HIGHEST RATE</option>
-                    <option value="duration_desc">LONGEST DURATION</option>
-                    <option value="min_amount_asc">LOWEST DEPOSIT</option>
-                  </select>
+                  <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {/* Currency Toggle */}
+                    <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
+                      <button
+                        onClick={() => setSavingsCurrency('UZS')}
+                        style={{
+                          border: 'none',
+                          background: savingsCurrency === 'UZS' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                          color: savingsCurrency === 'UZS' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                          padding: '0.4rem 0.8rem',
+                          fontWeight: 'bold',
+                          cursor: 'pointer',
+                          fontFamily: 'inherit',
+                          fontSize: '0.85rem'
+                        }}
+                      >
+                        UZS
+                      </button>
+                      <button
+                        onClick={() => setSavingsCurrency('USD')}
+                        style={{
+                          border: 'none',
+                          background: savingsCurrency === 'USD' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                          color: savingsCurrency === 'USD' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                          padding: '0.4rem 0.8rem',
+                          fontWeight: 'bold',
+                          cursor: 'pointer',
+                          fontFamily: 'inherit',
+                          borderLeft: '3px solid var(--border-color)',
+                          fontSize: '0.85rem'
+                        }}
+                      >
+                        USD
+                      </button>
+                    </div>
+
+                    <select
+                      className="brutal-btn"
+                      style={{ padding: '5px 10px', height: 'auto', outline: 'none' }}
+                      value={sortType}
+                      onChange={(e) => setSortType(e.target.value)}
+                    >
+                      <option value="rate_desc">HIGHEST RATE</option>
+                      <option value="duration_desc">LONGEST DURATION</option>
+                      <option value="min_amount_asc">LOWEST DEPOSIT</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="bank-grid" style={{ marginBottom: '3rem' }}>
                   <SavingsList
-                    savings={savingsData ? savingsData.data : []}
+                    savings={savingsCurrency === 'USD'
+                      ? (savingsUsdData ? savingsUsdData.data : [])
+                      : (savingsData ? savingsData.data : [])}
                     sortType={sortType}
+                    currency={savingsCurrency}
                   />
                 </div>
               </>

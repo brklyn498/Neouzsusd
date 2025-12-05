@@ -214,15 +214,27 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
           <button
             onClick={onRefresh}
             disabled={refreshing}
-            className="brutal-btn brutal-refresh-btn"
+            className={`brutal-btn brutal-refresh-btn ${refreshing ? 'refreshing-btn' : ''}`}
             style={{
               padding: '0.5rem 1rem',
               fontSize: '0.9rem',
               cursor: refreshing ? 'wait' : 'pointer',
-              opacity: refreshing ? 0.7 : 1
+              opacity: refreshing ? 0.9 : 1,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              minWidth: '110px',
+              justifyContent: 'center'
             }}
           >
-            {refreshing ? 'LOADING...' : 'REFRESH'}
+            {refreshing ? (
+              <>
+                <span className="refresh-spinner">⟳</span>
+                <span className="refresh-text-pulse">SYNCING</span>
+              </>
+            ) : (
+              '⟳ REFRESH'
+            )}
           </button>
         </div>
       </div >

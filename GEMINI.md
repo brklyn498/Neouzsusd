@@ -207,9 +207,43 @@
 
 This application requires backend servers to handle data refresh requests.
 
-### Running the Backend Servers
+### Running with PM2 (Recommended)
 
-The application uses two backend server instances for redundancy:
+PM2 keeps servers alive with auto-restart capability. An `ecosystem.config.cjs` file is provided for easy management.
+
+**Start both servers:**
+```bash
+pm2 start ecosystem.config.cjs
+```
+
+**Check status:**
+```bash
+pm2 status
+```
+
+**View logs:**
+```bash
+pm2 logs
+```
+
+**Stop all servers:**
+```bash
+pm2 stop all
+```
+
+**Restart after crash or manual stop:**
+```bash
+pm2 restart all
+```
+
+**Save process list (for auto-restart on reboot):**
+```bash
+pm2 save
+```
+
+### Manual Mode (Development Only)
+
+If you prefer manual control:
 
 **Server 1 (Port 3050):**
 ```bash
@@ -228,14 +262,9 @@ node server.js --port=3051
    npm run dev
    ```
 
-2. **Start backend server 1 (in a separate terminal):**
+2. **Start backend servers with PM2:**
    ```bash
-   node server.js --port=3050
-   ```
-
-3. **Start backend server 2 (in a separate terminal):**
-   ```bash
-   node server.js --port=3051
+   pm2 start ecosystem.config.cjs
    ```
 
 ### What the Backend Servers Do

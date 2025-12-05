@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import NewsCard from './NewsCard';
 import ArticleModal from './ArticleModal';
+import NewsSearch from './NewsSearch';
+import { useBookmarks } from '../hooks/useBookmarks';
+
+const ITEMS_PER_PAGE = 10;
 
 const NewsFeed = ({ news, darkMode, selectedTag, selectedSource }) => {
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const { bookmarks, toggleBookmark, isBookmarked } = useBookmarks();
+  const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
 
   if (!news || !news.items || news.items.length === 0) {
     return (
@@ -14,24 +22,45 @@ const NewsFeed = ({ news, darkMode, selectedTag, selectedSource }) => {
     );
   }
 
-  // Filter news by selected tag and/or source
-  let filteredNews = news.items;
+  // Filter news logic
+  const filteredNews = useMemo(() => {
+    let items = showBookmarksOnly ? bookmarks : news.items;
 
-  // Filter by source first
-  if (selectedSource) {
-    filteredNews = filteredNews.filter(item => {
-      // Check if source matches (partial match for flexibility)
-      return item.source && item.source.toLowerCase().includes(selectedSource.toLowerCase());
-    });
-  }
+    // Filter by source
+    if (selectedSource && !showBookmarksOnly) {
+      items = items.filter(item =>
+        item.source && item.source.toLowerCase().includes(selectedSource.toLowerCase())
+      );
+    }
 
-  // Then filter by tag
-  if (selectedTag) {
-    filteredNews = filteredNews.filter(item => {
-      const searchText = `${item.title} ${item.summary} ${item.category}`.toLowerCase();
-      return searchText.includes(selectedTag.toLowerCase());
-    });
-  }
+    // Filter by tag
+    if (selectedTag && !showBookmarksOnly) {
+      items = items.filter(item => {
+        const searchText = `${item.title} ${item.summary} ${item.category}`.toLowerCase();
+        return searchText.includes(selectedTag.toLowerCase());
+      });
+    }
+
+    // Filter by search query
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      items = items.filter(item => {
+        const titleMatch = item.title?.toLowerCase().includes(query);
+        const summaryMatch = item.summary?.toLowerCase().includes(query);
+        return titleMatch || summaryMatch;
+      });
+    }
+
+    return items;
+  }, [news.items, bookmarks, showBookmarksOnly, selectedSource, selectedTag, searchQuery]);
+
+  // Pagination logic
+  const visibleNews = filteredNews.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredNews.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + ITEMS_PER_PAGE);
+  };
 
   const handleArticleClick = (article) => {
     setSelectedArticle(article);
@@ -57,27 +86,68 @@ const NewsFeed = ({ news, darkMode, selectedTag, selectedSource }) => {
             </span>
           )}
         </h2>
-        <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>
-          {(selectedTag || selectedSource) ? `${filteredNews.length} of ${news.items.length}` : news.items.length} ARTICLES
-        </span>
+
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <button
+            onClick={() => setShowBookmarksOnly(!showBookmarksOnly)}
+            className="brutal-btn"
+            style={{
+              padding: '0.4rem 0.8rem',
+              backgroundColor: showBookmarksOnly ? 'var(--accent-pink)' : 'var(--card-bg)',
+              color: showBookmarksOnly ? '#000' : 'var(--text-color)',
+              fontSize: '0.8rem',
+              fontWeight: 'bold'
+            }}
+          >
+            {showBookmarksOnly ? '★ SAVED' : '☆ SAVED'} ({bookmarks.length})
+          </button>
+          <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>
+            {filteredNews.length} ARTICLES
+          </span>
+        </div>
       </div>
+
+      <NewsSearch onSearch={setSearchQuery} />
 
       {filteredNews.length === 0 ? (
         <div className="brutal-card" style={{ padding: '2rem', textAlign: 'center', backgroundColor: 'var(--card-bg)' }}>
           <h3>NO MATCHING ARTICLES</h3>
-          <p>No articles found{selectedSource ? ` from "${selectedSource}"` : ''}{selectedTag ? ` matching "${selectedTag}"` : ''}. Try a different filter.</p>
+          <p>No articles found{selectedSource ? ` from "${selectedSource}"` : ''}{selectedTag ? ` matching "${selectedTag}"` : ''}{searchQuery ? ` for "${searchQuery}"` : ''}. Try a different filter.</p>
         </div>
       ) : (
-        <div className="news-grid">
-          {filteredNews.map((item, index) => (
-            <NewsCard
-              key={item.id}
-              item={item}
-              darkMode={darkMode}
-              onClick={handleArticleClick}
-            />
-          ))}
-        </div>
+        <>
+          <div className="news-grid">
+            {visibleNews.map((item) => (
+              <NewsCard
+                key={item.id}
+                item={item}
+                darkMode={darkMode}
+                onClick={handleArticleClick}
+                onBookmark={toggleBookmark}
+                isBookmarked={isBookmarked(item.id)}
+              />
+            ))}
+          </div>
+
+          {hasMore && (
+            <button
+              onClick={handleLoadMore}
+              className="brutal-btn"
+              style={{
+                width: '100%',
+                padding: '1rem',
+                marginTop: '1rem',
+                backgroundColor: 'var(--card-bg)',
+                color: 'var(--text-color)',
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                cursor: 'pointer'
+              }}
+            >
+              LOAD MORE ({filteredNews.length - visibleCount} REMAINING)
+            </button>
+          )}
+        </>
       )}
 
       {/* Article Modal */}

@@ -7,7 +7,7 @@ const FLAG_URLS = {
   UZ: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg',
 };
 
-const NewsCard = ({ item, darkMode, onClick }) => {
+const NewsCard = ({ item, darkMode, onClick, onBookmark, isBookmarked }) => {
   const { title, summary, source, published_at, category, language, image_url, source_url, reliability_tier, reliability_label } = item;
 
   // Format relative time (e.g., "2 hours ago")
@@ -192,6 +192,29 @@ const NewsCard = ({ item, darkMode, onClick }) => {
           >
             READ MORE
           </button>
+
+          {/* Bookmark Button */}
+          <button
+            className="brutal-btn"
+            style={{
+              fontSize: '0.8rem',
+              padding: '0.5rem 1rem',
+              backgroundColor: isBookmarked ? 'var(--accent-pink)' : 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              color: isBookmarked ? '#000' : '#FFFFFF',
+              textAlign: 'center',
+              fontWeight: 'bold',
+              minWidth: '40px'
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onBookmark) onBookmark(item);
+            }}
+            title={isBookmarked ? "Remove from bookmarks" : "Bookmark this article"}
+          >
+            {isBookmarked ? '★' : '☆'}
+          </button>
+
           <a
             href={source_url}
             target="_blank"
