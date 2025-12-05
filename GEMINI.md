@@ -347,3 +347,14 @@ The Vite development server proxies `/api` requests to the backend servers:
 - **Issue**: The "TRUST" button in the header was hidden/cut off on smaller screens due to the button group being too wide and not wrapping.
 - **Fix**: Updated `Header.jsx` to make the button group container scrollable horizontally (`overflow-x: auto`) and prevented text wrapping inside buttons (`white-space: nowrap`).
 - **Result**: The "TRUST" button is now accessible on all screen sizes by scrolling the button group if needed.
+
+### Phase 28: Interactive Report & Trust UI Polish
+- **Interactive Report**: Integrated `report.html` as a fully interactive React component (`InteractiveReport.jsx`).
+  - Features tabbed navigation (Market Structure, Activity, Reliability).
+  - Implemented interactive charts using `recharts` (Pie, Bar, Radar).
+  - Added a sortable, filterable table for bank data.
+- **Trust Section Enhancements**:
+  - Added a prominent "VIEW INTERACTIVE REPORT" button with a **Soft Indigo-Purple Gradient** and **Smooth Hover** effect.
+  - Fixed "Blank Screen" error by restoring missing logic in `BankReliability.jsx`.
+  - Updated bank data (Ownership, License Year) in `rates.json` via `scraper.py` to match the report.
+- **Kursiv Removal**: Removed "Kursiv.uz" from news sources and reliability configuration as requested.
