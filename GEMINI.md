@@ -397,3 +397,64 @@ The Vite development server proxies `/api` requests to the backend servers:
 - **Scoped Refresh**: Implemented `scope` parameter in `refreshRates` (Frontend) and `scraper.py` (Backend) to optimize data fetching.
 - **Chart Badges**: Updated Gold, Silver, and Bitcoin charts to display "CURRENT" instead of "TODAY" to reflect real-time data.
 - **Backend Update**: Updated `server.js` to parse request body and pass `--scope` flag.
+
+### Phase 31: USD Savings Deposits
+- **New Feature**: Added support for USD/foreign currency savings deposits from bank.uz.
+- **Backend**: Created `fetch_usd_savings_rates()` function with pagination support (5 pages).
+- **Frontend**: Added UZS/USD toggle in Savings view, currency badges (USD/EUR) on SavingsCard.
+- **Dynamic Tips**: Fixed SAVINGS TIPS card to show correct top rate based on selected currency.
+
+### Phase 32: Refresh Button Animation
+- **Smooth Animation**: Replaced choppy dots animation with fluid gradient + pulse effect.
+- **Dark Mode Fix**: White text for SYNCING in dark mode.
+- **Spinner**: Added spinning ⟳ icon during refresh.
+
+### Phase 33: Bank Profile Modal
+- **Clickable Bank Cards**: Bank cards in Exchange view now open a profile modal.
+- **New Files**:
+  - `src/data/bankProfiles.js` - 32 banks with address, website, savings URL, telegram, hotline, email
+  - `src/components/BankProfileModal.jsx` - Modal with header, rates, quick actions, contact info
+- **Features**:
+  - Bank logo, name, type badge (State/Private/Foreign)
+  - Today's exchange rates (Buy/Sell/Spread)
+  - Quick action buttons: Website, Deposits, Telegram
+  - Contact info: Address, Hotline (clickable), Email (clickable)
+- **Styling**: Neobrutalist modal with animations (slideUp, fadeIn)
+
+---
+
+## Future Phases: Bank Profile Enhancements
+
+### Instructions for Adding Extra Bank Info
+
+When the user provides `extra_info.xlsx` with additional bank data (working hours, branch count, SWIFT code, etc.):
+
+1. **Update `src/data/bankProfiles.js`**:
+   ```javascript
+   // Add new fields to each bank object
+   "Kapitalbank": {
+     ...existing fields...,
+     working_hours: "Mon-Fri 9:00-18:00, Sat 9:00-14:00",
+     branch_count: 150,
+     swift_code: "KPUZUZ22",
+     instagram: "https://instagram.com/kapitalbank",
+     facebook: "https://facebook.com/kapitalbank"
+   }
+   ```
+
+2. **Update `BankProfileModal.jsx`**:
+   - Add new section for "Working Hours" if available
+   - Add branch count display
+   - Add Instagram/Facebook icons to social links
+   - Add SWIFT code in contact section (for business users)
+
+3. **Parse PDF for research data**:
+   - File: `Uzbekistan Bank Information Research.pdf`
+   - Extract any additional structured data
+   - Cross-reference with existing bank profiles
+
+### Potential Future Features
+- Separate page routes (`/bank/kapitalbank`) for SEO
+- Bank comparison feature (select 2-3 banks to compare)
+- Historical rate chart per bank
+- User reviews/ratings

@@ -28,7 +28,7 @@ const BankLogo = ({ url, name }) => {
   );
 };
 
-const BankList = ({ banks, currency, bestBuy, bestSell, cbuRate }) => {
+const BankList = ({ banks, currency, bestBuy, bestSell, cbuRate, onBankClick }) => {
   const prevBanksRef = useRef({});
   const [changedRates, setChangedRates] = useState({});
   const [showAnimation, setShowAnimation] = useState(true);
@@ -124,6 +124,7 @@ const BankList = ({ banks, currency, bestBuy, bestSell, cbuRate }) => {
           return (
             <div key={index} className={`animate-slide-in delay-${index % 20}`} style={{ height: '100%' }}>
               <Card
+                onClick={() => onBankClick && onBankClick(bank)}
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
@@ -134,10 +135,11 @@ const BankList = ({ banks, currency, bestBuy, bestSell, cbuRate }) => {
                   gap: '1rem',
                   height: '100%',
                   padding: '1rem',
-                  position: 'relative', // For badge positioning if needed
+                  position: 'relative',
+                  cursor: 'pointer',
                   // opacity: bank.is_mock ? 0.8 : 1
                 }}
-                className="bank-card-inner"
+                className="bank-card-inner brutal-card-hover"
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                   <div style={{ fontWeight: '900', fontSize: '1.2rem', textTransform: 'uppercase', textAlign: 'left', lineHeight: '1.2' }}>

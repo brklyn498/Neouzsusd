@@ -1826,3 +1826,244 @@ body.dark-mode .refreshing-btn {
     opacity: 0.5;
   }
 }
+
+/* --- Bank Profile Modal --- */
+.bank-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.bank-modal-content {
+  background: var(--card-bg);
+  border: 4px solid var(--border-color);
+  box-shadow: 12px 12px 0 var(--border-color);
+  max-width: 450px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bank-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+  z-index: 10;
+}
+
+.bank-modal-close:hover {
+  transform: scale(1.1);
+}
+
+.bank-modal-header {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 3px solid var(--border-color);
+  background: var(--bg-color);
+}
+
+.bank-modal-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--border-color);
+  background: white;
+  flex-shrink: 0;
+}
+
+.bank-modal-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bank-modal-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bank-modal-title h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.bank-modal-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bank-type-badge,
+.bank-score-badge {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+  border: 2px solid var(--border-color);
+}
+
+.bank-modal-rates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--bg-color);
+  border-bottom: 3px solid var(--border-color);
+}
+
+.bank-modal-rate-box {
+  text-align: center;
+  padding: 0.5rem;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+}
+
+.bank-modal-rate-box .rate-label {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  margin-bottom: 0.25rem;
+}
+
+.bank-modal-rate-box .rate-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.bank-modal-rate-box.buy .rate-value {
+  color: var(--accent-green);
+}
+
+.bank-modal-rate-box.sell .rate-value {
+  color: var(--accent-pink);
+}
+
+.bank-modal-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-bottom: 3px solid var(--border-color);
+}
+
+.bank-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 0.5rem;
+  border: 3px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 3px 3px 0 var(--border-color);
+}
+
+.bank-action-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--border-color);
+}
+
+.bank-action-btn.website {
+  background: var(--accent-cyan);
+  color: #000;
+}
+
+.bank-action-btn.savings {
+  background: var(--accent-green);
+  color: #000;
+}
+
+.bank-action-btn.telegram {
+  background: #229ED9;
+  color: white;
+}
+
+.bank-modal-contact {
+  padding: 1rem;
+}
+
+.bank-modal-contact h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.contact-row.clickable {
+  cursor: pointer;
+}
+
+.contact-row.clickable:hover {
+  background: var(--bg-color);
+}
+
+.contact-icon {
+  font-size: 1rem;
+}
+
+.bank-modal-footer {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-top: 3px solid var(--border-color);
+  background: var(--bg-color);
+}

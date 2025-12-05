@@ -12,6 +12,7 @@ import SilverHistoryChart from './components/SilverHistoryChart';
 import BitcoinHistoryChart from './components/BitcoinHistoryChart';
 import Footer from './components/Footer';
 import BankReliability from './components/BankReliability';
+import BankProfileModal from './components/BankProfileModal';
 import { refreshRates } from './utils/fetchUtils';
 import InteractiveReport from './components/InteractiveReport';
 
@@ -30,6 +31,7 @@ function App() {
   const [selectedTag, setSelectedTag] = useState(null); // For news filtering
   const [selectedSource, setSelectedSource] = useState(null); // For news source filtering
   const [savingsCurrency, setSavingsCurrency] = useState('UZS'); // 'UZS' or 'USD' for savings view
+  const [selectedBank, setSelectedBank] = useState(null); // For bank profile modal
   const [darkMode, setDarkMode] = useState(() => {
     // Check localStorage or system preference
     const saved = localStorage.getItem('darkMode');
@@ -420,6 +422,7 @@ function App() {
                     bestBuy={bestBuyRate}
                     bestSell={bestSellRate}
                     cbuRate={currentData.cbu}
+                    onBankClick={(bank) => setSelectedBank(bank)}
                   />
                 </div>
 
@@ -589,6 +592,16 @@ function App() {
       )}
 
       {!loading && !error && <Footer />}
+
+      {/* Bank Profile Modal */}
+      {selectedBank && (
+        <BankProfileModal
+          bankName={selectedBank.name}
+          bankData={selectedBank}
+          onClose={() => setSelectedBank(null)}
+          darkMode={darkMode}
+        />
+      )}
     </div>
   );
 }
