@@ -1615,91 +1615,128 @@ def fetch_gold_history(existing_data, force=False):
             print(f"Error reading .env file: {e}")
 
     if not api_key:
-        print("POLYGON_API_KEY not found. Using cached or skipping.")
-        return existing_data.get("gold_history") if existing_data else None
+        print("POLYGON_API_KEY not found. Checking cache or generating mock...")
 
-    try:
-        print("Fetching gold history from Massive.com (Polygon.io)...")
-        
-        # Calculate dates
-        today = datetime.date.today()
-        end_date_str = today.strftime("%Y-%m-%d")
-        start_date = today - datetime.timedelta(days=35) # Fetch a few extra days to handle weekends/holidays and ensure we get 30 datapoints
-        start_date_str = start_date.strftime("%Y-%m-%d")
-        
-        # URL for Aggregates (Bars)
-        # C:XAUUSD is the ticker for Gold Spot US Dollar
-        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
-        
-        headers = {"Authorization": f"Bearer {api_key}"}
-        response = requests.get(url, headers=headers, timeout=15)
+    if api_key:
+        try:
+            print("Fetching gold history from Massive.com (Polygon.io)...")
 
-        if response.status_code == 200:
-            data = response.json()
-            if data.get("status") != "OK" and data.get("status") != "DELAYED": # DELAYED is also fine usually
-                # Sometimes status is OK even if empty results
-                 pass
+            # Calculate dates
+            today = datetime.date.today()
+            end_date_str = today.strftime("%Y-%m-%d")
+            start_date = today - datetime.timedelta(days=35) # Fetch a few extra days to handle weekends/holidays and ensure we get 30 datapoints
+            start_date_str = start_date.strftime("%Y-%m-%d")
 
-            results = data.get("results", [])
-            if not results:
-                 print("No results found in Polygon response.")
-                 return existing_data.get("gold_history") if existing_data else None
+            # URL for Aggregates (Bars)
+            # C:XAUUSD is the ticker for Gold Spot US Dollar
+            url = f"https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
 
-            history_data = []
-            
-            for item in results:
-                # 't' is timestamp in ms
-                ts = item.get("t")
-                if not ts:
-                    continue
+            headers = {"Authorization": f"Bearer {api_key}"}
+            response = requests.get(url, headers=headers, timeout=15)
 
-                date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
-                price = item.get("c") # Close price
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("status") != "OK" and data.get("status") != "DELAYED": # DELAYED is also fine usually
+                    # Sometimes status is OK even if empty results
+                    pass
 
-                history_data.append({
-                    "date": date_str,
-                    "price_usd_per_oz": float(price),
-                    # change_percent will be calculated below
-                })
-            
-            # Sort by date just in case
-            history_data.sort(key=lambda x: x['date'])
-            
-            # Calculate change percent
-            for i in range(len(history_data)):
-                if i > 0:
-                    prev_price = history_data[i-1]["price_usd_per_oz"]
-                    curr_price = history_data[i]["price_usd_per_oz"]
-                    change_percent = ((curr_price - prev_price) / prev_price) * 100
-                    history_data[i]["change_percent"] = round(change_percent, 2)
-                else:
-                    history_data[i]["change_percent"] = 0.0
-            
-            # Keep last 30 entries
-            if len(history_data) > 30:
-                history_data = history_data[-30:]
-            
-            print(f"Successfully fetched {len(history_data)} days of gold prices.")
-            if history_data:
-                print(f"Latest price: ${history_data[-1]['price_usd_per_oz']}/oz ({history_data[-1]['date']})")
+                results = data.get("results", [])
+                if not results:
+                    print("No results found in Polygon response.")
+                    return existing_data.get("gold_history") if existing_data else None
 
-            return {
-                "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-                "last_updated_ts": datetime.datetime.now().timestamp(),
-                "data": history_data,
-                "source": "Massive.com (Polygon.io)",
-                "note": "Real market data"
-            }
+                history_data = []
 
-        else:
-            print(f"Polygon API Error: {response.status_code} - {response.text}")
+                for item in results:
+                    # 't' is timestamp in ms
+                    ts = item.get("t")
+                    if not ts:
+                        continue
 
-    except Exception as e:
-        print(f"Error fetching gold prices: {e}")
+                    date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
+                    price = item.get("c") # Close price
+
+                    history_data.append({
+                        "date": date_str,
+                        "price_usd_per_oz": float(price),
+                        # change_percent will be calculated below
+                    })
+
+                # Sort by date just in case
+                history_data.sort(key=lambda x: x['date'])
+
+                # Calculate change percent
+                for i in range(len(history_data)):
+                    if i > 0:
+                        prev_price = history_data[i-1]["price_usd_per_oz"]
+                        curr_price = history_data[i]["price_usd_per_oz"]
+                        change_percent = ((curr_price - prev_price) / prev_price) * 100
+                        history_data[i]["change_percent"] = round(change_percent, 2)
+                    else:
+                        history_data[i]["change_percent"] = 0.0
+
+                # Keep last 30 entries
+                if len(history_data) > 30:
+                    history_data = history_data[-30:]
+
+                print(f"Successfully fetched {len(history_data)} days of gold prices.")
+                if history_data:
+                    print(f"Latest price: ${history_data[-1]['price_usd_per_oz']}/oz ({history_data[-1]['date']})")
+
+                return {
+                    "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+                    "last_updated_ts": datetime.datetime.now().timestamp(),
+                    "data": history_data,
+                    "source": "Massive.com (Polygon.io)",
+                    "note": "Real market data"
+                }
+
+            else:
+                print(f"Polygon API Error: {response.status_code} - {response.text}")
+
+        except Exception as e:
+            print(f"Error fetching gold prices: {e}")
     
     # Fallback to cached data if everything fails
     print("Falling back to cached data...")
-    return existing_data.get("gold_history") if existing_data else None
+    cached = existing_data.get("gold_history") if existing_data else None
+
+    if cached:
+        return cached
+
+    # If no cache and no API key, generate Mock Data (for dev/testing)
+    print("No cached data found. Generating MOCK Gold History...")
+    mock_history = []
+    base_price = 2650.0
+    today = datetime.date.today()
+
+    for i in range(30):
+        date_obj = today - datetime.timedelta(days=29-i)
+        # Random walk
+        change = random.uniform(-15, 20)
+        base_price += change
+
+        mock_history.append({
+            "date": date_obj.strftime("%Y-%m-%d"),
+            "price_usd_per_oz": round(base_price, 2),
+            "change_percent": 0.0 # Will be calc'd below if we want, or just leave 0 for now logic handles it
+        })
+
+    # Recalculate percent changes properly
+    for i in range(len(mock_history)):
+        if i > 0:
+            prev = mock_history[i-1]["price_usd_per_oz"]
+            curr = mock_history[i]["price_usd_per_oz"]
+            pct = ((curr - prev) / prev) * 100
+            mock_history[i]["change_percent"] = round(pct, 2)
+
+    return {
+        "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "last_updated_ts": datetime.datetime.now().timestamp(),
+        "data": mock_history,
+        "source": "Mock Data (Dev)",
+        "note": "Simulated data"
+    }
 
 def fetch_silver_history(existing_data, force=False):
     """
