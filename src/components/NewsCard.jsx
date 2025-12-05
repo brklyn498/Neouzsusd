@@ -8,7 +8,7 @@ const FLAG_URLS = {
 };
 
 const NewsCard = ({ item, darkMode, onClick }) => {
-  const { title, summary, source, published_at, category, language, image_url, source_url } = item;
+  const { title, summary, source, published_at, category, language, image_url, source_url, reliability_tier, reliability_label } = item;
 
   // Format relative time (e.g., "2 hours ago")
   const getRelativeTime = (isoString) => {
@@ -74,7 +74,7 @@ const NewsCard = ({ item, darkMode, onClick }) => {
 
   // Category colors mapping
   const getCategoryColor = (cat) => {
-    switch(cat?.toLowerCase()) {
+    switch (cat?.toLowerCase()) {
       case 'economy': return '#CCFF00'; // Lime
       case 'banking': return '#00FFFF'; // Cyan
       case 'markets': return '#FF00FF'; // Magenta
@@ -82,6 +82,36 @@ const NewsCard = ({ item, darkMode, onClick }) => {
       case 'regulation': return '#9D4EDD'; // Purple
       default: return '#00FFFF'; // Default Cyan
     }
+  };
+
+  // Reliability badge component (Task 3.5)
+  const ReliabilityBadge = ({ tier, label }) => {
+    if (!label) return null;
+
+    const colors = {
+      official: { bg: '#00FF00', text: '#000' },    // Green for official govt sources
+      verified: { bg: '#00FFFF', text: '#000' },    // Cyan for verified outlets
+      aggregator: { bg: '#FFCC00', text: '#000' },  // Yellow for aggregators
+    };
+
+    const style = colors[tier] || colors.verified;
+    const icon = tier === 'official' || tier === 'verified' ? '✓' : '⚡';
+
+    return (
+      <span style={{
+        backgroundColor: style.bg,
+        color: style.text,
+        padding: '2px 6px',
+        fontSize: '0.6rem',
+        fontWeight: 'bold',
+        border: '2px solid var(--border-color)',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '2px',
+      }}>
+        {icon} {label}
+      </span>
+    );
   };
 
   const categoryColor = getCategoryColor(category);
@@ -114,6 +144,7 @@ const NewsCard = ({ item, darkMode, onClick }) => {
             }}>
               {source}
             </span>
+            <ReliabilityBadge tier={reliability_tier} label={reliability_label} />
             <LanguageBadge lang={language} />
             <span style={{
               backgroundColor: categoryColor,

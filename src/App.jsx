@@ -11,7 +11,9 @@ import GoldHistoryChart from './components/GoldHistoryChart';
 import SilverHistoryChart from './components/SilverHistoryChart';
 import BitcoinHistoryChart from './components/BitcoinHistoryChart';
 import Footer from './components/Footer';
+import BankReliability from './components/BankReliability';
 import { refreshRates } from './utils/fetchUtils';
+import InteractiveReport from './components/InteractiveReport';
 
 function App() {
   const [data, setData] = useState(null); // Holds the full nested data
@@ -116,6 +118,7 @@ function App() {
   const goldHistoryData = data ? data.gold_history : null;
   const silverHistoryData = data ? data.silver_history : null;
   const bitcoinHistoryData = data ? data.bitcoin_history : null;
+  const reliabilityData = data ? data.bank_reliability : null;
 
   const getProcessedBanks = () => {
     if (!currentData || !currentData.banks) return [];
@@ -201,6 +204,8 @@ function App() {
               metalType={metalType}
             />
 
+
+
             {viewMode === 'exchange' ? (
               <>
                 <Calculator bestBuy={bestBuyRate} bestSell={bestSellRate} currency={currency} />
@@ -209,7 +214,7 @@ function App() {
                 </div>
               </>
             ) : viewMode === 'metals' ? (
-              // Extras/Metals Mode Sidebar Content
+              // ... (metals sidebar)
               <>
                 {metalType === 'gold' && goldBarsData && (
                   <div>
@@ -232,7 +237,7 @@ function App() {
                 )}
               </>
             ) : viewMode === 'news' ? (
-              // News Mode Sidebar Content
+              // ... (news sidebar)
               <>
                 <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
                   <h3 style={{ marginTop: 0 }}>NEWS SOURCES</h3>
@@ -240,7 +245,6 @@ function App() {
                   <ul style={{ paddingLeft: '0', marginTop: '0.5rem', lineHeight: '2', listStyle: 'none' }}>
                     {[
                       { name: 'Gazeta.uz', key: 'Gazeta.uz' },
-                      { name: 'Daryo.uz', key: 'Daryo.uz' },
                       { name: 'UzDaily', key: 'UzDaily' },
                       { name: 'Spot.uz', key: 'Spot.uz' },
                       { name: 'Central Bank (CBU)', key: 'CBU' },
@@ -331,6 +335,17 @@ function App() {
                   )}
                 </div>
               </>
+            ) : viewMode === 'report' ? (
+              // Report Mode Sidebar Content
+              <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
+                <h3 style={{ marginTop: 0 }}>SECTOR MONITOR</h3>
+                <p>Comprehensive analysis of the Uzbekistan banking sector.</p>
+                <ul style={{ paddingLeft: '1rem', fontSize: '0.9rem', opacity: 0.8 }}>
+                  <li>Market Structure</li>
+                  <li>Bank Directory</li>
+                  <li>Activity Rankings</li>
+                </ul>
+              </div>
             ) : (
               // Savings Mode Sidebar Content
               <div className="brutal-card" style={{ padding: '1rem', backgroundColor: 'var(--card-bg)' }}>
@@ -463,6 +478,10 @@ function App() {
               </>
             ) : viewMode === 'news' ? (
               <NewsFeed news={newsData} darkMode={darkMode} selectedTag={selectedTag} selectedSource={selectedSource} />
+            ) : viewMode === 'reliability' ? (
+              <BankReliability reliabilityData={reliabilityData} setViewMode={setViewMode} />
+            ) : viewMode === 'report' ? (
+              <InteractiveReport darkMode={darkMode} />
             ) : (
               <>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>

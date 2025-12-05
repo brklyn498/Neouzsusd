@@ -280,18 +280,6 @@ The Vite development server proxies `/api` requests to the backend servers:
 - **Dark Mode Refinements**:
   - Fixed "NEOUZS" logo color to be white in dark mode.
   - Adjusted CBU card background to a softer yellow (`#FFF59D`) for better contrast.
-- **Result**: The application now feels significantly more polished and native.
-
-### Phase 22: Brutalist Footer
-- **New Component**: Created `Footer.jsx` with "NEOUZS" branding, "Made in Tashkent" credits, and social links.
-- **Styling**: Applied thick borders, brutal buttons, and ensured it sits at the bottom of the page using `grid-column: 1 / -1`.
-- **Dark Mode Fix**: Updated `GlitchLogo` to use white text in dark mode for better visibility.
-
-### Phase 23: GitHub Synchronization
-- **Sync**: Committed all local changes (Scrollbar, Skeletons, Footer) and synchronized with the remote repository.
-- **Conflict Resolution**: (If any) Handled during pull.
-
-### Option 3: Real Data Integration 🕷️ (COMPLETED)
 - **Goal:** Replace mock data with real scraping where possible.
 - **Status:** ✅ All 5 banks now show real data from bank.uz!
 
@@ -335,3 +323,27 @@ The Vite development server proxies `/api` requests to the backend servers:
   - Body scroll lock when open
 - **NewsCard Updates**: Added "📖 READ MORE" button and made cards clickable to open modal.
 - **NewsFeed Integration**: Added modal state management with `selectedArticle` useState hook.
+
+### Phase 26: Source Reliability Scoring (NEWS_ROADMAP Task 3.5)
+- **Feature**: Added trust/reliability indicators to news sources for user transparency.
+- **Backend Changes** (`scripts/scraper.py`):
+  - Added `SOURCE_RELIABILITY` dictionary with 4-tier system:
+    - **Official** (1.0): CBU, IMF, World Bank - Government/international sources
+    - **Verified** (0.8): Gazeta.uz, Kapital.uz - Established local outlets
+    - **Standard** (0.5): UzDaily, Spot.uz - Regular sources
+    - **Aggregator** (0.3): WorldNewsAPI - News aggregators
+  - Added `get_reliability()` helper function
+  - Updated all 5 news fetch functions to include `reliability_tier`, `reliability_score`, `reliability_label` fields
+- **Frontend Changes** (`src/components/NewsCard.jsx`):
+  - Created `ReliabilityBadge` component with color-coded badges:
+    - ✓ OFFICIAL (bright green)
+    - ✓ VERIFIED (cyan)
+    - ⚡ AGGREGATOR (yellow)
+  - Badge appears next to source name on news cards
+- **Verification**: Confirmed badges display correctly in browser
+
+
+### Phase 27: Debugging Hidden Trust Button
+- **Issue**: The "TRUST" button in the header was hidden/cut off on smaller screens due to the button group being too wide and not wrapping.
+- **Fix**: Updated `Header.jsx` to make the button group container scrollable horizontally (`overflow-x: auto`) and prevented text wrapping inside buttons (`white-space: nowrap`).
+- **Result**: The "TRUST" button is now accessible on all screen sizes by scrolling the button group if needed.

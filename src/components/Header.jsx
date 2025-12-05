@@ -29,17 +29,19 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
 
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           {/* View Mode Toggle */}
-          <div style={{ display: 'flex', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', border: '3px solid var(--border-color)', boxShadow: '4px 4px 0 var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
             <button
               onClick={() => setViewMode('exchange')}
               style={{
                 border: 'none',
                 background: viewMode === 'exchange' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
                 color: viewMode === 'exchange' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
+                padding: '0.5rem 0.8rem',
+                flexGrow: 1,
                 fontWeight: 'bold',
                 cursor: 'pointer',
-                fontFamily: 'inherit'
+                fontFamily: 'inherit',
+                fontSize: '0.9rem'
               }}
             >
               RATES
@@ -50,11 +52,13 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 border: 'none',
                 background: viewMode === 'metals' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
                 color: viewMode === 'metals' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
+                padding: '0.5rem 0.8rem',
+                flexGrow: 1,
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontFamily: 'inherit',
-                borderLeft: '3px solid var(--border-color)'
+                borderLeft: '3px solid var(--border-color)',
+                fontSize: '0.9rem'
               }}
             >
               EXTRAS
@@ -65,11 +69,13 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 border: 'none',
                 background: viewMode === 'savings' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
                 color: viewMode === 'savings' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
+                padding: '0.5rem 0.8rem',
+                flexGrow: 1,
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontFamily: 'inherit',
-                borderLeft: '3px solid var(--border-color)'
+                borderLeft: '3px solid var(--border-color)',
+                fontSize: '0.9rem'
               }}
             >
               SAVINGS
@@ -80,15 +86,37 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 border: 'none',
                 background: viewMode === 'news' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
                 color: viewMode === 'news' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
-                padding: '0.5rem 1rem',
+                padding: '0.5rem 0.8rem',
+                flexGrow: 1,
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontFamily: 'inherit',
-                borderLeft: '3px solid var(--border-color)'
+                borderLeft: '3px solid var(--border-color)',
+                borderTop: '3px solid var(--border-color)',
+                fontSize: '0.9rem'
               }}
             >
               NEWS
             </button>
+            <button
+              onClick={() => setViewMode('reliability')}
+              style={{
+                border: 'none',
+                background: viewMode === 'reliability' ? (darkMode ? 'var(--accent-brand)' : 'var(--text-color)') : 'var(--card-bg)',
+                color: viewMode === 'reliability' ? (darkMode ? '#FFFFFF' : 'var(--bg-color)') : 'var(--text-color)',
+                padding: '0.5rem 0.8rem',
+                flexGrow: 1,
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                borderLeft: '3px solid var(--border-color)',
+                borderTop: '3px solid var(--border-color)',
+                fontSize: '0.9rem'
+              }}
+            >
+              TRUST
+            </button>
+
           </div>
 
           {/* Dark Mode Toggle */}
@@ -270,6 +298,24 @@ const Header = ({ cbuRate, onRefresh, refreshing, lastRefresh, currency, setCurr
                 </div>
               </div>
               <div style={{ fontSize: '3rem' }}>📰</div>
+            </Card>
+          </div>
+        )
+      }
+      {
+        viewMode === 'reliability' && (
+          <div className="animate-slide-in">
+            <Card style={{ backgroundColor: darkMode ? 'var(--header-card-bg, var(--accent-brand))' : '#10B981', color: darkMode ? '#FFFFFF' : '#000000', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>BANK TRUST SCORES</div>
+                <div style={{ fontSize: '2.5rem', fontWeight: '900' }}>
+                  RELIABILITY
+                </div>
+                <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.3rem' }}>
+                  CBU + CERR OFFICIAL DATA
+                </div>
+              </div>
+              <div style={{ fontSize: '3rem' }}>🏦</div>
             </Card>
           </div>
         )
