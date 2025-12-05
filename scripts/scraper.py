@@ -846,13 +846,21 @@ def fetch_news(existing_data, force=False):
             all_news.append(wn_item)
             existing_titles.add(title_key)
 
+    # Fetch from CBU (Central Bank official news)
+    cbu_items = fetch_cbu_news()
+    for cbu_item in cbu_items:
+        title_key = cbu_item["title"].lower()[:50]
+        if title_key not in existing_titles:
+            all_news.append(cbu_item)
+            existing_titles.add(title_key)
+
     # Sort by date descending
     all_news.sort(key=lambda x: x["published_ts"], reverse=True)
 
-    # Keep top 40 (increased from 30 to accommodate WorldNews)
-    final_news = all_news[:40]
+    # Keep top 50 (increased to accommodate all sources)
+    final_news = all_news[:50]
 
-    print(f"Successfully fetched {len(final_news)} news items (including WorldNewsAPI).")
+    print(f"Successfully fetched {len(final_news)} news items (RSS + WorldNewsAPI + CBU).")
 
     return {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -881,6 +889,109 @@ def load_env_var(var_name):
             print(f"Error reading .env file for {var_name}: {e}")
     
     return value
+
+def fetch_cbu_news():
+    """
+    Scrapes news from Central Bank of Uzbekistan press center.
+    Returns list of news items in the same format as RSS feeds.
+    URL: https://cbu.uz/en/press_center/news/
+    """
+    print("--- Fetching CBU News ---")
+    
+    url = "https://cbu.uz/en/press_center/news/"
+    
+    try:
+        response = fetch_url(url)
+        if not response:
+            print("Failed to fetch CBU news page.")
+            return []
+        
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Find all news links - they have format /en/press_center/news/XXXXXX/
+        news_items = []
+        
+        # Look for links that match the news URL pattern
+        for link in soup.find_all('a', href=True):
+            href = link.get('href', '')
+            
+            # Match CBU news pattern: /en/press_center/news/XXXXXX/
+            if '/en/press_center/news/' in href and href.count('/') >= 5:
+                # Skip pagination and main page links
+                if '?PAGEN' in href or href == '/en/press_center/news/':
+                    continue
+                
+                # Get the full text content of the link
+                title = link.get_text(strip=True)
+                
+                # Skip if no meaningful title
+                if not title or len(title) < 10:
+                    continue
+                
+                # Parse date if present (format: "4 Dec 2025")
+                # CBU puts date in the text, usually at the end or in a separate element
+                date_str = ""
+                published_ts = 0
+                
+                # Try to find date in sibling or parent elements
+                parent = link.parent
+                if parent:
+                    text_content = parent.get_text()
+                    # Look for date pattern in text
+                    import re
+                    date_match = re.search(r'(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})', text_content)
+                    if date_match:
+                        try:
+                            dt = date_parser.parse(date_match.group(0))
+                            date_str = dt.isoformat()
+                            published_ts = dt.timestamp()
+                        except:
+                            pass
+                
+                # Build full URL
+                full_url = href if href.startswith('http') else f"https://cbu.uz{href}"
+                
+                # Generate stable ID
+                id_str = f"cbu-{href}"
+                item_id = hashlib.md5(id_str.encode()).hexdigest()
+                
+                # Clean title (remove date if embedded)
+                clean_title = re.sub(r'\s*\d{1,2}\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}\s*$', '', title).strip()
+                
+                news_items.append({
+                    "id": item_id,
+                    "title": clean_title,
+                    "summary": clean_title,  # CBU doesn't provide summaries on list page
+                    "full_content": "",  # Would need to scrape individual pages
+                    "source": "CBU",
+                    "source_url": full_url,
+                    "category": "Banking",  # CBU is always banking-related
+                    "language": "EN",
+                    "published_at": date_str,
+                    "published_ts": published_ts,
+                    "image_url": None,
+                    "is_breaking": False,
+                    "is_official": True  # Flag for official government source
+                })
+        
+        # Remove duplicates based on URL
+        seen_urls = set()
+        unique_items = []
+        for item in news_items:
+            if item["source_url"] not in seen_urls:
+                seen_urls.add(item["source_url"])
+                unique_items.append(item)
+        
+        # Sort by date and keep top 10
+        unique_items.sort(key=lambda x: x["published_ts"], reverse=True)
+        final_items = unique_items[:10]
+        
+        print(f"CBU News: Fetched {len(final_items)} items")
+        return final_items
+        
+    except Exception as e:
+        print(f"CBU News Error: {e}")
+        return []
 
 def fetch_worldnews_api():
     """
