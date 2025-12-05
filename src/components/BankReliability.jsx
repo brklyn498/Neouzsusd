@@ -146,7 +146,7 @@ const ReliabilityCard = ({ bank, indicatorsList, isExpanded, onToggle }) => {
             </div>
 
             {isExpanded && (
-                <div className="reliability-card-details">
+                <div className="reliability-card-details animate-slide-down">
                     <div className="reliability-chart-section">
                         <h4>Performance Indicators</h4>
                         <IndicatorRadarChart
@@ -289,7 +289,7 @@ const BankReliability = ({ reliabilityData, setViewMode }) => {
             <button
                 style={gradientButtonStyle}
                 onClick={() => setViewMode('report')}
-                className="brutal-btn-hover-fix" // Removed hover-glitch
+                className="brutal-btn-hover-fix animate-pop-in" // Added animate-pop-in
                 onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translate(-2px, -2px)';
                     e.currentTarget.style.boxShadow = '8px 8px 0px 0px var(--text-color)';
@@ -303,7 +303,7 @@ const BankReliability = ({ reliabilityData, setViewMode }) => {
             </button>
 
             {/* Header Section */}
-            <div className="brutal-card reliability-header-card slide-in-brutal">
+            <div className="brutal-card reliability-header-card animate-slide-in">
                 <div className="reliability-title-row">
                     <h2>🏦 Bank Reliability Scores</h2>
                     <span className="reliability-updated">Updated: {last_updated}</span>
@@ -324,7 +324,7 @@ const BankReliability = ({ reliabilityData, setViewMode }) => {
             </div>
 
             {/* Scoring Criteria Notice */}
-            <div className="brutal-card criteria-notice slide-in-brutal" style={{ animationDelay: '100ms' }}>
+            <div className="brutal-card criteria-notice animate-slide-in" style={{ animationDelay: '100ms' }}>
                 <div
                     className="criteria-header"
                     onClick={() => setShowCriteria(!showCriteria)}
@@ -334,7 +334,7 @@ const BankReliability = ({ reliabilityData, setViewMode }) => {
                 </div>
 
                 {showCriteria && (
-                    <div className="criteria-content">
+                    <div className="criteria-content animate-slide-down">
                         <p className="criteria-disclaimer">
                             ⚠️ <strong>Notice:</strong> Scores are calculated using the following weighted formula
                             based on official data from CBU.uz and CERR.uz:
@@ -362,7 +362,7 @@ const BankReliability = ({ reliabilityData, setViewMode }) => {
             </div>
 
             {/* Controls */}
-            <div className="reliability-controls slide-in-brutal" style={{ animationDelay: '150ms' }}>
+            <div className="reliability-controls animate-slide-in" style={{ animationDelay: '150ms' }}>
                 <div className="control-group">
                     <label>Sort by:</label>
                     <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
@@ -400,14 +400,19 @@ const BankReliability = ({ reliabilityData, setViewMode }) => {
 
             {/* Bank List */}
             <div className="reliability-list">
-                {processedBanks.map((bank) => (
-                    <ReliabilityCard
+                {processedBanks.map((bank, index) => (
+                    <div
                         key={bank.name}
-                        bank={bank}
-                        indicatorsList={indicators_list || []}
-                        isExpanded={expandedBank === bank.name}
-                        onToggle={() => toggleExpand(bank.name)}
-                    />
+                        className="animate-slide-in"
+                        style={{ animationDelay: `${200 + (index * 50)}ms` }}
+                    >
+                        <ReliabilityCard
+                            bank={bank}
+                            indicatorsList={indicators_list || []}
+                            isExpanded={expandedBank === bank.name}
+                            onToggle={() => toggleExpand(bank.name)}
+                        />
+                    </div>
                 ))}
             </div>
         </div>

@@ -358,3 +358,8 @@ The Vite development server proxies `/api` requests to the backend servers:
   - Fixed "Blank Screen" error by restoring missing logic in `BankReliability.jsx`.
   - Updated bank data (Ownership, License Year) in `rates.json` via `scraper.py` to match the report.
 - **Kursiv Removal**: Removed "Kursiv.uz" from news sources and reliability configuration as requested.
+
+### Phase 29: Trust Page Animations
+- **Entrance Animations**: Implemented staggered slide-in effects for bank cards and a pop-in animation for the "Interactive Report" button.
+- **Dropdown Animations**: Added smooth `slideDownBrutal` animation for the "Scoring Criteria" and "Bank Details" dropdowns.
+- **CSS Updates**: Added new keyframes (`slideDownBrutal`, `popInBrutal`) and utility classes to `index.css`.
