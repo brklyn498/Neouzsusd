@@ -244,6 +244,8 @@ function App() {
                       { name: 'UzDaily', key: 'UzDaily' },
                       { name: 'Spot.uz', key: 'Spot.uz' },
                       { name: 'Central Bank (CBU)', key: 'CBU' },
+                      { name: 'IMF', key: 'IMF' },
+                      { name: 'World Bank', key: 'World Bank' },
                       { name: 'WorldNews', key: 'WorldNews' }
                     ].map((source) => (
                       <li

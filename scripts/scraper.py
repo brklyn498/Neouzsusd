@@ -854,13 +854,29 @@ def fetch_news(existing_data, force=False):
             all_news.append(cbu_item)
             existing_titles.add(title_key)
 
+    # Fetch from IMF (International Monetary Fund)
+    imf_items = fetch_imf_news()
+    for imf_item in imf_items:
+        title_key = imf_item["title"].lower()[:50]
+        if title_key not in existing_titles:
+            all_news.append(imf_item)
+            existing_titles.add(title_key)
+
+    # Fetch from World Bank
+    wb_items = fetch_worldbank_news()
+    for wb_item in wb_items:
+        title_key = wb_item["title"].lower()[:50]
+        if title_key not in existing_titles:
+            all_news.append(wb_item)
+            existing_titles.add(title_key)
+
     # Sort by date descending
     all_news.sort(key=lambda x: x["published_ts"], reverse=True)
 
-    # Keep top 50 (increased to accommodate all sources)
-    final_news = all_news[:50]
+    # Keep top 60 (increased to accommodate all sources)
+    final_news = all_news[:60]
 
-    print(f"Successfully fetched {len(final_news)} news items (RSS + WorldNewsAPI + CBU).")
+    print(f"Successfully fetched {len(final_news)} news items (RSS + WorldNewsAPI + CBU + IMF + World Bank).")
 
     return {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -991,6 +1007,201 @@ def fetch_cbu_news():
         
     except Exception as e:
         print(f"CBU News Error: {e}")
+        return []
+
+def fetch_imf_news():
+    """
+    Fetches news from IMF about Uzbekistan.
+    Uses the IMF country page which lists recent documents/news.
+    URL: https://www.imf.org/en/Countries/UZB
+    """
+    print("--- Fetching IMF News ---")
+    
+    url = "https://www.imf.org/en/Countries/UZB"
+    
+    try:
+        response = fetch_url(url)
+        if not response:
+            print("Failed to fetch IMF page.")
+            return []
+        
+        soup = BeautifulSoup(response.content, 'html.parser')
+        news_items = []
+        
+        # Look for links to news/articles/publications about Uzbekistan
+        for link in soup.find_all('a', href=True):
+            href = link.get('href', '')
+            
+            # Match IMF news/publications patterns
+            if any(pattern in href for pattern in ['/news/', '/publications/', '/en/News/']):
+                if 'Countries/UZB' in href or href == url:
+                    continue  # Skip self-references
+                
+                title = link.get_text(strip=True)
+                if not title or len(title) < 15:
+                    continue
+                
+                # Skip navigation/generic links
+                if title.lower() in ['read more', 'view all', 'see more', 'more']:
+                    continue
+                
+                # Build full URL
+                full_url = href if href.startswith('http') else f"https://www.imf.org{href}"
+                
+                # Generate stable ID
+                id_str = f"imf-{href}"
+                item_id = hashlib.md5(id_str.encode()).hexdigest()
+                
+                # Try to extract date from URL (format: /YYYY/MM/DD/)
+                import re
+                date_str = ""
+                published_ts = 0
+                date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', href)
+                if date_match:
+                    try:
+                        dt = datetime.datetime(
+                            int(date_match.group(1)),
+                            int(date_match.group(2)),
+                            int(date_match.group(3))
+                        )
+                        date_str = dt.isoformat()
+                        published_ts = dt.timestamp()
+                    except:
+                        pass
+                
+                # If no date in URL, use current date minus index
+                if not published_ts:
+                    published_ts = datetime.datetime.now().timestamp() - len(news_items) * 86400
+                    date_str = datetime.datetime.now().isoformat()
+                
+                news_items.append({
+                    "id": item_id,
+                    "title": title[:200],  # Limit title length
+                    "summary": f"IMF report on Uzbekistan: {title[:150]}",
+                    "full_content": "",
+                    "source": "IMF",
+                    "source_url": full_url,
+                    "category": "Economy",
+                    "language": "EN",
+                    "published_at": date_str,
+                    "published_ts": published_ts,
+                    "image_url": None,
+                    "is_breaking": False,
+                    "is_official": True
+                })
+        
+        # Remove duplicates
+        seen_urls = set()
+        unique_items = []
+        for item in news_items:
+            if item["source_url"] not in seen_urls:
+                seen_urls.add(item["source_url"])
+                unique_items.append(item)
+        
+        # Keep top 5
+        unique_items.sort(key=lambda x: x["published_ts"], reverse=True)
+        final_items = unique_items[:5]
+        
+        print(f"IMF News: Fetched {len(final_items)} items")
+        return final_items
+        
+    except Exception as e:
+        print(f"IMF News Error: {e}")
+        return []
+
+def fetch_worldbank_news():
+    """
+    Fetches news from World Bank about Uzbekistan.
+    URL: https://www.worldbank.org/en/country/uzbekistan
+    """
+    print("--- Fetching World Bank News ---")
+    
+    url = "https://www.worldbank.org/en/country/uzbekistan"
+    
+    try:
+        response = fetch_url(url)
+        if not response:
+            print("Failed to fetch World Bank page.")
+            return []
+        
+        soup = BeautifulSoup(response.content, 'html.parser')
+        news_items = []
+        
+        # Look for links to news/stories/features
+        for link in soup.find_all('a', href=True):
+            href = link.get('href', '')
+            
+            # Match World Bank news patterns
+            if any(pattern in href.lower() for pattern in ['/news/', '/feature/', '/story/', '/stories/']):
+                title = link.get_text(strip=True)
+                if not title or len(title) < 15:
+                    continue
+                
+                # Skip navigation links
+                if title.lower() in ['read more', 'view all', 'see more', 'more', 'learn more']:
+                    continue
+                
+                # Build full URL
+                full_url = href if href.startswith('http') else f"https://www.worldbank.org{href}"
+                
+                # Generate stable ID
+                id_str = f"wb-{href}"
+                item_id = hashlib.md5(id_str.encode()).hexdigest()
+                
+                # Try to extract date from URL
+                import re
+                date_str = ""
+                published_ts = 0
+                date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', href)
+                if date_match:
+                    try:
+                        dt = datetime.datetime(
+                            int(date_match.group(1)),
+                            int(date_match.group(2)),
+                            int(date_match.group(3))
+                        )
+                        date_str = dt.isoformat()
+                        published_ts = dt.timestamp()
+                    except:
+                        pass
+                
+                if not published_ts:
+                    published_ts = datetime.datetime.now().timestamp() - len(news_items) * 86400
+                    date_str = datetime.datetime.now().isoformat()
+                
+                news_items.append({
+                    "id": item_id,
+                    "title": title[:200],
+                    "summary": f"World Bank report on Uzbekistan: {title[:150]}",
+                    "full_content": "",
+                    "source": "World Bank",
+                    "source_url": full_url,
+                    "category": "Economy",
+                    "language": "EN",
+                    "published_at": date_str,
+                    "published_ts": published_ts,
+                    "image_url": None,
+                    "is_breaking": False,
+                    "is_official": True
+                })
+        
+        # Remove duplicates
+        seen_urls = set()
+        unique_items = []
+        for item in news_items:
+            if item["source_url"] not in seen_urls:
+                seen_urls.add(item["source_url"])
+                unique_items.append(item)
+        
+        # Keep top 5
+        unique_items.sort(key=lambda x: x["published_ts"], reverse=True)
+        final_items = unique_items[:5]
+        
+        print(f"World Bank News: Fetched {len(final_items)} items")
+        return final_items
+        
+    except Exception as e:
+        print(f"World Bank News Error: {e}")
         return []
 
 def fetch_worldnews_api():
