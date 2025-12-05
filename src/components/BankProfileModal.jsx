@@ -127,7 +127,12 @@ const BankProfileModal = ({ bankName, bankData, onClose, darkMode }) => {
                             rel="noopener noreferrer"
                             className="bank-action-btn telegram"
                         >
-                            📱 TELEGRAM
+                            <img
+                                src="/fc703a8d71ce.svg"
+                                alt="Telegram"
+                                style={{ width: '16px', height: '16px', marginRight: '4px' }}
+                            />
+                            TELEGRAM
                         </a>
                     )}
                 </div>

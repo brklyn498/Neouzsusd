@@ -1831,13 +1831,29 @@ body.dark-mode .refreshing-btn {
 .bank-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  /* Pixelated neobrutalist blur effect */
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   padding: 1rem;
   animation: fadeIn 0.2s ease;
+  /* Pixelated noise overlay for neobrutalist feel */
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 4px),
+    repeating-linear-gradient(90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 4px);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 @keyframes fadeIn {
@@ -1860,6 +1876,13 @@ body.dark-mode .refreshing-btn {
   overflow-y: auto;
   position: relative;
   animation: slideUp 0.3s ease;
+}
+
+/* Dark mode - solid card, no glassmorphism */
+.dark-mode .bank-modal-content {
+  background: #1e293b;
+  border-color: #475569;
+  box-shadow: 12px 12px 0 #475569;
 }
 
 @keyframes slideUp {
@@ -1889,6 +1912,14 @@ body.dark-mode .refreshing-btn {
   justify-content: center;
   transition: transform 0.1s;
   z-index: 10;
+  color: var(--text-color);
+}
+
+/* Dark mode - white close button */
+.dark-mode .bank-modal-close {
+  background: #334155;
+  color: #FFFFFF;
+  border-color: #475569;
 }
 
 .bank-modal-close:hover {
@@ -1903,6 +1934,11 @@ body.dark-mode .refreshing-btn {
   background: var(--bg-color);
 }
 
+.dark-mode .bank-modal-header {
+  background: #1e293b;
+  border-color: #475569;
+}
+
 .bank-modal-logo {
   width: 70px;
   height: 70px;
@@ -1911,12 +1947,6 @@ body.dark-mode .refreshing-btn {
   border: 3px solid var(--border-color);
   background: white;
   flex-shrink: 0;
-}
-
-.bank-modal-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 .bank-modal-title {
@@ -1956,11 +1986,21 @@ body.dark-mode .refreshing-btn {
   border-bottom: 3px solid var(--border-color);
 }
 
+.dark-mode .bank-modal-rates {
+  background: #1e293b;
+  border-color: #475569;
+}
+
 .bank-modal-rate-box {
   text-align: center;
   padding: 0.5rem;
   border: 2px solid var(--border-color);
   background: var(--card-bg);
+}
+
+.dark-mode .bank-modal-rate-box {
+  background: #334155;
+  border-color: #475569;
 }
 
 .bank-modal-rate-box .rate-label {
@@ -1976,12 +2016,26 @@ body.dark-mode .refreshing-btn {
   font-weight: 900;
 }
 
+/* Light mode - darker green for BUY visibility */
 .bank-modal-rate-box.buy .rate-value {
-  color: var(--accent-green);
+  color: #047857;
+  /* Darker emerald green */
 }
 
+/* Light mode - pink for SELL */
 .bank-modal-rate-box.sell .rate-value {
-  color: var(--accent-pink);
+  color: #db2777;
+}
+
+/* Dark mode - brighter colors for visibility */
+.dark-mode .bank-modal-rate-box.buy .rate-value {
+  color: #34D399;
+  /* Bright emerald */
+}
+
+.dark-mode .bank-modal-rate-box.sell .rate-value {
+  color: #F472B6;
+  /* Bright pink */
 }
 
 .bank-modal-actions {
@@ -1991,6 +2045,11 @@ body.dark-mode .refreshing-btn {
   padding: 1rem;
   background: var(--card-bg);
   border-bottom: 3px solid var(--border-color);
+}
+
+.dark-mode .bank-modal-actions {
+  background: #1e293b;
+  border-color: #475569;
 }
 
 .bank-action-btn {
@@ -2015,23 +2074,43 @@ body.dark-mode .refreshing-btn {
   box-shadow: 5px 5px 0 var(--border-color);
 }
 
+/* Website button - cyan */
 .bank-action-btn.website {
   background: var(--accent-cyan);
   color: #000;
 }
 
+/* Deposits button - green */
 .bank-action-btn.savings {
   background: var(--accent-green);
   color: #000;
 }
 
+/* Telegram button */
 .bank-action-btn.telegram {
   background: #229ED9;
   color: white;
 }
 
+/* Dark mode - white text on buttons */
+.dark-mode .bank-action-btn.website,
+.dark-mode .bank-action-btn.savings {
+  color: #FFFFFF;
+  border-color: #475569;
+  box-shadow: 3px 3px 0 #475569;
+}
+
+.dark-mode .bank-action-btn.telegram {
+  border-color: #475569;
+  box-shadow: 3px 3px 0 #475569;
+}
+
 .bank-modal-contact {
   padding: 1rem;
+}
+
+.dark-mode .bank-modal-contact {
+  background: #1e293b;
 }
 
 .bank-modal-contact h3 {
@@ -2049,12 +2128,20 @@ body.dark-mode .refreshing-btn {
   text-decoration: none;
 }
 
+.dark-mode .contact-row {
+  border-color: #475569;
+}
+
 .contact-row.clickable {
   cursor: pointer;
 }
 
 .contact-row.clickable:hover {
   background: var(--bg-color);
+}
+
+.dark-mode .contact-row.clickable:hover {
+  background: #334155;
 }
 
 .contact-icon {
@@ -2066,4 +2153,17 @@ body.dark-mode .refreshing-btn {
   text-align: center;
   border-top: 3px solid var(--border-color);
   background: var(--bg-color);
+}
+
+.dark-mode .bank-modal-footer {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+/* Telegram icon styling */
+.telegram-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
 }
