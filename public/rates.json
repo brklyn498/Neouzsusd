@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-05 06:06",
+  "last_updated": "2025-12-05 07:06",
   "usd": {
     "cbu": 11963.23,
     "cbu_last_updated": "2025-12-05",
@@ -127,130 +127,10 @@
     ],
     "banks": [
       {
-        "name": "APEXBANK",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ziraat Bank",
-        "buy": 11930.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Asia Alliance Bank",
-        "buy": 11925.0,
-        "sell": 12015.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 11910.0,
-        "sell": 12040.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 11910.0,
-        "sell": 12025.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Poytaxt bank",
-        "buy": 11910.0,
-        "sell": 12030.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Infinbank",
-        "buy": 11940.0,
-        "sell": 12000.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 11930.0,
-        "sell": 12040.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "BRB",
-        "buy": 11920.0,
-        "sell": 12040.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "KDB Bank Uzbekiston",
-        "buy": 11905.0,
-        "sell": 12045.0,
-        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 11940.0,
-        "sell": 12040.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Universal bank",
-        "buy": 11860.0,
-        "sell": 12010.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Agrobank",
-        "buy": 11910.0,
-        "sell": 12000.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 11910.0,
-        "sell": 12000.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "O\u2018zsanoatqurilishbank",
         "buy": 11910.0,
-        "sell": 11980.0,
+        "sell": 12010.0,
         "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Saderat Bank",
-        "buy": 11910.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -263,18 +143,26 @@
         "featured": false
       },
       {
-        "name": "Aloqabank",
+        "name": "Kapitalbank",
         "buy": 11910.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "sell": 12025.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Octobank",
+        "buy": 11910.0,
+        "sell": 12000.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Turon bank",
-        "buy": 11905.0,
-        "sell": 11990.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "name": "Aloqabank",
+        "buy": 11910.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -287,10 +175,26 @@
         "featured": false
       },
       {
-        "name": "Ipoteka bank",
+        "name": "Ziraat Bank",
+        "buy": 11930.0,
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "KDB Bank Uzbekiston",
         "buy": 11905.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "sell": 12045.0,
+        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Anorbank",
+        "buy": 11930.0,
+        "sell": 12030.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -303,18 +207,66 @@
         "featured": false
       },
       {
-        "name": "Anorbank",
-        "buy": 11920.0,
-        "sell": 12010.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
+        "name": "Orient Finans Bank",
+        "buy": 11910.0,
+        "sell": 12040.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Xalq Banki",
+        "name": "Asakabank",
+        "buy": 11950.0,
+        "sell": 12020.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 11925.0,
+        "sell": 12015.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
+        "buy": 11910.0,
+        "sell": 12030.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
         "buy": 11905.0,
         "sell": 11990.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 11940.0,
+        "sell": 12040.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Universal bank",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
         "is_mock": false,
         "featured": false
       },
@@ -327,10 +279,66 @@
         "featured": false
       },
       {
+        "name": "Poytaxt bank",
+        "buy": 11910.0,
+        "sell": 12030.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 11905.0,
+        "sell": 12045.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Hayot Bank",
         "buy": 11920.0,
         "sell": 12020.0,
         "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Infinbank",
+        "buy": 11960.0,
+        "sell": 12020.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 11920.0,
+        "sell": 12040.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Trastbank",
+        "buy": 11930.0,
+        "sell": 12040.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Saderat Bank",
+        "buy": 11910.0,
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Xalq Banki",
+        "buy": 11905.0,
+        "sell": 12040.0,
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
         "is_mock": false,
         "featured": false
       },
@@ -341,14 +349,6 @@
         "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "Asakabank",
-        "buy": 11950.0,
-        "sell": 12020.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
       }
     ]
   },
@@ -479,86 +479,6 @@
     ],
     "banks": [
       {
-        "name": "APEXBANK",
-        "buy": 100.0,
-        "sell": 165.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 146.0,
-        "sell": 157.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Asia Alliance Bank",
-        "buy": 135.0,
-        "sell": 158.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 90.0,
-        "sell": 190.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Poytaxt bank",
-        "buy": 90.0,
-        "sell": 158.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Infinbank",
-        "buy": 145.0,
-        "sell": 156.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "BRB",
-        "buy": 130.0,
-        "sell": 170.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 90.0,
-        "sell": 159.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 138.0,
-        "sell": 158.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Octobank",
-        "buy": 145.0,
-        "sell": 158.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "O\u2018zsanoatqurilishbank",
         "buy": 142.0,
         "sell": 156.0,
@@ -575,26 +495,26 @@
         "featured": false
       },
       {
+        "name": "Kapitalbank",
+        "buy": 146.0,
+        "sell": 157.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Octobank",
+        "buy": 145.0,
+        "sell": 158.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Aloqabank",
         "buy": 95.0,
         "sell": 165.0,
         "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Turon bank",
-        "buy": 100.0,
-        "sell": 180.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 100.0,
-        "sell": 160.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -615,10 +535,74 @@
         "featured": false
       },
       {
+        "name": "Orient Finans Bank",
+        "buy": 90.0,
+        "sell": 190.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Asakabank",
+        "buy": 125.0,
+        "sell": 160.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 135.0,
+        "sell": 158.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 100.0,
+        "sell": 165.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 100.0,
+        "sell": 180.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 138.0,
+        "sell": 158.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Tenge Bank",
         "buy": 135.0,
         "sell": 157.0,
         "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 90.0,
+        "sell": 158.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 100.0,
+        "sell": 160.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -631,20 +615,36 @@
         "featured": false
       },
       {
+        "name": "Infinbank",
+        "buy": 145.0,
+        "sell": 156.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Trastbank",
+        "buy": 90.0,
+        "sell": 159.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "BRB",
+        "buy": 130.0,
+        "sell": 170.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Ipak Yuli Bank",
         "buy": 110.0,
         "sell": 160.0,
         "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "Asakabank",
-        "buy": 125.0,
-        "sell": 160.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
       }
     ]
   },
@@ -775,18 +775,18 @@
     ],
     "banks": [
       {
-        "name": "APEXBANK",
-        "buy": 13000.0,
-        "sell": 14200.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 13700.0,
+        "sell": 14300.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Ziraat Bank",
-        "buy": 13620.0,
-        "sell": 14320.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 13720.0,
+        "sell": 14020.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -799,12 +799,76 @@
         "featured": true
       },
       {
+        "name": "KDB Bank Uzbekiston",
+        "buy": 13300.0,
+        "sell": 15000.0,
+        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Octobank",
+        "buy": 13600.0,
+        "sell": 14200.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 13500.0,
+        "sell": 14500.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ziraat Bank",
+        "buy": 13620.0,
+        "sell": 14320.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Garant bank",
+        "buy": 13000.0,
+        "sell": 15000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Anorbank",
+        "buy": 13180.0,
+        "sell": 14130.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "MKBank",
+        "buy": 13200.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Orient Finans Bank",
         "buy": 13300.0,
         "sell": 15300.0,
         "logo": "https://ofb.uz/upload/images/logo.svg",
         "is_mock": false,
         "featured": true
+      },
+      {
+        "name": "Asakabank",
+        "buy": 13100.0,
+        "sell": 14500.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
       },
       {
         "name": "Asia Alliance Bank",
@@ -815,10 +879,74 @@
         "featured": false
       },
       {
+        "name": "APEXBANK",
+        "buy": 13000.0,
+        "sell": 14200.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
+        "buy": 13600.0,
+        "sell": 14300.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 13000.0,
+        "sell": 14500.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 13300.0,
+        "sell": 14100.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Universal bank",
+        "buy": 13000.0,
+        "sell": 15200.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 13100.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Poytaxt bank",
         "buy": 13000.0,
         "sell": 14050.0,
         "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 13000.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 13500.0,
+        "sell": 14190.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -847,116 +975,12 @@
         "featured": false
       },
       {
-        "name": "KDB Bank Uzbekiston",
-        "buy": 13300.0,
-        "sell": 15000.0,
-        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 13300.0,
-        "sell": 14100.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Universal bank",
-        "buy": 13000.0,
-        "sell": 15200.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Agrobank",
-        "buy": 13600.0,
-        "sell": 14300.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 13600.0,
-        "sell": 14200.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 13700.0,
-        "sell": 14300.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Saderat Bank",
         "buy": 13000.0,
         "sell": 15500.0,
         "logo": "https://logo.clearbit.com/saderatbank.uz",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 13720.0,
-        "sell": 14020.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 13500.0,
-        "sell": 14500.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Turon bank",
-        "buy": 13000.0,
-        "sell": 14500.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13000.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 13000.0,
-        "sell": 15000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "MKBank",
-        "buy": 13200.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 13180.0,
-        "sell": 14130.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": false
       },
       {
         "name": "Xalq Banki",
@@ -967,36 +991,12 @@
         "featured": false
       },
       {
-        "name": "Tenge Bank",
-        "buy": 13100.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 13500.0,
-        "sell": 14190.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Ipak Yuli Bank",
         "buy": 13400.0,
         "sell": 14400.0,
         "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "Asakabank",
-        "buy": 13100.0,
-        "sell": 14500.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
       }
     ]
   },
@@ -1167,20 +1167,20 @@
         "featured": true
       },
       {
-        "name": "Anorbank",
-        "buy": 14.0,
-        "sell": 25.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
         "name": "Xalq Banki",
         "buy": 15.0,
         "sell": 24.0,
         "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
         "is_mock": false,
         "featured": false
+      },
+      {
+        "name": "Anorbank",
+        "buy": 14.0,
+        "sell": 25.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": true
       }
     ]
   },
@@ -1311,10 +1311,18 @@
     ],
     "banks": [
       {
-        "name": "Asia Alliance Bank",
-        "buy": 15620.0,
-        "sell": 16300.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 15700.0,
+        "sell": 16700.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 15520.0,
+        "sell": 16220.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -1327,6 +1335,38 @@
         "featured": true
       },
       {
+        "name": "Octobank",
+        "buy": 15200.0,
+        "sell": 17900.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 15300.0,
+        "sell": 16300.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Garant bank",
+        "buy": 14800.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "MKBank",
+        "buy": 15100.0,
+        "sell": 16100.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Orient Finans Bank",
         "buy": 14800.0,
         "sell": 18000.0,
@@ -1335,10 +1375,82 @@
         "featured": false
       },
       {
+        "name": "Asakabank",
+        "buy": 15350.0,
+        "sell": 16550.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 15620.0,
+        "sell": 16300.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
+        "buy": 15250.0,
+        "sell": 16350.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 15000.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 15200.0,
+        "sell": 16800.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Universal bank",
+        "buy": 16000.0,
+        "sell": 18500.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 15200.0,
+        "sell": 16200.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Poytaxt bank",
         "buy": 15000.0,
         "sell": 18000.0,
         "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 13700.0,
+        "sell": 17100.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 15300.0,
+        "sell": 16500.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -1367,94 +1479,6 @@
         "featured": false
       },
       {
-        "name": "Hamkorbank",
-        "buy": 15200.0,
-        "sell": 16800.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Universal bank",
-        "buy": 16000.0,
-        "sell": 18500.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Agrobank",
-        "buy": 15250.0,
-        "sell": 16350.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 15200.0,
-        "sell": 17900.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 15700.0,
-        "sell": 16700.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 15520.0,
-        "sell": 16220.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 15300.0,
-        "sell": 16300.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Turon bank",
-        "buy": 15000.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 14800.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13700.0,
-        "sell": 17100.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "MKBank",
-        "buy": 15100.0,
-        "sell": 16100.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Xalq Banki",
         "buy": 12500.0,
         "sell": 19800.0,
@@ -1463,43 +1487,19 @@
         "featured": true
       },
       {
-        "name": "Tenge Bank",
-        "buy": 15200.0,
-        "sell": 16200.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 15300.0,
-        "sell": 16500.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Ipak Yuli Bank",
         "buy": 15300.0,
         "sell": 16400.0,
         "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "Asakabank",
-        "buy": 15350.0,
-        "sell": 16550.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
       }
     ]
   },
   "weather": null,
   "savings": {
-    "last_updated": "2025-12-05 06:05",
-    "last_updated_ts": 1764914750.721842,
+    "last_updated": "2025-12-05 07:05",
+    "last_updated_ts": 1764918315.289496,
     "data": [
       {
         "bank_name": "Uzum Bank",
@@ -1612,9 +1612,60 @@
     ]
   },
   "news": {
-    "last_updated": "2025-12-05 06:06",
-    "last_updated_ts": 1764914815.925674,
+    "last_updated": "2025-12-05 07:06",
+    "last_updated_ts": 1764918376.922415,
     "items": [
+      {
+        "id": "d59f73edef1764851b13e5dfd837d374",
+        "title": "Biznes-ombudsman ekoreydlarda tadbirkorlarning mulkiy huquqlarini buzmaslikka chaqirdi",
+        "summary": "Ekoreydlar bo\u2018yicha murojaatlar ortidan Biznes-ombudsman tadbirkorlarning mulkiy huquqlari har qanday nazorat jarayonida qonun asosida ta\u2019minlanishi kerakligini bildirdi.",
+        "full_content": "Ekoreydlar bo\u2018yicha murojaatlar ortidan Biznes-ombudsman tadbirkorlarning mulkiy huquqlari har qanday nazorat jarayonida qonun asosida ta\u2019minlanishi kerakligini bildirdi.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/oz/2025/12/05/property-right/",
+        "category": "Economy",
+        "language": "UZ",
+        "published_at": "2025-12-05T07:00:00+00:00",
+        "published_ts": 1764918000.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "7e2a97928700cc9675e0e93b50358525",
+        "title": "\u0412\u00a0\u0411\u0435\u0440\u043b\u0438\u043d\u0435 \u043e\u0442\u043a\u0440\u044b\u043b\u0441\u044f \u043f\u0435\u0440\u0432\u044b\u0439 \u0442\u043e\u0440\u0433\u043e\u0432\u044b\u0439 \u0434\u043e\u043c \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0430 \u0432\u00a0\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u0438",
+        "summary": "\u0428\u043e\u0443\u0440\u0443\u043c \u0441\u00a0\u0443\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0441\u043a\u0438\u043c \u0442\u0435\u043a\u0441\u0442\u0438\u043b\u0435\u043c, \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u0442\u0435\u0445\u043d\u0438\u043a\u043e\u0439 \u0438\u00a0\u0434\u0440\u0443\u0433\u0438\u043c\u0438 \u0442\u043e\u0432\u0430\u0440\u0430\u043c\u0438 \u0440\u0430\u0441\u043f\u043e\u043b\u043e\u0436\u0435\u043d \u0432\u00a0\u0446\u0435\u043d\u0442\u0440\u0435 \u043d\u0435\u043c\u0435\u0446\u043a\u043e\u0439 \u0441\u0442\u043e\u043b\u0438\u0446\u044b.",
+        "full_content": "\u0428\u043e\u0443\u0440\u0443\u043c \u0441\u00a0\u0443\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0441\u043a\u0438\u043c \u0442\u0435\u043a\u0441\u0442\u0438\u043b\u0435\u043c, \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u0442\u0435\u0445\u043d\u0438\u043a\u043e\u0439 \u0438\u00a0\u0434\u0440\u0443\u0433\u0438\u043c\u0438 \u0442\u043e\u0432\u0430\u0440\u0430\u043c\u0438 \u0440\u0430\u0441\u043f\u043e\u043b\u043e\u0436\u0435\u043d \u0432\u00a0\u0446\u0435\u043d\u0442\u0440\u0435 \u043d\u0435\u043c\u0435\u0446\u043a\u043e\u0439 \u0441\u0442\u043e\u043b\u0438\u0446\u044b.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/ru/2025/12/05/germany-trade/",
+        "category": "Business",
+        "language": "RU",
+        "published_at": "2025-12-05T06:56:00+00:00",
+        "published_ts": 1764917760.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "61812eece60eea6295ab04d32d43c5e1",
+        "title": "Rossiyada Snapchat messenjeri bloklandi",
+        "summary": "Roskomnadzor bloklashga platformadan terrorchilik faoliyatini tashkil etish uchun foydalanishni sabab qilib ko\u2018rsatdi.",
+        "full_content": "Roskomnadzor bloklashga platformadan terrorchilik faoliyatini tashkil etish uchun foydalanishni sabab qilib ko\u2018rsatdi.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/oz/2025/12/05/russia-snapchat/",
+        "category": "Business",
+        "language": "UZ",
+        "published_at": "2025-12-05T06:44:00+00:00",
+        "published_ts": 1764917040.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
       {
         "id": "714dce7b5349ca29456c9a988da40b81",
         "title": "\u041a\u043e\u043c\u043f\u0430\u043d\u0438\u044f \u043f\u043e\u00a0\u0440\u0435\u0444\u0438\u043d\u0430\u043d\u0441\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044e \u0438\u043f\u043e\u0442\u0435\u043a\u0438 \u0432\u044b\u043f\u0443\u0441\u0442\u0438\u043b\u0430 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0442\u0438\u0432\u043d\u044b\u0435 \u0431\u043e\u043d\u0434\u044b \u043d\u0430\u00a0200 \u043c\u043b\u0440\u0434 \u0441\u0443\u043c\u043e\u0432",
@@ -1627,21 +1678,10 @@
         "published_at": "2025-12-05T05:59:00+00:00",
         "published_ts": 1764914340.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "7c8af5e847865cb722c32862572b5ab5",
-        "title": "\u0413\u0434\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u0435\u0435 \u043e\u0431\u043c\u0435\u043d\u044f\u0442\u044c \u0432\u0430\u043b\u044e\u0442\u0443 \u0432 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0435 5 \u0434\u0435\u043a\u0430\u0431\u0440\u044f",
-        "summary": "\u0411\u0430\u043d\u043a\u0438 \u043e\u0431\u043d\u043e\u0432\u0438\u043b\u0438 \u043a\u0443\u0440\u0441 \u0432\u0430\u043b\u044e\u0442 \u0432 \u043e\u0431\u043c\u0435\u043d\u043d\u0438\u043a\u0430\u0445 \u043d\u0430 5 \u0434\u0435\u043a\u0430\u0431\u0440\u044f. \u041e \u0442\u043e\u043c, \u0433\u0434\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u043e \u043e\u0431\u043c\u0435\u043d\u044f\u0442\u044c \u0434\u043e\u043b\u043b\u0430\u0440, \u0435\u0432\u0440\u043e \u0438 \u0440\u0443\u0431\u043b\u044c, \u0443\u0437\u043d\u0430\u0439\u0442\u0435 \u0432 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u0435 Kursiv Uzbekistan. \u0414\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u0438\u0432\u0435\u0434\u0435\u043d\u044b \u043d\u0430 10:53 \u043f\u043e \u0442\u0430\u0448\u043a\u0435\u043d\u0442\u0441\u043a\u043e\u043c\u0443 \u0432\u0440\u0435\u043c\u0435\u043d\u0438.\n\n\n\n\u0414\u043e\u043b\u043b...",
-        "full_content": "\u0411\u0430\u043d\u043a\u0438 \u043e\u0431\u043d\u043e\u0432\u0438\u043b\u0438 \u043a\u0443\u0440\u0441 \u0432\u0430\u043b\u044e\u0442 \u0432 \u043e\u0431\u043c\u0435\u043d\u043d\u0438\u043a\u0430\u0445 \u043d\u0430 5 \u0434\u0435\u043a\u0430\u0431\u0440\u044f. \u041e \u0442\u043e\u043c, \u0433\u0434\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u043e \u043e\u0431\u043c\u0435\u043d\u044f\u0442\u044c \u0434\u043e\u043b\u043b\u0430\u0440, \u0435\u0432\u0440\u043e \u0438 \u0440\u0443\u0431\u043b\u044c, \u0443\u0437\u043d\u0430\u0439\u0442\u0435 \u0432 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u0435 Kursiv Uzbekistan. \u0414\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u0438\u0432\u0435\u0434\u0435\u043d\u044b \u043d\u0430 10:53 \u043f\u043e \u0442\u0430\u0448\u043a\u0435\u043d\u0442\u0441\u043a\u043e\u043c\u0443 \u0432\u0440\u0435\u043c\u0435\u043d\u0438.\n\n\n\n\u0414\u043e\u043b\u043b\u0430\u0440:\n\n\n\n\n\u043f\u043e\u043a\u0443\u043f\u043a\u0430: 11 950 \u0441\u0443\u043c\u043e\u0432 \u2014 Asakabank;\n\n\n\n\u043f\u0440\u043e\u0434\u0430\u0436\u0430: 11 970 \u0441\u0443\u043c\u043e\u0432 \u2014 Tengebank.\n\n\n\n\n\u041e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u0439 \u043a\u0443\u0440\u0441 \u0426\u0411 \u2014 11 963,23 \u0441\u0443\u043c\u0430.\n\n\n\n\u0415\u0432\u0440\u043e:\n\n\n\n\n\u043f\u043e\u043a\u0443\u043f\u043a\u0430: 13 900 \u0441\u0443\u043c\u043e\u0432 \u2014 Xalq banki;\n\n\n\n\u043f\u0440\u043e\u0434\u0430\u0436\u0430: 14 020 \u0441\u0443\u043c\u043e\u0432 \u2014 NBU.\n\n\n\n\n\u041e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u0439 \u043a\u0443\u0440\u0441 \u0426\u0411 \u2014 13 970,66 \u0441\u0443\u043c\u0430.\n\n\n\n\u0420\u0443\u0431\u043b\u044c:\n\n\n\n\n\u043f\u043e\u043a\u0443\u043f\u043a\u0430: 145 \u0441\u0443\u043c\u043e\u0432 \u2014 Kapitalbank, Infinbank;\n\n\n\n\u043f\u0440\u043e\u0434\u0430\u0436\u0430: 156 \u0441\u0443\u043c\u043e\u0432 \u2014Infinbank, SQB.\n\n\n\n\n\u041e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u0439 \u043a\u0443\u0440\u0441 \u0426\u0411 \u2014 155,35 \u0441\u0443\u043c\u0430.\n\n\n\n\n\n \n \n  USD\n  EUR\n  RUB\n \n\n \n \n  \u041f\u043e\u043a\u0443\u043f\u043a\u0430 \u0431\u0430\u043d\u043a\u043e\u043c: UZS\n  \u041f\u0440\u043e\u0434\u0430\u0436\u0430 \u0431\u0430\u043d\u043a\u043e\u043c: UZS\n  \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u043e: \n \n\n \n \u041f\u0440\u043e\u0434\u0430\u0442\u044c USD \u2192 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c UZS\n \n  \n \n \u2014 UZS\n\n \n \u041a\u0443\u043f\u0438\u0442\u044c USD \u0437\u0430 UZS\n \n  \n \n \u2014 USD\n\n \n \n  \u0421\u043f\u0440\u0435\u0434: \u2014 UZS (\u2248 \u2014%) \u26a0\ufe0f \u0430\u043d\u043e\u043c\u0430\u043b\u0438\u044f: sell &lt; buy\n \n\n\n\n\n\n\n\n\n\u0420\u0430\u043d\u0435\u0435 Kursiv Uzbekistan \u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e Ozon \u0431\u0430\u043d\u043a \u043d\u0430\u0447\u0430\u043b \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0442\u044c \u043a\u0430\u0440\u0442\u044b \u0443\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0446\u0430\u043c.The post \u0413\u0434\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u0435\u0435 \u043e\u0431\u043c\u0435\u043d\u044f\u0442\u044c \u0432\u0430\u043b\u044e\u0442\u0443 \u0432 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0435 5 \u0434\u0435\u043a\u0430\u0431\u0440\u044f first appeared on Kursiv Media \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d.",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/gde-vygodnee-obmenyat-valyutu-v-uzbekistane-5-dekabrya/?utm_source=rss&utm_medium=rss&utm_campaign=gde-vygodnee-obmenyat-valyutu-v-uzbekistane-5-dekabrya",
-        "category": "Banking",
-        "language": "RU",
-        "published_at": "2025-12-05T05:55:57+00:00",
-        "published_ts": 1764914157.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "6384d05c4da52277a80259d607934cd4",
@@ -1655,7 +1695,10 @@
         "published_at": "2025-12-05T05:50:00+00:00",
         "published_ts": 1764913800.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "38446c44425d4e0e57a914566663b347",
@@ -1669,35 +1712,10 @@
         "published_at": "2025-12-05T05:45:00+00:00",
         "published_ts": 1764913500.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "aa169dba53b6e3cd85b0d2563bbcadbc",
-        "title": "\u0412 \u0421\u044b\u0440\u0434\u0430\u0440\u044c\u0435 \u043f\u043e\u0441\u0442\u0440\u043e\u044f\u0442 \u0432\u043e\u0434\u043e\u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 \u00ab\u0421\u0443\u043b\u0442\u043e\u043d\u0445\u043e\u0432\u0443\u0437\u00bb",
-        "summary": "\u041d\u0430 \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u0438 \u0421\u044b\u0440\u0434\u0430\u0440\u044c\u0438\u043d\u0441\u043a\u043e\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u043f\u043e\u0441\u0442\u0440\u043e\u044f\u0442 \u0432\u043e\u0434\u043e\u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 \u00ab\u0421\u0443\u043b\u0442\u043e\u043d\u0445\u043e\u0432\u0443\u0437\u00bb \u043d\u0430 100 \u043c\u043b\u043d \u043a\u0443\u0431. \u043c, \u0441\u043e\u043e\u0431\u0449\u0438\u043b \u0433\u043b\u0430\u0432\u0430 \u0433\u043e\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0430 \u0428\u0430\u0432\u043a\u0430\u0442 \u041c\u0438\u0440\u0437\u0438\u0451\u0435\u0432 \u043d\u0430 \u0441\u0435\u0441\u0441\u0438\u0438 \u0440\u0435\u0433\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u041a\u0435\u043d\u0433\u0430\u0448\u0430.\n\n\n\n\u0421\u043e\u043e\u0440\u0443\u0436\u0435\u043d\u0438\u0435 \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u0442 \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0442\u044c...",
-        "full_content": "\u041d\u0430 \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u0438 \u0421\u044b\u0440\u0434\u0430\u0440\u044c\u0438\u043d\u0441\u043a\u043e\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u043f\u043e\u0441\u0442\u0440\u043e\u044f\u0442 \u0432\u043e\u0434\u043e\u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 \u00ab\u0421\u0443\u043b\u0442\u043e\u043d\u0445\u043e\u0432\u0443\u0437\u00bb \u043d\u0430 100 \u043c\u043b\u043d \u043a\u0443\u0431. \u043c, \u0441\u043e\u043e\u0431\u0449\u0438\u043b \u0433\u043b\u0430\u0432\u0430 \u0433\u043e\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0430 \u0428\u0430\u0432\u043a\u0430\u0442 \u041c\u0438\u0440\u0437\u0438\u0451\u0435\u0432 \u043d\u0430 \u0441\u0435\u0441\u0441\u0438\u0438 \u0440\u0435\u0433\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u041a\u0435\u043d\u0433\u0430\u0448\u0430.\n\n\n\n\u0421\u043e\u043e\u0440\u0443\u0436\u0435\u043d\u0438\u0435 \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u0442 \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0442\u044c \u0432\u043e\u0434\u043e\u0439 \u0430\u0433\u0440\u0430\u0440\u0438\u0435\u0432 \u043f\u044f\u0442\u0438 \u0440\u0430\u0439\u043e\u043d\u043e\u0432 \u0421\u044b\u0440\u0434\u0430\u0440\u044c\u0438, \u0447\u0442\u043e \u043f\u043e\u043b\u043e\u0436\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u0441\u043a\u0430\u0436\u0435\u0442\u0441\u044f \u043d\u0430 \u0441\u0435\u043b\u044c\u0441\u043a\u043e\u043c \u0445\u043e\u0437\u044f\u0439\u0441\u0442\u0432\u0435. \u0423\u0440\u043e\u0436\u0430\u0439 \u043c\u043e\u0436\u043d\u043e \u0431\u0443\u0434\u0435\u0442 \u0441\u043e\u0431\u0438\u0440\u0430\u0442\u044c \u0434\u0432\u0430\u0436\u0434\u044b \u0432 \u0433\u043e\u0434.\n\n\n\n\u041f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442 \u0442\u0430\u043a\u0436\u0435 \u043f\u043e\u0440\u0443\u0447\u0438\u043b \u043d\u0430\u0447\u0430\u0442\u044c \u043f\u043e\u044d\u0442\u0430\u043f\u043d\u0443\u044e \u043e\u0447\u0438\u0441\u0442\u043a\u0443 16 \u0442\u044b\u0441. \u043a\u043c \u0434\u0440\u0435\u043d\u0430\u0436\u043d\u044b\u0445 \u043a\u0430\u043d\u0430\u0432. \u0412 \u043f\u043b\u0430\u043d\u0430\u0445 \u0437\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c \u0432 \u0440\u0435\u0433\u0438\u043e\u043d\u0435 \u043f\u0438\u043b\u043e\u0442\u043d\u044b\u0439 \u043f\u0440\u043e\u0435\u043a\u0442 \u043f\u043e \u0441\u043d\u0438\u0436\u0435\u043d\u0438\u044e \u0441\u043e\u043b\u0435\u043d\u043e\u0441\u0442\u0438 \u0441\u044b\u0440\u0434\u0430\u0440\u044c\u0438\u043d\u0441\u043a\u0438\u0445 \u043f\u043e\u0447\u0432.\n\n\n\n\u041d\u0430\u043f\u043e\u043c\u043d\u0438\u043c, \u0447\u0442\u043e \u0443\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0441\u043a\u0438\u0435 \u0432\u043e\u0434\u043e\u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0430 \u043f\u043e\u043b\u0443\u0447\u0430\u0442 \u0443\u043c\u043d\u044b\u0435 \u0441\u0447\u0435\u0442\u0447\u0438\u043a\u0438. \u041f\u043b\u0430\u043d\u0438\u0440\u0443\u0435\u0442\u0441\u044f \u0446\u0438\u0444\u0440\u043e\u0432\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u0432\u043e\u0434\u043e\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u0441\u0442\u0440\u0430\u043d\u0435 \u0438 \u0432\u0432\u0435\u0441\u0442\u0438 \u043e\u043d\u043b\u0430\u0439\u043d-\u043c\u043e\u043d\u0438\u0442\u043e\u0440\u0438\u043d\u0433 \u0437\u0430 \u043e\u0431\u044a\u0435\u043c\u043e\u043c \u0432\u043e\u0434\u044b \u0432 \u0438\u0441\u043a\u0443\u0441\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0445 \u0432\u043e\u0434\u043e\u0435\u043c\u0430\u0445.\n\n\n\n\u0420\u0430\u043d\u0435\u0435 Kursiv Uzbekistan \u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e \u041a\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043d, \u0422\u0430\u0434\u0436\u0438\u043a\u0438\u0441\u0442\u0430\u043d \u0438 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0438\u043b\u0438\u0441\u044c \u043e\u0431 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0438 \u0432\u043e\u0434\u044b \u0432 \u00ab\u0411\u0430\u0445\u0440\u0438&nbsp;\u0422\u043e\u0447\u0438\u043a\u00bb.\n\n\n\nThe post \u0412 \u0421\u044b\u0440\u0434\u0430\u0440\u044c\u0435 \u043f\u043e\u0441\u0442\u0440\u043e\u044f\u0442 \u0432\u043e\u0434\u043e\u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 \u00ab\u0421\u0443\u043b\u0442\u043e\u043d\u0445\u043e\u0432\u0443\u0437\u00bb first appeared on Kursiv Media \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d.",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/v-syrdare-postroyat-vodohranilishhe-sultonhovuz/?utm_source=rss&utm_medium=rss&utm_campaign=v-syrdare-postroyat-vodohranilishhe-sultonhovuz",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-05T05:44:29+00:00",
-        "published_ts": 1764913469.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "33755f147546ad13d3b2e041cc475c40",
-        "title": "\u041a\u043e\u0433\u0434\u0430 \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u044b \u0438 \u0448\u043a\u043e\u043b\u044c\u043d\u0438\u043a\u0438 \u0443\u0439\u0434\u0443\u0442 \u043d\u0430 \u0437\u0438\u043c\u043d\u0438\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b",
-        "summary": "\u0417\u0438\u043c\u043d\u0438\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b \u0434\u043b\u044f \u0443\u0447\u0430\u0449\u0438\u0445\u0441\u044f \u0448\u043a\u043e\u043b \u043d\u0430\u0447\u043d\u0443\u0442\u0441\u044f \u0441 28 \u0434\u0435\u043a\u0430\u0431\u0440\u044f, \u0441\u043e\u043e\u0431\u0449\u0430\u0435\u0442 \u041c\u0438\u043d\u0438\u0441\u0442\u0435\u0440\u0441\u0442\u0432\u043e \u0434\u043e\u0448\u043a\u043e\u043b\u044c\u043d\u043e\u0433\u043e \u0438 \u0448\u043a\u043e\u043b\u044c\u043d\u043e\u0433\u043e \u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u044f. \u0414\u043b\u044f \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u043e\u0432 \u2014 \u0441 25 \u0434\u0435\u043a\u0430\u0431\u0440\u044f.\n\n\n\n\u0428\u043a\u043e\u043b\u044c\u043d\u044b\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b \u043f\u0440\u043e\u0434\u043b\u044f\u0442\u0441\u044f \u0434\u0432\u0435 \u043d\u0435\u0434\u0435\u043b\u0438, \u0434\u043e 10 \u044f\u043d\u0432\u0430\u0440...",
-        "full_content": "\u0417\u0438\u043c\u043d\u0438\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b \u0434\u043b\u044f \u0443\u0447\u0430\u0449\u0438\u0445\u0441\u044f \u0448\u043a\u043e\u043b \u043d\u0430\u0447\u043d\u0443\u0442\u0441\u044f \u0441 28 \u0434\u0435\u043a\u0430\u0431\u0440\u044f, \u0441\u043e\u043e\u0431\u0449\u0430\u0435\u0442 \u041c\u0438\u043d\u0438\u0441\u0442\u0435\u0440\u0441\u0442\u0432\u043e \u0434\u043e\u0448\u043a\u043e\u043b\u044c\u043d\u043e\u0433\u043e \u0438 \u0448\u043a\u043e\u043b\u044c\u043d\u043e\u0433\u043e \u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u044f. \u0414\u043b\u044f \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u043e\u0432 \u2014 \u0441 25 \u0434\u0435\u043a\u0430\u0431\u0440\u044f.\n\n\n\n\u0428\u043a\u043e\u043b\u044c\u043d\u044b\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b \u043f\u0440\u043e\u0434\u043b\u044f\u0442\u0441\u044f \u0434\u0432\u0435 \u043d\u0435\u0434\u0435\u043b\u0438, \u0434\u043e 10 \u044f\u043d\u0432\u0430\u0440\u044f. \u041f\u043e\u0441\u043a\u043e\u043b\u044c\u043a\u0443 11 \u044f\u043d\u0432\u0430\u0440\u044f \u0432\u044b\u043f\u0430\u0434\u0430\u0435\u0442 \u043d\u0430 \u0432\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u044c\u0435, \u0442\u0440\u0435\u0442\u044c\u044f \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u044c \u043d\u0430\u0447\u043d\u0435\u0442\u0441\u044f \u0441 \u043f\u043e\u043d\u0435\u0434\u0435\u043b\u044c\u043d\u0438\u043a\u0430, 12 \u044f\u043d\u0432\u0430\u0440\u044f.\n\n\n\n\u041a\u0430\u043d\u0438\u043a\u0443\u043b\u044b \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u043e\u0432 \u043f\u0440\u043e\u0434\u043b\u044f\u0442\u0441\u044f \u0434\u043e 7 \u044f\u043d\u0432\u0430\u0440\u044f \u0432\u043a\u043b\u044e\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u043e, \u043e\u0442\u043c\u0435\u0442\u0438\u043b\u0438 \u0432 \u041c\u0438\u043d\u0432\u0443\u0437\u0435.\n\n\n\n\u0420\u0430\u043d\u0435\u0435 Kursiv Uzbekistan \u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e \u0441 \u044f\u043d\u0432\u0430\u0440\u044f \u043f\u043e \u043e\u043a\u0442\u044f\u0431\u0440\u044c 2025 \u0433\u043e\u0434\u0430 \u0436\u0438\u0442\u0435\u043b\u0438 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0430 \u043f\u043e\u0442\u0440\u0430\u0442\u0438\u043b\u0438 \u043d\u0430 \u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u0435 30,4 \u0442\u0440\u043b\u043d \u0441\u0443\u043c\u043e\u0432.The post \u041a\u043e\u0433\u0434\u0430 \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u044b \u0438 \u0448\u043a\u043e\u043b\u044c\u043d\u0438\u043a\u0438 \u0443\u0439\u0434\u0443\u0442 \u043d\u0430 \u0437\u0438\u043c\u043d\u0438\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b first appeared on Kursiv Media \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d.",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/kogda-studenty-i-shkolniki-ujdut-na-zimnie-kanikuly/?utm_source=rss&utm_medium=rss&utm_campaign=kogda-studenty-i-shkolniki-ujdut-na-zimnie-kanikuly",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-05T05:14:28+00:00",
-        "published_ts": 1764911668.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "546ebc79396683f6ff30fb437a063b92",
@@ -1711,21 +1729,10 @@
         "published_at": "2025-12-05T04:59:00+00:00",
         "published_ts": 1764910740.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "cdaba3220fa6269bb5ab361abb9f0f1b",
-        "title": "\u0412 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0435 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u043b\u0438 \u0440\u0435\u0439\u0442\u0438\u043d\u0433 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0445 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0439 \u0431\u0430\u043d\u043a\u043e\u0432 \u0441 \u0442\u043e\u0447\u043a\u0438 \u0437\u0440\u0435\u043d\u0438\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u0441\u043a\u043e\u0433\u043e \u043e\u043f\u044b\u0442\u0430",
-        "summary": "\u041e\u043f\u0443\u0431\u043b\u0438\u043a\u043e\u0432\u0430\u043d\u044b \u0438\u0442\u043e\u0433\u0438 \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0433\u043e \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f CX Banking Index 2025, \u043e\u0445\u0432\u0430\u0442\u0438\u0432\u0448\u0435\u0433\u043e 33 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0445 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0431\u0430\u043d\u043a\u043e\u0432.\n\n\n\n\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0438\u0437\u043c\u0435\u0440\u044f\u0435\u0442 \u0438\u043d\u0434\u0435\u043a\u0441 \u043a\u043b\u0438\u0435\u043d\u0442\u0441\u043a\u043e\u0433\u043e \u043e\u043f\u044b\u0442\u0430 iCX. \u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0438 \u043a\u043b\u0438\u0435\u043d\u0442\u0441\u043a\u043e\u0433\u043e \u043e\u043f\u044b\u0442\u0430 \u043f\u0440\u043e\u0445\u043e...",
-        "full_content": "\u041e\u043f\u0443\u0431\u043b\u0438\u043a\u043e\u0432\u0430\u043d\u044b \u0438\u0442\u043e\u0433\u0438 \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0433\u043e \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f CX Banking Index 2025, \u043e\u0445\u0432\u0430\u0442\u0438\u0432\u0448\u0435\u0433\u043e 33 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0445 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0431\u0430\u043d\u043a\u043e\u0432.\n\n\n\n\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0438\u0437\u043c\u0435\u0440\u044f\u0435\u0442 \u0438\u043d\u0434\u0435\u043a\u0441 \u043a\u043b\u0438\u0435\u043d\u0442\u0441\u043a\u043e\u0433\u043e \u043e\u043f\u044b\u0442\u0430 iCX. \u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0438 \u043a\u043b\u0438\u0435\u043d\u0442\u0441\u043a\u043e\u0433\u043e \u043e\u043f\u044b\u0442\u0430 \u043f\u0440\u043e\u0445\u043e\u0434\u044f\u0442 \u0432\u0441\u0435 \u0448\u0430\u0433\u0438 \u043a\u043b\u0438\u0435\u043d\u0442\u0430 \u0432 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0438 \u2014 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438, \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u0438, \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439 \u0438 \u043f\u0435\u0440\u0435\u0432\u043e\u0434\u043e\u0432. \u041d\u0430 \u043a\u0430\u0436\u0434\u043e\u043c \u0448\u0430\u0433\u0435 \u0432\u044b\u044f\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u0434\u0440\u0430\u0439\u0432\u0435\u0440\u044b \u0438 \u0431\u0430\u0440\u044c\u0435\u0440\u044b \u2014 \u043e\u0442\u043c\u0435\u0447\u0430\u0435\u0442\u0441\u044f, \u044d\u0442\u043e \u043f\u043e\u043c\u043e\u0433\u043b\u043e \u043a\u043b\u0438\u0435\u043d\u0442\u0443 \u0438\u043b\u0438 \u0442\u043e\u043b\u044c\u043a\u043e \u043c\u0435\u0448\u0430\u043b\u043e.\n\n\n\n\u0418\u043d\u0434\u0435\u043a\u0441 \u043a\u043b\u0438\u0435\u043d\u0442\u0441\u043a\u043e\u0433\u043e \u043e\u043f\u044b\u0442\u0430 iCX \u2014 \u044d\u0442\u043e \u0447\u0438\u0441\u043b\u043e \u043e\u0442 \u221210 \u0434\u043e +10:\n\n\n\n\n+10 \u2014 \u0432\u0441\u0435 \u043f\u043e\u043c\u043e\u0433\u0430\u0435\u0442 \u0434\u0432\u0438\u0433\u0430\u0442\u044c\u0441\u044f \u0432\u043f\u0435\u0440\u0435\u0434, \u043f\u0443\u0442\u044c \u0433\u043b\u0430\u0434\u043a\u0438\u0439;\n\n\n\n0 \u2014 \u043d\u0430\u043f\u043e\u043b\u043e\u0432\u0438\u043d\u0443 \u043f\u043e\u043c\u043e\u0433\u0430\u0435\u0442, \u043d\u0430\u043f\u043e\u043b\u043e\u0432\u0438\u043d\u0443 \u043c\u0435\u0448\u0430\u0435\u0442;\n\n\n\n\u221210 \u2014 \u043f\u043e\u0447\u0442\u0438 \u0432\u0441\u0435 \u043c\u0435\u0448\u0430\u0435\u0442.\n\n\n\n\u0424\u043e\u0442\u043e: \u0421X Lab\n\n\n\u0411\u043b\u0430\u0433\u043e\u0434\u0430\u0440\u044f \u043e\u0434\u043d\u043e\u0439 \u0448\u043a\u0430\u043b\u0435 \u043c\u043e\u0436\u043d\u043e \u0447\u0435\u0441\u0442\u043d\u043e \u0441\u0440\u0430\u0432\u043d\u0438\u0432\u0430\u0442\u044c \u0440\u0430\u0437\u043d\u044b\u0435 \u0431\u0430\u043d\u043a\u0438 \u0438 \u0440\u0430\u0437\u043d\u044b\u0435 \u0441\u0446\u0435\u043d\u0430\u0440\u0438\u0438 (\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f, P2P, \u043e\u043f\u043b\u0430\u0442\u044b \u0438 \u0442. \u0434.). \u0418\u0442\u043e\u0433\u043e\u0432\u044b\u0439 \u043f\u043e\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u044c iCX \u043e\u0442\u0440\u0430\u0436\u0430\u0435\u0442 \u0443\u0434\u043e\u0431\u0441\u0442\u0432\u043e \u0435\u0436\u0435\u0434\u043d\u0435\u0432\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435\u043c.\n\n\n\n\u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u0418\u0432\u0430\u043d\u043e\u0432, \u043e\u0441\u043d\u043e\u0432\u0430\u0442\u0435\u043b\u044c Customer Experience Laboratory (CX Lab) \u2014 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438-\u0438\u043d\u0438\u0446\u0438\u0430\u0442\u043e\u0440\u0430 \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f:\n\n\n\n\n\u00ab\u0415\u0436\u0435\u0434\u043d\u0435\u0432\u043d\u044b\u0435 \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0435 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438 (daily banking) \u2014 \u044d\u0442\u043e \u0442\u043e, \u0447\u0442\u043e \u043b\u0438\u0431\u043e \u0443\u043a\u0440\u0435\u043f\u043b\u044f\u0435\u0442 \u043f\u0440\u0438\u0432\u044b\u0447\u043a\u0443 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u0431\u0430\u043d\u043a\u043e\u043c, \u043b\u0438\u0431\u043e \u0432\u044b\u043d\u0443\u0436\u0434\u0430\u0435\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u0430 \u0443\u0445\u043e\u0434\u0438\u0442\u044c \u043a \u043a\u043e\u043d\u043a\u0443\u0440\u0435\u043d\u0442\u0443. \u0418\u043d\u0434\u0435\u043a\u0441 \u043f\u0435\u0440\u0435\u0432\u043e\u0434\u0438\u0442 \u043e\u043f\u044b\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u0430 \u0432 \u0446\u0438\u0444\u0440\u044b: \u0432\u0438\u0434\u043d\u043e \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0433\u0434\u0435 \u0435\u043c\u0443 \u0441\u043b\u043e\u0436\u043d\u043e, \u043d\u043e \u0438 \u043f\u043e\u0447\u0435\u043c\u0443 \u2014 \u043a\u0430\u043a\u043e\u0439 \u0444\u0430\u043a\u0442\u043e\u0440 \u0434\u0430\u0435\u0442 \u043f\u0440\u043e\u0441\u0430\u0434\u043a\u0443 \u0438 \u043a\u0430\u043a \u044d\u0442\u043e \u0432\u043b\u0438\u044f\u0435\u0442 \u043d\u0430 \u0435\u0433\u043e \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0438 \u0443\u0432\u0435\u0440\u0435\u043d\u043d\u043e\u0441\u0442\u044c. \u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b CX Banking Index 2025 \u0434\u043b\u044f \u0431\u0430\u043d\u043a\u043e\u0432 \u2014 \u044d\u0442\u043e \u0433\u043e\u0442\u043e\u0432\u0430\u044f \u043a\u0430\u0440\u0442\u0430 \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u044b\u0445 \u0443\u043b\u0443\u0447\u0448\u0435\u043d\u0438\u0439\u00bb.\n\n\n\n\n\n\n\n\n\u041f\u043e\u0431\u0435\u0434\u0438\u0442\u0435\u043b\u0438 \u0440\u0435\u0439\u0442\u0438\u043d\u0433\u0430 CX Banking Index\n\n\n\n\u041d\u0430\u0433\u0440\u0430\u0434\u044b \u0440\u0430\u0441\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u043b\u0438\u0441\u044c \u043f\u043e \u0447\u0435\u0442\u044b\u0440\u0435\u043c \u043d\u043e\u043c\u0438\u043d\u0430\u0446\u0438\u044f\u043c:\n\n\n\n1. \u041f\u0435\u0440\u0432\u043e\u0435 \u0432\u043f\u0435\u0447\u0430\u0442\u043b\u0435\u043d\u0438\u0435 \u2014 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f, \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f, \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043a\u0430\u0440\u0442; \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c, \u043f\u043e\u043d\u044f\u0442\u043d\u043e\u0441\u0442\u044c \u0438 \u043a\u043e\u043c\u0444\u043e\u0440\u0442 \u0441\u0442\u0430\u0440\u0442\u0430.\n\n\n\n\n\n\n\n\u041b\u0438\u0434\u0435\u0440\u044b \u043d\u043e\u043c\u0438\u043d\u0430\u0446\u0438\u0438:\n\n\n\n1. Garant bank;\n\n\n\n2. Ipak Yuli Bank\n\n\n\n3. Aloqabank \u0438 InfinBank\n\n\n\n\n\n\n\n2. P2P-\u043f\u0435\u0440\u0435\u0432\u043e\u0434\u044b \u2014 \u043f\u0435\u0440\u0435\u0432\u043e\u0434\u044b \u043c\u0435\u0436\u0434\u0443 \u043b\u044e\u0434\u044c\u043c\u0438: \u043b\u0435\u0433\u043a\u0438\u0439 \u043f\u043e\u0438\u0441\u043a \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f, \u0432\u044b\u0431\u043e\u0440 \u043a\u0430\u0440\u0442\u044b/\u0441\u0447\u0435\u0442\u0430, \u044f\u0441\u043d\u044b\u0435 \u043a\u043e\u043c\u0438\u0441\u0441\u0438\u0438 \u0438 \u0441\u0442\u0430\u0442\u0443\u0441\u044b, \u0431\u044b\u0441\u0442\u0440\u044b\u0435 \u043f\u043e\u0432\u0442\u043e\u0440\u044b.\n\n\n\n\n\n\n\n\u041b\u0438\u0434\u0435\u0440\u044b \u043d\u043e\u043c\u0438\u043d\u0430\u0446\u0438\u0438:\n\n\n\n1. Davr Bank\n\n\n\n2. Asakabank \u0438 InfinBank\n\n\n\n3. \u041f\u043b\u0430\u0442\u0435\u0436\u0438 \u2014 \u043f\u043e\u0432\u0441\u0435\u0434\u043d\u0435\u0432\u043d\u044b\u0435 \u043e\u043f\u043b\u0430\u0442\u044b: \u043f\u043e\u043d\u044f\u0442\u043d\u044b\u0435 \u0441\u0446\u0435\u043d\u0430\u0440\u0438\u0438, \u0431\u044b\u0441\u0442\u0440\u044b\u0439 \u043f\u043e\u0438\u0441\u043a \u043c\u0435\u0440\u0447\u0430\u043d\u0442\u043e\u0432, \u0448\u0430\u0431\u043b\u043e\u043d\u044b/\u0430\u0432\u0442\u043e\u043f\u043b\u0430\u0442\u0435\u0436\u0438, \u043f\u0440\u043e\u0437\u0440\u0430\u0447\u043d\u043e\u0441\u0442\u044c \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439.\n\n\n\n\u041b\u0438\u0434\u0435\u0440\u044b \u043d\u043e\u043c\u0438\u043d\u0430\u0446\u0438\u0438:\n\n\n\n1. Uzum Bank\n\n\n\n2. SQB\n\n\n\n3. Asia Alliance Bank\n\n\n\n4...",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/v-uzbekistane-predstavili-rejting-mobilnyh-prilozhenij-bankov-s-tochki-zreniya-klientskogo-opyta/?utm_source=rss&utm_medium=rss&utm_campaign=v-uzbekistane-predstavili-rejting-mobilnyh-prilozhenij-bankov-s-tochki-zreniya-klientskogo-opyta",
-        "category": "Banking",
-        "language": "RU",
-        "published_at": "2025-12-05T04:58:44+00:00",
-        "published_ts": 1764910724.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "64d2dfed6e617f3a1530f970d8f1eb71",
@@ -1739,35 +1746,10 @@
         "published_at": "2025-12-05T04:57:00+00:00",
         "published_ts": 1764910620.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "c5e95cee8ea62ff1f2b5c6fe815f69dd",
-        "title": "\u0414\u043b\u044f \u0413\u0443\u043b\u0438\u0441\u0442\u0430\u043d\u0430 \u0437\u0430\u043a\u0443\u043f\u0438\u043b\u0438 52 \u044d\u043a\u043e\u0430\u0432\u0442\u043e\u0431\u0443\u0441\u0430",
-        "summary": "\u0413\u0443\u043b\u0438\u0441\u0442\u0430\u043d \u043f\u043e\u043b\u0443\u0447\u0438\u043b 52 \u0430\u0432\u0442\u043e\u0431\u0443\u0441\u0430, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0442 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0430\u043c \u00ab\u0415\u0432\u0440\u043e-5\u00bb \u0438 \u0440\u0430\u0431\u043e\u0442\u0430\u044e\u0442 \u043d\u0430 \u0441\u0436\u0430\u0442\u043e\u043c \u043f\u0440\u0438\u0440\u043e\u0434\u043d\u043e\u043c \u0433\u0430\u0437\u0435, \u043f\u0435\u0440\u0435\u0434\u0430\u0435\u0442 \u043f\u0440\u0435\u0441\u0441-\u0441\u043b\u0443\u0436\u0431\u0430 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0428\u0430\u0432\u043a\u0430\u0442\u0430 \u041c\u0438\u0440\u0437\u0438\u0451\u0435\u0432\u0430\n\n\n\n\u0421 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u043e\u0439 \u0442\u0435\u0445\u043d\u0438\u043a\u043e\u0439 \u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u043b\u0441\u044f \u0433\u043b\u0430...",
-        "full_content": "\u0413\u0443\u043b\u0438\u0441\u0442\u0430\u043d \u043f\u043e\u043b\u0443\u0447\u0438\u043b 52 \u0430\u0432\u0442\u043e\u0431\u0443\u0441\u0430, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0442 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0430\u043c \u00ab\u0415\u0432\u0440\u043e-5\u00bb \u0438 \u0440\u0430\u0431\u043e\u0442\u0430\u044e\u0442 \u043d\u0430 \u0441\u0436\u0430\u0442\u043e\u043c \u043f\u0440\u0438\u0440\u043e\u0434\u043d\u043e\u043c \u0433\u0430\u0437\u0435, \u043f\u0435\u0440\u0435\u0434\u0430\u0435\u0442 \u043f\u0440\u0435\u0441\u0441-\u0441\u043b\u0443\u0436\u0431\u0430 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0428\u0430\u0432\u043a\u0430\u0442\u0430 \u041c\u0438\u0440\u0437\u0438\u0451\u0435\u0432\u0430\n\n\n\n\u0421 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u043e\u0439 \u0442\u0435\u0445\u043d\u0438\u043a\u043e\u0439 \u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u043b\u0441\u044f \u0433\u043b\u0430\u0432\u0430 \u0433\u043e\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0430 \u0432 \u0445\u043e\u0434\u0435 \u0432\u0438\u0437\u0438\u0442\u0430 \u0432 \u0421\u044b\u0440\u0434\u0430\u0440\u044c\u044e. \u041e\u0434\u0438\u043d \u0430\u0432\u0442\u043e\u0431\u0443\u0441 \u0441\u043f\u043e\u0441\u043e\u0431\u0435\u043d \u043f\u0435\u0440\u0435\u0432\u043e\u0437\u0438\u0442\u044c \u0431\u043e\u043b\u0435\u0435&nbsp;60 \u0447\u0435\u043b\u043e\u0432\u0435\u043a \u0438 \u043e\u0441\u043d\u0430\u0449\u0435\u043d \u0441\u0438\u0441\u0442\u0435\u043c\u043e\u0439 \u043e\u043f\u043b\u0430\u0442\u044b \u0410\u0422\u0422\u041e.\n\n\n\n\u041e\u0442\u043c\u0435\u0447\u0435\u043d\u043e, \u0447\u0442\u043e \u0431\u043b\u0430\u0433\u043e\u0434\u0430\u0440\u044f \u0431\u0440\u0443\u0442\u0442\u043e-\u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0430\u043c \u0432 \u0413\u0443\u043b\u0438\u0441\u0442\u0430\u043d\u0435 \u0437\u0430\u043f\u0443\u0441\u0442\u0438\u043b\u0438 \u0430\u0432\u0442\u043e\u0431\u0443\u0441\u044b \u043f\u043e \u0441\u0435\u043c\u0438 \u043c\u0430\u0440\u0448\u0440\u0443\u0442\u0430\u043c, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0445\u0432\u0430\u0442\u044b\u0432\u0430\u044e\u0442 23 \u043c\u0430\u0445\u0430\u043b\u043b\u0438 \u0432 \u0433\u043e\u0440\u043e\u0434\u0435. \u042d\u0442\u043e \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u043b\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0430\u043c\u0438 \u043e\u0431\u0449\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u0430 29 \u0442\u044b\u0441. \u0436\u0438\u0442\u0435\u043b\u0435\u0439\n\n\n\n\u041c\u0438\u0440\u0437\u0438\u0451\u0435\u0432\u0443 \u0442\u0430\u043a\u0436\u0435 \u0441\u043e\u043e\u0431\u0449\u0438\u043b\u0438, \u0447\u0442\u043e \u0434\u043b\u044f \u043e\u0431\u0449\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u0430 \u0413\u0443\u043b\u0438\u0441\u0442\u0430\u043d\u0430 \u0432 \u0431\u0443\u0434\u0443\u0449\u0435\u043c \u0437\u0430\u043a\u0443\u043f\u044f\u0442 30 \u0430\u0432\u0442\u043e\u0431\u0443\u0441\u043e\u0432 \u0434\u0430\u043b\u044c\u043d\u0435\u0433\u043e \u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f. \u041e\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u044d\u0442\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0442 \u0440\u0430\u0431\u043e\u0442\u043e\u0439 \u0431\u043e\u043b\u0435\u0435 \u0441\u043e\u0442\u043d\u0438 \u0447\u0435\u043b\u043e\u0432\u0435\u043a.\n\n\n\n\u0420\u0430\u043d\u0435\u0435 Kursiv Uzbekistan \u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e \u0435\u0434\u0438\u043d\u044b\u0439 \u0446\u0435\u043d\u0442\u0440 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0434\u043e\u0440\u043e\u0436\u043d\u044b\u043c \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435\u043c \u0437\u0430\u043f\u0443\u0441\u0442\u044f\u0442 \u0432 \u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435.The post \u0414\u043b\u044f \u0413\u0443\u043b\u0438\u0441\u0442\u0430\u043d\u0430 \u0437\u0430\u043a\u0443\u043f\u0438\u043b\u0438 52 \u044d\u043a\u043e\u0430\u0432\u0442\u043e\u0431\u0443\u0441\u0430 first appeared on Kursiv Media \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d.",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/dlya-gulistana-zakupili-52-eko-avtobusa/?utm_source=rss&utm_medium=rss&utm_campaign=dlya-gulistana-zakupili-52-eko-avtobusa",
-        "category": "Markets",
-        "language": "RU",
-        "published_at": "2025-12-05T04:37:14+00:00",
-        "published_ts": 1764909434.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "240274f1224046fc0e4568f647a594b1",
-        "title": "\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0446\u0435\u0432 \u043e\u0436\u0438\u0434\u0430\u044e\u0442 \u0434\u043e\u0436\u0434\u0438 \u0438 \u0437\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0438",
-        "summary": "\u041d\u0430 \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u0438 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0430 5 \u0434\u0435\u043a\u0430\u0431\u0440\u044f \u043e\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044f \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u043e\u0431\u043b\u0430\u0447\u043d\u043e\u0441\u0442\u044c, \u043c\u0435\u0441\u0442\u0430\u043c\u0438 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u0438\u0435 \u043e\u0441\u0430\u0434\u043a\u0438 \u0432 \u0432\u0438\u0434\u0435 \u0434\u043e\u0436\u0434\u044f \u0438 \u0441\u043d\u0435\u0433\u0430, \u0441\u043e\u043e\u0431\u0449\u0430\u0435\u0442 \u0423\u0437\u0433\u0438\u0434\u0440\u043e\u043c\u0435\u0442. \u0425\u043e\u043b\u043e\u0434\u0430 \u043f\u0440\u0438\u0434\u0443\u0442 \u043d\u043e\u0447\u044c\u044e \u0432 \u041a\u0430\u0440\u0430\u043a\u0430\u043b\u043f\u0430\u043a\u0441\u0442\u0430\u043d \u0438 \u0425\u043e\u0440\u0435\u0437\u043c\u0441\u043a\u0443\u044e \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u0434\u0435 ...",
-        "full_content": "\u041d\u0430 \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u0438 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0430 5 \u0434\u0435\u043a\u0430\u0431\u0440\u044f \u043e\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044f \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u043e\u0431\u043b\u0430\u0447\u043d\u043e\u0441\u0442\u044c, \u043c\u0435\u0441\u0442\u0430\u043c\u0438 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u0438\u0435 \u043e\u0441\u0430\u0434\u043a\u0438 \u0432 \u0432\u0438\u0434\u0435 \u0434\u043e\u0436\u0434\u044f \u0438 \u0441\u043d\u0435\u0433\u0430, \u0441\u043e\u043e\u0431\u0449\u0430\u0435\u0442 \u0423\u0437\u0433\u0438\u0434\u0440\u043e\u043c\u0435\u0442. \u0425\u043e\u043b\u043e\u0434\u0430 \u043f\u0440\u0438\u0434\u0443\u0442 \u043d\u043e\u0447\u044c\u044e \u0432 \u041a\u0430\u0440\u0430\u043a\u0430\u043b\u043f\u0430\u043a\u0441\u0442\u0430\u043d \u0438 \u0425\u043e\u0440\u0435\u0437\u043c\u0441\u043a\u0443\u044e \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u0434\u0435 \u0442\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430 \u043e\u043f\u0443\u0441\u0442\u0438\u0442\u0441\u044f \u0434\u043e \u20137\u00b0. \u0414\u043d\u0435\u043c \u0437\u0434\u0435\u0441\u044c \u0431\u0443\u0434\u0435\u0442 \u043e\u0442 +3&#8230;+8\u00b0.\n\n\n\n\u0412 \u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435 \u0443\u0442\u0440\u043e\u043c \u043f\u0440\u043e\u0439\u0434\u0435\u0442 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u0434\u043e\u0436\u0434\u044c, \u0442\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0434\u0443\u0445\u0430 \u0441\u043e\u0441\u0442\u0430\u0432\u0438\u0442 \u043e\u0442 +2&#8230;+4\u00b0. \u0414\u043d\u0435\u043c \u043e\u0441\u0430\u0434\u043a\u043e\u0432 \u043d\u0435 \u043e\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044f, \u0432\u043e\u0437\u0434\u0443\u0445 \u043f\u0440\u043e\u0433\u0440\u0435\u0435\u0442\u0441\u044f \u0434\u043e +9&#8230;+11\u00b0.\n\n\n\n\u0412 \u043f\u0440\u0435\u0434\u0433\u043e\u0440\u043d\u044b\u0445 \u0438 \u0433\u043e\u0440\u043d\u044b\u0445 \u0440\u0430\u0439\u043e\u043d\u0430\u0445 \u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0438 \u043e\u0436\u0438\u0434\u0430\u044e\u0442\u0441\u044f \u0434\u043e\u0436\u0434\u044c \u0438 \u0441\u043d\u0435\u0433. \u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430 \u043d\u043e\u0447\u044c\u044e \u0438 \u0434\u043d\u0435\u043c \u0432 \u044d\u0442\u0438\u0445 \u0440\u0435\u0433\u0438\u043e\u043d\u0430\u0445 \u0441\u043e\u0441\u0442\u0430\u0432\u0438\u0442 \u20132&#8230;+3\u00b0. \u0412 \u041a\u0430\u0448\u043a\u0430\u0434\u0430\u0440\u044c\u0435 \u0438 \u0421\u0443\u0440\u0445\u0430\u043d\u0434\u0430\u0440\u044c\u0435 \u043d\u043e\u0447\u044c\u044e \u043e\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044f \u043e\u0442 0&#8230;+5\u00b0, \u0434\u043d\u0435\u043c \u0434\u043e +13\u00b0.\n\n\n\n\u0420\u0430\u043d\u0435\u0435 Kursiv Uzbekistan \u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e \u0432 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0435 \u043d\u0430 \u043e\u0445\u0440\u0430\u043d\u0443 \u0447\u0438\u0441\u0442\u043e\u0433\u043e \u0432\u043e\u0437\u0434\u0443\u0445\u0430 \u0432\u044b\u0434\u0435\u043b\u044f\u0442 900 \u043c\u043b\u0440\u0434 \u0441\u0443\u043c\u043e\u0432.The post \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0446\u0435\u0432 \u043e\u0436\u0438\u0434\u0430\u044e\u0442 \u0434\u043e\u0436\u0434\u0438 \u0438 \u0437\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0438 first appeared on Kursiv Media \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d.",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/uzbekistanczev-ozhidayut-dozhdi-i-slabye-zamorozki/?utm_source=rss&utm_medium=rss&utm_campaign=uzbekistanczev-ozhidayut-dozhdi-i-slabye-zamorozki",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-05T04:24:21+00:00",
-        "published_ts": 1764908661.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "2975b79c8146296352b9017cef831f3f",
@@ -1781,63 +1763,10 @@
         "published_at": "2025-12-05T09:00:00+05:00",
         "published_ts": 1764907200.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "984156d93d7356123b1384810227b675",
-        "title": "\u041d\u043e\u0432\u044b\u0439 \u0441\u0435\u0440\u0438\u0430\u043b \u043e\u0442 \u0441\u043e\u0437\u0434\u0430\u0442\u0435\u043b\u044f \u00ab\u0421\u044b\u043d\u043e\u0432 \u0430\u043d\u0430\u0440\u0445\u0438\u0438\u00bb \u043d\u0435 \u0432\u043f\u0435\u0447\u0430\u0442\u043b\u0438\u043b \u0437\u0440\u0438\u0442\u0435\u043b\u0435\u0439",
-        "summary": "\u041d\u0430 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0435 Netflix \u0441\u043e\u0441\u0442\u043e\u044f\u043b\u0430\u0441\u044c \u043f\u0440\u0435\u043c\u044c\u0435\u0440\u0430 \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0432\u0435\u0441\u0442\u0435\u0440\u043d\u0430 \u00ab\u041f\u043e\u043a\u0438\u043d\u0443\u0442\u044b\u0435\u00bb (The Abandons) \u2014 \u043f\u0440\u043e\u0435\u043a\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u0442\u0435\u043b\u044f \u00ab\u0421\u044b\u043d\u043e\u0432 \u0430\u043d\u0430\u0440\u0445\u0438\u0438\u00bb \u041a\u0443\u0440\u0442\u0430 \u0421\u0430\u0442\u0442\u0435\u0440\u0430. \u0413\u043b\u0430\u0432\u043d\u044b\u0435 \u0440\u043e\u043b\u0438 \u0432 \u0441\u0435\u0440\u0438\u0430\u043b\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0438\u043b\u0438 \u041b\u0438\u043d\u0430 \u0425\u0438\u0434\u0438 (\u00ab\u0418\u0433\u0440\u0430 \u043f\u0440\u0435\u0441\u0442\u043e\u043b\u043e...",
-        "full_content": "\u041d\u0430 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0435 Netflix \u0441\u043e\u0441\u0442\u043e\u044f\u043b\u0430\u0441\u044c \u043f\u0440\u0435\u043c\u044c\u0435\u0440\u0430 \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0432\u0435\u0441\u0442\u0435\u0440\u043d\u0430 \u00ab\u041f\u043e\u043a\u0438\u043d\u0443\u0442\u044b\u0435\u00bb (The Abandons) \u2014 \u043f\u0440\u043e\u0435\u043a\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u0442\u0435\u043b\u044f \u00ab\u0421\u044b\u043d\u043e\u0432 \u0430\u043d\u0430\u0440\u0445\u0438\u0438\u00bb \u041a\u0443\u0440\u0442\u0430 \u0421\u0430\u0442\u0442\u0435\u0440\u0430. \u0413\u043b\u0430\u0432\u043d\u044b\u0435 \u0440\u043e\u043b\u0438 \u0432 \u0441\u0435\u0440\u0438\u0430\u043b\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0438\u043b\u0438 \u041b\u0438\u043d\u0430 \u0425\u0438\u0434\u0438 (\u00ab\u0418\u0433\u0440\u0430 \u043f\u0440\u0435\u0441\u0442\u043e\u043b\u043e\u0432\u00bb), \u0414\u0436\u0438\u043b\u043b\u0438\u0430\u043d \u0410\u043d\u0434\u0435\u0440\u0441\u043e\u043d (\u00ab\u0421\u0435\u043a\u0440\u0435\u0442\u043d\u044b\u0435 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b\u00bb), \u041d\u0438\u043a \u0420\u043e\u0431\u0438\u043d\u0441\u043e\u043d \u0438 \u0414\u0438\u0430\u043d\u0430 \u0421\u0438\u043b\u044c\u0432\u0435\u0440\u0441. \u041f\u0435\u0440\u0432\u044b\u0439 \u0441\u0435\u0437\u043e\u043d \u0443\u0436\u0435 \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0434\u043e\u0441\u0442\u0443\u043f\u0435\u043d \u043d\u0430 \u0441\u0435\u0440\u0432\u0438\u0441\u0435.\n\n\n\n\u0421\u044e\u0436\u0435\u0442\n\n\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0440\u0430\u0437\u0432\u043e\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0432 \u041e\u0440\u0435\u0433\u043e\u043d\u0435 1850-\u0445 \u0433\u043e\u0434\u043e\u0432. \u041d\u0435\u0441\u0433\u0438\u0431\u0430\u0435\u043c\u0430\u044f \u0424\u0438\u043e\u043d\u0430 \u041d\u043e\u043b\u0430\u043d\u0441 (\u041b\u0438\u043d\u0430 \u0425\u0438\u0434\u0438) \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u0442 \u0432\u043e\u043a\u0440\u0443\u0433 \u0441\u0435\u0431\u044f \u043a\u043b\u0430\u043d \u0438\u0437\u0433\u043e\u0435\u0432, \u0447\u0442\u043e\u0431\u044b \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044c \u0437\u0435\u043c\u043b\u044e \u043e\u0442 \u0430\u043b\u0447\u043d\u043e\u0439 \u0431\u043e\u0433\u0430\u0442\u043e\u0439 \u0441\u0435\u043c\u044c\u0438 \u0412\u0430\u043d \u041d\u0435\u0441\u0441. \u0415\u0435 \u0433\u043b\u0430\u0432\u043d\u043e\u0439 \u0441\u043e\u043f\u0435\u0440\u043d\u0438\u0446\u0435\u0439 \u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u0441\u044f \u0432\u043b\u0430\u0441\u0442\u043d\u0430\u044f \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0441 \u0412\u0430\u043d \u041d\u0435\u0441\u0441 (\u0414\u0436\u0438\u043b\u043b\u0438\u0430\u043d \u0410\u043d\u0434\u0435\u0440\u0441\u043e\u043d), \u0447\u044c\u0438 \u0438\u043d\u0442\u0440\u0438\u0433\u0438 \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u044e\u0442 \u0431\u043e\u0440\u044c\u0431\u0443 \u0437\u0430 \u0432\u044b\u0436\u0438\u0432\u0430\u043d\u0438\u0435 \u0432 \u0436\u0435\u0441\u0442\u043e\u043a\u0438\u0439 \u043a\u043e\u043d\u0444\u043b\u0438\u043a\u0442, \u0433\u0434\u0435 \u0437\u0430\u043a\u043e\u043d \u0431\u0435\u0441\u0441\u0438\u043b\u0435\u043d, \u0430 \u0441\u043f\u0440\u0430\u0432\u0435\u0434\u043b\u0438\u0432\u043e\u0441\u0442\u044c \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u044f\u0435\u0442 \u043b\u0438\u0448\u044c \u0437\u0430\u0440\u044f\u0436\u0435\u043d\u043d\u044b\u0439 \u043a\u043e\u043b\u044c\u0442.\n\n\n\n\u0412\u043e\u043a\u0440\u0443\u0433 \u043f\u0440\u043e\u0435\u043a\u0442\u0430: \u0441\u043a\u0430\u043d\u0434\u0430\u043b\u044b, \u043f\u0430\u0441\u0445\u0430\u043b\u043a\u0438, \u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u043a\u0443\u0445\u043d\u044f\n\n\n\n\u0421\u043a\u0430\u043d\u0434\u0430\u043b \u0441\u043e \u0441\u044a\u0435\u043c\u043e\u043a\n\n\n\n\u041a\u0443\u0440\u0442 \u0421\u0430\u0442\u0442\u0435\u0440 \u043f\u043e\u043a\u0438\u043d\u0443\u043b \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u0432\u0441\u0435\u0433\u043e \u0437\u0430 \u0442\u0440\u0438 \u043d\u0435\u0434\u0435\u043b\u0438 \u0434\u043e \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u0438\u044f \u0441\u044a\u0435\u043c\u043e\u043a. \u041f\u0440\u0438\u0447\u0438\u043d\u043e\u0439 \u0441\u0442\u0430\u043b \u043f\u0438\u043b\u043e\u0442\u043d\u044b\u0439 \u044d\u043f\u0438\u0437\u043e\u0434, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0432\u043d\u0435\u0437\u0430\u043f\u043d\u043e \u00ab\u0440\u0430\u0437\u0440\u043e\u0441\u0441\u044f\u00bb \u0434\u043e \u043f\u043e\u043b\u043d\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u043d\u043e\u0433\u043e \u0445\u0440\u043e\u043d\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u0430 \u0438 \u0432\u044b\u0437\u0432\u0430\u043b \u043a\u043e\u043d\u0444\u043b\u0438\u043a\u0442 \u0441 Netflix. \u0418\u0442\u043e\u0433\u043e\u043c \u0441\u0442\u0430\u043b\u043e \u0442\u043e, \u0447\u0442\u043e \u0434\u043e\u0432\u043e\u0434\u0438\u0442\u044c \u0441\u0435\u0440\u0438\u0430\u043b \u0434\u043e \u0443\u043c\u0430 \u043f\u0440\u0438\u0448\u043b\u043e\u0441\u044c \u0440\u0435\u0436\u0438\u0441\u0441\u0435\u0440\u0443 \u041e\u0442\u0442\u043e \u0411\u0430\u0442\u0445\u0435\u0440\u0441\u0442\u0443.\n\n\n\n\u041f\u0430\u0441\u0445\u0430\u043b\u043a\u0430 \u0434\u043b\u044f \u0444\u0430\u043d\u0430\u0442\u043e\u0432 \u00ab\u0421\u044b\u043d\u043e\u0432 \u0430\u043d\u0430\u0440\u0445\u0438\u0438\u00bb\n\n\n\n\u0417\u0440\u0438\u0442\u0435\u043b\u0438 \u0441\u0440\u0430\u0437\u0443 \u0437\u0430\u043c\u0435\u0442\u0438\u043b\u0438, \u0447\u0442\u043e \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u0436 \u041d\u0438\u043a\u0430 \u0420\u043e\u0431\u0438\u043d\u0441\u043e\u043d\u0430 \u043d\u043e\u0441\u0438\u0442 \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0422\u0435\u043b\u043b\u0435\u0440 \u2014 \u0442\u0430\u043a\u0443\u044e \u0436\u0435, \u043a\u0430\u043a \u0438 \u0433\u043b\u0430\u0432\u043d\u044b\u0439 \u0433\u0435\u0440\u043e\u0439 \u043a\u0443\u043b\u044c\u0442\u043e\u0432\u043e\u0433\u043e \u0441\u0435\u0440\u0438\u0430\u043b\u0430 \u0414\u0436\u0435\u043a\u0441 \u0422\u0435\u043b\u043b\u0435\u0440. \u041e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u043e \u0441\u0432\u044f\u0437\u044c \u043c\u0435\u0436\u0434\u0443 \u0432\u0441\u0435\u043b\u0435\u043d\u043d\u044b\u043c\u0438 \u043d\u0435 \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0430, \u043d\u043e \u0444\u0430\u043d\u0430\u0442\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b, \u0447\u0442\u043e \u044d\u0442\u043e \u0441\u043a\u0440\u044b\u0442\u044b\u0439 \u043d\u0430\u043c\u0435\u043a \u0448\u043e\u0443\u0440\u0430\u043d\u043d\u0435\u0440\u0430.\n\n\n\n\u0410\u0442\u043c\u043e\u0441\u0444\u0435\u0440\u043d\u044b\u0435 \u043f\u0430\u0440\u0430\u043b\u043b\u0435\u043b\u0438\n\n\n\n\u0421\u0435\u0440\u0438\u0430\u043b \u043f\u043e\u0432\u0442\u043e\u0440\u044f\u0435\u0442 \u043c\u043d\u043e\u0433\u0438\u0435 \u0444\u0438\u0440\u043c\u0435\u043d\u043d\u044b\u0435 \u043f\u0440\u0438\u0435\u043c\u044b \u0421\u0430\u0442\u0442\u0435\u0440\u0430: \u043a\u043b\u0430\u043d\u043e\u0432\u043e\u0441\u0442\u044c, \u0431\u043e\u0440\u044c\u0431\u0430 \u0438\u0437\u0433\u043e\u0435\u0432 \u043f\u0440\u043e\u0442\u0438\u0432 \u0441\u0438\u0441\u0442\u0435\u043c\u044b, \u043c\u043e\u0440\u0430\u043b\u044c\u043d\u044b\u0435 \u0434\u0438\u043b\u0435\u043c\u043c\u044b \u0438 \u0441\u0435\u043c\u0435\u0439\u043d\u044b\u0435 \u043a\u043e\u043d\u0444\u043b\u0438\u043a\u0442\u044b \u2014 \u0442\u043e\u043b\u044c\u043a\u043e \u0442\u0435\u043f\u0435\u0440\u044c \u0432\u043c\u0435\u0441\u0442\u043e \u0431\u0430\u0439\u043a\u0435\u0440\u043e\u0432 \u0438 \u041a\u0430\u043b\u0438\u0444\u043e\u0440\u043d\u0438\u0438 \u2014 \u0444\u0440\u043e\u043d\u0442\u0438\u0440, \u043f\u044b\u043b\u044c \u0438 1850-\u0435.\n\n\n\n\u0414\u0430\u0442\u044b \u0432\u044b\u0445\u043e\u0434\u0430 \u0441\u0435\u0440\u0438\u0439\n\n\n\n\n\u041f\u0440\u0435\u043c\u044c\u0435\u0440\u0430: 4 \u0434\u0435\u043a\u0430\u0431\u0440\u044f 2025 \u0433\u043e\u0434\u0430.\n\n\n\n\u0424\u043e\u0440\u043c\u0430\u0442 \u0440\u0435\u043b\u0438\u0437\u0430: Netflix \u0432\u044b\u043b\u043e\u0436\u0438\u043b \u0432\u0441\u0435 \u0434\u0435\u0441\u044f\u0442\u044c \u0441\u0435\u0440\u0438\u0439 \u0441\u0440\u0430\u0437\u0443. \u0422\u043e \u0435\u0441\u0442\u044c \u0432\u0435\u0441\u044c \u0441\u0435\u0437\u043e\u043d \u0443\u0436\u0435 \u0434\u043e\u0441\u0442\u0443\u043f\u0435\u043d \u0434\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.\n\n\n\n\n\u0420\u0435\u0439\u0442\u0438\u043d\u0433\n\n\n\n\u041f\u043e \u0434\u0430\u043d\u043d\u044b\u043c IMDb \u2014 6,3 \u0438\u0437 10 (\u043f\u043e\u0441\u043b\u0435 \u043f\u043e\u0447\u0442\u0438 400 \u043e\u0446\u0435\u043d\u043e\u043a).\u041f\u0440\u043e\u0435\u043a\u0442 \u0432\u044b\u0437\u044b\u0432\u0430\u0435\u0442 \u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0435 \u043e\u0431\u0441\u0443\u0436\u0434\u0435\u043d\u0438\u044f \u0431\u043b\u0430\u0433\u043e\u0434\u0430\u0440\u044f \u043a\u0430\u0441\u0442\u0443 \u0438 \u0432\u0438\u0437\u0443\u0430\u043b\u044c\u043d\u043e\u043c\u0443 \u0441\u0442\u0438\u043b\u044e, \u043d\u043e \u043c\u043d\u0435\u043d\u0438\u0435 \u0437\u0440\u0438\u0442\u0435\u043b\u0435\u0439 \u0440\u0430\u0437\u0434\u0435\u043b\u0438\u043b\u043e\u0441\u044c \u0438\u0437-\u0437\u0430 \u043c\u0440\u0430\u0447\u043d\u043e\u0433\u043e \u0442\u043e\u043d\u0430 \u0438 \u043a\u043e\u043d\u0444\u043b\u0438\u043a\u0442\u043d\u043e\u0439 \u0430\u0442\u043c\u043e\u0441\u0444\u0435\u0440\u044b \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0430.The post \u041d\u043e\u0432...",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/novyj-serial-ot-sozdatelya-synov-anarhii-ne-vpechatlil-zritelej/?utm_source=rss&utm_medium=rss&utm_campaign=novyj-serial-ot-sozdatelya-synov-anarhii-ne-vpechatlil-zritelej",
-        "category": "Regulation",
-        "language": "RU",
-        "published_at": "2025-12-05T03:49:48+00:00",
-        "published_ts": 1764906588.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "dbd5a940373c843d713e5913b976fa3e",
-        "title": "\u041b\u0430\u0446\u0438\u043e \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435 \u0432\u044b\u0440\u0432\u0430\u043b \u043f\u043e\u0431\u0435\u0434\u0443 \u043d\u0430\u0434 \u041c\u0438\u043b\u0430\u043d\u043e\u043c \u0432 \u043a\u0443\u0431\u043a\u043e\u0432\u043e\u043c \u043c\u0430\u0442\u0447\u0435",
-        "summary": "\u0412 \u043c\u0430\u0442\u0447\u0435 1/8 \u0444\u0438\u043d\u0430\u043b\u0430 \u041a\u0443\u0431\u043a\u0430 \u0418\u0442\u0430\u043b\u0438\u0438 \u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u043e\u0431\u044b\u0433\u0440\u0430\u043b \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb \u0441\u043e \u0441\u0447\u0435\u0442\u043e\u043c 1:0. \u041f\u0440\u0438 \u044d\u0442\u043e\u043c \u0435\u0434\u0438\u043d\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u0433\u043e\u043b \u0440\u0438\u043c\u043b\u044f\u043d\u0435 \u0437\u0430\u0431\u0438\u043b\u0438 \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435 \u043f\u043e\u0441\u043b\u0435 \u0440\u043e\u0437\u044b\u0433\u0440\u044b\u0448\u0430 \u0443\u0433\u043b\u043e\u0432\u043e\u0433\u043e.\n\n\n\n\u0425\u043e\u0434 \u043c\u0430\u0442\u0447\u0430\n\n\n\n\u0421 \u043f\u0435\u0440\u0432\u044b\u0445 \u043c\u0438\u043d\u0443\u0442 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u0438 ...",
-        "full_content": "\u0412 \u043c\u0430\u0442\u0447\u0435 1/8 \u0444\u0438\u043d\u0430\u043b\u0430 \u041a\u0443\u0431\u043a\u0430 \u0418\u0442\u0430\u043b\u0438\u0438 \u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u043e\u0431\u044b\u0433\u0440\u0430\u043b \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb \u0441\u043e \u0441\u0447\u0435\u0442\u043e\u043c 1:0. \u041f\u0440\u0438 \u044d\u0442\u043e\u043c \u0435\u0434\u0438\u043d\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u0433\u043e\u043b \u0440\u0438\u043c\u043b\u044f\u043d\u0435 \u0437\u0430\u0431\u0438\u043b\u0438 \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435 \u043f\u043e\u0441\u043b\u0435 \u0440\u043e\u0437\u044b\u0433\u0440\u044b\u0448\u0430 \u0443\u0433\u043b\u043e\u0432\u043e\u0433\u043e.\n\n\n\n\u0425\u043e\u0434 \u043c\u0430\u0442\u0447\u0430\n\n\n\n\u0421 \u043f\u0435\u0440\u0432\u044b\u0445 \u043c\u0438\u043d\u0443\u0442 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u0438 \u043e\u0441\u0442\u043e\u0440\u043e\u0436\u043d\u043e, \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u0438\u0433\u0440\u0430 \u043f\u0440\u043e\u0445\u043e\u0434\u0438\u043b\u0430 \u0432 \u043d\u0438\u0437\u043a\u043e\u043c \u0442\u0435\u043c\u043f\u0435. \u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u0441\u0442\u0430\u0440\u0430\u043b\u0441\u044f \u043f\u0440\u043e\u0434\u0432\u0438\u0433\u0430\u0442\u044c \u043c\u044f\u0447 \u0447\u0435\u0440\u0435\u0437 \u043b\u0435\u0432\u044b\u0439 \u0444\u043b\u0430\u043d\u0433, \u0430 \u00ab\u0440\u043e\u0441\u0441\u043e\u043d\u0435\u0440\u0438\u00bb \u0434\u043e\u043b\u0433\u043e \u0440\u0430\u0437\u044b\u0433\u0440\u044b\u0432\u0430\u043b \u0430\u0442\u0430\u043a\u0438 \u0447\u0435\u0440\u0435\u0437 \u0446\u0435\u043d\u0442\u0440. \u041f\u0440\u0438 \u044d\u0442\u043e\u043c \u0437\u0430\u0449\u0438\u0442\u043d\u0438\u043a\u0438 \u0433\u043e\u0441\u0442\u0435\u0439 \u043f\u043b\u043e\u0442\u043d\u043e \u0432\u0441\u0442\u0440\u0435\u0447\u0430\u043b\u0438 \u0418\u0441\u0430\u043a\u0441\u0435\u043d\u0430 \u0438 \u041a\u0430\u0441\u0442\u0435\u043b\u044c\u044f\u043d\u043e\u0441\u0430.\n\n\n\n\u0411\u043b\u0438\u0436\u0435 \u043a \u043f\u0435\u0440\u0435\u0440\u044b\u0432\u0443 \u0445\u043e\u0437\u044f\u0435\u0432\u0430 \u0443\u0441\u0438\u043b\u0438\u043b\u0438 \u0434\u0430\u0432\u043b\u0435\u043d\u0438\u0435. \u0411\u0430\u0448\u0438\u0447 \u0438 \u0414\u0437\u0430\u043a\u043a\u0430\u043d\u044c\u0438 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0440\u0430\u0437 \u043f\u0440\u043e\u0431\u043e\u0432\u0430\u043b\u0438 \u0431\u0438\u0442\u044c \u0438\u0437\u0434\u0430\u043b\u0438. \u041e\u0434\u043d\u0430\u043a\u043e \u041c\u0435\u043d\u044c\u044f\u043d \u0443\u0432\u0435\u0440\u0435\u043d\u043d\u043e \u0438\u0433\u0440\u0430\u043b \u043f\u043e \u043f\u043e\u0437\u0438\u0446\u0438\u0438 \u0438 \u043d\u0430\u0434\u0435\u0436\u043d\u043e \u0444\u0438\u043a\u0441\u0438\u0440\u043e\u0432\u0430\u043b \u043c\u044f\u0447. \u0412 \u043e\u0442\u0432\u0435\u0442 \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb \u0441\u043e\u0437\u0434\u0430\u0432\u0430\u043b \u043c\u043e\u043c\u0435\u043d\u0442\u044b \u0447\u0435\u0440\u0435\u0437 \u043f\u0440\u043e\u0441\u0442\u0440\u0435\u043b\u044b \u042d\u0441\u0442\u0443\u043f\u0438\u043d\u044c\u044f\u043d\u0430 \u0438 \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0438 \u0420\u0430\u0431\u044c\u043e, \u043d\u043e \u041b\u043e\u0444\u0442\u0443\u0441 \u0427\u0438\u043a \u0438 \u041b\u0435\u0430\u0443 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043b\u0438 \u0448\u0430\u043d\u0441\u044b.\n\n\n\n\u041f\u043e\u0441\u043b\u0435 \u043f\u0435\u0440\u0435\u0440\u044b\u0432\u0430 \u0440\u0438\u0441\u0443\u043d\u043e\u043a \u043f\u043e\u0447\u0442\u0438 \u043d\u0435 \u0438\u0437\u043c\u0435\u043d\u0438\u043b\u0441\u044f. \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0430\u043b \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043c\u044f\u0447, \u0445\u043e\u0442\u044f \u043e\u0441\u0442\u0440\u043e\u0442\u044b \u0432\u043f\u0435\u0440\u0435\u0434\u0438 \u0431\u044b\u043b\u043e \u043c\u0430\u043b\u043e. \u0412 \u0442\u043e \u0436\u0435 \u0432\u0440\u0435\u043c\u044f \u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u043f\u043e\u0441\u0442\u0435\u043f\u0435\u043d\u043d\u043e \u0441\u043c\u0435\u0449\u0430\u043b \u0438\u0433\u0440\u0443 \u043a \u0448\u0442\u0440\u0430\u0444\u043d\u043e\u0439 \u0433\u043e\u0441\u0442\u0435\u0439. \u0417\u0430\u043c\u0435\u043d\u044b \u0421\u0430\u0440\u0440\u0438 \u0443\u0441\u0438\u043b\u0438\u043b\u0438 \u0434\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0447\u0435\u0440\u0435\u0437 \u0444\u043b\u0430\u043d\u0433\u0438.\n\n\n\n\u0420\u0430\u0437\u0432\u044f\u0437\u043a\u0430 \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435\n\n\n\n\u041d\u0430 84-\u0439 \u043c\u0438\u043d\u0443\u0442\u0435 \u0445\u043e\u0437\u044f\u0435\u0432\u0430 \u0437\u0430\u0440\u0430\u0431\u043e\u0442\u0430\u043b\u0438 \u0443\u0433\u043b\u043e\u0432\u043e\u0439. \u0422\u0430\u0432\u0430\u0440\u0435\u0448 \u043f\u043e\u0434\u0430\u043b \u043a \u0446\u0435\u043d\u0442\u0440\u0443 \u0432\u0440\u0430\u0442\u0430\u0440\u0441\u043a\u043e\u0439, \u0438 \u0414\u0437\u0430\u043a\u043a\u0430\u043d\u044c\u0438 \u043b\u0435\u0433\u043a\u043e \u0443\u0448\u0435\u043b \u043e\u0442 \u043e\u043f\u0435\u043a\u0438. \u041f\u043e\u043b\u0443\u0437\u0430\u0449\u0438\u0442\u043d\u0438\u043a \u043f\u0440\u043e\u0431\u0438\u043b \u0433\u043e\u043b\u043e\u0432\u043e\u0439 \u0432 \u043f\u0440\u0430\u0432\u044b\u0439 \u043d\u0438\u0436\u043d\u0438\u0439 \u0443\u0433\u043e\u043b, \u043d\u0435 \u043e\u0441\u0442\u0430\u0432\u0438\u0432 \u041c\u0435\u043d\u044c\u044f\u043d\u0443 \u0448\u0430\u043d\u0441\u043e\u0432. \u041f\u043e\u0441\u043b\u0435 \u043f\u0440\u043e\u043f\u0443\u0449\u0435\u043d\u043d\u043e\u0433\u043e \u043c\u044f\u0447\u0430 \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb \u043f\u043e\u043f\u044b\u0442\u0430\u043b\u0441\u044f \u043f\u0435\u0440\u0435\u0432\u0435\u0441\u0442\u0438 \u0438\u0433\u0440\u0443 \u0432\u043f\u0435\u0440\u0435\u0434, \u043d\u043e \u0434\u043e \u043e\u043f\u0430\u0441\u043d\u044b\u0445 \u0443\u0434\u0430\u0440\u043e\u0432 \u0434\u0435\u043b\u043e \u0443\u0436\u0435 \u043d\u0435 \u0434\u043e\u0448\u043b\u043e.\n\n\n\n\n\n\n\n\u0412 \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u043d\u043e\u0435 \u0432\u0440\u0435\u043c\u044f \u041c\u043e\u0434\u0440\u0438\u0447 \u0438 \u041f\u0443\u043b\u0438\u0448\u0438\u0447 \u043f\u044b\u0442\u0430\u043b\u0438\u0441\u044c \u043e\u0431\u043e\u0441\u0442\u0440\u044f\u0442\u044c \u0447\u0435\u0440\u0435\u0437 \u043d\u0430\u0432\u0435\u0441\u044b. \u041e\u0434\u043d\u0430\u043a\u043e \u0437\u0430\u0449\u0438\u0442\u0430 \u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u0430 \u0434\u0438\u0441\u0446\u0438\u043f\u043b\u0438\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e \u0438 \u043d\u0435 \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u043b\u0430 \u0433\u043e\u0441\u0442\u044f\u043c \u0441\u0440\u0430\u0432\u043d\u044f\u0442\u044c \u0441\u0447\u0435\u0442.\n\n\n\n\u0418\u0442\u043e\u0433\u043e\u0432\u044b\u0435 \u043a\u043b\u044e\u0447\u0435\u0432\u044b\u0435 \u043c\u043e\u043c\u0435\u043d\u0442\u044b:\n\n\n\n\n\u043a\u043e\u043c\u0430\u043d\u0434\u044b \u043e\u0441\u0442\u043e\u0440\u043e\u0436\u043d\u043e \u043d\u0430\u0447\u0430\u043b\u0438 \u043c\u0430\u0442\u0447 \u0438 \u0432\u044b\u0431\u0440\u0430\u043b\u0438 \u043d\u0438\u0437\u043a\u0438\u0439 \u0442\u0435\u043c\u043f;\n\n\n\n\u041c\u0435\u043d\u044c\u044f\u043d \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0440\u0430\u0437 \u0432\u044b\u0440\u0443\u0447\u0438\u043b \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb \u043f\u043e\u0441\u043b\u0435 \u0443\u0434\u0430\u0440\u043e\u0432 \u0418\u0441\u0430\u043a\u0441\u0435\u043d\u0430 \u0438 \u0414\u0437\u0430\u043a\u043a\u0430\u043d\u044c\u0438;\n\n\n\n\u042d\u0441\u0442\u0443\u043f\u0438\u043d\u044c\u044f\u043d \u0438 \u0420\u0430\u0431\u044c\u043e \u0441\u043e\u0437\u0434\u0430\u0432\u0430\u043b\u0438 \u043c\u043e\u043c\u0435\u043d\u0442\u044b, \u043d\u043e \u0430\u0442\u0430\u043a\u0430 \u0433\u043e\u0441\u0442\u0435\u0439 \u0431\u044b\u043b\u0430 \u043d\u0435\u044d\u0444\u0444\u0435\u043a\u0442\u0438\u0432\u043d\u043e\u0439;\n\n\n\n\u0437\u0430\u043c\u0435\u043d\u044b \u0421\u0430\u0440\u0440\u0438 \u0443\u0441\u0438\u043b\u0438\u043b\u0438 \u0434\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u043d\u0430 \u0444\u043b\u0430\u043d\u0433\u0430\u0445;\n\n\n\n\u0414\u0437\u0430\u043a\u043a\u0430\u043d\u044c\u0438 \u0437\u0430\u0431\u0438\u043b \u0440\u0435\u0448\u0430\u044e\u0449\u0438\u0439 \u0433\u043e\u043b \u0433\u043e\u043b\u043e\u0432\u043e\u0439 \u043f\u043e\u0441\u043b\u0435 \u0443\u0433\u043b\u043e\u0432\u043e\u0433\u043e \u0422\u0430\u0432\u0430\u0440\u0435\u0448\u0430;\n\n\n\n\u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u0432\u044b\u0448\u0435\u043b \u0432 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u044c\u0444\u0438\u043d\u0430\u043b \u041a\u0443\u0431\u043a\u0430 \u0418\u0442\u0430\u043b\u0438\u0438, \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb \u0432\u044b\u0431\u044b\u0432\u0430\u0435\u0442 \u0438\u0437 \u0442\u0443\u0440\u043d\u0438\u0440\u0430.\n\n\n\n\n\u0420\u0430\u043d\u0435\u0435\u00a0Kursiv Uzbekistan\u00a0\u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e \u00ab\u041c\u0438\u043b\u0430\u043d\u00bb\u00a0\u0434\u043e\u043c\u0430 \u043e\u0431\u044b\u0433\u0440\u0430\u043b\u00a0\u00ab\u041b\u0430\u0446\u0438\u043e\u00bb \u0432 13-\u043c \u0442\u0443\u0440\u0435\u00a0\u0421\u0435\u0440\u0438\u0438 \u0410.The post \u041b\u0430\u0446\u0438\u043e \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435 \u0432\u044b\u0440\u0432\u0430\u043b \u043f\u043e\u0431\u0435\u0434\u0443 \u043d\u0430\u0434 \u041c\u0438\u043b\u0430\u043d\u043e\u043c \u0432 \u043a\u0443\u0431\u043a\u043e\u0432\u043e...",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/laczio-v-konczovke-vyrval-pobedu-nad-milanom-v-kubkovom-matche/?utm_source=rss&utm_medium=rss&utm_campaign=laczio-v-konczovke-vyrval-pobedu-nad-milanom-v-kubkovom-matche",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-04T21:58:54+00:00",
-        "published_ts": 1764885534.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "b44293fd5974dc1f56a4325e4a97f47d",
-        "title": "\u041c\u0430\u043d\u0447\u0435\u0441\u0442\u0435\u0440 \u042e\u043d\u0430\u0439\u0442\u0435\u0434 \u0443\u043f\u0443\u0441\u043a\u0430\u0435\u0442 \u043f\u043e\u0431\u0435\u0434\u0443: \u041c\u0430\u0433\u0430\u0441\u0441\u0430 \u0441\u043f\u0430\u0441 \u0412\u0435\u0441\u0442 \u0425\u044d\u043c \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435",
-        "summary": "\u0412 14-\u043c \u0442\u0443\u0440\u0435 \u0410\u041f\u041b \u00a0\u00ab\u041c\u0430\u043d\u0447\u0435\u0441\u0442\u0435\u0440 \u042e\u043d\u0430\u0439\u0442\u0435\u0434\u00bb \u043d\u0435 \u0443\u0434\u0435\u0440\u0436\u0430\u043b \u043f\u043e\u0431\u0435\u0434\u0443 \u043d\u0430\u0434 \u00ab\u0412\u0435\u0441\u0442 \u0425\u044d\u043c\u043e\u043c\u00bb. \u0425\u043e\u0437\u044f\u0435\u0432\u0430 \u0432\u044b\u0448\u043b\u0438 \u0432\u043f\u0435\u0440\u0435\u0434 \u0443\u0441\u0438\u043b\u0438\u044f\u043c\u0438 \u0414\u0438\u043e\u0433\u0443 \u0414\u0430\u043b\u043e\u0442\u0430, \u043d\u043e \u041c\u0430\u0433\u0430\u0441\u0441\u0430 \u0441\u0440\u0430\u0432\u043d\u044f\u043b \u0441\u0447\u0435\u0442 \u043f\u043e\u0441\u043b\u0435 \u0443\u0433\u043b\u043e\u0432\u043e\u0433\u043e.\n\n\n\n\u0425\u043e\u0434 \u043c\u0430\u0442\u0447\u0430\n\n\n\n\u0412\u0441\u0442\u0440\u0435\u0447\u0430 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b\u0430 \u0432 \u0432\u044b\u0441\u043e\u043a\u043e...",
-        "full_content": "\u0412 14-\u043c \u0442\u0443\u0440\u0435 \u0410\u041f\u041b \u00a0\u00ab\u041c\u0430\u043d\u0447\u0435\u0441\u0442\u0435\u0440 \u042e\u043d\u0430\u0439\u0442\u0435\u0434\u00bb \u043d\u0435 \u0443\u0434\u0435\u0440\u0436\u0430\u043b \u043f\u043e\u0431\u0435\u0434\u0443 \u043d\u0430\u0434 \u00ab\u0412\u0435\u0441\u0442 \u0425\u044d\u043c\u043e\u043c\u00bb. \u0425\u043e\u0437\u044f\u0435\u0432\u0430 \u0432\u044b\u0448\u043b\u0438 \u0432\u043f\u0435\u0440\u0435\u0434 \u0443\u0441\u0438\u043b\u0438\u044f\u043c\u0438 \u0414\u0438\u043e\u0433\u0443 \u0414\u0430\u043b\u043e\u0442\u0430, \u043d\u043e \u041c\u0430\u0433\u0430\u0441\u0441\u0430 \u0441\u0440\u0430\u0432\u043d\u044f\u043b \u0441\u0447\u0435\u0442 \u043f\u043e\u0441\u043b\u0435 \u0443\u0433\u043b\u043e\u0432\u043e\u0433\u043e.\n\n\n\n\u0425\u043e\u0434 \u043c\u0430\u0442\u0447\u0430\n\n\n\n\u0412\u0441\u0442\u0440\u0435\u0447\u0430 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b\u0430 \u0432 \u0432\u044b\u0441\u043e\u043a\u043e\u043c \u0442\u0435\u043c\u043f\u0435, \u0438 \u043e\u0431\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0430\u043a\u0442\u0438\u0432\u043d\u043e \u0437\u0430\u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u0438 \u0444\u043b\u0430\u043d\u0433\u0438. \u00ab\u0414\u044c\u044f\u0432\u043e\u043b\u044b\u00bb \u0447\u0430\u0449\u0435 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0438\u0440\u043e\u0432\u0430\u043b\u0438 \u043c\u044f\u0447, \u0441\u043e\u0437\u0434\u0430\u0432\u0430\u044f \u0434\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0447\u0435\u0440\u0435\u0437 \u0440\u044b\u0432\u043a\u0438 \u0414\u0438\u0430\u043b\u043b\u043e \u0438 \u041c\u0431\u0435\u0443\u043c\u043e. \u041e\u0434\u043d\u0430\u043a\u043e \u043e\u0431\u043e\u0440\u043e\u043d\u0430 \u00ab\u043c\u043e\u043b\u043e\u0442\u043e\u0431\u043e\u0439\u0446\u0435\u0432\u00bb \u0432\u0441\u0442\u0443\u043f\u0430\u043b\u0430 \u0432 \u043e\u0442\u0431\u043e\u0440 \u0432\u043e\u0432\u0440\u0435\u043c\u044f. \u041f\u0435\u0440\u0432\u044b\u0439 \u0442\u0430\u0439\u043c \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u043b\u0441\u044f \u0431\u0435\u0437 \u0433\u043e\u043b\u043e\u0432, \u0445\u043e\u0442\u044f \u043c\u043e\u043c\u0435\u043d\u0442\u044b \u0443 \u041a\u0443\u043d\u044c\u0438 \u0438 \u0417\u0438\u0440\u043a\u0437\u0435\u0435 \u0432\u043e\u0437\u043d\u0438\u043a\u0430\u043b\u0438 \u0440\u0435\u0433\u0443\u043b\u044f\u0440\u043d\u043e.\n\n\n\n\u041f\u043e\u0441\u043b\u0435 \u043f\u0435\u0440\u0435\u0440\u044b\u0432\u0430 \u0445\u043e\u0437\u044f\u0435\u0432\u0430 \u043f\u043e\u0432\u044b\u0441\u0438\u043b\u0438 \u0438\u043d\u0442\u0435\u043d\u0441\u0438\u0432\u043d\u043e\u0441\u0442\u044c. \u041d\u0430 59-\u0439 \u043c\u0438\u043d\u0443\u0442\u0435 \u0414\u0430\u043b\u043e\u0442 \u043e\u0442\u043a\u0440\u044b\u043b \u0441\u0447\u0435\u0442. \u0414\u0438\u0430\u043b\u043b\u043e \u043f\u0440\u043e\u0441\u0442\u0440\u0435\u043b\u0438\u043b \u0432 \u0448\u0442\u0440\u0430\u0444\u043d\u0443\u044e, \u0441\u0435\u0440\u0438\u044f \u0440\u0438\u043a\u043e\u0448\u0435\u0442\u043e\u0432 \u0432\u044b\u0432\u0435\u043b\u0430 \u043c\u044f\u0447 \u043a \u0414\u0430\u043b\u043e\u0442\u0443, \u0438 \u0442\u043e\u0442 \u043f\u0440\u043e\u0431\u0438\u043b \u0442\u043e\u0447\u043d\u043e \u0432 \u0434\u0430\u043b\u044c\u043d\u0438\u0439 \u0443\u0433\u043e\u043b. \u00ab\u042e\u043d\u0430\u0439\u0442\u0435\u0434\u00bb \u0441\u0442\u0440\u0435\u043c\u0438\u043b\u0441\u044f \u0440\u0430\u0437\u0432\u0438\u0442\u044c \u043f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u043e, \u043d\u043e \u0433\u043e\u0441\u0442\u0438 \u0432\u044b\u0434\u0435\u0440\u0436\u0430\u043b\u0438 \u0434\u0430\u0432\u043b\u0435\u043d\u0438\u0435.\n\n\n\n\n\n\n\n\u0417\u0430\u043c\u0435\u043d\u044b \u043f\u0440\u0438\u0434\u0430\u043b\u0438 \u0438\u0433\u0440\u0435 \u043b\u043e\u043d\u0434\u043e\u043d\u0446\u0435\u0432 \u0441\u0432\u0435\u0436\u0435\u0441\u0442\u0438. \u041a\u0430\u043d\u0442\u0435 \u0438 \u0418\u0440\u0432\u0438\u043d\u0433 \u0443\u0441\u0438\u043b\u0438\u043b\u0438 \u0446\u0435\u043d\u0442\u0440, \u0438 \u043a\u043e\u043c\u0430\u043d\u0434\u0430 \u0441\u043c\u0435\u0441\u0442\u0438\u043b\u0430 \u0430\u043a\u0446\u0435\u043d\u0442 \u0432 \u0430\u0442\u0430\u043a\u0443. \u041f\u043e\u0441\u043b\u0435 \u0443\u0433\u043b\u043e\u0432\u043e\u0433\u043e \u043e\u0442 \u0411\u043e\u0443\u044d\u043d\u0430 \u043c\u044f\u0447 \u043e\u0442 \u041c\u0430\u0437\u0440\u0430\u0443\u0438 \u043e\u0442\u0441\u043a\u043e\u0447\u0438\u043b \u043a \u041c\u0430\u0433\u0430\u0441\u0441\u0430, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0432 \u043a\u0430\u0441\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0431\u0438\u043b \u0432 \u043f\u0443\u0441\u0442\u043e\u0439 \u0443\u0433\u043e\u043b \u0438 \u0441\u0440\u0430\u0432\u043d\u044f\u043b \u0441\u0447\u0435\u0442.\n\n\n\n\n\n\n\n\u0412 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435 \u043e\u0431\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u043f\u044b\u0442\u0430\u043b\u0438\u0441\u044c \u0440\u0435\u0448\u0438\u0442\u044c \u0438\u0441\u0445\u043e\u0434 \u0432\u0441\u0442\u0440\u0435\u0447\u0438, \u043d\u043e \u0442\u043e\u0447\u043d\u043e\u0441\u0442\u0438 \u0432 \u0440\u0435\u0448\u0430\u044e\u0449\u0438\u0445 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f\u0445 \u043d\u0435 \u0445\u0432\u0430\u0442\u0438\u043b\u043e.\n\n\n\n\u0418\u0442\u043e\u0433\u0438 \u043c\u0430\u0442\u0447\u0430 \u2014 \u043a\u043b\u044e\u0447\u0435\u0432\u044b\u0435 \u043c\u043e\u043c\u0435\u043d\u0442\u044b:\n\n\n\n\n\u0433\u043e\u043b \u0414\u0430\u043b\u043e\u0442\u0430 \u043f\u043e\u0441\u043b\u0435 \u0440\u0438\u043a\u043e\u0448\u0435\u0442\u043e\u0432 \u0432\u044b\u0432\u0435\u043b \u00ab\u041c\u042e\u00bb \u0432\u043f\u0435\u0440\u0435\u0434;\n\n\n\n\u0437\u0430\u043c\u0435\u043d\u044b \u0443\u0441\u0438\u043b\u0438\u043b\u0438 \u0438\u0433\u0440\u0443 \u00ab\u0412\u0435\u0441\u0442 \u0425\u044d\u043c\u0430\u00bb;\n\n\n\n\u041c\u0430\u0433\u0430\u0441\u0441\u0430 \u0441\u0440\u0430\u0432\u043d\u044f\u043b \u0441\u0447\u0435\u0442 \u043f\u043e\u0441\u043b\u0435 \u0443\u0433\u043b\u043e\u0432\u043e\u0433\u043e;\n\n\n\n\u043e\u0431\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0430\u043a\u0442\u0438\u0432\u043d\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043b\u0438 \u0444\u043b\u0430\u043d\u0433\u0438;\n\n\n\n\u00ab\u042e\u043d\u0430\u0439\u0442\u0435\u0434\u00bb \u0443\u043f\u0443\u0441\u0442\u0438\u043b \u043f\u043e\u0431\u0435\u0434\u0443 \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435.\n\n\n\n\n\u0420\u0430\u043d\u0435\u0435 Kursiv Uzbekistan\u00a0\u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e\u00a0\u0432 \u043c\u0430\u0442\u0447\u0435 13-\u0433\u043e \u0442\u0443\u0440\u0430 \u00a0\u0410\u041f\u041b\u00a0\u00ab\u041c\u0430\u043d\u0447\u0435\u0441\u0442\u0435\u0440 \u042e\u043d\u0430\u0439\u0442\u0435\u0434\u00bb\u00a0\u0432 \u0433\u043e\u0441\u0442\u044f\u0445 \u043e\u0434\u043e\u043b\u0435\u043b\u00a0\u00ab\u041a\u0440\u0438\u0441\u0442\u0430\u043b \u041f\u044d\u043b\u0430\u0441\u00bb.The post \u041c\u0430\u043d\u0447\u0435\u0441\u0442\u0435\u0440 \u042e\u043d\u0430\u0439\u0442\u0435\u0434 \u0443\u043f\u0443\u0441\u043a\u0430\u0435\u0442 \u043f\u043e\u0431\u0435\u0434\u0443: \u041c\u0430\u0433\u0430\u0441\u0441\u0430 \u0441\u043f\u0430\u0441 \u0412\u0435\u0441\u0442 \u0425\u044d\u043c \u0432 \u043a\u043e\u043d\u0446\u043e\u0432\u043a\u0435 first appeared on Kursiv Media \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d.",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/manchester-yunajted-upuskaet-pobedu-magassa-spas-vest-hem-v-konczovke/?utm_source=rss&utm_medium=rss&utm_campaign=manchester-yunajted-upuskaet-pobedu-magassa-spas-vest-hem-v-konczovke",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-04T21:53:39+00:00",
-        "published_ts": 1764885219.0,
-        "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "acce0ad59483206a9837047a593c5bd7",
-        "title": "\u041d\u043e\u0434\u0438\u0440\u0431\u0435\u043a \u0410\u0431\u0434\u0443\u0441\u0430\u0442\u0442\u043e\u0440\u043e\u0432 \u2013 \u0447\u0435\u043c\u043f\u0438\u043e\u043d London Chess Classic",
-        "summary": "\u0412 \u041b\u043e\u043d\u0434\u043e\u043d\u0435 \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u043b\u0441\u044f \u043a\u0440\u0443\u043f\u043d\u044b\u0439 \u0448\u0430\u0445\u043c\u0430\u0442\u043d\u044b\u0439 \u0442\u0443\u0440\u043d\u0438\u0440 London Chess Classic, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043e\u0437\u043d\u0430\u043c\u0435\u043d\u043e\u0432\u0430\u043b\u0441\u044f \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u043c \u0443\u0441\u043f\u0435\u0445\u043e\u043c \u0434\u043b\u044f \u0443\u0437\u0431\u0435\u043a\u0441\u043a\u043e\u0433\u043e \u0433\u0440\u043e\u0441\u0441\u043c\u0435\u0439\u0441\u0442\u0435\u0440\u0430 \u041d\u043e\u0434\u0438\u0440\u0431\u0435\u043a\u0430 \u0410\u0431\u0434\u0443\u0441\u0430\u0442\u0442\u043e\u0440\u043e\u0432\u0430. \u041e\u043d \u043f\u0440\u043e\u0432\u0435\u043b \u043f\u043e\u0435\u0434\u0438\u043d\u043a\u0438 \u0432 \u0434\u043e\u043c\u0438\u043d\u0438\u0440\u0443\u044e\u0449\u0435\u043c \u0441...",
-        "full_content": "\u0412 \u041b\u043e\u043d\u0434\u043e\u043d\u0435 \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u043b\u0441\u044f \u043a\u0440\u0443\u043f\u043d\u044b\u0439 \u0448\u0430\u0445\u043c\u0430\u0442\u043d\u044b\u0439 \u0442\u0443\u0440\u043d\u0438\u0440 London Chess Classic, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043e\u0437\u043d\u0430\u043c\u0435\u043d\u043e\u0432\u0430\u043b\u0441\u044f \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u043c \u0443\u0441\u043f\u0435\u0445\u043e\u043c \u0434\u043b\u044f \u0443\u0437\u0431\u0435\u043a\u0441\u043a\u043e\u0433\u043e \u0433\u0440\u043e\u0441\u0441\u043c\u0435\u0439\u0441\u0442\u0435\u0440\u0430 \u041d\u043e\u0434\u0438\u0440\u0431\u0435\u043a\u0430 \u0410\u0431\u0434\u0443\u0441\u0430\u0442\u0442\u043e\u0440\u043e\u0432\u0430. \u041e\u043d \u043f\u0440\u043e\u0432\u0435\u043b \u043f\u043e\u0435\u0434\u0438\u043d\u043a\u0438 \u0432 \u0434\u043e\u043c\u0438\u043d\u0438\u0440\u0443\u044e\u0449\u0435\u043c \u0441\u0442\u0438\u043b\u0435 \u0438 \u0434\u043e\u0441\u0440\u043e\u0447\u043d\u043e \u0437\u0430\u0432\u043e\u0435\u0432\u0430\u043b \u0442\u0438\u0442\u0443\u043b \u0447\u0435\u043c\u043f\u0438\u043e\u043d\u0430.\n\n\n\n\u0423\u0437\u0431\u0435\u043a\u0441\u043a\u0438\u0439 \u0433\u0440\u043e\u0441\u0441\u043c\u0435\u0439\u0441\u0442\u0435\u0440 \u0432\u044b\u0438\u0433\u0440\u0430\u043b \u0448\u0435\u0441\u0442\u044c \u043f\u0430\u0440\u0442\u0438\u0439 \u043f\u043e\u0434\u0440\u044f\u0434, \u0441\u043e\u0437\u0434\u0430\u0432 \u043a\u043e\u043c\u0444\u043e\u0440\u0442\u043d\u044b\u0439 \u043e\u0442\u0440\u044b\u0432 \u0432 \u0434\u0432\u0430 \u043e\u0447\u043a\u0430 \u043e\u0442 \u0431\u043b\u0438\u0436\u0430\u0439\u0448\u0438\u0445 \u043f\u0440\u0435\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u0439. \u0415\u0433\u043e \u0443\u0432\u0435\u0440\u0435\u043d\u043d\u0430\u044f \u0438\u0433\u0440\u0430 \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u043b\u0430 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044e \u0432 \u0442\u0443\u0440\u043d\u0438\u0440\u043d\u043e\u0439 \u0442\u0430\u0431\u043b\u0438\u0446\u0435 \u043e\u0442 \u043d\u0430\u0447\u0430\u043b\u0430 \u0434\u043e \u043a\u043e\u043d\u0446\u0430.\n\n\n\n\u0427\u0435\u043c\u043f\u0438\u043e\u043d \u0437\u0430 \u0442\u0443\u0440 \u0434\u043e \u0444\u0438\u043d\u0438\u0448\u0430\n\n\n\n\u0412 \u043f\u0440\u0435\u0434\u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u043c \u0442\u0443\u0440\u0435 \u0443\u0437\u0431\u0435\u043a\u0441\u043a\u0438\u0439 \u0448\u0430\u0445\u043c\u0430\u0442\u0438\u0441\u0442 \u0441\u044b\u0433\u0440\u0430\u043b \u0432\u043d\u0438\u0447\u044c\u044e \u0441 \u0410\u043b\u0438\u0440\u0435\u0437\u043e\u0439 \u0424\u0438\u0440\u0443\u0434\u0436\u0435\u0439. \u042d\u0442\u043e\u0442 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u043e\u043a\u0430\u0437\u0430\u043b\u0441\u044f \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u044b\u043c, \u0447\u0442\u043e\u0431\u044b \u043e\u0444\u043e\u0440\u043c\u0438\u0442\u044c \u0447\u0435\u043c\u043f\u0438\u043e\u043d\u0441\u0442\u0432\u043e \u0443\u0436\u0435 \u0437\u0430 \u0442\u0443\u0440 \u0434\u043e \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u0438\u044f \u0441\u043e\u0440\u0435\u0432\u043d\u043e\u0432\u0430\u043d\u0438\u0439.\n\n\n\n\u0418\u0442\u043e\u0433\n\n\n\n\n\u0428\u0435\u0441\u0442\u044c \u043f\u043e\u0431\u0435\u0434 \u043f\u043e\u0434\u0440\u044f\u0434\n\n\n\n\u041e\u0442\u0440\u044b\u0432 \u0432 \u0434\u0432\u0430 \u043e\u0447\u043a\u0430 \u043e\u0442 \u0431\u043b\u0438\u0436\u0430\u0439\u0448\u0438\u0445 \u0441\u043e\u043f\u0435\u0440\u043d\u0438\u043a\u043e\u0432\n\n\n\n\u041d\u0438\u0447\u044c\u0435\u0439 \u0441 \u0424\u0438\u0440\u0443\u0434\u0436\u0435\u0439 \u043e\u0444\u043e\u0440\u043c\u0438\u043b \u0442\u0438\u0442\u0443\u043b \u0434\u043e\u0441\u0440\u043e\u0447\u043d\u043e\n\n\n\n\n\u0420\u0430\u043d\u0435\u0435 Kursiv Uzbekistan\u00a0\u043f\u0438\u0441\u0430\u043b, \u0447\u0442\u043e \u0416\u0430\u0432\u043e\u0445\u0438\u0440 \u0421\u0438\u043d\u0434\u0430\u0440\u043e\u0432 \u0441\u0442\u0430\u043b \u0441\u0430\u043c\u044b\u043c \u043c\u043e\u043b\u043e\u0434\u044b\u043c \u043f\u043e\u0431\u0435\u0434\u0438\u0442\u0435\u043b\u0435\u043c \u041a\u0443\u0431\u043a\u0430 \u043c\u0438\u0440\u0430 \u043f\u043e \u0448\u0430\u0445\u043c\u0430\u0442\u0430\u043c.The post \u041d\u043e\u0434\u0438\u0440\u0431\u0435\u043a \u0410\u0431\u0434\u0443\u0441\u0430\u0442\u0442\u043e\u0440\u043e\u0432 \u2013 \u0447\u0435\u043c\u043f\u0438\u043e\u043d London Chess Classic first appeared on Kursiv Media \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d.",
-        "source": "Kursiv.uz",
-        "source_url": "https://uz.kursiv.media/2025-12-05/nodirbek-abdusattorov-chempion-london-chess-classic/?utm_source=rss&utm_medium=rss&utm_campaign=nodirbek-abdusattorov-chempion-london-chess-classic",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-04T19:20:52+00:00",
-        "published_ts": 1764876052.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "246aaf6b5d1250ee987ec7dac79e6ced",
@@ -1851,7 +1780,10 @@
         "published_at": "2025-12-04T22:50:00+05:00",
         "published_ts": 1764870600.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "c219a6e9285a19cc566a0bf7d75b07d3",
@@ -1865,7 +1797,10 @@
         "published_at": "2025-12-04T22:11:00+05:00",
         "published_ts": 1764868260.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "5189fe21e54417b20ec38a50a5080d72",
@@ -1879,7 +1814,10 @@
         "published_at": "2025-12-04T22:04:00+05:00",
         "published_ts": 1764867840.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "9b27d96482da4f3f73a5c4a820b52107",
@@ -1893,7 +1831,10 @@
         "published_at": "2025-12-04T16:54:00+00:00",
         "published_ts": 1764867240.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "08716c7e070f8d4c63b67cce81b3090f",
@@ -1907,7 +1848,10 @@
         "published_at": "2025-12-04T21:52:00+05:00",
         "published_ts": 1764867120.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "a288c2abeefd3551a341ad92ab4e31a7",
@@ -1921,7 +1865,10 @@
         "published_at": "2025-12-04T21:40:00+05:00",
         "published_ts": 1764866400.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "bfa207c3d996b0e3c0acf6874b9fe3fc",
@@ -1935,7 +1882,10 @@
         "published_at": "2025-12-04T21:30:00+05:00",
         "published_ts": 1764865800.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "bb01eb6d540a74d15e0df99c1c2a3298",
@@ -1949,7 +1899,10 @@
         "published_at": "2025-12-04T16:29:00+00:00",
         "published_ts": 1764865740.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "350143790728947fa9bd9b2c2732550e",
@@ -1963,7 +1916,10 @@
         "published_at": "2025-12-04T21:18:00+05:00",
         "published_ts": 1764865080.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "7c581e4ef76e7d11e1c72dff9e5ccee1",
@@ -1977,7 +1933,10 @@
         "published_at": "2025-12-04T21:11:00+05:00",
         "published_ts": 1764864660.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "8cffb21dbfcb750ab16735f5e3c1c335",
@@ -1991,7 +1950,10 @@
         "published_at": "2025-12-04T21:04:00+05:00",
         "published_ts": 1764864240.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "d392063d14143193393aeee110609804",
@@ -2005,7 +1967,10 @@
         "published_at": "2025-12-04T16:00:00+00:00",
         "published_ts": 1764864000.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "518deb294bdcc41e1b45b8f24bc80c9f",
@@ -2019,7 +1984,10 @@
         "published_at": "2025-12-04T15:06:00+00:00",
         "published_ts": 1764860760.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "ee13d913d14d237b04efe48acc51e48e",
@@ -2033,7 +2001,10 @@
         "published_at": "2025-12-04T15:05:00+00:00",
         "published_ts": 1764860700.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "7d75f71adc79741d99fd0e38f5b22888",
@@ -2047,7 +2018,10 @@
         "published_at": "2025-12-04T14:47:00+00:00",
         "published_ts": 1764859620.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "b5e59b222f22f7d7858deb7d40fbd17f",
@@ -2061,7 +2035,10 @@
         "published_at": "2025-12-04T14:33:00+00:00",
         "published_ts": 1764858780.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "1fbc2ada5e5af5c766a6d8f42f1a6859",
@@ -2075,7 +2052,10 @@
         "published_at": "2025-12-04T14:15:00+00:00",
         "published_ts": 1764857700.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "86b132cfb36a65a362cb683e6d729037",
@@ -2089,7 +2069,10 @@
         "published_at": "2025-12-04T14:05:00+00:00",
         "published_ts": 1764857100.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "4ae297cf84863cc24a51e4bae6654412",
@@ -2103,21 +2086,10 @@
         "published_at": "2025-12-04T13:41:03+00:00",
         "published_ts": 1764855663.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "f6288659240236307c73807314e3ea06",
-        "title": "Toshkentdan Sirdaryoga ko\u2018chayotgan korxonalar uchun ayrim yerlar chegirma bilan beriladi",
-        "summary": "Ularga 10 mlrd so\u2018mgacha imtiyozli kredit berilib, temir yo\u2018li orqali olib kelinadigan xomashyo uchun arzonlashtirilgan tariflar qo\u2018llaniladi.",
-        "full_content": "Ularga 10 mlrd so\u2018mgacha imtiyozli kredit berilib, temir yo\u2018li orqali olib kelinadigan xomashyo uchun arzonlashtirilgan tariflar qo\u2018llaniladi.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/oz/2025/12/04/lands-industrial-zone/",
-        "category": "Business",
-        "language": "UZ",
-        "published_at": "2025-12-04T13:32:00+00:00",
-        "published_ts": 1764855120.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "df6369d12a341c8135b7d1a564220f95",
@@ -2131,7 +2103,10 @@
         "published_at": "2025-12-04T13:30:00+00:00",
         "published_ts": 1764855000.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "7093020853438baf072e0f13f71ea446",
@@ -2145,21 +2120,10 @@
         "published_at": "2025-12-04T13:07:55+00:00",
         "published_ts": 1764853675.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "a9373e72d490e469c35f0b4cd530cd76",
-        "title": "Gulistonda 5 ming ish o\u2018rinli O\u2018zbekiston\u00a0\u2014 SHHT savdo va\u00a0sanoat zonasi tashkil etiladi",
-        "summary": "Obyektlar tayyor loyiha sifatida tadbirkorlarga sanoat ipotekasi yoki lizing asosida beriladi.",
-        "full_content": "Obyektlar tayyor loyiha sifatida tadbirkorlarga sanoat ipotekasi yoki lizing asosida beriladi.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/oz/2025/12/04/commercial-zone/",
-        "category": "Economy",
-        "language": "UZ",
-        "published_at": "2025-12-04T13:02:00+00:00",
-        "published_ts": 1764853320.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "c1edb8e2ac1adc435f8679aa521ac9e9",
@@ -2173,7 +2137,10 @@
         "published_at": "2025-12-04T12:23:00+00:00",
         "published_ts": 1764850980.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "b8c75bbf370eecf6b9776ea0fd27a86d",
@@ -2187,7 +2154,10 @@
         "published_at": "2025-12-04T12:08:40+00:00",
         "published_ts": 1764850120.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "678a9d846de2c88b8e8b0ffd99f303f9",
@@ -2201,21 +2171,10 @@
         "published_at": "2025-12-04T11:58:00+00:00",
         "published_ts": 1764849480.0,
         "image_url": null,
-        "is_breaking": false
-      },
-      {
-        "id": "2a6a5049254102a36c1c24226a1d6b23",
-        "title": "\u0426\u0435\u043d\u0442\u0440 \u043f\u043e\u00a0\u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438 \u0434\u043e\u0440\u043e\u0436\u043d\u043e\u0433\u043e \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u0441\u043e\u043a\u0440\u0430\u0442\u0438\u0442 \u043f\u0440\u043e\u0431\u043a\u0438 \u0432\u00a0\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435 \u043d\u0430\u00a030\u221240% \u2014 \u0445\u043e\u043a\u0438\u043c",
-        "summary": "\u0426\u0435\u043d\u0442\u0440 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043c\u0430\u0441\u0442\u0435\u0440-\u043f\u043b\u0430\u043d \u0441\u0442\u043e\u043b\u0438\u0447\u043d\u044b\u0445 \u0434\u043e\u0440\u043e\u0433 \u0441\u00a0\u0443\u0447\u0435\u0442\u043e\u043c \u0432\u0441\u0435\u0445 \u0432\u0438\u0434\u043e\u0432 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u0430. \u0412\u044b\u0431\u0440\u043e\u0441\u044b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u0439 \u043f\u0440\u0438 \u044d\u0442\u043e\u043c \u0441\u043d\u0438\u0437\u044f\u0442\u0441\u044f \u0434\u043e\u00a015%.",
-        "full_content": "\u0426\u0435\u043d\u0442\u0440 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043c\u0430\u0441\u0442\u0435\u0440-\u043f\u043b\u0430\u043d \u0441\u0442\u043e\u043b\u0438\u0447\u043d\u044b\u0445 \u0434\u043e\u0440\u043e\u0433 \u0441\u00a0\u0443\u0447\u0435\u0442\u043e\u043c \u0432\u0441\u0435\u0445 \u0432\u0438\u0434\u043e\u0432 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u0430. \u0412\u044b\u0431\u0440\u043e\u0441\u044b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u0439 \u043f\u0440\u0438 \u044d\u0442\u043e\u043c \u0441\u043d\u0438\u0437\u044f\u0442\u0441\u044f \u0434\u043e\u00a015%.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/ru/2025/12/04/tashkent/",
-        "category": "Business",
-        "language": "RU",
-        "published_at": "2025-12-04T11:56:00+00:00",
-        "published_ts": 1764849360.0,
-        "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "5c7c0271fa53c16d544427a7db6f5721",
@@ -2229,7 +2188,10 @@
         "published_at": "2025-12-04T11:26:04+00:00",
         "published_ts": 1764847564.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "8398a67391379ac24e351bab4f18c739",
@@ -2243,7 +2205,10 @@
         "published_at": "2025-12-04T10:40:28+00:00",
         "published_ts": 1764844828.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "4199ab9b5326edf06f450d0948e6985a",
@@ -2257,7 +2222,10 @@
         "published_at": "2025-12-04T08:23:43+00:00",
         "published_ts": 1764836623.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "f291b82f0354ae560bdd0d672a504782",
@@ -2271,7 +2239,10 @@
         "published_at": "2025-12-04T07:18:00+00:00",
         "published_ts": 1764832680.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "4a8eec215c72e090490481acc5e8b259",
@@ -2285,7 +2256,10 @@
         "published_at": "2025-12-04T07:16:07+00:00",
         "published_ts": 1764832567.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "c5bc8e65fa6fd8e47b68f8e180465c35",
@@ -2299,7 +2273,10 @@
         "published_at": "2025-12-04T06:49:02+00:00",
         "published_ts": 1764830942.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "337a6066f0cf31934160b52f8d79eefa",
@@ -2313,7 +2290,10 @@
         "published_at": "2025-12-04T06:16:03+00:00",
         "published_ts": 1764828963.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "dbffe49fc58b94808c11e386593991e2",
@@ -2328,7 +2308,10 @@
         "published_ts": 1764806400.0,
         "image_url": null,
         "is_breaking": false,
-        "is_official": true
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
       },
       {
         "id": "4de7ce78d0901db877bfe5334876559b",
@@ -2339,11 +2322,14 @@
         "source_url": "https://www.worldbank.org/en/news/all?count_exact=Uzbekistan&lang_exact=English&displayconttype_exact=Feature%20Story",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-05T06:06:55.924347",
-        "published_ts": 1764742015.924344,
+        "published_at": "2025-12-05T07:06:16.921247",
+        "published_ts": 1764745576.921244,
         "image_url": null,
         "is_breaking": false,
-        "is_official": true
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
       },
       {
         "id": "47ba9efdb19af7bf5091131557bcd301",
@@ -2357,7 +2343,10 @@
         "published_at": "2025-12-02T09:30:00+00:00",
         "published_ts": 1764667800.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "f743af1dc0bc2d85edceda1ba5f619ca",
@@ -2371,7 +2360,10 @@
         "published_at": "2025-12-02T09:00:00+00:00",
         "published_ts": 1764666000.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "eecc4fa4dd1a55271b9f031167dd3cb5",
@@ -2385,7 +2377,10 @@
         "published_at": "2025-12-02T08:17:00+00:00",
         "published_ts": 1764663420.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "80fe14eb616d5a831be1f65360257316",
@@ -2399,7 +2394,10 @@
         "published_at": "2025-12-02T08:13:00+00:00",
         "published_ts": 1764663180.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "82c35eb9fd50c3ccfc1d6b6757431c8f",
@@ -2410,11 +2408,14 @@
         "source_url": "https://www.worldbank.org/en/news/all?count_exact=Uzbekistan&displayconttype_exact=Results&lang_exact=English",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-05T06:06:55.924368",
-        "published_ts": 1764655615.924367,
+        "published_at": "2025-12-05T07:06:16.921265",
+        "published_ts": 1764659176.921265,
         "image_url": null,
         "is_breaking": false,
-        "is_official": true
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
       },
       {
         "id": "d6232ddcfc885f7c99e15ea870721f7f",
@@ -2428,7 +2429,10 @@
         "published_at": "2025-12-01T15:44:00+00:00",
         "published_ts": 1764603840.0,
         "image_url": null,
-        "is_breaking": false
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "6a95aa3cb3607e0eba822d4e9b3a4d5d",
@@ -2439,11 +2443,14 @@
         "source_url": "https://www.ifc.org/en/stories/2025/transforming-dialysis-care",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-05T06:06:55.924407",
-        "published_ts": 1764569215.924407,
+        "published_at": "2025-12-05T07:06:16.921311",
+        "published_ts": 1764572776.921311,
         "image_url": null,
         "is_breaking": false,
-        "is_official": true
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
       },
       {
         "id": "8af1cfd47fbafb238e3e933f4233a47e",
@@ -2454,11 +2461,190 @@
         "source_url": "https://www.ifc.org/en/stories/2025/breaking-barriers",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-05T06:06:55.924433",
-        "published_ts": 1764396415.924432,
+        "published_at": "2025-12-05T07:06:16.921335",
+        "published_ts": 1764399976.921335,
         "image_url": null,
         "is_breaking": false,
-        "is_official": true
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
+      },
+      {
+        "id": "f21a1ea8eb8e527b7f13b1d8e710f69c",
+        "title": "Uzbekistan launches Zero Bureaucracy program, announces Paperless Government system",
+        "summary": "Uzbekistan aims to\u00a0become a\u00a0country with modern, human-centered governance and zero bureaucracy by\u00a02030, president Mirziyoyev said. Paperless Government will be\u00a0introduced, with 95% of\u00a0government serv...",
+        "full_content": "Uzbekistan aims to\u00a0become a\u00a0country with modern, human-centered governance and zero bureaucracy by\u00a02030, president Mirziyoyev said. Paperless Government will be\u00a0introduced, with 95% of\u00a0government services going online. Citizens will be\u00a0rewarded for best proposals. UAE experience will be\u00a0applied.",
+        "source": "Gazeta.uz",
+        "source_url": "https://www.gazeta.uz/en/2025/11/29/zero-bureaucracy/",
+        "category": "Regulation",
+        "language": "EN",
+        "published_at": "2025-11-29T04:55:00+00:00",
+        "published_ts": 1764392100.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "1bd30ba26fe02cdf5498fc0731a528e2",
+        "title": "The Bank Supervision Committee reviewed more than forty issues in October of the current year",
+        "summary": "The Bank Supervision Committee reviewed more than forty issues in October of the current year",
+        "full_content": "",
+        "source": "CBU",
+        "source_url": "https://cbu.uz/en/press_center/news/3088055/",
+        "category": "Banking",
+        "language": "EN",
+        "published_at": "2025-11-28T00:00:00",
+        "published_ts": 1764288000.0,
+        "image_url": null,
+        "is_breaking": false,
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
+      },
+      {
+        "id": "bcb574aeb3ed250e4b2043ac77297e53",
+        "title": "International Roundtable Held on \u201cThe Importance of a Floating Exchange Rate in an Inflation Targeting Regime\u201d",
+        "summary": "International Roundtable Held on \u201cThe Importance of a Floating Exchange Rate in an Inflation Targeting Regime\u201d",
+        "full_content": "",
+        "source": "CBU",
+        "source_url": "https://cbu.uz/en/press_center/news/3087551/",
+        "category": "Banking",
+        "language": "EN",
+        "published_at": "2025-11-28T00:00:00",
+        "published_ts": 1764288000.0,
+        "image_url": null,
+        "is_breaking": false,
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
+      },
+      {
+        "id": "98e1045f396c9b2bc8938ae20b3b1005",
+        "title": "Javokhir Sindarov becomes youngest FIDE World Cup Champion",
+        "summary": "Nineteen-year-old Uzbek grandmaster Javokhir Sindarov won the Chess World Cup in\u00a0India, becoming the youngest champion in\u00a0the tournament\u2019s history. In\u00a0the final match, he\u00a0defeated China\u2019s Wei Yi. Sind...",
+        "full_content": "Nineteen-year-old Uzbek grandmaster Javokhir Sindarov won the Chess World Cup in\u00a0India, becoming the youngest champion in\u00a0the tournament\u2019s history. In\u00a0the final match, he\u00a0defeated China\u2019s Wei Yi. Sindarov is\u00a0also the first player from Uzbekistan to\u00a0qualify for the Candidates Tournament.",
+        "source": "Gazeta.uz",
+        "source_url": "https://www.gazeta.uz/en/2025/11/27/sindarov-chess-uzbekistan/",
+        "category": "General",
+        "language": "EN",
+        "published_at": "2025-11-27T03:56:00+00:00",
+        "published_ts": 1764215760.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "a6686e9ad218cd50e4e430144e76dc9e",
+        "title": "Joint projects on\u00a0critical raw materials, border management and Aral Sea signed at\u00a0Central Asia\u00a0\u2014 EU\u00a0economic forum",
+        "summary": "The 3rd Central Asia\u00a0\u2014 EU\u00a0economic forum is\u00a0being held in\u00a0Tashkent on\u00a026 November. Talks focus on\u00a0critical raw materials, green energy and digital connectivity. Projects on\u00a0critical raw materials and ...",
+        "full_content": "The 3rd Central Asia\u00a0\u2014 EU\u00a0economic forum is\u00a0being held in\u00a0Tashkent on\u00a026 November. Talks focus on\u00a0critical raw materials, green energy and digital connectivity. Projects on\u00a0critical raw materials and the restoration of\u00a0degraded lands in\u00a0Aral Sea region were signed.",
+        "source": "Gazeta.uz",
+        "source_url": "https://www.gazeta.uz/en/2025/11/26/ca-eu/",
+        "category": "General",
+        "language": "EN",
+        "published_at": "2025-11-26T10:24:00+00:00",
+        "published_ts": 1764152640.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "d674c74dbc1f35edf23e15c0d54cc32d",
+        "title": "\u201cEU\u00a0and Central Asia deliver together\u201d\u00a0\u2014 EU\u00a0Commisioner Jozef S\u00edkela",
+        "summary": "EU\u00a0Commisioner for International Partnerships Jozef S\u00edkela in\u00a0his interview for Gazeta ahead of\u00a0EU Economic Forum and Trans-Caspian Corridor Investors Forum in\u00a0Tashkent shared why building the corrido...",
+        "full_content": "EU\u00a0Commisioner for International Partnerships Jozef S\u00edkela in\u00a0his interview for Gazeta ahead of\u00a0EU Economic Forum and Trans-Caspian Corridor Investors Forum in\u00a0Tashkent shared why building the corridor was a\u00a0long process and how it\u00a0could become a\u00a0strategic alternative route.",
+        "source": "Gazeta.uz",
+        "source_url": "https://www.gazeta.uz/en/2025/11/26/sikela/",
+        "category": "General",
+        "language": "EN",
+        "published_at": "2025-11-26T07:58:00+00:00",
+        "published_ts": 1764143880.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "78b03d3444cc6962201685c5a9de651d",
+        "title": "Gov Challenge: AI Connect Welcome to a collaborative initiative dedicated to advancing technological solutions.",
+        "summary": "Gov Challenge: AI Connect Welcome to a collaborative initiative dedicated to advancing technological solutions.",
+        "full_content": "",
+        "source": "CBU",
+        "source_url": "https://cbu.uz/en/press_center/news/3063836/",
+        "category": "Banking",
+        "language": "EN",
+        "published_at": "2025-11-20T00:00:00",
+        "published_ts": 1763596800.0,
+        "image_url": null,
+        "is_breaking": false,
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
+      },
+      {
+        "id": "798f714647ef0f5d2dfcb03d2d984d46",
+        "title": "The \u201cRoadmap\u201d for Further Enhancing the Bank Regulation  and Supervision System for 2025\u20132028 has been approved",
+        "summary": "The \u201cRoadmap\u201d for Further Enhancing the Bank Regulation  and Supervision System for 2025\u20132028 has been approved",
+        "full_content": "",
+        "source": "CBU",
+        "source_url": "https://cbu.uz/en/press_center/news/3049875/",
+        "category": "Banking",
+        "language": "EN",
+        "published_at": "2025-11-18T00:00:00",
+        "published_ts": 1763424000.0,
+        "image_url": null,
+        "is_breaking": false,
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
+      },
+      {
+        "id": "21ac7f6889bef5d72d974103b6e7058e",
+        "title": "The Central Bank of Uzbekistan Discusses Macroeconomic Developments with the IMF Mission",
+        "summary": "The Central Bank of Uzbekistan Discusses Macroeconomic Developments with the IMF Mission",
+        "full_content": "",
+        "source": "CBU",
+        "source_url": "https://cbu.uz/en/press_center/news/3049850/",
+        "category": "Banking",
+        "language": "EN",
+        "published_at": "2025-11-18T00:00:00",
+        "published_ts": 1763424000.0,
+        "image_url": null,
+        "is_breaking": false,
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
+      },
+      {
+        "id": "ad22ce6d4b93828155250e6f7806b35a",
+        "title": "The state and risks of financial stability, and changes in banks\u2019 capital adequacy and liquidity requirements",
+        "summary": "The state and risks of financial stability, and changes in banks\u2019 capital adequacy and liquidity requirements",
+        "full_content": "",
+        "source": "CBU",
+        "source_url": "https://cbu.uz/en/press_center/news/3025364/",
+        "category": "Banking",
+        "language": "EN",
+        "published_at": "2025-11-13T00:00:00",
+        "published_ts": 1762992000.0,
+        "image_url": null,
+        "is_breaking": false,
+        "is_official": true,
+        "reliability_tier": "official",
+        "reliability_score": 1.0,
+        "reliability_label": "OFFICIAL"
       }
     ]
   },
@@ -2489,8 +2675,8 @@
     }
   ],
   "gold_history": {
-    "last_updated": "2025-12-05 06:06",
-    "last_updated_ts": 1764914817.28925,
+    "last_updated": "2025-12-05 07:06",
+    "last_updated_ts": 1764918378.131128,
     "data": [
       {
         "date": "2025-10-31",
@@ -2647,8 +2833,8 @@
     "note": "Real market data"
   },
   "silver_history": {
-    "last_updated": "2025-12-05 06:06",
-    "last_updated_ts": 1764914817.657343,
+    "last_updated": "2025-12-05 07:06",
+    "last_updated_ts": 1764918378.253101,
     "data": [
       {
         "date": "2025-10-31",
@@ -2805,8 +2991,8 @@
     "note": "Real market data"
   },
   "bitcoin_history": {
-    "last_updated": "2025-12-05 06:06",
-    "last_updated_ts": 1764914818.012697,
+    "last_updated": "2025-12-05 07:06",
+    "last_updated_ts": 1764918378.551326,
     "data": [
       {
         "date": "2025-11-05",
@@ -2961,5 +3147,692 @@
     ],
     "source": "Massive.com (Polygon.io)",
     "note": "Real market data"
+  },
+  "bank_reliability": {
+    "last_updated": "2025-12-05 07:06",
+    "last_updated_ts": 1764918378.55315,
+    "data_sources": {
+      "cbu": "https://cbu.uz/en/credit-organizations/banks/head-offices/",
+      "cerr": "https://cerr.uz/show-news/bankovskiy-sektor-uzbekistana-v-reytinge-ceir"
+    },
+    "scoring_weights": {
+      "cerr_ranking": 0.35,
+      "bank_age": 0.2,
+      "indicators": 0.2,
+      "bank_type": 0.15,
+      "trend": 0.1
+    },
+    "indicators_list": [
+      {
+        "id": "financial_intermediation",
+        "name": "Financial Intermediation",
+        "name_uz": "\u041c\u043e\u043b\u0438\u044f\u0432\u0438\u0439 \u0432\u043e\u0441\u0438\u0442\u0430\u0447\u0438\u043b\u0438\u043a"
+      },
+      {
+        "id": "financial_accessibility",
+        "name": "Financial Accessibility",
+        "name_uz": "\u041c\u043e\u043b\u0438\u044f\u0432\u0438\u0439 \u043e\u043c\u043c\u0430\u0431\u043e\u043f\u043b\u0438\u043a"
+      },
+      {
+        "id": "asset_quality",
+        "name": "Asset Quality",
+        "name_uz": "\u0410\u043a\u0442\u0438\u0432\u043b\u0430\u0440 \u0441\u0438\u0444\u0430\u0442\u0438"
+      },
+      {
+        "id": "profitability",
+        "name": "Profitability",
+        "name_uz": "\u0414\u0430\u0440\u043e\u043c\u0430\u0434\u0434\u043e\u0440\u043b\u0438\u043a"
+      },
+      {
+        "id": "management_efficiency",
+        "name": "Management Efficiency",
+        "name_uz": "\u0411\u043e\u0448\u049b\u0430\u0440\u0443\u0432 \u0441\u0430\u043c\u0430\u0440\u0430\u0434\u043e\u0440\u043b\u0438\u0433\u0438"
+      },
+      {
+        "id": "liquidity",
+        "name": "Liquidity",
+        "name_uz": "\u041b\u0438\u043a\u0432\u0438\u0434\u043b\u0438\u043a"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Trust Bank",
+        "score": 88,
+        "tier": "A",
+        "tier_label": "Excellent",
+        "tier_color": "#22C55E",
+        "bank_type": "private",
+        "license_year": 1994,
+        "cerr_rank": 2,
+        "cerr_category": "large",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 85,
+          "financial_accessibility": 95,
+          "asset_quality": 96,
+          "profitability": 96,
+          "management_efficiency": 91,
+          "liquidity": 96
+        },
+        "logo": "",
+        "overall_rank": 1
+      },
+      {
+        "name": "Kapitalbank",
+        "score": 87,
+        "tier": "A",
+        "tier_label": "Excellent",
+        "tier_color": "#22C55E",
+        "bank_type": "private",
+        "license_year": 2001,
+        "cerr_rank": 1,
+        "cerr_category": "large",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 91,
+          "financial_accessibility": 90,
+          "asset_quality": 91,
+          "profitability": 92,
+          "management_efficiency": 99,
+          "liquidity": 96
+        },
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "overall_rank": 2
+      },
+      {
+        "name": "Hamkorbank",
+        "score": 87,
+        "tier": "A",
+        "tier_label": "Excellent",
+        "tier_color": "#22C55E",
+        "bank_type": "private",
+        "license_year": 1991,
+        "cerr_rank": 3,
+        "cerr_category": "large",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 96,
+          "financial_accessibility": 87,
+          "asset_quality": 97,
+          "profitability": 81,
+          "management_efficiency": 91,
+          "liquidity": 88
+        },
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "overall_rank": 3
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "score": 85,
+        "tier": "A",
+        "tier_label": "Excellent",
+        "tier_color": "#22C55E",
+        "bank_type": "private",
+        "license_year": 1990,
+        "cerr_rank": 5,
+        "cerr_category": "large",
+        "rank_change": 2,
+        "indicators": {
+          "financial_intermediation": 73,
+          "financial_accessibility": 82,
+          "asset_quality": 90,
+          "profitability": 87,
+          "management_efficiency": 72,
+          "liquidity": 89
+        },
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "overall_rank": 4
+      },
+      {
+        "name": "Ziraat Bank",
+        "score": 85,
+        "tier": "A",
+        "tier_label": "Excellent",
+        "tier_color": "#22C55E",
+        "bank_type": "foreign",
+        "license_year": 1993,
+        "cerr_rank": 3,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 80,
+          "financial_accessibility": 88,
+          "asset_quality": 89,
+          "profitability": 87,
+          "management_efficiency": 87,
+          "liquidity": 90
+        },
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "overall_rank": 5
+      },
+      {
+        "name": "Universal Bank",
+        "score": 83,
+        "tier": "A",
+        "tier_label": "Excellent",
+        "tier_color": "#22C55E",
+        "bank_type": "private",
+        "license_year": 2010,
+        "cerr_rank": 1,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 89,
+          "financial_accessibility": 86,
+          "asset_quality": 92,
+          "profitability": 84,
+          "management_efficiency": 89,
+          "liquidity": 93
+        },
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "overall_rank": 6
+      },
+      {
+        "name": "KDB Bank",
+        "score": 80,
+        "tier": "A",
+        "tier_label": "Excellent",
+        "tier_color": "#22C55E",
+        "bank_type": "foreign",
+        "license_year": 1997,
+        "cerr_rank": 4,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 72,
+          "financial_accessibility": 76,
+          "asset_quality": 78,
+          "profitability": 76,
+          "management_efficiency": 85,
+          "liquidity": 86
+        },
+        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
+        "overall_rank": 7
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "score": 79,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "private",
+        "license_year": 2009,
+        "cerr_rank": 4,
+        "cerr_category": "large",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 94,
+          "financial_accessibility": 84,
+          "asset_quality": 88,
+          "profitability": 80,
+          "management_efficiency": 90,
+          "liquidity": 80
+        },
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "overall_rank": 8
+      },
+      {
+        "name": "TBC Bank",
+        "score": 79,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "foreign",
+        "license_year": 2020,
+        "cerr_rank": 2,
+        "cerr_category": "small",
+        "rank_change": 1,
+        "indicators": {
+          "financial_intermediation": 84,
+          "financial_accessibility": 84,
+          "asset_quality": 97,
+          "profitability": 84,
+          "management_efficiency": 82,
+          "liquidity": 78
+        },
+        "logo": "",
+        "overall_rank": 9
+      },
+      {
+        "name": "Iran Saderat Bank",
+        "score": 78,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "foreign",
+        "license_year": 2009,
+        "cerr_rank": 6,
+        "cerr_category": "small",
+        "rank_change": 2,
+        "indicators": {
+          "financial_intermediation": 67,
+          "financial_accessibility": 66,
+          "asset_quality": 77,
+          "profitability": 81,
+          "management_efficiency": 63,
+          "liquidity": 78
+        },
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "overall_rank": 10
+      },
+      {
+        "name": "Infinbank",
+        "score": 75,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "private",
+        "license_year": 2007,
+        "cerr_rank": 6,
+        "cerr_category": "large",
+        "rank_change": 1,
+        "indicators": {
+          "financial_intermediation": 85,
+          "financial_accessibility": 82,
+          "asset_quality": 75,
+          "profitability": 72,
+          "management_efficiency": 86,
+          "liquidity": 83
+        },
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "overall_rank": 11
+      },
+      {
+        "name": "Davr Bank",
+        "score": 75,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "private",
+        "license_year": 2001,
+        "cerr_rank": 7,
+        "cerr_category": "large",
+        "rank_change": 1,
+        "indicators": {
+          "financial_intermediation": 77,
+          "financial_accessibility": 70,
+          "asset_quality": 79,
+          "profitability": 65,
+          "management_efficiency": 68,
+          "liquidity": 65
+        },
+        "logo": "",
+        "overall_rank": 12
+      },
+      {
+        "name": "Asaka Bank",
+        "score": 74,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "state-owned",
+        "license_year": 1995,
+        "cerr_rank": 10,
+        "cerr_category": "large",
+        "rank_change": 1,
+        "indicators": {
+          "financial_intermediation": 57,
+          "financial_accessibility": 61,
+          "asset_quality": 59,
+          "profitability": 60,
+          "management_efficiency": 52,
+          "liquidity": 65
+        },
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "overall_rank": 13
+      },
+      {
+        "name": "National Bank of Uzbekistan",
+        "score": 74,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "state-owned",
+        "license_year": 1991,
+        "cerr_rank": 11,
+        "cerr_category": "large",
+        "rank_change": 2,
+        "indicators": {
+          "financial_intermediation": 66,
+          "financial_accessibility": 51,
+          "asset_quality": 51,
+          "profitability": 60,
+          "management_efficiency": 54,
+          "liquidity": 54
+        },
+        "logo": "",
+        "overall_rank": 14
+      },
+      {
+        "name": "Ravnaq Bank",
+        "score": 74,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "private",
+        "license_year": 2010,
+        "cerr_rank": 5,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 73,
+          "financial_accessibility": 75,
+          "asset_quality": 74,
+          "profitability": 68,
+          "management_efficiency": 82,
+          "liquidity": 84
+        },
+        "logo": "",
+        "overall_rank": 15
+      },
+      {
+        "name": "Ipoteka Bank",
+        "score": 72,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "foreign",
+        "license_year": 2005,
+        "cerr_rank": 9,
+        "cerr_category": "large",
+        "rank_change": 1,
+        "indicators": {
+          "financial_intermediation": 74,
+          "financial_accessibility": 69,
+          "asset_quality": 71,
+          "profitability": 55,
+          "management_efficiency": 54,
+          "liquidity": 68
+        },
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "overall_rank": 16
+      },
+      {
+        "name": "Orient Finance Bank",
+        "score": 71,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "private",
+        "license_year": 2010,
+        "cerr_rank": 8,
+        "cerr_category": "large",
+        "rank_change": 1,
+        "indicators": {
+          "financial_intermediation": 58,
+          "financial_accessibility": 73,
+          "asset_quality": 58,
+          "profitability": 62,
+          "management_efficiency": 70,
+          "liquidity": 74
+        },
+        "logo": "",
+        "overall_rank": 17
+      },
+      {
+        "name": "AVO Bank",
+        "score": 70,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "foreign",
+        "license_year": 2020,
+        "cerr_rank": 7,
+        "cerr_category": "small",
+        "rank_change": 2,
+        "indicators": {
+          "financial_intermediation": 72,
+          "financial_accessibility": 74,
+          "asset_quality": 70,
+          "profitability": 76,
+          "management_efficiency": 75,
+          "liquidity": 69
+        },
+        "logo": "",
+        "overall_rank": 18
+      },
+      {
+        "name": "Turkiston Bank",
+        "score": 70,
+        "tier": "B+",
+        "tier_label": "Very Good",
+        "tier_color": "#84CC16",
+        "bank_type": "foreign",
+        "license_year": 2009,
+        "cerr_rank": 8,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 53,
+          "financial_accessibility": 56,
+          "asset_quality": 54,
+          "profitability": 53,
+          "management_efficiency": 53,
+          "liquidity": 71
+        },
+        "logo": "",
+        "overall_rank": 19
+      },
+      {
+        "name": "Agrobank",
+        "score": 69,
+        "tier": "B",
+        "tier_label": "Good",
+        "tier_color": "#EAB308",
+        "bank_type": "state-owned",
+        "license_year": 2009,
+        "cerr_rank": 9,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 53,
+          "financial_accessibility": 58,
+          "asset_quality": 67,
+          "profitability": 51,
+          "management_efficiency": 57,
+          "liquidity": 66
+        },
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "overall_rank": 20
+      },
+      {
+        "name": "Uzpromstroybank",
+        "score": 69,
+        "tier": "B",
+        "tier_label": "Good",
+        "tier_color": "#EAB308",
+        "bank_type": "state-owned",
+        "license_year": 1922,
+        "cerr_rank": 11,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 55,
+          "financial_accessibility": 52,
+          "asset_quality": 51,
+          "profitability": 42,
+          "management_efficiency": 46,
+          "liquidity": 51
+        },
+        "logo": "",
+        "overall_rank": 21
+      },
+      {
+        "name": "Microcreditbank",
+        "score": 68,
+        "tier": "B",
+        "tier_label": "Good",
+        "tier_color": "#EAB308",
+        "bank_type": "state-owned",
+        "license_year": 2006,
+        "cerr_rank": 10,
+        "cerr_category": "small",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 46,
+          "financial_accessibility": 46,
+          "asset_quality": 56,
+          "profitability": 50,
+          "management_efficiency": 60,
+          "liquidity": 63
+        },
+        "logo": "",
+        "overall_rank": 22
+      },
+      {
+        "name": "Aloqa Bank",
+        "score": 66,
+        "tier": "B",
+        "tier_label": "Good",
+        "tier_color": "#EAB308",
+        "bank_type": "state-owned",
+        "license_year": 1994,
+        "cerr_rank": 12,
+        "cerr_category": "small",
+        "rank_change": -1,
+        "indicators": {
+          "financial_intermediation": 42,
+          "financial_accessibility": 41,
+          "asset_quality": 51,
+          "profitability": 50,
+          "management_efficiency": 48,
+          "liquidity": 57
+        },
+        "logo": "",
+        "overall_rank": 23
+      },
+      {
+        "name": "Xalq Bank",
+        "score": 64,
+        "tier": "B",
+        "tier_label": "Good",
+        "tier_color": "#EAB308",
+        "bank_type": "state-owned",
+        "license_year": 1995,
+        "cerr_rank": 12,
+        "cerr_category": "large",
+        "rank_change": -3,
+        "indicators": {
+          "financial_intermediation": 56,
+          "financial_accessibility": 51,
+          "asset_quality": 62,
+          "profitability": 52,
+          "management_efficiency": 62,
+          "liquidity": 59
+        },
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "overall_rank": 24
+      },
+      {
+        "name": "Turon Bank",
+        "score": 63,
+        "tier": "B",
+        "tier_label": "Good",
+        "tier_color": "#EAB308",
+        "bank_type": "state-owned",
+        "license_year": 1990,
+        "cerr_rank": 13,
+        "cerr_category": "small",
+        "rank_change": -1,
+        "indicators": {
+          "financial_intermediation": 39,
+          "financial_accessibility": 34,
+          "asset_quality": 38,
+          "profitability": 37,
+          "management_efficiency": 44,
+          "liquidity": 36
+        },
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "overall_rank": 25
+      },
+      {
+        "name": "BRB Bank",
+        "score": 55,
+        "tier": "C",
+        "tier_label": "Fair",
+        "tier_color": "#F97316",
+        "bank_type": "private",
+        "license_year": 2008,
+        "cerr_rank": 14,
+        "cerr_category": "large",
+        "rank_change": 0,
+        "indicators": {
+          "financial_intermediation": 40,
+          "financial_accessibility": 39,
+          "asset_quality": 46,
+          "profitability": 35,
+          "management_efficiency": 52,
+          "liquidity": 54
+        },
+        "logo": "",
+        "overall_rank": 26
+      },
+      {
+        "name": "Tenge Bank",
+        "score": 49,
+        "tier": "C",
+        "tier_label": "Fair",
+        "tier_color": "#F97316",
+        "bank_type": "foreign",
+        "license_year": 2019,
+        "cerr_rank": 13,
+        "cerr_category": "large",
+        "rank_change": -2,
+        "indicators": {
+          "financial_intermediation": 38,
+          "financial_accessibility": 58,
+          "asset_quality": 39,
+          "profitability": 58,
+          "management_efficiency": 53,
+          "liquidity": 58
+        },
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "overall_rank": 27
+      },
+      {
+        "name": "Invest Finance Bank",
+        "score": 49,
+        "tier": "C",
+        "tier_label": "Fair",
+        "tier_color": "#F97316",
+        "bank_type": "private",
+        "license_year": 2011,
+        "cerr_rank": 15,
+        "cerr_category": "small",
+        "rank_change": -1,
+        "indicators": {
+          "financial_intermediation": 42,
+          "financial_accessibility": 41,
+          "asset_quality": 40,
+          "profitability": 29,
+          "management_efficiency": 26,
+          "liquidity": 33
+        },
+        "logo": "",
+        "overall_rank": 28
+      },
+      {
+        "name": "Madat Invest Bank",
+        "score": 46,
+        "tier": "C",
+        "tier_label": "Fair",
+        "tier_color": "#F97316",
+        "bank_type": "private",
+        "license_year": 2019,
+        "cerr_rank": 14,
+        "cerr_category": "small",
+        "rank_change": -2,
+        "indicators": {
+          "financial_intermediation": 41,
+          "financial_accessibility": 37,
+          "asset_quality": 32,
+          "profitability": 44,
+          "management_efficiency": 33,
+          "liquidity": 31
+        },
+        "logo": "",
+        "overall_rank": 29
+      }
+    ]
   }
 }
