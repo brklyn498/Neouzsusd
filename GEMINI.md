@@ -1,5 +1,13 @@
 # GEMINI.md - Dev Log
 
+## ⚠️ CRITICAL RULES
+
+1. **NEVER overwrite `.env` file** - Always check if it exists first and APPEND new keys, never replace the entire file.
+2. **NEVER put actual API keys in documentation** - Use placeholders like `YOUR_KEY_HERE` or reference GitHub Secrets only.
+3. **NEVER commit `.env` to git** - It's in `.gitignore` for a reason.
+
+---
+
 ## Progress Tracker
 
 - [x] **Project Initialization**

@@ -835,19 +835,153 @@ def fetch_news(existing_data, force=False):
         except Exception as e:
             print(f"Error fetching RSS for {source['name']}: {e}")
 
+    # Fetch from WorldNewsAPI (Phase 3 source expansion)
+    worldnews_items = fetch_worldnews_api()
+    
+    # Merge with deduplication (avoid duplicate titles)
+    existing_titles = {item["title"].lower()[:50] for item in all_news}
+    for wn_item in worldnews_items:
+        title_key = wn_item["title"].lower()[:50]
+        if title_key not in existing_titles:
+            all_news.append(wn_item)
+            existing_titles.add(title_key)
+
     # Sort by date descending
     all_news.sort(key=lambda x: x["published_ts"], reverse=True)
 
-    # Keep top 30
-    final_news = all_news[:30]
+    # Keep top 40 (increased from 30 to accommodate WorldNews)
+    final_news = all_news[:40]
 
-    print(f"Successfully fetched {len(final_news)} news items.")
+    print(f"Successfully fetched {len(final_news)} news items (including WorldNewsAPI).")
 
     return {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "last_updated_ts": datetime.datetime.now().timestamp(),
         "items": final_news
     }
+
+def load_env_var(var_name):
+    """
+    Loads an environment variable, falling back to .env file for local dev.
+    """
+    value = os.environ.get(var_name)
+    
+    if not value:
+        try:
+            env_path = os.path.join(os.getcwd(), '.env')
+            if os.path.exists(env_path):
+                with open(env_path, 'r') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith(f'{var_name}='):
+                            value = line.split('=', 1)[1].strip().strip('"').strip("'")
+                            print(f"Loaded {var_name} from .env file")
+                            break
+        except Exception as e:
+            print(f"Error reading .env file for {var_name}: {e}")
+    
+    return value
+
+def fetch_worldnews_api():
+    """
+    Fetches news from WorldNewsAPI for broader Uzbekistan coverage.
+    Returns list of news items or empty list if API unavailable.
+    Docs: https://worldnewsapi.com/docs/
+    """
+    print("--- Fetching WorldNewsAPI ---")
+    
+    api_key = load_env_var("WORLDNEWS_API_KEY")
+    
+    if not api_key:
+        print("WORLDNEWS_API_KEY not found. Skipping WorldNewsAPI.")
+        return []
+    
+    try:
+        url = "https://api.worldnewsapi.com/search-news"
+        params = {
+            "api-key": api_key,
+            "source-country": "uz",
+            "language": "en",
+            "number": 15,
+            "sort": "publish-time",
+            "sort-direction": "DESC"
+        }
+        
+        response = requests.get(url, params=params, timeout=15)
+        
+        if response.status_code == 200:
+            data = response.json()
+            news_items = data.get("news", [])
+            
+            parsed_news = []
+            for item in news_items:
+                # Generate stable ID
+                id_str = f"worldnews-{item.get('id', item.get('url', ''))}"
+                item_id = hashlib.md5(id_str.encode()).hexdigest()
+                
+                # Parse date
+                published_at = item.get("publish_date", "")
+                published_ts = 0
+                if published_at:
+                    try:
+                        dt = date_parser.parse(published_at)
+                        published_ts = dt.timestamp()
+                    except:
+                        pass
+                
+                # Get summary (WorldNews provides 'text' as full content)
+                full_text = item.get("text", "")[:2000]
+                summary = full_text[:200] + "..." if len(full_text) > 200 else full_text
+                
+                # Determine category using existing logic
+                CATEGORIES = {
+                    "economy": ["gdp", "inflation", "cpi", "fiscal", "budget", "imf", "world bank", "adb", "growth", "tax", "reform", "debt"],
+                    "banking": ["cbu", "central bank", "deposit", "loan", "interest rate", "mortgage", "fintech"],
+                    "markets": ["stock", "exchange", "uzse", "ipo", "dividend", "commodity", "gold", "silver", "bitcoin"],
+                    "business": ["startup", "investment", "profit", "revenue", "merger", "acquisition", "export", "import"],
+                    "regulation": ["law", "decree", "president", "parliament", "cabinet", "policy", "license"]
+                }
+                
+                text = (item.get("title", "") + " " + summary).lower()
+                category = "General"
+                for cat, keywords in CATEGORIES.items():
+                    for keyword in keywords:
+                        if keyword in text:
+                            category = cat.capitalize()
+                            break
+                    if category != "General":
+                        break
+                
+                parsed_news.append({
+                    "id": item_id,
+                    "title": item.get("title", ""),
+                    "summary": summary,
+                    "full_content": full_text,
+                    "source": item.get("source_country", "WorldNews"),
+                    "source_url": item.get("url", ""),
+                    "category": category,
+                    "language": "EN",  # WorldNewsAPI returns English content
+                    "published_at": published_at,
+                    "published_ts": published_ts,
+                    "image_url": item.get("image"),
+                    "is_breaking": False,
+                    "is_worldnews_api": True  # Flag to identify API source
+                })
+            
+            print(f"WorldNewsAPI: Fetched {len(parsed_news)} items")
+            return parsed_news
+        
+        elif response.status_code == 401:
+            print("WorldNewsAPI: Invalid API key (401)")
+        elif response.status_code == 402:
+            print("WorldNewsAPI: API limit exceeded (402)")
+        else:
+            print(f"WorldNewsAPI: Error {response.status_code}")
+            
+    except Exception as e:
+        print(f"WorldNewsAPI Error: {e}")
+    
+    return []
 
 import argparse
 
