@@ -2146,6 +2146,7 @@ def process_bank_reliability(existing_data, force=False):
 def main():
     parser = argparse.ArgumentParser(description="Scrape exchange rates and weather data.")
     parser.add_argument("--force", action="store_true", help="Force update even if cached data exists.")
+    parser.add_argument("--scope", type=str, default="exchange", help="Scope of update: exchange, savings, news, metals, reliability")
     args = parser.parse_args()
 
     # Load existing data to check timestamps
@@ -2157,54 +2158,103 @@ def main():
         except Exception as e:
             print(f"Error loading existing data: {e}")
 
-    # If force is True, we can clear the relevant timestamps in existing_data 
-    # OR just pass a flag to the fetch functions. 
-    # For simplicity, let's modify fetch_iqair_data to accept the force flag.
+    # Initialize output with existing data to preserve what we don't update
+    output = existing_data.copy() if existing_data else {}
     
-    # We need to pass 'force' down to fetch_iqair_data. 
-    # Since I cannot easily change the signature of fetch_iqair_data in this single block without 
-    # replacing the whole file or multiple chunks, I will handle it by modifying the existing_data 
-    # passed to it. If force is on, we pretend there is no weather data.
+    # Ensure all keys exist
+    default_keys = ["usd", "rub", "eur", "kzt", "gbp", "weather", "savings", "news", 
+                   "gold_bars", "gold_history", "silver_history", "bitcoin_history", "bank_reliability"]
+    for key in default_keys:
+        if key not in output:
+            output[key] = None
+
+    # Update timestamp
+    output["last_updated"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    # --- SCOPE LOGIC ---
     
-    weather_data_to_pass = existing_data
-    if args.force and existing_data:
-        print("Force flag detected. Ignoring cache.")
-        # Create a copy to not mutate the original for other parts if needed
-        weather_data_to_pass = existing_data.copy()
-        if "weather" in weather_data_to_pass:
-            del weather_data_to_pass["weather"]
+    # Scope: EXCHANGE (Default) - Rates, Weather, Gold
+    if args.scope == "exchange":
+        print("--- Scope: EXCHANGE (Rates, Weather, Gold) ---")
+        
+        # Weather Logic (Force handling)
+        weather_data_to_pass = existing_data
+        if args.force and existing_data:
+            weather_data_to_pass = existing_data.copy()
+            if "weather" in weather_data_to_pass:
+                del weather_data_to_pass["weather"]
+        
+        output["weather"] = fetch_iqair_data(weather_data_to_pass)
+        
+        # Currencies
+        output["usd"] = process_currency("USD", existing_data)
+        output["rub"] = process_currency("RUB", existing_data)
+        output["eur"] = process_currency("EUR", existing_data)
+        output["kzt"] = process_currency("KZT", existing_data)
+        output["gbp"] = process_currency("GBP", existing_data)
+        
+        # Gold/Metals (Often viewed with rates)
+        output["gold_bars"] = fetch_gold_bar_prices()
+        output["gold_history"] = fetch_gold_history(existing_data, force=args.force)
+        output["silver_history"] = fetch_silver_history(existing_data, force=args.force)
+        output["bitcoin_history"] = fetch_bitcoin_history(existing_data, force=args.force)
 
-    # Fetch Savings Data
-    savings_data = fetch_savings_rates(existing_data, force=args.force)
-    
-    # Fetch News Data
-    news_data = fetch_news(existing_data, force=args.force)
+    # Scope: SAVINGS
+    elif args.scope == "savings":
+        print("--- Scope: SAVINGS ---")
+        output["savings"] = fetch_savings_rates(existing_data, force=args.force)
 
-    # Fetch Gold Data
-    gold_bars = fetch_gold_bar_prices()
-    gold_history = fetch_gold_history(existing_data, force=args.force)
-    silver_history = fetch_silver_history(existing_data, force=args.force)
-    bitcoin_history = fetch_bitcoin_history(existing_data, force=args.force)
+    # Scope: NEWS
+    elif args.scope == "news":
+        print("--- Scope: NEWS ---")
+        output["news"] = fetch_news(existing_data, force=args.force)
 
-    # Fetch Bank Reliability Data
-    bank_reliability = process_bank_reliability(existing_data, force=args.force)
+    # Scope: METALS
+    elif args.scope == "metals":
+        print("--- Scope: METALS ---")
+        output["gold_bars"] = fetch_gold_bar_prices()
+        output["gold_history"] = fetch_gold_history(existing_data, force=args.force)
+        output["silver_history"] = fetch_silver_history(existing_data, force=args.force)
+        output["bitcoin_history"] = fetch_bitcoin_history(existing_data, force=args.force)
 
-    output = {
-        "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "usd": process_currency("USD", existing_data),
-        "rub": process_currency("RUB", existing_data),
-        "eur": process_currency("EUR", existing_data),
-        "kzt": process_currency("KZT", existing_data),
-        "gbp": process_currency("GBP", existing_data),
-        "weather": fetch_iqair_data(weather_data_to_pass),
-        "savings": savings_data,
-        "news": news_data,
-        "gold_bars": gold_bars,
-        "gold_history": gold_history,
-        "silver_history": silver_history,
-        "bitcoin_history": bitcoin_history,
-        "bank_reliability": bank_reliability
-    }
+    # Scope: RELIABILITY
+    elif args.scope == "reliability":
+        print("--- Scope: RELIABILITY ---")
+        output["bank_reliability"] = process_bank_reliability(existing_data, force=args.force)
+
+    # Fallback: If scope is 'all' or unknown, do everything (legacy behavior)
+    else:
+        print(f"--- Scope: ALL (Unknown scope '{args.scope}') ---")
+        
+        # Weather
+        weather_data_to_pass = existing_data
+        if args.force and existing_data:
+            weather_data_to_pass = existing_data.copy()
+            if "weather" in weather_data_to_pass:
+                del weather_data_to_pass["weather"]
+        output["weather"] = fetch_iqair_data(weather_data_to_pass)
+
+        # Savings
+        output["savings"] = fetch_savings_rates(existing_data, force=args.force)
+        
+        # News
+        output["news"] = fetch_news(existing_data, force=args.force)
+
+        # Metals
+        output["gold_bars"] = fetch_gold_bar_prices()
+        output["gold_history"] = fetch_gold_history(existing_data, force=args.force)
+        output["silver_history"] = fetch_silver_history(existing_data, force=args.force)
+        output["bitcoin_history"] = fetch_bitcoin_history(existing_data, force=args.force)
+
+        # Reliability
+        output["bank_reliability"] = process_bank_reliability(existing_data, force=args.force)
+
+        # Currencies
+        output["usd"] = process_currency("USD", existing_data)
+        output["rub"] = process_currency("RUB", existing_data)
+        output["eur"] = process_currency("EUR", existing_data)
+        output["kzt"] = process_currency("KZT", existing_data)
+        output["gbp"] = process_currency("GBP", existing_data)
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 
@@ -2213,7 +2263,8 @@ def main():
 
     print(f"Data saved to {OUTPUT_FILE}")
 
-    # Send Notifications if changes found
+    # Send Notifications if changes found (only if full update or relevant scope?)
+    # For now, keep it simple.
     if existing_data:
         send_notifications(output, existing_data)
 

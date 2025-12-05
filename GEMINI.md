@@ -363,3 +363,8 @@ The Vite development server proxies `/api` requests to the backend servers:
 - **Entrance Animations**: Implemented staggered slide-in effects for bank cards and a pop-in animation for the "Interactive Report" button.
 - **Dropdown Animations**: Added smooth `slideDownBrutal` animation for the "Scoring Criteria" and "Bank Details" dropdowns.
 - **CSS Updates**: Added new keyframes (`slideDownBrutal`, `popInBrutal`) and utility classes to `index.css`.
+
+### Phase 30: Scoped Refresh & UI Polish
+- **Scoped Refresh**: Implemented `scope` parameter in `refreshRates` (Frontend) and `scraper.py` (Backend) to optimize data fetching.
+- **Chart Badges**: Updated Gold, Silver, and Bitcoin charts to display "CURRENT" instead of "TODAY" to reflect real-time data.
+- **Backend Update**: Updated `server.js` to parse request body and pass `--scope` flag.

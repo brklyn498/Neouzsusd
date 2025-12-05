@@ -79,7 +79,14 @@ function App() {
   const handleManualRefresh = async () => {
     setRefreshing(true);
     try {
-      const freshData = await refreshRates();
+      // Determine scope based on viewMode
+      let scope = 'exchange';
+      if (viewMode === 'news') scope = 'news';
+      if (viewMode === 'savings') scope = 'savings';
+      if (viewMode === 'metals') scope = 'metals';
+      if (viewMode === 'reliability') scope = 'reliability';
+
+      const freshData = await refreshRates(scope);
 
       if (freshData) {
         setData(freshData);

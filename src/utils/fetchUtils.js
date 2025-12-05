@@ -6,12 +6,16 @@
  * Refreshes the exchange rate data by fetching the latest rates.json
  * @returns {Promise<Object|null>} Full data object or null if fetch fails
  */
-export async function refreshRates() {
+export async function refreshRates(scope = 'exchange') {
   try {
     // 1. Trigger the scraper via the local backend
     try {
       const triggerResponse = await fetch('/api/refresh', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ scope })
       });
 
       if (!triggerResponse.ok) {

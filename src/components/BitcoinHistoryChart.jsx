@@ -170,7 +170,7 @@ export default function BitcoinHistoryChart({ bitcoinHistory }) {
                         }}
                     >
                         <div className="badge-header">
-                            <span className="badge-label">TODAY</span>
+                            <span className="badge-label">CURRENT</span>
                         </div>
                         <div className="badge-price">${stats.lastPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className="badge-change-row">

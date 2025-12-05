@@ -171,7 +171,7 @@ export default function SilverHistoryChart({ silverHistory }) {
                         }}
                     >
                         <div className="badge-header">
-                            <span className="badge-label">TODAY</span>
+                            <span className="badge-label">CURRENT</span>
                         </div>
                         <div className="badge-price">${stats.lastPrice.toFixed(2)}</div>
                         <div className="badge-change-row">

@@ -25,28 +25,45 @@ const server = http.createServer((req, res) => {
     }
 
     if (req.method === 'POST' && req.url === '/api/refresh') {
-        console.log('Received refresh request. Running scraper...');
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
 
-        // Execute the python script with --force flag
-        const scriptPath = path.join(__dirname, 'scripts', 'scraper.py');
-        const command = `python "${scriptPath}" --force`;
-
-        exec(command, (error, stdout, stderr) => {
-            if (error) {
-                console.error(`Error executing scraper: ${error.message}`);
-                res.writeHead(500, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ error: error.message }));
-                return;
+        req.on('end', () => {
+            let scope = 'exchange';
+            try {
+                if (body) {
+                    const parsed = JSON.parse(body);
+                    if (parsed.scope) scope = parsed.scope;
+                }
+            } catch (e) {
+                console.error("Error parsing request body:", e);
             }
 
-            if (stderr) {
-                console.error(`Scraper stderr: ${stderr}`);
-            }
+            console.log(`Received refresh request for scope: ${scope}. Running scraper...`);
 
-            console.log(`Scraper output: ${stdout}`);
+            // Execute the python script with --force flag and --scope
+            const scriptPath = path.join(__dirname, 'scripts', 'scraper.py');
+            const command = `python "${scriptPath}" --force --scope ${scope}`;
 
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ success: true, message: 'Scraper executed successfully' }));
+            exec(command, (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`Error executing scraper: ${error.message}`);
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ error: error.message }));
+                    return;
+                }
+
+                if (stderr) {
+                    console.error(`Scraper stderr: ${stderr}`);
+                }
+
+                console.log(`Scraper output: ${stdout}`);
+
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, message: 'Scraper executed successfully' }));
+            });
         });
     } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
