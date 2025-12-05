@@ -32,7 +32,7 @@ export default function GoldBarPrices({ goldBars }) {
                 <div className="gold-bars-list">
                     {goldBars.map((bar, index) => (
                         <div
-                            key={bar.weight}
+                            key={`${bar.weight}-${bar.price}`}
                             className={`gold-bar-item animate-slide-in delay-${index % 20}`}
                             style={{
                                 background: getGoldGradient(bar.weight),
