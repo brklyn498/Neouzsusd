@@ -126,36 +126,12 @@
     ],
     "banks": [
       {
-        "name": "Aloqabank",
-        "buy": 11910.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hayot Bank",
+        "name": "Infinbank",
         "buy": 11920.0,
         "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 11910.0,
-        "sell": 12000.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 11910.0,
-        "sell": 12040.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": true
       },
       {
         "name": "KDB Bank Uzbekiston",
@@ -166,90 +142,26 @@
         "featured": true
       },
       {
-        "name": "Ipoteka bank",
-        "buy": 11905.0,
-        "sell": 12045.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "MKBank",
-        "buy": 11910.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 11910.0,
-        "sell": 12000.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Ziraat Bank",
         "buy": 11930.0,
         "sell": 12040.0,
         "logo": "https://logo.clearbit.com/ziraatbank.uz",
         "is_mock": false,
-        "featured": false
+        "featured": true
       },
       {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Universal bank",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asia Alliance Bank",
-        "buy": 11940.0,
-        "sell": 12015.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Poytaxt bank",
+        "name": "Agrobank",
         "buy": 11910.0,
         "sell": 12030.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Infinbank",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 11940.0,
+        "name": "Ipak Yuli Bank",
+        "buy": 11930.0,
         "sell": 12040.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
         "featured": true
       },
@@ -262,6 +174,62 @@
         "featured": false
       },
       {
+        "name": "Ipoteka bank",
+        "buy": 11905.0,
+        "sell": 12045.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 11910.0,
+        "sell": 12040.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Octobank",
+        "buy": 11910.0,
+        "sell": 12000.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "MKBank",
+        "buy": 11910.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 11920.0,
+        "sell": 12040.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Garant bank",
+        "buy": 11925.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Asakabank",
         "buy": 11950.0,
         "sell": 12020.0,
@@ -270,25 +238,73 @@
         "featured": false
       },
       {
-        "name": "Trastbank",
+        "name": "Anorbank",
         "buy": 11930.0,
-        "sell": 12040.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "sell": 12030.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Agrobank",
+        "name": "Universal bank",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 11940.0,
+        "sell": 12040.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Turon bank",
         "buy": 11910.0,
-        "sell": 12030.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "sell": 12010.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 11910.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Saderat Bank",
+        "buy": 11910.0,
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
         "name": "Kapitalbank",
-        "buy": 11910.0,
-        "sell": 12025.0,
+        "buy": 11905.0,
+        "sell": 12010.0,
         "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
         "featured": true
@@ -302,52 +318,36 @@
         "featured": false
       },
       {
-        "name": "BRB",
-        "buy": 11920.0,
-        "sell": 12040.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 11930.0,
+        "name": "Poytaxt bank",
+        "buy": 11910.0,
         "sell": 12030.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Turon bank",
-        "buy": 11910.0,
-        "sell": 12010.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Saderat Bank",
-        "buy": 11910.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 11925.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipak Yuli Bank",
+        "name": "Trastbank",
         "buy": 11930.0,
         "sell": 12040.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
-        "featured": true
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 11940.0,
+        "sell": 12015.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 11910.0,
+        "sell": 12000.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
       }
     ]
   },
@@ -478,34 +478,18 @@
     ],
     "banks": [
       {
-        "name": "Aloqabank",
-        "buy": 95.0,
-        "sell": 165.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "name": "Infinbank",
+        "buy": 146.0,
+        "sell": 156.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Hayot Bank",
-        "buy": 139.0,
-        "sell": 157.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 135.0,
-        "sell": 157.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 90.0,
-        "sell": 190.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "name": "Ipak Yuli Bank",
+        "buy": 110.0,
+        "sell": 160.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
         "featured": true
       },
@@ -518,90 +502,18 @@
         "featured": false
       },
       {
+        "name": "Orient Finans Bank",
+        "buy": 90.0,
+        "sell": 190.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Octobank",
         "buy": 145.0,
         "sell": 158.0,
         "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 130.0,
-        "sell": 165.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 100.0,
-        "sell": 165.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asia Alliance Bank",
-        "buy": 135.0,
-        "sell": 158.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Poytaxt bank",
-        "buy": 90.0,
-        "sell": 158.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Infinbank",
-        "buy": 146.0,
-        "sell": 156.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 138.0,
-        "sell": 158.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Asakabank",
-        "buy": 125.0,
-        "sell": 160.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 90.0,
-        "sell": 159.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 146.0,
-        "sell": 157.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 142.0,
-        "sell": 156.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
         "is_mock": false,
         "featured": false
       },
@@ -614,12 +526,44 @@
         "featured": false
       },
       {
+        "name": "Garant bank",
+        "buy": 100.0,
+        "sell": 180.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 139.0,
+        "sell": 157.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asakabank",
+        "buy": 125.0,
+        "sell": 160.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Anorbank",
         "buy": 100.0,
         "sell": 157.0,
         "logo": "https://anorbank.uz/images/logo.svg",
         "is_mock": false,
         "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 138.0,
+        "sell": 158.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
       },
       {
         "name": "Turon bank",
@@ -630,20 +574,76 @@
         "featured": false
       },
       {
-        "name": "Garant bank",
-        "buy": 100.0,
-        "sell": 180.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "name": "Aloqabank",
+        "buy": 95.0,
+        "sell": 165.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Ipak Yuli Bank",
-        "buy": 110.0,
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 130.0,
+        "sell": 165.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 148.0,
         "sell": 160.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
         "featured": true
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 100.0,
+        "sell": 165.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 142.0,
+        "sell": 156.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 90.0,
+        "sell": 158.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Trastbank",
+        "buy": 90.0,
+        "sell": 159.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 135.0,
+        "sell": 158.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 135.0,
+        "sell": 157.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
       }
     ]
   },
@@ -774,74 +774,18 @@
     ],
     "banks": [
       {
-        "name": "Aloqabank",
-        "buy": 13500.0,
-        "sell": 14500.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "name": "Infinbank",
+        "buy": 13730.0,
+        "sell": 14115.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 13500.0,
-        "sell": 14190.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 13100.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 13300.0,
-        "sell": 15300.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": true
       },
       {
         "name": "KDB Bank Uzbekiston",
         "buy": 13300.0,
         "sell": 15000.0,
         "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13000.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "MKBank",
-        "buy": 13200.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 13600.0,
-        "sell": 14200.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 13720.0,
-        "sell": 14020.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -854,50 +798,18 @@
         "featured": false
       },
       {
-        "name": "Universal bank",
-        "buy": 13000.0,
-        "sell": 15200.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 13000.0,
-        "sell": 14200.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "name": "Agrobank",
+        "buy": 13600.0,
+        "sell": 14300.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Asia Alliance Bank",
-        "buy": 13000.0,
-        "sell": 14100.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Poytaxt bank",
-        "buy": 13000.0,
-        "sell": 14050.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Infinbank",
-        "buy": 13730.0,
-        "sell": 14115.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 13300.0,
-        "sell": 14100.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "name": "Ipak Yuli Bank",
+        "buy": 13400.0,
+        "sell": 14400.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
         "featured": true
       },
@@ -910,42 +822,34 @@
         "featured": false
       },
       {
-        "name": "Asakabank",
-        "buy": 13100.0,
-        "sell": 14500.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "name": "Ipoteka bank",
+        "buy": 13000.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Agrobank",
-        "buy": 13600.0,
-        "sell": 14300.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 13450.0,
-        "sell": 14050.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 13500.0,
-        "sell": 14190.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "name": "Orient Finans Bank",
+        "buy": 13300.0,
+        "sell": 15300.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
         "is_mock": false,
         "featured": true
       },
       {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 13700.0,
-        "sell": 14300.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "name": "Octobank",
+        "buy": 13600.0,
+        "sell": 14200.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "MKBank",
+        "buy": 13200.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -958,6 +862,30 @@
         "featured": false
       },
       {
+        "name": "Garant bank",
+        "buy": 13000.0,
+        "sell": 15000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 13500.0,
+        "sell": 14190.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asakabank",
+        "buy": 13100.0,
+        "sell": 14500.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Anorbank",
         "buy": 13180.0,
         "sell": 14130.0,
@@ -966,10 +894,42 @@
         "featured": false
       },
       {
+        "name": "Universal bank",
+        "buy": 13000.0,
+        "sell": 15200.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 13300.0,
+        "sell": 14100.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Turon bank",
         "buy": 13000.0,
         "sell": 14500.0,
         "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 13500.0,
+        "sell": 14500.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 13720.0,
+        "sell": 14020.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -982,20 +942,60 @@
         "featured": true
       },
       {
-        "name": "Garant bank",
+        "name": "Kapitalbank",
+        "buy": 13480.0,
+        "sell": 14180.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "APEXBANK",
         "buy": 13000.0,
-        "sell": 15000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "sell": 14200.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Ipak Yuli Bank",
-        "buy": 13400.0,
-        "sell": 14400.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 13700.0,
+        "sell": 14300.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
         "is_mock": false,
-        "featured": true
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 13000.0,
+        "sell": 14050.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Trastbank",
+        "buy": 13450.0,
+        "sell": 14050.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 13000.0,
+        "sell": 14100.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 13100.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
       }
     ]
   },
@@ -1134,6 +1134,14 @@
         "featured": true
       },
       {
+        "name": "Kapitalbank",
+        "buy": 22.0,
+        "sell": 24.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Hayot Bank",
         "buy": 15.0,
         "sell": 25.0,
@@ -1142,18 +1150,18 @@
         "featured": true
       },
       {
-        "name": "Anorbank",
-        "buy": 14.0,
-        "sell": 25.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
         "name": "Xalq Banki",
         "buy": 15.0,
         "sell": 24.0,
         "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Anorbank",
+        "buy": 14.0,
+        "sell": 25.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
         "is_mock": false,
         "featured": true
       },
@@ -1172,14 +1180,6 @@
         "logo": "https://logo.clearbit.com/turonbank.uz",
         "is_mock": false,
         "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 22.0,
-        "sell": 24.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
       }
     ]
   },
@@ -1310,36 +1310,36 @@
     ],
     "banks": [
       {
-        "name": "Aloqabank",
-        "buy": 15300.0,
-        "sell": 16300.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 15300.0,
+        "name": "Infinbank",
+        "buy": 15500.0,
         "sell": 16500.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Tenge Bank",
-        "buy": 15200.0,
-        "sell": 16200.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "name": "Agrobank",
+        "buy": 15250.0,
+        "sell": 16350.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Orient Finans Bank",
-        "buy": 14800.0,
-        "sell": 18000.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "name": "Ipak Yuli Bank",
+        "buy": 15300.0,
+        "sell": 16400.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
-        "featured": false
+        "featured": true
+      },
+      {
+        "name": "Xalq Banki",
+        "buy": 12500.0,
+        "sell": 19800.0,
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "is_mock": false,
+        "featured": true
       },
       {
         "name": "Ipoteka bank",
@@ -1348,6 +1348,14 @@
         "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
         "featured": true
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 14800.0,
+        "sell": 18000.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": false
       },
       {
         "name": "Octobank",
@@ -1366,60 +1374,28 @@
         "featured": false
       },
       {
-        "name": "Universal bank",
-        "buy": 16000.0,
-        "sell": 18500.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 15520.0,
-        "sell": 16220.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "name": "BRB",
+        "buy": 15600.0,
+        "sell": 16300.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Asia Alliance Bank",
-        "buy": 15620.0,
-        "sell": 16280.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "name": "Garant bank",
+        "buy": 14800.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Poytaxt bank",
-        "buy": 15000.0,
-        "sell": 18000.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Infinbank",
-        "buy": 15500.0,
+        "name": "Hayot Bank",
+        "buy": 15300.0,
         "sell": 16500.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
         "is_mock": false,
         "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 15200.0,
-        "sell": 16800.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Xalq Banki",
-        "buy": 12500.0,
-        "sell": 19800.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
-        "is_mock": false,
-        "featured": true
       },
       {
         "name": "Asakabank",
@@ -1430,25 +1406,49 @@
         "featured": false
       },
       {
-        "name": "Trastbank",
-        "buy": 15700.0,
-        "sell": 16300.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "name": "Universal bank",
+        "buy": 16000.0,
+        "sell": 18500.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 15200.0,
+        "sell": 16800.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Turon bank",
+        "buy": 15000.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Agrobank",
-        "buy": 15250.0,
-        "sell": 16350.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "name": "Aloqabank",
+        "buy": 15300.0,
+        "sell": 16300.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 15520.0,
+        "sell": 16220.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
         "name": "Kapitalbank",
-        "buy": 15400.0,
-        "sell": 16530.0,
+        "buy": 15390.0,
+        "sell": 16520.0,
         "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
         "featured": true
@@ -1462,36 +1462,36 @@
         "featured": false
       },
       {
-        "name": "BRB",
-        "buy": 15600.0,
-        "sell": 16300.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Turon bank",
+        "name": "Poytaxt bank",
         "buy": 15000.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "sell": 18000.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Garant bank",
-        "buy": 14800.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "name": "Trastbank",
+        "buy": 15700.0,
+        "sell": 16300.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Ipak Yuli Bank",
-        "buy": 15300.0,
-        "sell": 16400.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "name": "Asia Alliance Bank",
+        "buy": 15620.0,
+        "sell": 16280.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
         "is_mock": false,
-        "featured": true
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 15200.0,
+        "sell": 16200.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
       }
     ]
   },
@@ -1525,8 +1525,8 @@
     }
   ],
   "gold_history": {
-    "last_updated": "2025-12-05 10:11",
-    "last_updated_ts": 1764929461.247013,
+    "last_updated": "2025-12-05 11:10",
+    "last_updated_ts": 1764933055.997996,
     "data": [
       {
         "date": "2025-10-31",
@@ -1683,8 +1683,8 @@
     "note": "Real market data"
   },
   "silver_history": {
-    "last_updated": "2025-12-05 10:11",
-    "last_updated_ts": 1764929461.66426,
+    "last_updated": "2025-12-05 11:10",
+    "last_updated_ts": 1764933056.22315,
     "data": [
       {
         "date": "2025-10-31",
@@ -1841,8 +1841,8 @@
     "note": "Real market data"
   },
   "bitcoin_history": {
-    "last_updated": "2025-12-05 10:11",
-    "last_updated_ts": 1764929462.078616,
+    "last_updated": "2025-12-05 11:10",
+    "last_updated_ts": 1764933056.413392,
     "data": [
       {
         "date": "2025-11-05",
@@ -1999,5 +1999,5 @@
     "note": "Real market data"
   },
   "bank_reliability": null,
-  "last_updated": "2025-12-05 10:04"
+  "last_updated": "2025-12-05 11:04"
 }
