@@ -11,6 +11,7 @@ Commands:
     /help - Show all commands
 """
 
+import io
 import os
 import sys
 import json
@@ -19,6 +20,9 @@ import logging
 from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
+
+# Rate card image generator
+from rate_card_generator import generate_rate_card
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
@@ -396,7 +400,7 @@ async def rates_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def currency_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Handle individual currency commands (/usd, /eur, etc.)."""
+    """Handle individual currency commands (/usd, /eur, etc.) - sends synthwave image."""
     command = update.message.text.split()[0].replace("/", "").upper()
     
     rates_data = load_rates()
@@ -409,8 +413,6 @@ async def currency_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     banks = currency_data.get("banks", [])
     history = currency_data.get("history", [])
     
-    emoji = CURRENCY_EMOJI.get(command, "💱")
-    
     if not cbu_rate:
         await update.message.reply_text(f"❌ No data for {command}.")
         return
@@ -420,40 +422,45 @@ async def currency_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     best_sell = min([b["sell"] for b in banks], default=0) if banks else 0
     
     # Calculate change from yesterday
-    change_text = ""
+    change = 0
     if len(history) >= 2:
         today = history[-1]["rate"] if history else cbu_rate
         yesterday = history[-2]["rate"] if len(history) > 1 else today
         change = today - yesterday
-        change_pct = (change / yesterday * 100) if yesterday else 0
-        arrow = "📈" if change > 0 else "📉" if change < 0 else "➡️"
-        change_text = f"\n{arrow} Change: {'+' if change > 0 else ''}{change:.2f} ({'+' if change_pct > 0 else ''}{change_pct:.2f}%)"
     
-    text = f"""
-{emoji} **{command}/UZS** Exchange Rate
-
-📊 **CBU Official**: {format_rate(cbu_rate)} UZS
-{change_text}
-
-🏦 **Best Bank Rates**:
-   📈 Best Buy: {format_rate(best_buy)} UZS
-   📉 Best Sell: {format_rate(best_sell)} UZS
-   💹 Spread: {format_rate(best_sell - best_buy) if best_buy and best_sell else 'N/A'} UZS
-
-🕐 Updated: {rates_data.get('last_updated', 'Unknown')}
-🔗 brklyn498.github.io/Neouzsusd
-"""
+    # Send "generating..." message
+    generating_msg = await update.message.reply_text("🎨 Generating synthwave rate card...")
     
-    keyboard = [[
-        InlineKeyboardButton("🏦 See Banks", callback_data=f"banks_{command.lower()}"),
-        InlineKeyboardButton("🔄 Refresh", callback_data=f"rate_{command.lower()}")
-    ]]
-    
-    await update.message.reply_text(
-        text,
-        parse_mode="Markdown",
-        reply_markup=InlineKeyboardMarkup(keyboard)
-    )
+    try:
+        # Generate synthwave image
+        img_bytes = generate_rate_card(
+            currency=command,
+            rate=cbu_rate,
+            change=change,
+            best_buy=best_buy,
+            best_sell=best_sell
+        )
+        
+        # Send image
+        await update.message.reply_photo(
+            photo=io.BytesIO(img_bytes),
+            caption=f"🌆 {command}/UZS Rate Card | brklyn498.github.io/Neouzsusd",
+        )
+        
+        # Delete "generating" message
+        await generating_msg.delete()
+        
+    except Exception as e:
+        logger.error(f"Failed to generate rate card: {e}")
+        await generating_msg.edit_text(f"❌ Failed to generate image. Showing text instead...")
+        
+        # Fallback to text
+        emoji = CURRENCY_EMOJI.get(command, "💱")
+        text = f"{emoji} **{command}/UZS**: {format_rate(cbu_rate)} UZS"
+        if change != 0:
+            arrow = "📈" if change > 0 else "📉"
+            text += f"\n{arrow} Change: {'+' if change > 0 else ''}{change:.2f}"
+        await update.message.reply_text(text, parse_mode="Markdown")
 
 
 async def banks_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
