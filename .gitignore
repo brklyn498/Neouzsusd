@@ -1,6 +1,7 @@
 # Node
 node_modules/
 dist/
+dev-dist/
 .DS_Store
 
 # Python
@@ -13,4 +14,8 @@ venv/
 # Editor
 .vscode/
 .idea/
+
+# Generated/Runtime
 public/rates.json
+*.log
+ecosystem.config.cjs
