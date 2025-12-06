@@ -14,7 +14,7 @@ import BitcoinHistoryChart from './components/BitcoinHistoryChart';
 import Footer from './components/Footer';
 import BankReliability from './components/BankReliability';
 import BankProfileModal from './components/BankProfileModal';
-import { refreshRates } from './utils/fetchUtils';
+import { refreshRates, fetchInitialData } from './utils/fetchUtils';
 import InteractiveReport from './components/InteractiveReport';
 
 function App() {
@@ -76,11 +76,10 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('./rates.json');
-      if (!response.ok) {
+      const jsonData = await fetchInitialData();
+      if (!jsonData) {
         throw new Error('Failed to fetch data');
       }
-      const jsonData = await response.json();
       setData(jsonData);
     } catch (err) {
       setError(err.message);
