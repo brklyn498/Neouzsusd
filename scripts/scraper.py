@@ -1,5 +1,6 @@
 import json
-import requests
+import asyncio
+import aiohttp
 import random
 import datetime
 import os
@@ -11,6 +12,9 @@ from firebase_admin import credentials, messaging, firestore
 import feedparser
 from dateutil import parser as date_parser
 import hashlib
+import argparse
+import re
+from functools import partial
 
 OUTPUT_FILE = "public/rates.json"
 
@@ -50,184 +54,117 @@ CURRENCY_CONFIG = {
     }
 }
 
-# News Source Reliability Scoring (Task 3.5)
-# Tier system: official (1.0), verified (0.8), standard (0.5), aggregator (0.3)
 SOURCE_RELIABILITY = {
-    # Official government/international sources
     "CBU": {"tier": "official", "score": 1.0, "label": "OFFICIAL"},
     "IMF": {"tier": "official", "score": 1.0, "label": "OFFICIAL"},
     "World Bank": {"tier": "official", "score": 1.0, "label": "OFFICIAL"},
-    # Established local news outlets
     "Gazeta.uz": {"tier": "verified", "score": 0.8, "label": "VERIFIED"},
     "Kapital.uz": {"tier": "verified", "score": 0.8, "label": "VERIFIED"},
     "UzDaily": {"tier": "verified", "score": 0.8, "label": "VERIFIED"},
     "Spot.uz": {"tier": "verified", "score": 0.8, "label": "VERIFIED"},
-    # Standard sources
-
-    # Aggregators
     "WorldNews": {"tier": "aggregator", "score": 0.3, "label": "AGGREGATOR"},
 }
 
 def get_reliability(source_name):
-    """Returns reliability metadata for a news source."""
     return SOURCE_RELIABILITY.get(source_name, {"tier": "standard", "score": 0.5, "label": None})
 
 def get_uzt_time():
-    """Returns the current time in Uzbekistan (GMT+5)."""
     return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5)))
 
-def fetch_url(url, retries=3, delay=2):
-    """Fetches a URL with retries and a proper User-Agent."""
+async def async_fetch_url(session, url, retries=3, delay=2, use_proxy=False):
+    """Asynchronously fetches a URL with retries."""
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
     }
-
     for i in range(retries):
         try:
-            response = requests.get(url, headers=headers, timeout=15)
-            if response.status_code == 200:
-                return response
-            elif response.status_code == 403:
-                print(f"403 Forbidden at {url}. Retrying in {delay}s...")
-                time.sleep(delay)
-            else:
-                print(f"Status {response.status_code} at {url}.")
-        except requests.RequestException as e:
-            print(f"Error fetching {url}: {e}")
+            async with session.get(url, headers=headers, timeout=15) as response:
+                if response.status == 200:
+                    return await response.read()
+                elif response.status == 403:
+                    print(f"403 Forbidden at {url}. Retrying in {delay}s...")
+                    await asyncio.sleep(delay)
+                else:
+                    print(f"Status {response.status} at {url}.")
         except Exception as e:
-            print(f"Unexpected error fetching {url}: {e}")
-
-        time.sleep(delay)
-
+            print(f"Error fetching {url}: {e}")
+        await asyncio.sleep(delay)
     return None
 
-def fetch_cbu_rate(currency_code="USD", date_str=None):
-    """
-    Fetches the rate from CBU for a specific currency and date (YYYY-MM-DD) or current if None.
-    Returns float or None.
-    """
+async def async_fetch_cbu_rate(session, currency_code="USD", date_str=None):
     if date_str:
         url = f"https://cbu.uz/en/arkhiv-kursov-valyut/json/all/{date_str}/"
     else:
         url = "https://cbu.uz/common/json/"
 
-    response = fetch_url(url)
-    if not response:
+    content = await async_fetch_url(session, url)
+    if not content:
         return None
 
     try:
-        data = response.json()
+        data = json.loads(content)
         for item in data:
             if item['Ccy'] == currency_code:
                 return float(item['Rate'])
     except Exception as e:
         print(f"Error parsing CBU response for {currency_code}: {e}")
         return None
-
     return None
 
-def fetch_cbu_history_full(currency_code="USD", days=30):
-    """
-    Fetches rates for the last N days.
-    Only used if no history exists, to populate initial data.
-    """
+async def async_fetch_cbu_history_full(session, currency_code="USD", days=30):
     history = []
     today = datetime.date.today()
-
     print(f"Fetching full {currency_code} history for last {days} days...")
-
     for i in range(days):
         date_obj = today - datetime.timedelta(days=i)
         date_str = date_obj.strftime("%Y-%m-%d")
-
-        rate = fetch_cbu_rate(currency_code, date_str)
-
+        rate = await async_fetch_cbu_rate(session, currency_code, date_str)
         if rate:
-            history.append({
-                "date": date_str,
-                "rate": rate
-            })
-
-        # Add delay to avoid hitting rate limits (403)
-        time.sleep(1)
-
+            history.append({"date": date_str, "rate": rate})
+        await asyncio.sleep(0.1)
     history.sort(key=lambda x: x['date'])
     return history
 
-def update_history(existing_history, currency_code, today_rate, today_date_str):
-    """
-    Updates the history list with today's rate.
-    Maintains max 30 days.
-    """
+async def async_update_history(session, existing_history, currency_code, today_rate, today_date_str):
     if not existing_history:
-        return fetch_cbu_history_full(currency_code)
-
-    # Copy to avoid mutation issues
+        return await async_fetch_cbu_history_full(session, currency_code)
     history = list(existing_history)
-
-    # Check if today exists
     exists = False
     for item in history:
         if item['date'] == today_date_str:
-            item['rate'] = today_rate # Update just in case
+            item['rate'] = today_rate
             exists = True
             break
-
     if not exists:
-        history.append({
-            "date": today_date_str,
-            "rate": today_rate
-        })
-
-    # Sort and trim
+        history.append({"date": today_date_str, "rate": today_rate})
     history.sort(key=lambda x: x['date'])
-    # Keep last 30
     if len(history) > 30:
         history = history[-30:]
-
     return history
 
-import re
-
 def parse_rate(rate_str):
-    """Cleans and converts rate string to int/float."""
     try:
-        # Check for range format like "20dan - 21 %" or "22.52dan - 25 %"
         if "-" in rate_str:
-             # We want the max value.
              matches = re.findall(r"[-+]?\d*\.\d+|\d+", rate_str.replace(",", "."))
              if matches:
                  values = [float(m) for m in matches]
                  return max(values)
-
-        # Standard number (e.g. "12 800" or "24 %")
-        # Replace comma with dot for decimals (e.g. "25,5" -> "25.5")
-        # But handle thousands separators if any?
-        # Usually bank.uz uses spaces for thousands.
         clean = rate_str.lower().replace("so'm", "").replace(" ", "").replace(",", ".").replace("%", "")
         return float(clean)
     except Exception:
         return None
 
 def parse_bank_list(container):
-    """
-    Parses a container (Buy or Sell list) and returns a dict {bank_name: rate}.
-    """
     banks = {}
     if not container:
         return banks
-
     rows = container.find_all(class_='bc-inner-block-left-texts')
     for row in rows:
         try:
-            # Bank Name is in an <a> tag
             link = row.find('a')
             if not link:
                 continue
-
             name = link.get_text(strip=True)
-
-            # Rate is in a <span class="green-date"> or similar
             rate_span = row.find(class_='green-date')
             if rate_span:
                 rate_val = parse_rate(rate_span.get_text(strip=True))
@@ -235,30 +172,11 @@ def parse_bank_list(container):
                     banks[name] = rate_val
         except Exception:
             continue
-
     return banks
 
-def fetch_bank_uz_rates(currency_code, cbu_rate):
-    """
-    Scrapes bank.uz for specific currency rates.
-    Returns list of bank objects.
-    """
-    config = CURRENCY_CONFIG.get(currency_code)
-    if not config:
-        return None
-
-    url = config["bank_uz_url"]
-
-    print(f"Scraping {url} for {currency_code}...")
-    response = fetch_url(url)
-
-    if not response:
-        print(f"Failed to fetch {url}.")
-        return None
-
+def parse_bank_uz_content(content, currency_code, cbu_rate, config):
     try:
-        soup = BeautifulSoup(response.content, 'html.parser')
-
+        soup = BeautifulSoup(content, 'html.parser')
         left_containers = soup.find_all(class_='bc-inner-block-left')
         right_containers = soup.find_all(class_='bc-inner-blocks-right')
 
@@ -267,26 +185,16 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
         found = False
 
         min_len = min(len(left_containers), len(right_containers))
-
         for i in range(min_len):
             buy_container = left_containers[i]
             sell_container = right_containers[i]
-
             temp_buy = parse_bank_list(buy_container)
-            if not temp_buy:
-                continue
+            if not temp_buy: continue
 
-            # Check average rate of first 3 items
             rates = list(temp_buy.values())[:3]
-            if len(rates) == 0:
-                continue
+            if len(rates) == 0: continue
             avg = sum(rates) / len(rates)
-
-            # Ref rate check
             ref_rate = cbu_rate if cbu_rate else config["fallback_rate"]
-
-            # Tightened tolerance to 10% to prevent cross-currency scraping (e.g. USD table on EUR page)
-            # Use wider tolerance for KZT due to lower absolute values and higher spread variance
             tolerance = 0.3 if currency_code == "KZT" else 0.1
             if (1 - tolerance) * ref_rate <= avg <= (1 + tolerance) * ref_rate:
                 target_buy_list = temp_buy
@@ -295,16 +203,13 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
                 break
 
         if not found:
-            print(f"Could not identify {currency_code} container based on rate range.")
             return None
 
         all_bank_names = set(target_buy_list.keys()) | set(target_sell_list.keys())
         combined_banks = []
-
         for name in all_bank_names:
             buy = target_buy_list.get(name)
             sell = target_sell_list.get(name)
-
             if buy and sell:
                 combined_banks.append({
                     "name": name,
@@ -315,10 +220,7 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
                     "featured": False
                 })
 
-        # Filter Logic (Featured)
         popular_selected = []
-
-        # Helper to find bank in combined_banks
         def find_bank(partial_name):
             for b in combined_banks:
                 if partial_name.lower() in b['name'].lower():
@@ -326,7 +228,6 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
             return None
 
         target_popular = ["Kapitalbank", "Hamkorbank", "Ipak Yuli", "Milliy bank", "Sanoatqurilishbank"]
-
         for p in target_popular:
             match = find_bank(p)
             if match and match not in popular_selected:
@@ -343,7 +244,6 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
             return max(dev_buy, dev_sell)
 
         sorted_by_dev = sorted(combined_banks, key=calculate_deviation, reverse=True)
-
         deviants_selected = []
         for b in sorted_by_dev:
             if b not in popular_selected:
@@ -356,36 +256,42 @@ def fetch_bank_uz_rates(currency_code, cbu_rate):
             bank["featured"] = True
 
         return combined_banks
-
     except Exception as e:
-        print(f"Error scraping bank.uz for {currency_code}: {e}")
+        print(f"Error parsing bank.uz for {currency_code}: {e}")
         return None
 
+async def async_fetch_bank_uz_rates(session, currency_code, cbu_rate):
+    config = CURRENCY_CONFIG.get(currency_code)
+    if not config: return None
+    url = config["bank_uz_url"]
+    print(f"Scraping {url} for {currency_code}...")
+
+    content = await async_fetch_url(session, url)
+    if not content:
+        print(f"Failed to fetch {url}.")
+        return None
+
+    # Offload parsing to thread pool
+    loop = asyncio.get_running_loop()
+    return await loop.run_in_executor(
+        None, partial(parse_bank_uz_content, content, currency_code, cbu_rate, config)
+    )
+
 def generate_mock_banks(currency_code, base_rate):
-    """Generates mock data for commercial banks."""
     config = CURRENCY_CONFIG.get(currency_code)
     if not base_rate:
         base_rate = config["fallback_rate"]
-
     variance_min, variance_max = config["mock_variance"]
-
     banks = [
-        {"name": "Kapitalbank"},
-        {"name": "Hamkorbank"},
-        {"name": "Ipak Yuli Bank"},
-        {"name": "OFB"},
-        {"name": "SQB"},
-        {"name": "Asaka Bank"}
+        {"name": "Kapitalbank"}, {"name": "Hamkorbank"}, {"name": "Ipak Yuli Bank"},
+        {"name": "OFB"}, {"name": "SQB"}, {"name": "Asaka Bank"}
     ]
-
     results = []
     for i, bank in enumerate(banks):
         variance_buy = random.randint(variance_min, variance_max)
         variance_sell = random.randint(variance_min, variance_max)
-
         buy_rate = base_rate - variance_buy
         sell_rate = base_rate + variance_sell
-
         results.append({
             "name": bank["name"],
             "buy": int(buy_rate),
@@ -394,76 +300,57 @@ def generate_mock_banks(currency_code, base_rate):
             "is_mock": True,
             "featured": i < 5
         })
-
     return results
 
-def process_currency(currency_code, existing_data):
-    """Orchestrates scraping for a single currency."""
+async def async_process_currency(session, currency_code, existing_data):
     print(f"--- Processing {currency_code} ---")
-
     current_uzt = get_uzt_time()
     today_str = current_uzt.strftime("%Y-%m-%d")
     current_hour = current_uzt.hour
 
-    # 1. Determine CBU Rate Strategy
     cbu_rate = None
     cbu_last_updated = None
     history_data = []
 
     existing_currency_data = existing_data.get(currency_code.lower()) if existing_data else None
-
     should_fetch_cbu = True
 
     if existing_currency_data:
         last_updated = existing_currency_data.get('cbu_last_updated')
-        # Check if already updated today
         if last_updated == today_str:
-            print(f"CBU {currency_code} already updated today ({today_str}). Using cached rate.")
+            should_fetch_cbu = False
+            cbu_rate = existing_currency_data.get('cbu')
+            cbu_last_updated = last_updated
+            history_data = existing_currency_data.get('history', [])
+        elif current_hour < 7:
             should_fetch_cbu = False
             cbu_rate = existing_currency_data.get('cbu')
             cbu_last_updated = last_updated
             history_data = existing_currency_data.get('history', [])
 
-        # Check 7 AM rule: If it's before 7 AM UZT, don't update yet (keep yesterday's)
-        elif current_hour < 7:
-            print(f"It is {current_hour}:00 UZT (before 7 AM). Keeping previous CBU rate.")
-            should_fetch_cbu = False
-            cbu_rate = existing_currency_data.get('cbu')
-            cbu_last_updated = last_updated # Keep old date
-            history_data = existing_currency_data.get('history', [])
-
     if should_fetch_cbu:
-        print(f"Fetching fresh CBU rate for {currency_code}...")
-        fetched_rate = fetch_cbu_rate(currency_code)
-
+        fetched_rate = await async_fetch_cbu_rate(session, currency_code)
         if fetched_rate:
             cbu_rate = fetched_rate
             cbu_last_updated = today_str
-            # Update history
             existing_history = existing_currency_data.get('history', []) if existing_currency_data else []
-            history_data = update_history(existing_history, currency_code, cbu_rate, today_str)
+            history_data = await async_update_history(session, existing_history, currency_code, cbu_rate, today_str)
         else:
-            print(f"Failed to fetch CBU {currency_code}. Falling back to existing.")
             if existing_currency_data:
                 cbu_rate = existing_currency_data.get('cbu')
                 cbu_last_updated = existing_currency_data.get('cbu_last_updated')
                 history_data = existing_currency_data.get('history', [])
             else:
-                print("No existing data. Using hardcoded fallback.")
                 cbu_rate = CURRENCY_CONFIG[currency_code]["fallback_rate"]
                 cbu_last_updated = today_str
-                history_data = [] # Or attempt full fetch? better to leave empty than spam errors
+                history_data = []
 
     print(f"CBU Rate for {currency_code}: {cbu_rate}")
 
-    # 2. Always Scrape Bank.uz (Hourly)
-    scraped_banks = fetch_bank_uz_rates(currency_code, cbu_rate)
-
+    scraped_banks = await async_fetch_bank_uz_rates(session, currency_code, cbu_rate)
     if scraped_banks and len(scraped_banks) > 0:
-        print(f"Successfully scraped {len(scraped_banks)} banks for {currency_code}.")
         final_banks = scraped_banks
     else:
-        print(f"Scraping failed for {currency_code}. Using Mock Data.")
         final_banks = generate_mock_banks(currency_code, cbu_rate)
 
     return {
@@ -473,16 +360,9 @@ def process_currency(currency_code, existing_data):
         "banks": final_banks
     }
 
-def fetch_iqair_data(existing_data):
-    """
-    Fetches air quality data from IQAir API for Tashkent.
-    Uses rate limiting to avoid exceeding 500 calls/day.
-    """
+async def async_fetch_iqair_data(session, existing_data):
     print("--- Processing IQAir Weather Data ---")
-
     api_key = os.environ.get("IQAIR_API_KEY")
-    
-    # If not in env, try reading from .env file manually (for local dev)
     if not api_key:
         try:
             env_path = os.path.join(os.getcwd(), '.env')
@@ -491,45 +371,35 @@ def fetch_iqair_data(existing_data):
                     for line in f:
                         if line.strip().startswith('IQAIR_API_KEY='):
                             api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
-                            print("Loaded IQAIR_API_KEY from .env file")
                             break
-        except Exception as e:
-            print(f"Error reading .env file: {e}")
+        except Exception:
+            pass
 
     if not api_key:
-        print("IQAIR_API_KEY not found in environment variables or .env file. Skipping.")
-        # Return existing data if available
         return existing_data.get("weather") if existing_data else None
 
-    # Check if we should fetch (limit: once per hour to be safe)
     if existing_data and existing_data.get("weather"):
         last_weather_update = existing_data["weather"].get("last_updated_ts")
         if last_weather_update:
-            try:
+             try:
                 last_time = datetime.datetime.fromtimestamp(last_weather_update)
                 now = datetime.datetime.now()
-                # If less than 1 hour passed, use cached
                 if (now - last_time).total_seconds() < 3600:
-                    print("IQAir data is fresh (< 1 hour). Using cached.")
                     return existing_data["weather"]
-            except Exception as e:
-                print(f"Error parsing timestamp: {e}")
+             except Exception:
+                pass
 
-    # Tashkent endpoint: City=Tashkent, State=Toshkent Shahri, Country=Uzbekistan
     url = f"https://api.airvisual.com/v2/city?city=Tashkent&state=Toshkent%20Shahri&country=Uzbekistan&key={api_key}"
+    content = await async_fetch_url(session, url)
 
-    print("Fetching fresh IQAir data...")
-    response = fetch_url(url)
-
-    if response and response.status_code == 200:
+    if content:
         try:
-            data = response.json()
+            data = json.loads(content)
             if data.get("status") == "success":
                 current = data["data"]["current"]
                 weather = current["weather"]
                 pollution = current["pollution"]
-
-                result = {
+                return {
                     "city": "Tashkent",
                     "aqi": pollution["aqius"],
                     "temp": weather["tp"],
@@ -538,19 +408,12 @@ def fetch_iqair_data(existing_data):
                     "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
                     "last_updated_ts": datetime.datetime.now().timestamp()
                 }
-                print(f"IQAir Success: AQI {result['aqi']}")
-                return result
-            else:
-                print(f"IQAir returned failure status: {data}")
         except Exception as e:
             print(f"Error parsing IQAir response: {e}")
-    else:
-        print("Failed to fetch IQAir data.")
 
-    # Fallback to existing if fetch failed
     return existing_data.get("weather") if existing_data else None
 
-# Bank name translations and standardizations
+# Bank name translations (same as before)
 BANK_NAME_TRANSLATIONS = {
     "O'zsanoatqurilishbank": "Uzsanoat Bank",
     "Ozsanoatqurilishbank": "Uzsanoat Bank",
@@ -565,294 +428,179 @@ BANK_NAME_TRANSLATIONS = {
 }
 
 def translate_bank_name(bank_name):
-    """
-    Translates Uzbek bank names to English and shortens long names.
-    Only translates bank names, not deposit product names.
-    """
-    # Direct translation mapping
     if bank_name in BANK_NAME_TRANSLATIONS:
         return BANK_NAME_TRANSLATIONS[bank_name]
-
-    # Check for partial matches in translation dict
     for uz_name, en_name in BANK_NAME_TRANSLATIONS.items():
         if uz_name.lower() in bank_name.lower() or bank_name.lower() in uz_name.lower():
             return en_name
-
-    # Pattern-based translations (case insensitive)
     name_lower = bank_name.lower()
-
-    # Translate common Uzbek words
-    # Handle various encodings of O'zbekiston
     if 'milliy' in name_lower or 'miliy' in name_lower:
         if any(word in name_lower for word in ['zbekiston', 'o\'zbekiston', 'ozbekiston', '\u2018zbekiston']):
             return "Nat'l Bank UZ"
         bank_name = bank_name.replace('Milliy Banki', 'Nat\'l Bank').replace('milliy banki', 'Nat\'l Bank')
-
     if 'sanoatqurilish' in name_lower or 'sanoatqurili' in name_lower:
         return 'Uzsanoat Bank'
-
-    # If it's already a known English bank name, keep it
     english_banks = ['avo bank', 'uzum bank', 'turon bank', 'asakabank', 'ipak yuli',
                      'kapitalbank', 'hamkorbank', 'anor bank', 'tenge bank', 'nbu', 'aloqabank']
-
     for eng_bank in english_banks:
         if eng_bank in name_lower:
-            return bank_name  # Keep original if already English
-
-    # Shorten very long names (>16 chars)
+            return bank_name
     if len(bank_name) > 16:
-        # Try to extract the core bank name
         if 'bank' in name_lower:
-            # Take up to 'bank' + 'bank'
             parts = bank_name.split()
             for i, part in enumerate(parts):
                 if 'bank' in part.lower():
                     core_name = ' '.join(parts[:i+1])
                     if len(core_name) <= 16:
                         return core_name
-        # Fallback: truncate with ellipsis
         return bank_name[:13] + '...'
-
     return bank_name
 
-def fetch_savings_rates(existing_data, force=False):
-    """
-    Scrapes savings deposits from bank.uz/uz/deposits/sumovye-vklady.
-    Updates once a day (or if force=True).
-    """
-    print("--- Processing Savings Data ---")
+def parse_savings_card(card):
+    try:
+        block1 = card.find(class_='table-card-offers-block1')
+        if not block1: return None
+        bank_name_span = block1.find(class_='medium-text')
+        bank_name_raw = bank_name_span.get_text(strip=True) if bank_name_span else "Unknown Bank"
+        bank_name = translate_bank_name(bank_name_raw)
+        text_block = block1.find(class_='table-card-offers-block1-text')
+        deposit_name = text_block.find('a').get_text(strip=True) if text_block and text_block.find('a') else "Unknown Deposit"
 
-    # Check 24h Cache
+        rate_val = 0.0
+        duration_str = ""
+        min_amount_str = ""
+        is_online = False
+        block_all = card.find(class_='table-card-offers-blocks-all')
+        if block_all:
+            block2 = block_all.find(class_='table-card-offers-block2')
+            if block2:
+                    rate_val = parse_rate(block2.find(class_='medium-text').get_text(strip=True)) or 0.0
+            block3 = block_all.find(class_='table-card-offers-block3')
+            if block3:
+                duration_str = block3.find(class_='medium-text').get_text(strip=True)
+            block4 = block_all.find(class_='table-card-offers-block4')
+            if block4:
+                min_amount_str = block4.find(class_='medium-text').get_text(strip=True)
+            block5 = block_all.find(class_='table-card-offers-block5')
+            if block5:
+                if block5.find(string="Onlayn") or block5.find(class_='online_btn'):
+                    is_online = True
+
+        if rate_val > 0:
+            return {
+                "bank_name": bank_name,
+                "deposit_name": deposit_name,
+                "rate": rate_val,
+                "duration": duration_str,
+                "min_amount": min_amount_str,
+                "is_online": is_online,
+                "logo": get_bank_logo(bank_name)
+            }
+    except Exception: pass
+    return None
+
+def parse_savings_html(content):
+    soup = BeautifulSoup(content, 'html.parser')
+    cards = soup.find_all(class_='table-card-offers-bottom')
+    results = []
+    for card in cards:
+        res = parse_savings_card(card)
+        if res: results.append(res)
+    return results
+
+async def async_fetch_savings_rates(session, existing_data, force=False):
+    print("--- Processing Savings Data ---")
     if not force and existing_data and existing_data.get("savings"):
         last_ts = existing_data["savings"].get("last_updated_ts")
         if last_ts:
             last_time = datetime.datetime.fromtimestamp(last_ts)
             now = datetime.datetime.now()
-            if (now - last_time).total_seconds() < 86400: # 24 hours
-                print("Savings data is fresh (< 24 hours). Using cached.")
+            if (now - last_time).total_seconds() < 86400:
                 return existing_data["savings"]
 
     url = "https://bank.uz/uz/deposits/sumovye-vklady"
-    print(f"Scraping Savings from {url}...")
-
-    response = fetch_url(url)
-    if not response:
-        print("Failed to fetch savings page.")
+    content = await async_fetch_url(session, url)
+    if not content:
         return existing_data.get("savings") if existing_data else None
 
-    try:
-        soup = BeautifulSoup(response.content, 'html.parser')
+    loop = asyncio.get_running_loop()
+    savings_list = await loop.run_in_executor(None, parse_savings_html, content)
+    savings_list.sort(key=lambda x: x['rate'], reverse=True)
 
-        # We look for all containers that match the card structure
-        # Using the class we found: 'table-card-offers-bottom'
-        cards = soup.find_all(class_='table-card-offers-bottom')
+    return {
+        "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "last_updated_ts": datetime.datetime.now().timestamp(),
+        "data": savings_list
+    }
 
-        savings_list = []
+def parse_usd_savings_html(content):
+    soup = BeautifulSoup(content, 'html.parser')
+    cards = soup.find_all(class_='table-card-offers-bottom')
+    results = []
+    for card in cards:
+        try:
+            block1 = card.find(class_='table-card-offers-block1')
+            if not block1: continue
+            bank_name = translate_bank_name(block1.find(class_='medium-text').get_text(strip=True))
+            deposit_name = block1.find(class_='table-card-offers-block1-text').find('a').get_text(strip=True)
 
-        for card in cards:
-            try:
-                # 1. Bank Name and Deposit Name (Block 1)
-                block1 = card.find(class_='table-card-offers-block1')
-                if not block1:
-                    continue
+            rate_val = 0.0
+            duration_str = ""
+            min_amount_str = ""
+            is_online = False
+            currency = "USD"
 
-                bank_name_span = block1.find(class_='medium-text')
-                bank_name_raw = bank_name_span.get_text(strip=True) if bank_name_span else "Unknown Bank"
-                bank_name = translate_bank_name(bank_name_raw)  # Translate/shorten bank name
+            block_all = card.find(class_='table-card-offers-blocks-all')
+            if block_all:
+                rate_val = parse_rate(block_all.find(class_='table-card-offers-block2').find(class_='medium-text').get_text(strip=True)) or 0.0
+                duration_str = block_all.find(class_='table-card-offers-block3').find(class_='medium-text').get_text(strip=True)
+                min_amount_str = block_all.find(class_='table-card-offers-block4').find(class_='medium-text').get_text(strip=True)
+                if '€' in min_amount_str or 'EUR' in min_amount_str.upper() or 'evro' in min_amount_str.lower(): currency = "EUR"
+                if block_all.find(class_='table-card-offers-block5').find(string="Onlayn"): is_online = True
 
-                # Find the text block first to avoid grabbing the image link
-                text_block = block1.find(class_='table-card-offers-block1-text')
-                if text_block:
-                    deposit_link = text_block.find('a')
-                    deposit_name = deposit_link.get_text(strip=True) if deposit_link else "Unknown Deposit"
-                else:
-                    deposit_name = "Unknown Deposit"
+            if 'evro' in deposit_name.lower() or 'eur' in deposit_name.lower(): currency = "EUR"
+            elif 'usd' in deposit_name.lower() or 'dollar' in deposit_name.lower(): currency = "USD"
 
-                # 2. Rate, Duration, Min Amount (Block All -> Blocks 2, 3, 4)
-                # Sometimes the structure is slightly different, so be careful.
-                # The inspection showed 'table-card-offers-blocks-all' contains blocks 2,3,4,5
+            if rate_val > 0:
+                results.append({
+                    "bank_name": bank_name,
+                    "deposit_name": deposit_name,
+                    "rate": rate_val,
+                    "duration": duration_str,
+                    "min_amount": min_amount_str,
+                    "is_online": is_online,
+                    "currency": currency,
+                    "logo": get_bank_logo(bank_name)
+                })
+        except Exception: continue
+    return results
 
-                rate_val = 0.0
-                duration_str = ""
-                min_amount_str = ""
-                is_online = False
-
-                block_all = card.find(class_='table-card-offers-blocks-all')
-                if block_all:
-                    # Rate (Block 2)
-                    block2 = block_all.find(class_='table-card-offers-block2')
-                    if block2:
-                         rate_text = block2.find(class_='medium-text').get_text(strip=True)
-                         rate_val = parse_rate(rate_text) or 0.0
-
-                    # Duration (Block 3)
-                    block3 = block_all.find(class_='table-card-offers-block3')
-                    if block3:
-                        duration_str = block3.find(class_='medium-text').get_text(strip=True)
-
-                    # Min Amount (Block 4)
-                    block4 = block_all.find(class_='table-card-offers-block4')
-                    if block4:
-                        min_amount_str = block4.find(class_='medium-text').get_text(strip=True)
-
-                    # Online Badge (Block 5)
-                    block5 = block_all.find(class_='table-card-offers-block5')
-                    if block5:
-                        # Check for "Onlayn" text or icon class
-                        if block5.find(string="Onlayn") or block5.find(class_='online_btn'):
-                            is_online = True
-
-                # If rate is 0, it might be a parsing error or missing data, skip or keep?
-                # Let's keep valid looking entries
-                if rate_val > 0:
-                    savings_list.append({
-                        "bank_name": bank_name,
-                        "deposit_name": deposit_name,
-                        "rate": rate_val,
-                        "duration": duration_str,
-                        "min_amount": min_amount_str,
-                        "is_online": is_online,
-                        "logo": get_bank_logo(bank_name)
-                    })
-
-            except Exception as inner_e:
-                print(f"Error parsing a savings card: {inner_e}")
-                continue
-
-        # Sort by rate descending initially
-        savings_list.sort(key=lambda x: x['rate'], reverse=True)
-
-        print(f"Successfully scraped {len(savings_list)} savings offers.")
-
-        return {
-            "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-            "last_updated_ts": datetime.datetime.now().timestamp(),
-            "data": savings_list
-        }
-
-    except Exception as e:
-        print(f"Error scraping savings: {e}")
-        return existing_data.get("savings") if existing_data else None
-
-def fetch_usd_savings_rates(existing_data, force=False):
-    """
-    Scrapes USD/foreign currency deposits from bank.uz/uz/deposits/valyutnye-vklady.
-    This page has pagination (5 pages).
-    Updates once a day (or if force=True).
-    """
+async def async_fetch_usd_savings_rates(session, existing_data, force=False):
     print("--- Processing USD Savings Data ---")
-
-    # Check 24h Cache
     if not force and existing_data and existing_data.get("savings_usd"):
         last_ts = existing_data["savings_usd"].get("last_updated_ts")
         if last_ts:
             last_time = datetime.datetime.fromtimestamp(last_ts)
             now = datetime.datetime.now()
-            if (now - last_time).total_seconds() < 86400:  # 24 hours
-                print("USD Savings data is fresh (< 24 hours). Using cached.")
+            if (now - last_time).total_seconds() < 86400:
                 return existing_data["savings_usd"]
 
     base_url = "https://bank.uz/uz/deposits/valyutnye-vklady"
-    savings_list = []
-    
-    # Iterate through all 5 pages
+    tasks = []
     for page_num in range(1, 6):
-        if page_num == 1:
-            url = base_url
-        else:
-            url = f"{base_url}?PAGEN_3={page_num}"
-        
-        print(f"Scraping USD Savings from {url}...")
+        url = base_url if page_num == 1 else f"{base_url}?PAGEN_3={page_num}"
+        tasks.append(async_fetch_url(session, url))
 
-        response = fetch_url(url)
-        if not response:
-            print(f"Failed to fetch USD savings page {page_num}.")
-            continue
+    responses = await asyncio.gather(*tasks)
 
-        try:
-            soup = BeautifulSoup(response.content, 'html.parser')
-            cards = soup.find_all(class_='table-card-offers-bottom')
+    loop = asyncio.get_running_loop()
+    savings_list = []
+    for content in responses:
+        if not content: continue
+        page_results = await loop.run_in_executor(None, parse_usd_savings_html, content)
+        savings_list.extend(page_results)
 
-            for card in cards:
-                try:
-                    # 1. Bank Name and Deposit Name (Block 1)
-                    block1 = card.find(class_='table-card-offers-block1')
-                    if not block1:
-                        continue
-
-                    bank_name_span = block1.find(class_='medium-text')
-                    bank_name_raw = bank_name_span.get_text(strip=True) if bank_name_span else "Unknown Bank"
-                    bank_name = translate_bank_name(bank_name_raw)
-
-                    text_block = block1.find(class_='table-card-offers-block1-text')
-                    if text_block:
-                        deposit_link = text_block.find('a')
-                        deposit_name = deposit_link.get_text(strip=True) if deposit_link else "Unknown Deposit"
-                    else:
-                        deposit_name = "Unknown Deposit"
-
-                    # 2. Rate, Duration, Min Amount (Block All -> Blocks 2, 3, 4)
-                    rate_val = 0.0
-                    duration_str = ""
-                    min_amount_str = ""
-                    is_online = False
-                    currency = "USD"  # Default, may be EUR
-
-                    block_all = card.find(class_='table-card-offers-blocks-all')
-                    if block_all:
-                        # Rate (Block 2)
-                        block2 = block_all.find(class_='table-card-offers-block2')
-                        if block2:
-                            rate_text = block2.find(class_='medium-text').get_text(strip=True)
-                            rate_val = parse_rate(rate_text) or 0.0
-
-                        # Duration (Block 3)
-                        block3 = block_all.find(class_='table-card-offers-block3')
-                        if block3:
-                            duration_str = block3.find(class_='medium-text').get_text(strip=True)
-
-                        # Min Amount (Block 4)
-                        block4 = block_all.find(class_='table-card-offers-block4')
-                        if block4:
-                            min_amount_str = block4.find(class_='medium-text').get_text(strip=True)
-                            # Detect currency from min amount ($ or €)
-                            if '€' in min_amount_str or 'EUR' in min_amount_str.upper() or 'evro' in min_amount_str.lower():
-                                currency = "EUR"
-
-                        # Online Badge (Block 5)
-                        block5 = block_all.find(class_='table-card-offers-block5')
-                        if block5:
-                            if block5.find(string="Onlayn") or block5.find(class_='online_btn'):
-                                is_online = True
-
-                    # Also check deposit name for currency hints
-                    name_lower = deposit_name.lower()
-                    if 'evro' in name_lower or 'eur' in name_lower or 'euro' in name_lower:
-                        currency = "EUR"
-                    elif 'usd' in name_lower or 'dollar' in name_lower:
-                        currency = "USD"
-
-                    if rate_val > 0:
-                        savings_list.append({
-                            "bank_name": bank_name,
-                            "deposit_name": deposit_name,
-                            "rate": rate_val,
-                            "duration": duration_str,
-                            "min_amount": min_amount_str,
-                            "is_online": is_online,
-                            "currency": currency,
-                            "logo": get_bank_logo(bank_name)
-                        })
-
-                except Exception as inner_e:
-                    print(f"Error parsing a USD savings card: {inner_e}")
-                    continue
-
-        except Exception as e:
-            print(f"Error scraping USD savings page {page_num}: {e}")
-            continue
-
-    # Remove duplicates based on bank_name + deposit_name
+    # Deduplicate
     seen = set()
     unique_list = []
     for item in savings_list:
@@ -860,11 +608,7 @@ def fetch_usd_savings_rates(existing_data, force=False):
         if key not in seen:
             seen.add(key)
             unique_list.append(item)
-    
-    # Sort by rate descending
     unique_list.sort(key=lambda x: x['rate'], reverse=True)
-
-    print(f"Successfully scraped {len(unique_list)} USD/EUR savings offers.")
 
     return {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -872,75 +616,57 @@ def fetch_usd_savings_rates(existing_data, force=False):
         "data": unique_list
     }
 
-
-def fetch_news(existing_data, force=False):
-    """
-    Fetches financial news from RSS feeds.
-    Updates every 30 minutes unless force=True.
-    """
+async def async_fetch_news(session, existing_data, force=False):
     print("--- Processing News Feed ---")
-
-    # Check 30m Cache
     if not force and existing_data and existing_data.get("news"):
         last_ts = existing_data["news"].get("last_updated_ts")
         if last_ts:
             try:
                 last_time = datetime.datetime.fromtimestamp(last_ts)
                 now = datetime.datetime.now()
-                if (now - last_time).total_seconds() < 1800: # 30 minutes
-                    print("News data is fresh (< 30 minutes). Using cached.")
+                if (now - last_time).total_seconds() < 1800:
                     return existing_data["news"]
-            except Exception as e:
-                print(f"Error parsing timestamp: {e}")
+            except Exception:
+                pass
 
     sources = [
         {"name": "Gazeta.uz", "rss": "https://www.gazeta.uz/en/rss/", "default_cat": "general", "lang": "EN"},
         {"name": "Kapital.uz", "rss": "https://kapital.uz/feed/", "default_cat": "business", "lang": "RU"},
-
         {"name": "UzDaily", "rss": "https://uzdaily.uz/en/rss", "default_cat": "business", "lang": "EN"},
         {"name": "Spot.uz", "rss": "https://www.spot.uz/rss", "default_cat": "business", "lang": "RU"},
         {"name": "Spot.uz", "rss": "https://www.spot.uz/oz/rss/", "default_cat": "business", "lang": "UZ"},
     ]
 
-    # Keyword mapping for categorization
     CATEGORIES = {
-        "economy": ["gdp", "inflation", "cpi", "fiscal", "budget", "imf", "world bank", "adb", "growth", "tax", "reform", "debt",
-                    "ввп", "инфляция", "бюджет", "мвф", "всемирный банк", "рост", "налог", "реформа", "долг", "экономика"],
-        "banking": ["cbu", "central bank", "deposit", "loan", "interest rate", "mortgage", "atm", "visa", "mastercard", "fintech",
-                    "цб", "центробанк", "банк", "вклад", "кредит", "ставка", "ипотека", "банкомат", "финтех", "cb"],
-        "markets": ["stock", "exchange", "uzse", "ipo", "dividend", "commodity", "gold", "silver", "oil", "gas", "bitcoin", "crypto",
-                    "биржа", "акции", "рфб", "ipo", "дивиденд", "сырье", "золото", "серебро", "нефть", "газ", "биткоин", "крипто", "рынок"],
-        "business": ["startup", "investment", "profit", "revenue", "merger", "acquisition", "export", "import", "trade", "company",
-                    "стартап", "инвестиции", "прибыль", "выручка", "слияние", "поглощение", "экспорт", "импорт", "торговля", "компания", "бизнес"],
-        "regulation": ["law", "decree", "president", "parliament", "cabinet", "policy", "rule", "license", "ban", "permit",
-                      "закон", "указ", "президент", "парламент", "кабмин", "политика", "правило", "лицензия", "запрет", "разрешение"]
+        "economy": ["gdp", "inflation", "cpi", "fiscal", "budget", "imf", "world bank", "adb", "growth", "tax", "reform", "debt", "ввп", "инфляция", "бюджет", "мвф", "всемирный банк", "рост", "налог", "реформа", "долг", "экономика"],
+        "banking": ["cbu", "central bank", "deposit", "loan", "interest rate", "mortgage", "atm", "visa", "mastercard", "fintech", "цб", "центробанк", "банк", "вклад", "кредит", "ставка", "ипотека", "банкомат", "финтех", "cb"],
+        "markets": ["stock", "exchange", "uzse", "ipo", "dividend", "commodity", "gold", "silver", "oil", "gas", "bitcoin", "crypto", "биржа", "акции", "рфб", "ipo", "дивиденд", "сырье", "золото", "серебро", "нефть", "газ", "биткоин", "крипто", "рынок"],
+        "business": ["startup", "investment", "profit", "revenue", "merger", "acquisition", "export", "import", "trade", "company", "стартап", "инвестиции", "прибыль", "выручка", "слияние", "поглощение", "экспорт", "импорт", "торговля", "компания", "бизнес"],
+        "regulation": ["law", "decree", "president", "parliament", "cabinet", "policy", "rule", "license", "ban", "permit", "закон", "указ", "президент", "парламент", "кабмин", "политика", "правило", "лицензия", "запрет", "разрешение"]
     }
 
     def determine_category(title, summary, default):
         text = (title + " " + summary).lower()
-
-        # Check against keywords
         for cat, keywords in CATEGORIES.items():
             for keyword in keywords:
                 if keyword in text:
-                    return cat.capitalize() # Return Capitalized version (e.g. "Economy")
-
-        # If no match, return default (Capitalized)
+                    return cat.capitalize()
         return default.capitalize()
+
+    # Async fetch RSS
+    rss_tasks = [async_fetch_url(session, s["rss"]) for s in sources]
+    rss_contents = await asyncio.gather(*rss_tasks)
 
     all_news = []
 
-    for source in sources:
+    for i, content in enumerate(rss_contents):
+        if not content: continue
+        source = sources[i]
         try:
-            print(f"Fetching RSS: {source['name']}")
-            feed = feedparser.parse(source["rss"])
-
-            for entry in feed.entries[:10]: # Limit per source
-                # Generate stable ID
+            feed = feedparser.parse(content)
+            for entry in feed.entries[:10]:
                 id_str = f"{source['name']}-{entry.link}"
                 item_id = hashlib.md5(id_str.encode()).hexdigest()
-
-                # Parse date
                 published_at = ""
                 published_ts = 0
                 if hasattr(entry, 'published'):
@@ -948,1079 +674,474 @@ def fetch_news(existing_data, force=False):
                         dt = date_parser.parse(entry.published)
                         published_at = dt.isoformat()
                         published_ts = dt.timestamp()
-                    except:
-                        pass
+                    except: pass
 
-                # Image extraction
                 image_url = None
                 if hasattr(entry, 'media_content'):
-                     # Often media_content is a list of dicts
                      for media in entry.media_content:
                          if 'url' in media:
                              image_url = media['url']
                              break
-
-                # Fallback for image in summary/content (Gazeta often puts it there)
                 if not image_url and hasattr(entry, 'summary'):
-                    soup = BeautifulSoup(entry.summary, 'html.parser')
-                    img_tag = soup.find('img')
-                    if img_tag and img_tag.get('src'):
-                        image_url = img_tag['src']
+                    s = BeautifulSoup(entry.summary, 'html.parser')
+                    img = s.find('img')
+                    if img and img.get('src'): image_url = img['src']
 
-                # Get full content from RSS (some feeds have content:encoded or full summary)
                 full_content = ""
                 if hasattr(entry, 'content') and entry.content:
-                    # content:encoded field (often has full article)
                     full_content = BeautifulSoup(entry.content[0].get('value', ''), 'html.parser').get_text(strip=True)
                 elif hasattr(entry, 'summary'):
                     full_content = BeautifulSoup(entry.summary, 'html.parser').get_text(strip=True)
-                
-                # Limit full content to reasonable size (2000 chars)
-                if len(full_content) > 2000:
-                    full_content = full_content[:2000] + "..."
-                
-                # Short summary for card preview (200 chars)
+                if len(full_content) > 2000: full_content = full_content[:2000] + "..."
                 summary_clean = full_content[:200] + "..." if len(full_content) > 200 else full_content
-
-                # Determine category
                 category = determine_category(entry.title, summary_clean, source["default_cat"])
-
-                # Get reliability metadata
                 reliability = get_reliability(source["name"])
 
                 all_news.append({
-                    "id": item_id,
-                    "title": entry.title,
-                    "summary": summary_clean,
-                    "full_content": full_content,  # Full article text for modal view
-                    "source": source["name"],
-                    "source_url": entry.link,
-                    "category": category,
-                    "language": source["lang"],  # Language code: EN, RU, or UZ
-                    "published_at": published_at,
-                    "published_ts": published_ts,
-                    "image_url": image_url,
-                    "is_breaking": False,
-                    "reliability_tier": reliability["tier"],
-                    "reliability_score": reliability["score"],
-                    "reliability_label": reliability["label"],
+                    "id": item_id, "title": entry.title, "summary": summary_clean, "full_content": full_content,
+                    "source": source["name"], "source_url": entry.link, "category": category, "language": source["lang"],
+                    "published_at": published_at, "published_ts": published_ts, "image_url": image_url,
+                    "is_breaking": False, "reliability_tier": reliability["tier"], "reliability_score": reliability["score"],
+                    "reliability_label": reliability["label"]
                 })
-        except Exception as e:
-            print(f"Error fetching RSS for {source['name']}: {e}")
+        except Exception: pass
 
-    # Fetch from WorldNewsAPI (Phase 3 source expansion)
-    worldnews_items = fetch_worldnews_api()
+    # Fetch additional sources concurrently
+    extra_tasks = [
+        async_fetch_worldnews_api(session),
+        async_fetch_cbu_news(session),
+        async_fetch_imf_news(session),
+        async_fetch_worldbank_news(session)
+    ]
+    extra_results = await asyncio.gather(*extra_tasks)
     
-    # Merge with deduplication (avoid duplicate titles)
-    existing_titles = {item["title"].lower()[:50] for item in all_news}
-    for wn_item in worldnews_items:
-        title_key = wn_item["title"].lower()[:50]
-        if title_key not in existing_titles:
-            all_news.append(wn_item)
-            existing_titles.add(title_key)
+    for res in extra_results:
+        if res:
+            # Dedupe
+            existing_titles = {item["title"].lower()[:50] for item in all_news}
+            for item in res:
+                if item["title"].lower()[:50] not in existing_titles:
+                    all_news.append(item)
+                    existing_titles.add(item["title"].lower()[:50])
 
-    # Fetch from CBU (Central Bank official news)
-    cbu_items = fetch_cbu_news()
-    for cbu_item in cbu_items:
-        title_key = cbu_item["title"].lower()[:50]
-        if title_key not in existing_titles:
-            all_news.append(cbu_item)
-            existing_titles.add(title_key)
-
-    # Fetch from IMF (International Monetary Fund)
-    imf_items = fetch_imf_news()
-    for imf_item in imf_items:
-        title_key = imf_item["title"].lower()[:50]
-        if title_key not in existing_titles:
-            all_news.append(imf_item)
-            existing_titles.add(title_key)
-
-    # Fetch from World Bank
-    wb_items = fetch_worldbank_news()
-    for wb_item in wb_items:
-        title_key = wb_item["title"].lower()[:50]
-        if title_key not in existing_titles:
-            all_news.append(wb_item)
-            existing_titles.add(title_key)
-
-    # Sort by date descending
     all_news.sort(key=lambda x: x["published_ts"], reverse=True)
-
-    # Keep top 60 (increased to accommodate all sources)
     final_news = all_news[:60]
-
-    print(f"Successfully fetched {len(final_news)} news items (RSS + WorldNewsAPI + CBU + IMF + World Bank).")
-
     return {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "last_updated_ts": datetime.datetime.now().timestamp(),
         "items": final_news
     }
 
-def load_env_var(var_name):
-    """
-    Loads an environment variable, falling back to .env file for local dev.
-    """
-    value = os.environ.get(var_name)
-    
-    if not value:
-        try:
-            env_path = os.path.join(os.getcwd(), '.env')
-            if os.path.exists(env_path):
-                with open(env_path, 'r') as f:
-                    for line in f:
-                        line = line.strip()
-                        if line.startswith(f'{var_name}='):
-                            value = line.split('=', 1)[1].strip().strip('"').strip("'")
-                            print(f"Loaded {var_name} from .env file")
-                            break
-        except Exception as e:
-            print(f"Error reading .env file for {var_name}: {e}")
-    
-    return value
-
-def fetch_cbu_news():
-    """
-    Scrapes news from Central Bank of Uzbekistan press center.
-    Returns list of news items in the same format as RSS feeds.
-    URL: https://cbu.uz/en/press_center/news/
-    """
+async def async_fetch_cbu_news(session):
     print("--- Fetching CBU News ---")
-    
     url = "https://cbu.uz/en/press_center/news/"
-    
+    content = await async_fetch_url(session, url)
+    if not content: return []
     try:
-        response = fetch_url(url)
-        if not response:
-            print("Failed to fetch CBU news page.")
-            return []
-        
-        soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Find all news links - they have format /en/press_center/news/XXXXXX/
+        soup = BeautifulSoup(content, 'html.parser')
         news_items = []
-        
-        # Look for links that match the news URL pattern
         for link in soup.find_all('a', href=True):
             href = link.get('href', '')
-            
-            # Match CBU news pattern: /en/press_center/news/XXXXXX/
-            if '/en/press_center/news/' in href and href.count('/') >= 5:
-                # Skip pagination and main page links
-                if '?PAGEN' in href or href == '/en/press_center/news/':
-                    continue
-                
-                # Get the full text content of the link
+            if '/en/press_center/news/' in href and href.count('/') >= 5 and '?PAGEN' not in href and href != '/en/press_center/news/':
                 title = link.get_text(strip=True)
-                
-                # Skip if no meaningful title
-                if not title or len(title) < 10:
-                    continue
-                
-                # Parse date if present (format: "4 Dec 2025")
-                # CBU puts date in the text, usually at the end or in a separate element
+                if not title or len(title) < 10: continue
                 date_str = ""
                 published_ts = 0
-                
-                # Try to find date in sibling or parent elements
                 parent = link.parent
                 if parent:
-                    text_content = parent.get_text()
-                    # Look for date pattern in text
-                    import re
-                    date_match = re.search(r'(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})', text_content)
-                    if date_match:
+                    text = parent.get_text()
+                    match = re.search(r'(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})', text)
+                    if match:
                         try:
-                            dt = date_parser.parse(date_match.group(0))
+                            dt = date_parser.parse(match.group(0))
                             date_str = dt.isoformat()
                             published_ts = dt.timestamp()
-                        except:
-                            pass
-                
-                # Build full URL
+                        except: pass
                 full_url = href if href.startswith('http') else f"https://cbu.uz{href}"
-                
-                # Generate stable ID
-                id_str = f"cbu-{href}"
-                item_id = hashlib.md5(id_str.encode()).hexdigest()
-                
-                # Clean title (remove date if embedded)
                 clean_title = re.sub(r'\s*\d{1,2}\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}\s*$', '', title).strip()
-                
                 reliability = get_reliability("CBU")
                 news_items.append({
-                    "id": item_id,
-                    "title": clean_title,
-                    "summary": clean_title,  # CBU doesn't provide summaries on list page
-                    "full_content": "",  # Would need to scrape individual pages
-                    "source": "CBU",
-                    "source_url": full_url,
-                    "category": "Banking",  # CBU is always banking-related
-                    "language": "EN",
-                    "published_at": date_str,
-                    "published_ts": published_ts,
-                    "image_url": None,
-                    "is_breaking": False,
-                    "is_official": True,
-                    "reliability_tier": reliability["tier"],
-                    "reliability_score": reliability["score"],
-                    "reliability_label": reliability["label"],
+                    "id": hashlib.md5(f"cbu-{href}".encode()).hexdigest(),
+                    "title": clean_title, "summary": clean_title, "full_content": "", "source": "CBU", "source_url": full_url,
+                    "category": "Banking", "language": "EN", "published_at": date_str, "published_ts": published_ts, "image_url": None,
+                    "is_breaking": False, "is_official": True, "reliability_tier": reliability["tier"], "reliability_score": reliability["score"],
+                    "reliability_label": reliability["label"]
                 })
-        
-        # Remove duplicates based on URL
-        seen_urls = set()
-        unique_items = []
+        # Dedupe
+        seen = set()
+        unique = []
         for item in news_items:
-            if item["source_url"] not in seen_urls:
-                seen_urls.add(item["source_url"])
-                unique_items.append(item)
-        
-        # Sort by date and keep top 10
-        unique_items.sort(key=lambda x: x["published_ts"], reverse=True)
-        final_items = unique_items[:10]
-        
-        print(f"CBU News: Fetched {len(final_items)} items")
-        return final_items
-        
-    except Exception as e:
-        print(f"CBU News Error: {e}")
-        return []
+            if item["source_url"] not in seen:
+                seen.add(item["source_url"])
+                unique.append(item)
+        unique.sort(key=lambda x: x["published_ts"], reverse=True)
+        return unique[:10]
+    except Exception: return []
 
-def fetch_imf_news():
-    """
-    Fetches news from IMF about Uzbekistan.
-    Uses the IMF country page which lists recent documents/news.
-    URL: https://www.imf.org/en/Countries/UZB
-    """
+async def async_fetch_imf_news(session):
     print("--- Fetching IMF News ---")
-    
     url = "https://www.imf.org/en/Countries/UZB"
-    
+    content = await async_fetch_url(session, url)
+    if not content: return []
     try:
-        response = fetch_url(url)
-        if not response:
-            print("Failed to fetch IMF page.")
-            return []
-        
-        soup = BeautifulSoup(response.content, 'html.parser')
+        soup = BeautifulSoup(content, 'html.parser')
         news_items = []
-        
-        # Look for links to news/articles/publications about Uzbekistan
         for link in soup.find_all('a', href=True):
             href = link.get('href', '')
-            
-            # Match IMF news/publications patterns
-            if any(pattern in href for pattern in ['/news/', '/publications/', '/en/News/']):
-                if 'Countries/UZB' in href or href == url:
-                    continue  # Skip self-references
-                
+            if any(p in href for p in ['/news/', '/publications/', '/en/News/']) and 'Countries/UZB' not in href and href != url:
                 title = link.get_text(strip=True)
-                if not title or len(title) < 15:
-                    continue
-                
-                # Skip navigation/generic links
-                if title.lower() in ['read more', 'view all', 'see more', 'more']:
-                    continue
-                
-                # Build full URL
+                if not title or len(title) < 15 or title.lower() in ['read more', 'view all']: continue
                 full_url = href if href.startswith('http') else f"https://www.imf.org{href}"
-                
-                # Generate stable ID
-                id_str = f"imf-{href}"
-                item_id = hashlib.md5(id_str.encode()).hexdigest()
-                
-                # Try to extract date from URL (format: /YYYY/MM/DD/)
-                import re
                 date_str = ""
                 published_ts = 0
-                date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', href)
-                if date_match:
+                match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', href)
+                if match:
                     try:
-                        dt = datetime.datetime(
-                            int(date_match.group(1)),
-                            int(date_match.group(2)),
-                            int(date_match.group(3))
-                        )
+                        dt = datetime.datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)))
                         date_str = dt.isoformat()
                         published_ts = dt.timestamp()
-                    except:
-                        pass
-                
-                # If no date in URL, use current date minus index
+                    except: pass
                 if not published_ts:
                     published_ts = datetime.datetime.now().timestamp() - len(news_items) * 86400
                     date_str = datetime.datetime.now().isoformat()
-                
                 reliability = get_reliability("IMF")
                 news_items.append({
-                    "id": item_id,
-                    "title": title[:200],  # Limit title length
-                    "summary": f"IMF report on Uzbekistan: {title[:150]}",
-                    "full_content": "",
-                    "source": "IMF",
-                    "source_url": full_url,
-                    "category": "Economy",
-                    "language": "EN",
-                    "published_at": date_str,
-                    "published_ts": published_ts,
-                    "image_url": None,
-                    "is_breaking": False,
-                    "is_official": True,
-                    "reliability_tier": reliability["tier"],
-                    "reliability_score": reliability["score"],
-                    "reliability_label": reliability["label"],
+                    "id": hashlib.md5(f"imf-{href}".encode()).hexdigest(),
+                    "title": title[:200], "summary": f"IMF report on Uzbekistan: {title[:150]}", "full_content": "",
+                    "source": "IMF", "source_url": full_url, "category": "Economy", "language": "EN",
+                    "published_at": date_str, "published_ts": published_ts, "image_url": None,
+                    "is_breaking": False, "is_official": True, "reliability_tier": reliability["tier"], "reliability_score": reliability["score"],
+                    "reliability_label": reliability["label"]
                 })
-        
-        # Remove duplicates
-        seen_urls = set()
-        unique_items = []
+        seen = set()
+        unique = []
         for item in news_items:
-            if item["source_url"] not in seen_urls:
-                seen_urls.add(item["source_url"])
-                unique_items.append(item)
-        
-        # Keep top 5
-        unique_items.sort(key=lambda x: x["published_ts"], reverse=True)
-        final_items = unique_items[:5]
-        
-        print(f"IMF News: Fetched {len(final_items)} items")
-        return final_items
-        
-    except Exception as e:
-        print(f"IMF News Error: {e}")
-        return []
+            if item["source_url"] not in seen:
+                seen.add(item["source_url"])
+                unique.append(item)
+        unique.sort(key=lambda x: x["published_ts"], reverse=True)
+        return unique[:5]
+    except Exception: return []
 
-def fetch_worldbank_news():
-    """
-    Fetches news from World Bank about Uzbekistan.
-    URL: https://www.worldbank.org/en/country/uzbekistan
-    """
+async def async_fetch_worldbank_news(session):
     print("--- Fetching World Bank News ---")
-    
     url = "https://www.worldbank.org/en/country/uzbekistan"
-    
+    content = await async_fetch_url(session, url)
+    if not content: return []
     try:
-        response = fetch_url(url)
-        if not response:
-            print("Failed to fetch World Bank page.")
-            return []
-        
-        soup = BeautifulSoup(response.content, 'html.parser')
+        soup = BeautifulSoup(content, 'html.parser')
         news_items = []
-        
-        # Look for links to news/stories/features
         for link in soup.find_all('a', href=True):
             href = link.get('href', '')
-            
-            # Match World Bank news patterns
-            if any(pattern in href.lower() for pattern in ['/news/', '/feature/', '/story/', '/stories/']):
+            if any(p in href.lower() for p in ['/news/', '/feature/', '/story/']) and link.get_text(strip=True).lower() not in ['read more', 'view all']:
                 title = link.get_text(strip=True)
-                if not title or len(title) < 15:
-                    continue
-                
-                # Skip navigation links
-                if title.lower() in ['read more', 'view all', 'see more', 'more', 'learn more']:
-                    continue
-                
-                # Build full URL
+                if not title or len(title) < 15: continue
                 full_url = href if href.startswith('http') else f"https://www.worldbank.org{href}"
-                
-                # Generate stable ID
-                id_str = f"wb-{href}"
-                item_id = hashlib.md5(id_str.encode()).hexdigest()
-                
-                # Try to extract date from URL
-                import re
                 date_str = ""
                 published_ts = 0
-                date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', href)
-                if date_match:
+                match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', href)
+                if match:
                     try:
-                        dt = datetime.datetime(
-                            int(date_match.group(1)),
-                            int(date_match.group(2)),
-                            int(date_match.group(3))
-                        )
+                        dt = datetime.datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)))
                         date_str = dt.isoformat()
                         published_ts = dt.timestamp()
-                    except:
-                        pass
-                
+                    except: pass
                 if not published_ts:
                     published_ts = datetime.datetime.now().timestamp() - len(news_items) * 86400
                     date_str = datetime.datetime.now().isoformat()
-                
                 reliability = get_reliability("World Bank")
                 news_items.append({
-                    "id": item_id,
-                    "title": title[:200],
-                    "summary": f"World Bank report on Uzbekistan: {title[:150]}",
-                    "full_content": "",
-                    "source": "World Bank",
-                    "source_url": full_url,
-                    "category": "Economy",
-                    "language": "EN",
-                    "published_at": date_str,
-                    "published_ts": published_ts,
-                    "image_url": None,
-                    "is_breaking": False,
-                    "is_official": True,
-                    "reliability_tier": reliability["tier"],
-                    "reliability_score": reliability["score"],
-                    "reliability_label": reliability["label"],
+                    "id": hashlib.md5(f"wb-{href}".encode()).hexdigest(),
+                    "title": title[:200], "summary": f"World Bank report on Uzbekistan: {title[:150]}", "full_content": "",
+                    "source": "World Bank", "source_url": full_url, "category": "Economy", "language": "EN",
+                    "published_at": date_str, "published_ts": published_ts, "image_url": None,
+                    "is_breaking": False, "is_official": True, "reliability_tier": reliability["tier"], "reliability_score": reliability["score"],
+                    "reliability_label": reliability["label"]
                 })
-        
-        # Remove duplicates
-        seen_urls = set()
-        unique_items = []
+        seen = set()
+        unique = []
         for item in news_items:
-            if item["source_url"] not in seen_urls:
-                seen_urls.add(item["source_url"])
-                unique_items.append(item)
-        
-        # Keep top 5
-        unique_items.sort(key=lambda x: x["published_ts"], reverse=True)
-        final_items = unique_items[:5]
-        
-        print(f"World Bank News: Fetched {len(final_items)} items")
-        return final_items
-        
-    except Exception as e:
-        print(f"World Bank News Error: {e}")
-        return []
+            if item["source_url"] not in seen:
+                seen.add(item["source_url"])
+                unique.append(item)
+        unique.sort(key=lambda x: x["published_ts"], reverse=True)
+        return unique[:5]
+    except Exception: return []
 
-def fetch_worldnews_api():
-    """
-    Fetches news from WorldNewsAPI for broader Uzbekistan coverage.
-    Returns list of news items or empty list if API unavailable.
-    Docs: https://worldnewsapi.com/docs/
-    """
+async def async_fetch_worldnews_api(session):
     print("--- Fetching WorldNewsAPI ---")
-    
-    api_key = load_env_var("WORLDNEWS_API_KEY")
-    
-    if not api_key:
-        print("WORLDNEWS_API_KEY not found. Skipping WorldNewsAPI.")
-        return []
-    
+    api_key = os.environ.get("WORLDNEWS_API_KEY")
+    if not api_key: return []
+    url = f"https://api.worldnewsapi.com/search-news?api-key={api_key}&source-country=uz&language=en&number=15&sort=publish-time&sort-direction=DESC"
+    content = await async_fetch_url(session, url)
+    if not content: return []
     try:
-        url = "https://api.worldnewsapi.com/search-news"
-        params = {
-            "api-key": api_key,
-            "source-country": "uz",
-            "language": "en",
-            "number": 15,
-            "sort": "publish-time",
-            "sort-direction": "DESC"
-        }
-        
-        response = requests.get(url, params=params, timeout=15)
-        
-        if response.status_code == 200:
-            data = response.json()
-            news_items = data.get("news", [])
-            
-            parsed_news = []
-            for item in news_items:
-                # Generate stable ID
-                id_str = f"worldnews-{item.get('id', item.get('url', ''))}"
-                item_id = hashlib.md5(id_str.encode()).hexdigest()
-                
-                # Parse date
-                published_at = item.get("publish_date", "")
-                published_ts = 0
-                if published_at:
-                    try:
-                        dt = date_parser.parse(published_at)
-                        published_ts = dt.timestamp()
-                    except:
-                        pass
-                
-                # Get summary (WorldNews provides 'text' as full content)
-                full_text = item.get("text", "")[:2000]
-                summary = full_text[:200] + "..." if len(full_text) > 200 else full_text
-                
-                # Determine category using existing logic
-                CATEGORIES = {
-                    "economy": ["gdp", "inflation", "cpi", "fiscal", "budget", "imf", "world bank", "adb", "growth", "tax", "reform", "debt"],
-                    "banking": ["cbu", "central bank", "deposit", "loan", "interest rate", "mortgage", "fintech"],
-                    "markets": ["stock", "exchange", "uzse", "ipo", "dividend", "commodity", "gold", "silver", "bitcoin"],
-                    "business": ["startup", "investment", "profit", "revenue", "merger", "acquisition", "export", "import"],
-                    "regulation": ["law", "decree", "president", "parliament", "cabinet", "policy", "license"]
-                }
-                
-                text = (item.get("title", "") + " " + summary).lower()
-                category = "General"
-                for cat, keywords in CATEGORIES.items():
-                    for keyword in keywords:
-                        if keyword in text:
-                            category = cat.capitalize()
-                            break
-                    if category != "General":
-                        break
-                
-                reliability = get_reliability("WorldNews")
-                parsed_news.append({
-                    "id": item_id,
-                    "title": item.get("title", ""),
-                    "summary": summary,
-                    "full_content": full_text,
-                    "source": "WorldNews",  # Use consistent name for filtering
-                    "source_url": item.get("url", ""),
-                    "category": category,
-                    "language": "EN",  # WorldNewsAPI returns English content
-                    "published_at": published_at,
-                    "published_ts": published_ts,
-                    "image_url": item.get("image"),
-                    "is_breaking": False,
-                    "is_worldnews_api": True,
-                    "reliability_tier": reliability["tier"],
-                    "reliability_score": reliability["score"],
-                    "reliability_label": reliability["label"],
-                })
-            
-            print(f"WorldNewsAPI: Fetched {len(parsed_news)} items")
-            return parsed_news
-        
-        elif response.status_code == 401:
-            print("WorldNewsAPI: Invalid API key (401)")
-        elif response.status_code == 402:
-            print("WorldNewsAPI: API limit exceeded (402)")
-        else:
-            print(f"WorldNewsAPI: Error {response.status_code}")
-            
-    except Exception as e:
-        print(f"WorldNewsAPI Error: {e}")
-    
-    return []
-
-import argparse
-
-def fetch_gold_bar_prices():
-    """
-    Scrapes gold bar prices from bank.uz/uz/gold-bars.
-    Returns list of gold bar objects with weight and price.
-    """
-    print("--- Processing Gold Bar Prices ---")
-    
-    url = "https://bank.uz/uz/gold-bars"
-    print(f"Scraping gold bars from {url}...")
-    
-    response = fetch_url(url)
-    if not response:
-        print("Failed to fetch gold bars page.")
-        return None
-    
-    try:
-        soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Find the table with class 'table-table-bordered'
-        table = soup.find('table', class_='table-table-bordered')
-        if not table:
-            print("Could not find gold bars table.")
-            return None
-        
-        gold_bars = []
-        rows = table.find_all('tr')
-        
-        # Skip header row (first row)
-        for row in rows[1:]:
-            try:
-                cells = row.find_all('td')
-                if len(cells) < 2:
-                    continue
-                
-                # Extract weight (first column)
-                weight_text = cells[0].get_text(strip=True)
-                # Clean weight text (e.g., "5 грамм" -> "5g")
-                weight_match = re.search(r'(\d+)\s*грамм', weight_text)
-                if not weight_match:
-                    continue
-                weight = f"{weight_match.group(1)}g"
-                
-                # Extract price (second column)
-                price_text = cells[1].get_text(strip=True)
-                # Clean price (remove spaces, "сўм", handle negatives)
-                price_clean = price_text.replace('сўм', '').replace(' ', '').replace('\xa0', '').replace('-', '').strip()
-                
+        data = json.loads(content)
+        parsed_news = []
+        for item in data.get("news", []):
+            published_ts = 0
+            if item.get("publish_date"):
                 try:
-                    price = int(price_clean)
-                    # Only add positive prices
-                    if price > 0:
-                        gold_bars.append({
-                            "weight": weight,
-                            "price": price
-                        })
-                except ValueError:
-                    continue
-                    
-            except Exception as inner_e:
-                print(f"Error parsing gold bar row: {inner_e}")
-                continue
-        
-        # Sort gold bars by weight (asc) and then price (asc)
-        # Parse weight to int: "5g" -> 5
+                    dt = date_parser.parse(item.get("publish_date"))
+                    published_ts = dt.timestamp()
+                except: pass
+            full_text = item.get("text", "")[:2000]
+            summary = full_text[:200] + "..." if len(full_text) > 200 else full_text
+            reliability = get_reliability("WorldNews")
+            parsed_news.append({
+                "id": hashlib.md5(f"worldnews-{item.get('id', item.get('url', ''))}".encode()).hexdigest(),
+                "title": item.get("title", ""), "summary": summary, "full_content": full_text,
+                "source": "WorldNews", "source_url": item.get("url", ""), "category": "General", "language": "EN",
+                "published_at": item.get("publish_date", ""), "published_ts": published_ts, "image_url": item.get("image"),
+                "is_breaking": False, "is_worldnews_api": True, "reliability_tier": reliability["tier"], "reliability_score": reliability["score"],
+                "reliability_label": reliability["label"]
+            })
+        return parsed_news
+    except Exception: return []
+
+async def async_fetch_gold_bar_prices(session):
+    print("--- Processing Gold Bar Prices ---")
+    url = "https://bank.uz/uz/gold-bars"
+    content = await async_fetch_url(session, url)
+    if not content: return None
+    try:
+        soup = BeautifulSoup(content, 'html.parser')
+        table = soup.find('table', class_='table-table-bordered')
+        if not table: return None
+        gold_bars = []
+        for row in table.find_all('tr')[1:]:
+            cells = row.find_all('td')
+            if len(cells) < 2: continue
+            weight_text = cells[0].get_text(strip=True)
+            weight_match = re.search(r'(\d+)\s*грамм', weight_text)
+            if not weight_match: continue
+            weight = f"{weight_match.group(1)}g"
+            price_text = cells[1].get_text(strip=True).replace('сўм', '').replace(' ', '').replace('\xa0', '').replace('-', '').strip()
+            try:
+                price = int(price_clean) if (price_clean := price_text) else 0
+                if price > 0: gold_bars.append({"weight": weight, "price": price})
+            except: continue
+
         def get_weight_val(bar):
-            w_str = bar['weight'].lower().replace('g', '')
-            try:
-                return int(w_str)
-            except ValueError:
-                return 0
-
+            try: return int(bar['weight'].replace('g', ''))
+            except: return 0
         gold_bars.sort(key=lambda x: (get_weight_val(x), x['price']))
-
-        print(f"Successfully scraped {len(gold_bars)} gold bar prices.")
         return gold_bars
-        
-    except Exception as e:
-        print(f"Error scraping gold bars: {e}")
-        return None
+    except Exception: return None
 
-def fetch_gold_history(existing_data, force=False):
-    """
-    Fetches 30-day historical gold price data (USD per troy ounce).
-    Uses Massive.com (Polygon.io) API.
-    Updates once per day unless force=True.
-    """
-    print("--- Processing Gold Price History ---")
-    
-    # Check cache (update once per day)
-    if not force and existing_data and existing_data.get("gold_history"):
-        last_ts = existing_data["gold_history"].get("last_updated_ts")
+async def async_fetch_polygon_history(session, ticker, key_name, existing_data, force):
+    print(f"--- Processing {key_name} ---")
+    if not force and existing_data and existing_data.get(key_name):
+        last_ts = existing_data[key_name].get("last_updated_ts")
         if last_ts:
             try:
-                last_time = datetime.datetime.fromtimestamp(last_ts)
-                now = datetime.datetime.now()
-                # Check if < 30 minutes old
-                if (now - last_time).total_seconds() < 1800:  # 30 minutes
-                    print("Gold history is fresh (< 30 min). Using cached.")
-                    return existing_data["gold_history"]
-            except Exception as e:
-                print(f"Error parsing timestamp: {e}")
+                if (datetime.datetime.now() - datetime.datetime.fromtimestamp(last_ts)).total_seconds() < 1800:
+                    return existing_data[key_name]
+            except: pass
     
     api_key = os.environ.get("POLYGON_API_KEY")
+    if not api_key: return existing_data.get(key_name) if existing_data else None
 
-    # If not in env, try reading from .env file manually (for local dev)
-    if not api_key:
-        try:
-            env_path = os.path.join(os.getcwd(), '.env')
-            if os.path.exists(env_path):
-                with open(env_path, 'r') as f:
-                    for line in f:
-                        if line.strip().startswith('POLYGON_API_KEY='):
-                            api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
-                            print("Loaded POLYGON_API_KEY from .env file")
-                            break
-        except Exception as e:
-            print(f"Error reading .env file: {e}")
+    today = datetime.date.today()
+    end_date_str = today.strftime("%Y-%m-%d")
+    start_date_str = (today - datetime.timedelta(days=35)).strftime("%Y-%m-%d")
+    url = f"https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50&apiKey={api_key}"
 
-    if not api_key:
-        print("POLYGON_API_KEY not found. Using cached or skipping.")
-        return existing_data.get("gold_history") if existing_data else None
+    content = await async_fetch_url(session, url)
+    if not content: return existing_data.get(key_name) if existing_data else None
 
     try:
-        print("Fetching gold history from Massive.com (Polygon.io)...")
+        data = json.loads(content)
+        results = data.get("results", [])
+        if not results: return existing_data.get(key_name) if existing_data else None
         
-        # Calculate dates
-        today = datetime.date.today()
-        end_date_str = today.strftime("%Y-%m-%d")
-        start_date = today - datetime.timedelta(days=35) # Fetch a few extra days to handle weekends/holidays and ensure we get 30 datapoints
-        start_date_str = start_date.strftime("%Y-%m-%d")
+        history_data = []
+        for item in results:
+            ts = item.get("t")
+            if not ts: continue
+            date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
+            price = float(item.get("c"))
+            entry = {"date": date_str}
+            if "BTC" in ticker: entry["price_usd"] = price
+            else: entry["price_usd_per_oz"] = price
+            history_data.append(entry)
+
+        history_data.sort(key=lambda x: x['date'])
         
-        # URL for Aggregates (Bars)
-        # C:XAUUSD is the ticker for Gold Spot US Dollar
-        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
+        # Calculate change percent
+        key = "price_usd" if "BTC" in ticker else "price_usd_per_oz"
+        for i in range(len(history_data)):
+            if i > 0:
+                prev = history_data[i-1][key]
+                curr = history_data[i][key]
+                history_data[i]["change_percent"] = round(((curr - prev) / prev) * 100, 2)
+            else:
+                history_data[i]["change_percent"] = 0.0
+
+        if len(history_data) > 30: history_data = history_data[-30:]
         
-        headers = {"Authorization": f"Bearer {api_key}"}
-        response = requests.get(url, headers=headers, timeout=15)
-
-        if response.status_code == 200:
-            data = response.json()
-            if data.get("status") != "OK" and data.get("status") != "DELAYED": # DELAYED is also fine usually
-                # Sometimes status is OK even if empty results
-                 pass
-
-            results = data.get("results", [])
-            if not results:
-                 print("No results found in Polygon response.")
-                 return existing_data.get("gold_history") if existing_data else None
-
-            history_data = []
-            
-            for item in results:
-                # 't' is timestamp in ms
-                ts = item.get("t")
-                if not ts:
-                    continue
-
-                date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
-                price = item.get("c") # Close price
-
-                history_data.append({
-                    "date": date_str,
-                    "price_usd_per_oz": float(price),
-                    # change_percent will be calculated below
-                })
-            
-            # Sort by date just in case
-            history_data.sort(key=lambda x: x['date'])
-            
-            # Calculate change percent
-            for i in range(len(history_data)):
-                if i > 0:
-                    prev_price = history_data[i-1]["price_usd_per_oz"]
-                    curr_price = history_data[i]["price_usd_per_oz"]
-                    change_percent = ((curr_price - prev_price) / prev_price) * 100
-                    history_data[i]["change_percent"] = round(change_percent, 2)
-                else:
-                    history_data[i]["change_percent"] = 0.0
-            
-            # Keep last 30 entries
-            if len(history_data) > 30:
-                history_data = history_data[-30:]
-            
-            print(f"Successfully fetched {len(history_data)} days of gold prices.")
-            if history_data:
-                print(f"Latest price: ${history_data[-1]['price_usd_per_oz']}/oz ({history_data[-1]['date']})")
-
-            return {
-                "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-                "last_updated_ts": datetime.datetime.now().timestamp(),
-                "data": history_data,
-                "source": "Massive.com (Polygon.io)",
-                "note": "Real market data"
-            }
-
-        else:
-            print(f"Polygon API Error: {response.status_code} - {response.text}")
-
+        return {
+            "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "last_updated_ts": datetime.datetime.now().timestamp(),
+            "data": history_data,
+            "source": "Polygon.io",
+            "note": "Real market data"
+        }
     except Exception as e:
-        print(f"Error fetching gold prices: {e}")
-    
-    # Fallback to cached data if everything fails
-    print("Falling back to cached data...")
-    return existing_data.get("gold_history") if existing_data else None
+        print(f"Error fetching {key_name}: {e}")
+        return existing_data.get(key_name) if existing_data else None
 
-def fetch_silver_history(existing_data, force=False):
-    """
-    Fetches 30-day historical silver price data (USD per troy ounce).
-    Uses Massive.com (Polygon.io) API.
-    Updates once per day unless force=True.
-    """
-    print("--- Processing Silver Price History ---")
+# Bank Reliability
+from bank_reliability_mapping import get_all_ranked_banks, SCORING_WEIGHTS, CERR_INDICATORS, get_score_tier, get_bank_type, get_bank_license_year
 
-    # Check cache (update once per day)
-    if not force and existing_data and existing_data.get("silver_history"):
-        last_ts = existing_data["silver_history"].get("last_updated_ts")
+def calculate_bank_age_score(bank_name):
+    current_year = datetime.datetime.now().year
+    license_year = get_bank_license_year(bank_name)
+    age = current_year - license_year
+    if age >= 30: return 100
+    elif age >= 20: return 85
+    elif age >= 15: return 75
+    elif age >= 10: return 65
+    elif age >= 5: return 50
+    else: return 30
+
+def calculate_bank_type_score(bank_name):
+    bank_type = get_bank_type(bank_name)
+    if bank_type == "state-owned": return 90
+    elif bank_type == "foreign": return 80
+    else: return 70
+
+def calculate_cerr_ranking_score(bank_name, ranking_info):
+    if not ranking_info: return 50
+    rank = ranking_info["rank"]
+    category = ranking_info["category"]
+    total_banks = 14 if category == "large" else 15
+    base_score = 100 if category == "large" else 95
+    score = base_score - ((rank - 1) * (base_score - 40) / (total_banks - 1))
+    return round(score)
+
+def calculate_trend_score(bank_name, ranking_info):
+    if not ranking_info: return 50
+    change = ranking_info["change"]
+    if change >= 2: return 100
+    elif change == 1: return 80
+    elif change == 0: return 65
+    elif change == -1: return 45
+    else: return 25
+
+def calculate_indicator_scores(bank_name, ranking_info):
+    base_score = 70
+    if ranking_info:
+        rank = ranking_info["rank"]
+        category = ranking_info["category"]
+        if category == "large": base_score = 100 - (rank * 4)
+        else: base_score = 95 - (rank * 4)
+    indicators = {}
+    for ind in CERR_INDICATORS:
+        variance = random.randint(-10, 10)
+        score = max(20, min(100, base_score + variance))
+        indicators[ind["id"]] = score
+    return indicators
+
+def calculate_composite_score(bank_name, ranking_info):
+    weights = SCORING_WEIGHTS
+    age_score = calculate_bank_age_score(bank_name)
+    type_score = calculate_bank_type_score(bank_name)
+    ranking_score = calculate_cerr_ranking_score(bank_name, ranking_info)
+    trend_score = calculate_trend_score(bank_name, ranking_info)
+    indicators = calculate_indicator_scores(bank_name, ranking_info)
+    indicator_avg = sum(indicators.values()) / len(indicators)
+    composite = (ranking_score * weights["cerr_ranking"] + age_score * weights["bank_age"] +
+                 indicator_avg * weights["indicators"] + type_score * weights["bank_type"] +
+                 trend_score * weights["trend"])
+    return round(composite)
+
+def process_bank_reliability(existing_data, force=False):
+    print("--- Processing Bank Reliability Data ---")
+    if not force and existing_data and existing_data.get("bank_reliability"):
+        last_ts = existing_data["bank_reliability"].get("last_updated_ts")
         if last_ts:
-            try:
-                last_time = datetime.datetime.fromtimestamp(last_ts)
-                now = datetime.datetime.now()
-                # Check if < 30 minutes old
-                if (now - last_time).total_seconds() < 1800:  # 30 minutes
-                    print("Silver history is fresh (< 30 min). Using cached.")
-                    return existing_data["silver_history"]
-            except Exception as e:
-                print(f"Error parsing timestamp: {e}")
+             if (datetime.datetime.now() - datetime.datetime.fromtimestamp(last_ts)).total_seconds() < 86400:
+                 return existing_data["bank_reliability"]
 
-    api_key = os.environ.get("POLYGON_API_KEY")
-
-    # If not in env, try reading from .env file manually (for local dev)
-    if not api_key:
+    all_banks = get_all_ranked_banks()
+    reliability_data = []
+    for bank_name, ranking_info in all_banks.items():
         try:
-            env_path = os.path.join(os.getcwd(), '.env')
-            if os.path.exists(env_path):
-                with open(env_path, 'r') as f:
-                    for line in f:
-                        if line.strip().startswith('POLYGON_API_KEY='):
-                            api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
-                            # print("Loaded POLYGON_API_KEY from .env file (Silver)")
-                            break
-        except Exception as e:
-            print(f"Error reading .env file: {e}")
+            score = calculate_composite_score(bank_name, ranking_info)
+            tier_info = get_score_tier(score)
+            indicators = calculate_indicator_scores(bank_name, ranking_info)
+            reliability_data.append({
+                "name": bank_name, "score": score, "tier": tier_info["tier"], "tier_label": tier_info["label"],
+                "tier_color": tier_info["color"], "bank_type": get_bank_type(bank_name),
+                "license_year": get_bank_license_year(bank_name), "cerr_rank": ranking_info["rank"],
+                "cerr_category": ranking_info["category"], "rank_change": ranking_info["change"],
+                "indicators": indicators, "logo": get_bank_logo(bank_name)
+            })
+        except: continue
+    reliability_data.sort(key=lambda x: x["score"], reverse=True)
+    for i, bank in enumerate(reliability_data): bank["overall_rank"] = i + 1
 
-    if not api_key:
-        print("POLYGON_API_KEY not found. Using cached or skipping.")
-        return existing_data.get("silver_history") if existing_data else None
-
-    try:
-        print("Fetching silver history from Massive.com (Polygon.io)...")
-
-        # Calculate dates
-        today = datetime.date.today()
-        end_date_str = today.strftime("%Y-%m-%d")
-        start_date = today - datetime.timedelta(days=35) # Fetch a few extra days to handle weekends/holidays and ensure we get 30 datapoints
-        start_date_str = start_date.strftime("%Y-%m-%d")
-
-        # URL for Aggregates (Bars)
-        # C:XAGUSD is the ticker for Silver Spot US Dollar
-        url = f"https://api.polygon.io/v2/aggs/ticker/C:XAGUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
-
-        headers = {"Authorization": f"Bearer {api_key}"}
-        response = requests.get(url, headers=headers, timeout=15)
-
-        if response.status_code == 200:
-            data = response.json()
-            if data.get("status") != "OK" and data.get("status") != "DELAYED":
-                 pass
-
-            results = data.get("results", [])
-            if not results:
-                 print("No results found in Polygon response for Silver.")
-                 return existing_data.get("silver_history") if existing_data else None
-
-            history_data = []
-
-            for item in results:
-                # 't' is timestamp in ms
-                ts = item.get("t")
-                if not ts:
-                    continue
-
-                date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
-                price = item.get("c") # Close price
-
-                history_data.append({
-                    "date": date_str,
-                    "price_usd_per_oz": float(price),
-                    # change_percent will be calculated below
-                })
-
-            # Sort by date just in case
-            history_data.sort(key=lambda x: x['date'])
-
-            # Calculate change percent
-            for i in range(len(history_data)):
-                if i > 0:
-                    prev_price = history_data[i-1]["price_usd_per_oz"]
-                    curr_price = history_data[i]["price_usd_per_oz"]
-                    change_percent = ((curr_price - prev_price) / prev_price) * 100
-                    history_data[i]["change_percent"] = round(change_percent, 2)
-                else:
-                    history_data[i]["change_percent"] = 0.0
-
-            # Keep last 30 entries
-            if len(history_data) > 30:
-                history_data = history_data[-30:]
-
-            print(f"Successfully fetched {len(history_data)} days of silver prices.")
-            if history_data:
-                print(f"Latest price: ${history_data[-1]['price_usd_per_oz']}/oz ({history_data[-1]['date']})")
-
-            return {
-                "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-                "last_updated_ts": datetime.datetime.now().timestamp(),
-                "data": history_data,
-                "source": "Massive.com (Polygon.io)",
-                "note": "Real market data"
-            }
-
-        else:
-            print(f"Polygon API Error for Silver: {response.status_code} - {response.text}")
-
-    except Exception as e:
-        print(f"Error fetching silver prices: {e}")
-
-    # Fallback to cached data if everything fails
-    print("Falling back to cached silver data...")
-    return existing_data.get("silver_history") if existing_data else None
-
-def fetch_bitcoin_history(existing_data, force=False):
-    """
-    Fetches 30-day historical bitcoin price data (USD).
-    Uses Massive.com (Polygon.io) API.
-    Updates once per day unless force=True.
-    """
-    print("--- Processing Bitcoin Price History ---")
-
-    # Check cache (update once per day)
-    if not force and existing_data and existing_data.get("bitcoin_history"):
-        last_ts = existing_data["bitcoin_history"].get("last_updated_ts")
-        if last_ts:
-            try:
-                last_time = datetime.datetime.fromtimestamp(last_ts)
-                now = datetime.datetime.now()
-                # Check if < 30 minutes old
-                if (now - last_time).total_seconds() < 1800:  # 30 minutes
-                    print("Bitcoin history is fresh (< 30 min). Using cached.")
-                    return existing_data["bitcoin_history"]
-            except Exception as e:
-                print(f"Error parsing timestamp: {e}")
-
-    api_key = os.environ.get("POLYGON_API_KEY")
-
-    # If not in env, try reading from .env file manually (for local dev)
-    if not api_key:
-        try:
-            env_path = os.path.join(os.getcwd(), '.env')
-            if os.path.exists(env_path):
-                with open(env_path, 'r') as f:
-                    for line in f:
-                        if line.strip().startswith('POLYGON_API_KEY='):
-                            api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
-                            # print("Loaded POLYGON_API_KEY from .env file (Bitcoin)")
-                            break
-        except Exception as e:
-            print(f"Error reading .env file: {e}")
-
-    if not api_key:
-        print("POLYGON_API_KEY not found. Using cached or skipping.")
-        return existing_data.get("bitcoin_history") if existing_data else None
-
-    try:
-        print("Fetching bitcoin history from Massive.com (Polygon.io)...")
-
-        # Calculate dates
-        today = datetime.date.today()
-        end_date_str = today.strftime("%Y-%m-%d")
-        start_date = today - datetime.timedelta(days=35) # Fetch a few extra days to handle weekends/holidays and ensure we get 30 datapoints
-        start_date_str = start_date.strftime("%Y-%m-%d")
-
-        # URL for Aggregates (Bars)
-        # X:BTCUSD is the ticker for Bitcoin/USD
-        url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/day/{start_date_str}/{end_date_str}?adjusted=true&sort=asc&limit=50"
-
-        headers = {"Authorization": f"Bearer {api_key}"}
-        response = requests.get(url, headers=headers, timeout=15)
-
-        if response.status_code == 200:
-            data = response.json()
-            if data.get("status") != "OK" and data.get("status") != "DELAYED":
-                 pass
-
-            results = data.get("results", [])
-            if not results:
-                 print("No results found in Polygon response for Bitcoin.")
-                 return existing_data.get("bitcoin_history") if existing_data else None
-
-            history_data = []
-
-            for item in results:
-                # 't' is timestamp in ms
-                ts = item.get("t")
-                if not ts:
-                    continue
-
-                date_str = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y-%m-%d")
-                price = item.get("c") # Close price
-
-                history_data.append({
-                    "date": date_str,
-                    "price_usd": float(price),
-                    # change_percent will be calculated below
-                })
-
-            # Sort by date just in case
-            history_data.sort(key=lambda x: x['date'])
-
-            # Calculate change percent
-            for i in range(len(history_data)):
-                if i > 0:
-                    prev_price = history_data[i-1]["price_usd"]
-                    curr_price = history_data[i]["price_usd"]
-                    change_percent = ((curr_price - prev_price) / prev_price) * 100
-                    history_data[i]["change_percent"] = round(change_percent, 2)
-                else:
-                    history_data[i]["change_percent"] = 0.0
-
-            # Keep last 30 entries
-            if len(history_data) > 30:
-                history_data = history_data[-30:]
-
-            print(f"Successfully fetched {len(history_data)} days of bitcoin prices.")
-            if history_data:
-                print(f"Latest price: ${history_data[-1]['price_usd']} ({history_data[-1]['date']})")
-
-            return {
-                "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-                "last_updated_ts": datetime.datetime.now().timestamp(),
-                "data": history_data,
-                "source": "Massive.com (Polygon.io)",
-                "note": "Real market data"
-            }
-
-        else:
-            print(f"Polygon API Error for Bitcoin: {response.status_code} - {response.text}")
-
-    except Exception as e:
-        print(f"Error fetching bitcoin prices: {e}")
-
-    # Fallback to cached data if everything fails
-    print("Falling back to cached bitcoin data...")
-    return existing_data.get("bitcoin_history") if existing_data else None
+    return {
+        "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "last_updated_ts": datetime.datetime.now().timestamp(),
+        "data_sources": {"cbu": "https://cbu.uz/en/credit-organizations/banks/head-offices/", "cerr": "https://cerr.uz"},
+        "scoring_weights": SCORING_WEIGHTS, "indicators_list": CERR_INDICATORS, "banks": reliability_data
+    }
 
 def send_notifications(new_data, old_data):
     """
     Checks for significant rate changes and sends notifications via Firebase.
     """
     print("--- Checking for Rate Changes ---")
-
-    # Check if Firebase credentials are provided
     if not os.environ.get("FIREBASE_CREDENTIALS"):
         print("No FIREBASE_CREDENTIALS env var found. Skipping notifications.")
         return
 
     try:
-        # Initialize Firebase App
         if not firebase_admin._apps:
             cred_dict = json.loads(os.environ.get("FIREBASE_CREDENTIALS"))
             cred = credentials.Certificate(cred_dict)
             firebase_admin.initialize_app(cred)
-
         db = firestore.client()
 
-        # Compare rates
         currencies = ['usd', 'eur', 'rub', 'kzt']
         thresholds = {'usd': 50, 'eur': 50, 'rub': 5, 'kzt': 2}
-
         alerts = []
 
         for curr in currencies:
-            if not old_data or curr not in old_data or curr not in new_data:
-                continue
+            # Check if key exists in both
+            if not old_data or curr not in old_data or not old_data[curr]: continue
+            if not new_data or curr not in new_data or not new_data[curr]: continue
 
             new_banks = new_data[curr].get('banks', [])
             old_banks = old_data[curr].get('banks', [])
+            if not new_banks or not old_banks: continue
 
-            if not new_banks or not old_banks:
-                continue
+            new_best_buy = max([b['buy'] for b in new_banks]) if new_banks else 0
+            new_best_sell = min([b['sell'] for b in new_banks]) if new_banks else 0
+            old_best_buy = max([b['buy'] for b in old_banks]) if old_banks else 0
+            old_best_sell = min([b['sell'] for b in old_banks]) if old_banks else 0
 
-            # Calculate best rates
-            new_best_buy = max([b['buy'] for b in new_banks])
-            new_best_sell = min([b['sell'] for b in new_banks])
-
-            old_best_buy = max([b['buy'] for b in old_banks])
-            old_best_sell = min([b['sell'] for b in old_banks])
+            if new_best_buy == 0 or old_best_buy == 0: continue
 
             threshold = thresholds.get(curr, 50)
-
-            # Check Buy Rate Increase (Good for sellers)
             if new_best_buy > old_best_buy + threshold:
                 alerts.append(f"{curr.upper()} Buy Rate UP: {old_best_buy} -> {new_best_buy} UZS")
-
-            # Check Sell Rate Decrease (Good for buyers)
             if new_best_sell < old_best_sell - threshold:
                  alerts.append(f"{curr.upper()} Sell Rate DOWN: {old_best_sell} -> {new_best_sell} UZS")
 
         if alerts:
             message_body = "\n".join(alerts)
             print(f"Sending notification: {message_body}")
-
-            # Fetch tokens from Firestore
             tokens_ref = db.collection(u'fcm_tokens')
             docs = tokens_ref.stream()
-
             tokens = [doc.to_dict()['token'] for doc in docs]
+            if not tokens: return
 
-            if not tokens:
-                print("No users subscribed to notifications.")
-                return
-
-            # Send multicast message (Batching in chunks of 500)
             batch_size = 500
             for i in range(0, len(tokens), batch_size):
                 batch_tokens = tokens[i:i + batch_size]
-
                 message = messaging.MulticastMessage(
                     notification=messaging.Notification(
                         title='NeoUZS Rate Alert 🚀',
@@ -2028,386 +1149,96 @@ def send_notifications(new_data, old_data):
                     ),
                     tokens=batch_tokens,
                 )
-
                 response = messaging.send_multicast(message)
                 print(f'Batch {i//batch_size + 1}: {response.success_count} messages sent successfully')
-
-                # Cleanup invalid tokens
-                if response.failure_count > 0:
-                    responses = response.responses
-                    for idx, resp in enumerate(responses):
-                        if not resp.success:
-                            # The order of responses corresponds to the order of the registration tokens.
-                            # failed_token = batch_tokens[idx]
-                            # print(f"Failure reason: {resp.exception}")
-                            pass
-
-                    # Optionally delete invalid tokens from Firestore here
-                    # (Skipping for now to keep it simple, but recommended for production)
-
     except Exception as e:
         print(f"Error sending notifications: {e}")
 
-# ==================== BANK RELIABILITY SCORING ====================
-# Uses data from CBU.uz and CERR.uz to calculate bank reliability scores
-
-from bank_reliability_mapping import (
-    normalize_bank_name,
-    get_bank_type,
-    get_bank_license_year,
-    get_cerr_ranking,
-    get_score_tier,
-    get_all_ranked_banks,
-    SCORING_WEIGHTS,
-    CERR_INDICATORS,
-    BANK_LICENSE_YEARS,
-)
-
-def calculate_bank_age_score(bank_name):
-    """
-    Calculate score based on bank age (years since licensed).
-    Older banks get higher scores (more established).
-    Max score: 100 for 30+ years, min: 20 for <5 years.
-    """
-    current_year = datetime.datetime.now().year
-    license_year = get_bank_license_year(bank_name)
-    age = current_year - license_year
-    
-    if age >= 30:
-        return 100
-    elif age >= 20:
-        return 85
-    elif age >= 15:
-        return 75
-    elif age >= 10:
-        return 65
-    elif age >= 5:
-        return 50
-    else:
-        return 30  # New banks get lower score
-
-
-def calculate_bank_type_score(bank_name):
-    """
-    Calculate score based on bank type.
-    State-owned banks get bonus for government backing.
-    """
-    bank_type = get_bank_type(bank_name)
-    
-    if bank_type == "state-owned":
-        return 90  # Government backing = stability
-    elif bank_type == "foreign":
-        return 80  # International standards
-    else:  # private
-        return 70  # Competitive but less backing
-
-
-def calculate_cerr_ranking_score(bank_name):
-    """
-    Calculate score based on CERR quarterly ranking.
-    Rank 1 = 100, lower ranks = lower scores.
-    Large banks (14) and small banks (15) ranked separately.
-    """
-    ranking = get_cerr_ranking(bank_name)
-    if not ranking:
-        return 50  # Default for unranked banks
-    
-    rank = ranking["rank"]
-    category = ranking["category"]
-    
-    # Large banks are weighted slightly higher
-    if category == "large":
-        total_banks = 14
-        base_score = 100
-    else:
-        total_banks = 15
-        base_score = 95  # Small banks cap at 95
-    
-    # Linear scale: rank 1 = base_score, last rank = 40
-    score = base_score - ((rank - 1) * (base_score - 40) / (total_banks - 1))
-    return round(score)
-
-
-def calculate_trend_score(bank_name):
-    """
-    Calculate score based on ranking trend (change from previous quarter).
-    Positive change = higher score, negative change = lower score.
-    """
-    ranking = get_cerr_ranking(bank_name)
-    if not ranking:
-        return 50  # Default for unranked
-    
-    change = ranking["change"]
-    
-    if change >= 2:
-        return 100  # Significant improvement
-    elif change == 1:
-        return 80  # Slight improvement
-    elif change == 0:
-        return 65  # Stable
-    elif change == -1:
-        return 45  # Slight decline
-    else:  # change <= -2
-        return 25  # Significant decline
-
-
-def calculate_indicator_scores(bank_name):
-    """
-    Generate simulated indicator scores based on overall ranking.
-    In production, these would come from detailed CERR data.
-    Returns dict with 6 indicators.
-    """
-    import random
-    
-    ranking = get_cerr_ranking(bank_name)
-    base_score = 70  # Default base
-    
-    if ranking:
-        # Higher ranked banks get better indicator scores
-        rank = ranking["rank"]
-        category = ranking["category"]
-        
-        if category == "large":
-            base_score = 100 - (rank * 4)  # Rank 1 = 96, Rank 14 = 44
-        else:
-            base_score = 95 - (rank * 4)  # Rank 1 = 91, Rank 15 = 35
-    
-    # Add some variation to each indicator (±10)
-    indicators = {}
-    for ind in CERR_INDICATORS:
-        variance = random.randint(-10, 10)
-        score = max(20, min(100, base_score + variance))
-        indicators[ind["id"]] = score
-    
-    return indicators
-
-
-def calculate_composite_score(bank_name):
-    """
-    Calculate the overall reliability score using weighted formula:
-    - CERR Ranking: 35%
-    - Bank Age: 20%
-    - Indicator Average: 20%
-    - Bank Type: 15%
-    - Trend: 10%
-    """
-    weights = SCORING_WEIGHTS
-    
-    age_score = calculate_bank_age_score(bank_name)
-    type_score = calculate_bank_type_score(bank_name)
-    ranking_score = calculate_cerr_ranking_score(bank_name)
-    trend_score = calculate_trend_score(bank_name)
-    
-    indicators = calculate_indicator_scores(bank_name)
-    indicator_avg = sum(indicators.values()) / len(indicators)
-    
-    composite = (
-        ranking_score * weights["cerr_ranking"] +
-        age_score * weights["bank_age"] +
-        indicator_avg * weights["indicators"] +
-        type_score * weights["bank_type"] +
-        trend_score * weights["trend"]
-    )
-    
-    return round(composite)
-
-
-def process_bank_reliability(existing_data, force=False):
-    """
-    Process bank reliability data for all ranked banks.
-    Updates once per day (24-hour cache).
-    """
-    print("--- Processing Bank Reliability Data ---")
-    
-    # Check 24h Cache
-    if not force and existing_data and existing_data.get("bank_reliability"):
-        last_ts = existing_data["bank_reliability"].get("last_updated_ts")
-        if last_ts:
-            try:
-                last_time = datetime.datetime.fromtimestamp(last_ts)
-                now = datetime.datetime.now()
-                if (now - last_time).total_seconds() < 86400:  # 24 hours
-                    print("Bank reliability data is fresh (<24 hours). Using cached.")
-                    return existing_data["bank_reliability"]
-            except Exception as e:
-                print(f"Error parsing timestamp: {e}")
-    
-    all_banks = get_all_ranked_banks()
-    reliability_data = []
-    
-    for bank_name, ranking_info in all_banks.items():
-        try:
-            score = calculate_composite_score(bank_name)
-            tier_info = get_score_tier(score)
-            indicators = calculate_indicator_scores(bank_name)
-            
-            bank_entry = {
-                "name": bank_name,
-                "score": score,
-                "tier": tier_info["tier"],
-                "tier_label": tier_info["label"],
-                "tier_color": tier_info["color"],
-                "bank_type": get_bank_type(bank_name),
-                "license_year": get_bank_license_year(bank_name),
-                "cerr_rank": ranking_info["rank"],
-                "cerr_category": ranking_info["category"],
-                "rank_change": ranking_info["change"],
-                "indicators": indicators,
-                "logo": get_bank_logo(bank_name),
-            }
-            
-            reliability_data.append(bank_entry)
-        except Exception as e:
-            print(f"Error processing {bank_name}: {e}")
-            continue
-    
-    # Sort by score descending
-    reliability_data.sort(key=lambda x: x["score"], reverse=True)
-    
-    # Add ranking position
-    for i, bank in enumerate(reliability_data):
-        bank["overall_rank"] = i + 1
-    
-    print(f"Successfully processed {len(reliability_data)} banks for reliability scoring.")
-    
-    return {
-        "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "last_updated_ts": datetime.datetime.now().timestamp(),
-        "data_sources": {
-            "cbu": "https://cbu.uz/en/credit-organizations/banks/head-offices/",
-            "cerr": "https://cerr.uz/show-news/bankovskiy-sektor-uzbekistana-v-reytinge-ceir",
-        },
-        "scoring_weights": SCORING_WEIGHTS,
-        "indicators_list": CERR_INDICATORS,
-        "banks": reliability_data,
-    }
-
-def main():
-    parser = argparse.ArgumentParser(description="Scrape exchange rates and weather data.")
-    parser.add_argument("--force", action="store_true", help="Force update even if cached data exists.")
-    parser.add_argument("--scope", type=str, default="exchange", help="Scope of update: exchange, savings, news, metals, reliability")
+async def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--force", action="store_true")
+    parser.add_argument("--scope", type=str, default="exchange")
+    parser.add_argument("--output", type=str, help="Output file path for partial update")
     args = parser.parse_args()
 
-    # Load existing data to check timestamps
-    existing_data = None
+    # Load existing data
+    existing_data = {}
     if os.path.exists(OUTPUT_FILE):
         try:
             with open(OUTPUT_FILE, "r") as f:
                 existing_data = json.load(f)
-        except Exception as e:
-            print(f"Error loading existing data: {e}")
+        except: pass
 
-    # Initialize output with existing data to preserve what we don't update
-    output = existing_data.copy() if existing_data else {}
+    output_data = {}
     
-    # Ensure all keys exist
-    default_keys = ["usd", "rub", "eur", "kzt", "gbp", "weather", "savings", "news", 
-                   "gold_bars", "gold_history", "silver_history", "bitcoin_history", "bank_reliability"]
-    for key in default_keys:
-        if key not in output:
-            output[key] = None
+    async with aiohttp.ClientSession() as session:
+        # SCOPE: EXCHANGE
+        if args.scope == "exchange" or args.scope == "all":
+            # Weather
+            weather_task = async_fetch_iqair_data(session, existing_data)
 
-    # Update timestamp
-    output["last_updated"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+            # Currencies
+            currency_tasks = [async_process_currency(session, c, existing_data) for c in ["USD", "RUB", "EUR", "KZT", "GBP"]]
 
-    # --- SCOPE LOGIC ---
-    
-    # Scope: EXCHANGE (Default) - Rates, Weather, Gold
-    if args.scope == "exchange":
-        print("--- Scope: EXCHANGE (Rates, Weather, Gold) ---")
-        
-        # Weather Logic (Force handling)
-        weather_data_to_pass = existing_data
-        if args.force and existing_data:
-            weather_data_to_pass = existing_data.copy()
-            if "weather" in weather_data_to_pass:
-                del weather_data_to_pass["weather"]
-        
-        output["weather"] = fetch_iqair_data(weather_data_to_pass)
-        
-        # Currencies
-        output["usd"] = process_currency("USD", existing_data)
-        output["rub"] = process_currency("RUB", existing_data)
-        output["eur"] = process_currency("EUR", existing_data)
-        output["kzt"] = process_currency("KZT", existing_data)
-        output["gbp"] = process_currency("GBP", existing_data)
-        
-        # Gold/Metals (Often viewed with rates)
-        output["gold_bars"] = fetch_gold_bar_prices()
-        output["gold_history"] = fetch_gold_history(existing_data, force=args.force)
-        output["silver_history"] = fetch_silver_history(existing_data, force=args.force)
-        output["bitcoin_history"] = fetch_bitcoin_history(existing_data, force=args.force)
+            # Metals
+            gold_bars_task = async_fetch_gold_bar_prices(session)
+            gold_hist_task = async_fetch_polygon_history(session, "C:XAUUSD", "gold_history", existing_data, args.force)
+            silver_hist_task = async_fetch_polygon_history(session, "C:XAGUSD", "silver_history", existing_data, args.force)
+            btc_hist_task = async_fetch_polygon_history(session, "X:BTCUSD", "bitcoin_history", existing_data, args.force)
 
-    # Scope: SAVINGS
-    elif args.scope == "savings":
-        print("--- Scope: SAVINGS ---")
-        output["savings"] = fetch_savings_rates(existing_data, force=args.force)
-        output["savings_usd"] = fetch_usd_savings_rates(existing_data, force=args.force)
+            results = await asyncio.gather(weather_task, *currency_tasks, gold_bars_task, gold_hist_task, silver_hist_task, btc_hist_task)
 
-    # Scope: NEWS
-    elif args.scope == "news":
-        print("--- Scope: NEWS ---")
-        output["news"] = fetch_news(existing_data, force=args.force)
+            output_data["weather"] = results[0]
+            output_data["usd"] = results[1]
+            output_data["rub"] = results[2]
+            output_data["eur"] = results[3]
+            output_data["kzt"] = results[4]
+            output_data["gbp"] = results[5]
+            output_data["gold_bars"] = results[6]
+            output_data["gold_history"] = results[7]
+            output_data["silver_history"] = results[8]
+            output_data["bitcoin_history"] = results[9]
 
-    # Scope: METALS
-    elif args.scope == "metals":
-        print("--- Scope: METALS ---")
-        output["gold_bars"] = fetch_gold_bar_prices()
-        output["gold_history"] = fetch_gold_history(existing_data, force=args.force)
-        output["silver_history"] = fetch_silver_history(existing_data, force=args.force)
-        output["bitcoin_history"] = fetch_bitcoin_history(existing_data, force=args.force)
+            # Check for notifications (only for exchange scope)
+            # We use output_data as new_data and existing_data as old_data
+            if existing_data:
+                send_notifications(output_data, existing_data)
 
-    # Scope: RELIABILITY
-    elif args.scope == "reliability":
-        print("--- Scope: RELIABILITY ---")
-        output["bank_reliability"] = process_bank_reliability(existing_data, force=args.force)
+        # SCOPE: SAVINGS
+        if args.scope == "savings" or args.scope == "all":
+            savings_task = async_fetch_savings_rates(session, existing_data, args.force)
+            savings_usd_task = async_fetch_usd_savings_rates(session, existing_data, args.force)
+            res = await asyncio.gather(savings_task, savings_usd_task)
+            output_data["savings"] = res[0]
+            output_data["savings_usd"] = res[1]
 
-    # Fallback: If scope is 'all' or unknown, do everything (legacy behavior)
+        # SCOPE: NEWS
+        if args.scope == "news" or args.scope == "all":
+            output_data["news"] = await async_fetch_news(session, existing_data, args.force)
+
+        # SCOPE: RELIABILITY
+        if args.scope == "reliability" or args.scope == "all":
+            output_data["bank_reliability"] = process_bank_reliability(existing_data, args.force)
+
+    # OUTPUT HANDLING
+    if args.output:
+        print(f"Saving partial output to {args.output}")
+        with open(args.output, "w") as f:
+            json.dump(output_data, f, indent=2)
     else:
-        print(f"--- Scope: ALL (Unknown scope '{args.scope}') ---")
+        final_output = existing_data.copy()
+        final_output.update(output_data)
+        final_output["last_updated"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
         
-        # Weather
-        weather_data_to_pass = existing_data
-        if args.force and existing_data:
-            weather_data_to_pass = existing_data.copy()
-            if "weather" in weather_data_to_pass:
-                del weather_data_to_pass["weather"]
-        output["weather"] = fetch_iqair_data(weather_data_to_pass)
+        default_keys = ["usd", "rub", "eur", "kzt", "gbp", "weather", "savings", "news",
+                       "gold_bars", "gold_history", "silver_history", "bitcoin_history", "bank_reliability"]
+        for key in default_keys:
+            if key not in final_output: final_output[key] = None
 
-        # Savings
-        output["savings"] = fetch_savings_rates(existing_data, force=args.force)
-        output["savings_usd"] = fetch_usd_savings_rates(existing_data, force=args.force)
-        
-        # News
-        output["news"] = fetch_news(existing_data, force=args.force)
-
-        # Metals
-        output["gold_bars"] = fetch_gold_bar_prices()
-        output["gold_history"] = fetch_gold_history(existing_data, force=args.force)
-        output["silver_history"] = fetch_silver_history(existing_data, force=args.force)
-        output["bitcoin_history"] = fetch_bitcoin_history(existing_data, force=args.force)
-
-        # Reliability
-        output["bank_reliability"] = process_bank_reliability(existing_data, force=args.force)
-
-        # Currencies
-        output["usd"] = process_currency("USD", existing_data)
-        output["rub"] = process_currency("RUB", existing_data)
-        output["eur"] = process_currency("EUR", existing_data)
-        output["kzt"] = process_currency("KZT", existing_data)
-        output["gbp"] = process_currency("GBP", existing_data)
-
-    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-
-    with open(OUTPUT_FILE, "w") as f:
-        json.dump(output, f, indent=2)
-
-    print(f"Data saved to {OUTPUT_FILE}")
-
-    # Send Notifications if changes found (only if full update or relevant scope?)
-    # For now, keep it simple.
-    if existing_data:
-        send_notifications(output, existing_data)
+        os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+        with open(OUTPUT_FILE, "w") as f:
+            json.dump(final_output, f, indent=2)
+        print(f"Data saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

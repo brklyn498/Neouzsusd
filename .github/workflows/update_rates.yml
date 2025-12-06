@@ -9,13 +9,14 @@ permissions:
   contents: write
 
 jobs:
-  update-rates:
+  # JOB 1: Scrape Exchange Rates & Metals (Critical Data)
+  scrape-exchange:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          ref: main  # We need the scraper script from main
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -25,50 +26,197 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests beautifulsoup4; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests beautifulsoup4 aiohttp feedparser python-dateutil firebase-admin; fi
 
-      - name: Run Scraper
+      # We need existing data for history updates (Gold, Rates history)
+      # So we fetch the current rates.json from rates-data branch
+      - name: Fetch existing rates.json
+        run: |
+          mkdir -p public
+          curl -f -o public/rates.json https://raw.githubusercontent.com/${{ github.repository }}/rates-data/public/rates.json || echo "{}" > public/rates.json
+
+      - name: Run Scraper (Exchange)
         env:
           IQAIR_API_KEY: ${{ secrets.IQAIR_API_KEY }}
           POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
-        run: python scripts/scraper.py
+        run: python scripts/scraper.py --scope exchange --output exchange.json
 
-      - name: Push to Data Branch
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: exchange-data
+          path: exchange.json
+          retention-days: 1
+
+  # JOB 2: Scrape News (Frequent updates)
+  scrape-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
         run: |
-           # 1. We have the new public/rates.json generated in the current workspace (main branch)
-           NEW_RATES_PATH=$(pwd)/public/rates.json
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests beautifulsoup4 aiohttp feedparser python-dateutil firebase-admin; fi
 
-           # 2. Setup a separate directory for the data branch
+      - name: Fetch existing rates.json
+        run: |
+          mkdir -p public
+          curl -f -o public/rates.json https://raw.githubusercontent.com/${{ github.repository }}/rates-data/public/rates.json || echo "{}" > public/rates.json
+
+      - name: Run Scraper (News)
+        env:
+          WORLDNEWS_API_KEY: ${{ secrets.WORLDNEWS_API_KEY }}
+        run: python scripts/scraper.py --scope news --output news.json
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-data
+          path: news.json
+          retention-days: 1
+
+  # JOB 3: Scrape Savings & Reliability (Less frequent, heavy parsing)
+  scrape-savings-reliability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests beautifulsoup4 aiohttp feedparser python-dateutil firebase-admin; fi
+
+      - name: Fetch existing rates.json
+        run: |
+          mkdir -p public
+          curl -f -o public/rates.json https://raw.githubusercontent.com/${{ github.repository }}/rates-data/public/rates.json || echo "{}" > public/rates.json
+
+      # We combine Savings and Reliability in one job as they are less time-critical but benefit from separation from Exchange
+      - name: Run Scraper (Savings)
+        run: python scripts/scraper.py --scope savings --output savings.json
+
+      - name: Run Scraper (Reliability)
+        run: python scripts/scraper.py --scope reliability --output reliability.json
+
+      - name: Upload Artifact (Savings)
+        uses: actions/upload-artifact@v4
+        with:
+          name: savings-data
+          path: savings.json
+          retention-days: 1
+
+      - name: Upload Artifact (Reliability)
+        uses: actions/upload-artifact@v4
+        with:
+          name: reliability-data
+          path: reliability.json
+          retention-days: 1
+
+  # JOB 4: Merge and Push
+  merge-and-push:
+    needs: [scrape-exchange, scrape-news, scrape-savings-reliability]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Download all artifacts
+      - name: Download Exchange Data
+        uses: actions/download-artifact@v4
+        with:
+          name: exchange-data
+          path: .
+
+      - name: Download News Data
+        uses: actions/download-artifact@v4
+        with:
+          name: news-data
+          path: .
+
+      - name: Download Savings Data
+        uses: actions/download-artifact@v4
+        with:
+          name: savings-data
+          path: .
+
+      - name: Download Reliability Data
+        uses: actions/download-artifact@v4
+        with:
+          name: reliability-data
+          path: .
+
+      # Setup Data Branch
+      - name: Setup Data Branch
+        run: |
+           # 1. Initialize git
            mkdir -p ../data-branch
            cd ../data-branch
-
-           # 3. Initialize git
            git init
            git config user.name 'github-actions[bot]'
            git config user.email 'github-actions[bot]@users.noreply.github.com'
            git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-           # 4. Fetch the data branch if it exists
+           # 2. Fetch the data branch if it exists
            git fetch origin rates-data || echo "Branch rates-data does not exist yet"
 
-           # 5. Checkout or create orphan
+           # 3. Checkout or create orphan
            if git show-ref --verify --quiet refs/remotes/origin/rates-data; then
              git checkout -b rates-data origin/rates-data
+             # Pull latest to be sure
+             git pull origin rates-data
            else
              git checkout --orphan rates-data
-             # Remove all files from the index/worktree to truly be orphan
              git rm -rf . || true
            fi
 
-           # 6. Copy the new file
+           # 4. Copy existing rates.json to current dir for merging base
            mkdir -p public
-           cp "$NEW_RATES_PATH" public/rates.json
+           if [ -f public/rates.json ]; then
+             cp public/rates.json ../../rates_base.json
+           else
+             echo "{}" > ../../rates_base.json
+           fi
 
-           # 7. Commit and Push
+      - name: Merge Data
+        run: |
+          # Run the merge script from the main checkout
+          # Inputs are in the root workspace (downloaded artifacts)
+          # Output should go to the ../data-branch/public/rates.json
+
+          # We use the fetched base from the data branch to ensure we don't overwrite unrelated data if any
+          python scripts/merge_rates.py --base ../data-branch/public/rates.json --inputs exchange.json news.json savings.json reliability.json
+
+      - name: Commit and Push
+        run: |
+           cd ../data-branch
            git add public/rates.json
            if git diff --staged --quiet; then
              echo "No changes in rates.json"
            else
-             git commit -m "Update exchange rates"
+             git commit -m "Update exchange rates, news, and savings"
              git push -u origin rates-data
            fi
