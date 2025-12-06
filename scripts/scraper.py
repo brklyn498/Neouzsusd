@@ -74,11 +74,15 @@ def get_uzt_time():
 async def async_fetch_url(session, url, retries=3, delay=2, use_proxy=False):
     """Asynchronously fetches a URL with retries."""
     headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Language": "en-US,en;q=0.9,uz;q=0.8,ru;q=0.7",
+        "Referer": "https://www.google.com/"
     }
     for i in range(retries):
         try:
-            async with session.get(url, headers=headers, timeout=15) as response:
+            # Increased timeout to 30s and disabled SSL verification to avoid handshake errors
+            async with session.get(url, headers=headers, timeout=30, ssl=False) as response:
                 if response.status == 200:
                     return await response.read()
                 elif response.status == 403:
@@ -521,7 +525,15 @@ async def async_fetch_savings_rates(session, existing_data, force=False):
     url = "https://bank.uz/uz/deposits/sumovye-vklady"
     content = await async_fetch_url(session, url)
     if not content:
-        return existing_data.get("savings") if existing_data else None
+        # Fallback: if existing data exists, return it.
+        # If not, return an empty structure so we don't end up with null in rates.json
+        if existing_data and existing_data.get("savings"):
+            return existing_data.get("savings")
+        return {
+            "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "last_updated_ts": datetime.datetime.now().timestamp(),
+            "data": []
+        }
 
     loop = asyncio.get_running_loop()
     savings_list = await loop.run_in_executor(None, parse_savings_html, content)
@@ -592,6 +604,16 @@ async def async_fetch_usd_savings_rates(session, existing_data, force=False):
         tasks.append(async_fetch_url(session, url))
 
     responses = await asyncio.gather(*tasks)
+    # Check if all responses are None, which means fetch failed entirely
+    if all(r is None for r in responses):
+         if existing_data and existing_data.get("savings_usd"):
+            return existing_data.get("savings_usd")
+         # Return empty structure instead of None
+         return {
+            "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "last_updated_ts": datetime.datetime.now().timestamp(),
+            "data": []
+        }
 
     loop = asyncio.get_running_loop()
     savings_list = []
@@ -726,6 +748,11 @@ async def async_fetch_news(session, existing_data, force=False):
 
     all_news.sort(key=lambda x: x["published_ts"], reverse=True)
     final_news = all_news[:60]
+
+    # Check if we have any news. If not, try to fallback to existing data
+    if not final_news and existing_data and existing_data.get("news"):
+         return existing_data.get("news")
+
     return {
         "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "last_updated_ts": datetime.datetime.now().timestamp(),
