@@ -1,4 +1,4 @@
-module.exports = {
+﻿module.exports = {
     apps: [
         {
             name: 'server-3050',
@@ -25,6 +25,17 @@ module.exports = {
             env: {
                 NODE_ENV: 'production'
             }
+        },
+        {
+            name: 'telegram-bot',
+            script: 'start_bot.bat',
+            cwd: 'd:/claudecode/exchangeusduzs',
+            interpreter: 'cmd',
+            interpreter_args: '/c',
+            watch: false,
+            autorestart: true,
+            max_restarts: 10,
+            restart_delay: 3000
         }
     ]
 };

@@ -2442,23 +2442,100 @@ body.dark-mode .refreshing-btn {
 
 /* --- Best Rate Badge Styling --- */
 .best-rate-badge {
-  margin-top: 5px;
-  font-size: 0.7rem;
-  font-weight: bold;
-  padding: 2px 4px;
+  margin-top: 6px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 3px 8px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  cursor: default;
+  animation: badgePulse 2s ease-in-out infinite;
 }
 
-/* Light Mode: Inverse (Black bg, White text) */
+/* Trophy/Crown icon before text */
+.best-rate-badge::before {
+  content: '👑';
+  font-size: 0.75rem;
+}
+
+/* Light Mode: Solid Black with Electric Accent */
 body:not(.dark-mode) .best-rate-badge {
-  background-color: #000000;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  color: #CCFF00;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #CCFF00;
 }
 
-/* Dark Mode: Glassmorphism */
+/* Dark Mode: Neon Glow Effect */
 body.dark-mode .best-rate-badge {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #9D4EDD 0%, #FF00FF 100%);
   color: #FFFFFF;
+  border: 2px solid #FF00FF;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 2px 2px 0 #FF00FF;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Pulse Animation */
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Hover Glitch Effect */
+.best-rate-badge:hover {
+  animation: badgeGlitch 0.3s ease-in-out;
+}
+
+@keyframes badgeGlitch {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(2px, -1px);
+  }
+
+  60% {
+    transform: translate(-1px, 1px);
+  }
+
+  80% {
+    transform: translate(1px, -2px);
+  }
+}
+
+/* Entry Animation */
+.best-rate-badge {
+  animation: badgeEntry 0.5s ease-out, badgePulse 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes badgeEntry {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }

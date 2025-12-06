@@ -1,0 +1,602 @@
+{
+  "savings": {
+    "last_updated": "2025-12-06 16:35",
+    "last_updated_ts": 1765020928.679844,
+    "data": [
+      {
+        "bank_name": "AVO bank",
+        "deposit_name": "AVO omonati",
+        "rate": 25.0,
+        "duration": "6 oy",
+        "min_amount": "100 000 so'mdan",
+        "is_online": true,
+        "logo": ""
+      },
+      {
+        "bank_name": "Uzum Bank",
+        "deposit_name": "Moslashuvchan omonat: kunlik foizlar",
+        "rate": 24.0,
+        "duration": "1.5 yil",
+        "min_amount": "500 000 so'mdan",
+        "is_online": true,
+        "logo": ""
+      },
+      {
+        "bank_name": "Uzsanoat Bank",
+        "deposit_name": "Konstruktor",
+        "rate": 21.0,
+        "duration": "2 yil",
+        "min_amount": "1 000 000 so'mdan",
+        "is_online": true,
+        "logo": ""
+      },
+      {
+        "bank_name": "Turon bank",
+        "deposit_name": "Ustuvor",
+        "rate": 21.0,
+        "duration": "1.5 yil",
+        "min_amount": "1 000 000 so'mdan",
+        "is_online": true,
+        "logo": "https://logo.clearbit.com/turonbank.uz"
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "Maksimal foyda",
+        "rate": 21.0,
+        "duration": "1 oy - 2 yil",
+        "min_amount": "100 000 so'mdan",
+        "is_online": true,
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "Nat'l Bank UZ",
+        "deposit_name": "Hamma uchun",
+        "rate": 21.0,
+        "duration": "1 oy - 1.5 yil",
+        "min_amount": "100 000 so'mdan",
+        "is_online": true,
+        "logo": ""
+      },
+      {
+        "bank_name": "Nat'l Bank UZ",
+        "deposit_name": "Jozibali",
+        "rate": 21.0,
+        "duration": "6 oy",
+        "min_amount": "500 000 so'mdan",
+        "is_online": true,
+        "logo": ""
+      },
+      {
+        "bank_name": "Aloqabank",
+        "deposit_name": "Joziba plyus",
+        "rate": 19.0,
+        "duration": "3 oy - 6 oy",
+        "min_amount": "1 000 000 so'mdan",
+        "is_online": true,
+        "logo": "https://logo.clearbit.com/aloqabank.uz"
+      },
+      {
+        "bank_name": "Tenge Bank",
+        "deposit_name": "Qulay onlayn",
+        "rate": 18.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "100 000 so'mdan",
+        "is_online": true,
+        "logo": "https://logo.clearbit.com/tengebank.uz"
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "Avans",
+        "rate": 18.0,
+        "duration": "6 oy - 1 yil 1 oy",
+        "min_amount": "1 000 000 so'mdan",
+        "is_online": false,
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "Xalq Bank",
+        "deposit_name": "Bolalar xazinasi",
+        "rate": 17.0,
+        "duration": "18 yoshga yetish",
+        "min_amount": "1 000 so'mdan",
+        "is_online": true,
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg"
+      },
+      {
+        "bank_name": "Orient Finans",
+        "deposit_name": "OFB Light",
+        "rate": 10.0,
+        "duration": "1 oy",
+        "min_amount": "1 000 000 so'mdan",
+        "is_online": true,
+        "logo": "https://ofb.uz/upload/images/logo.svg"
+      }
+    ]
+  },
+  "savings_usd": {
+    "last_updated": "2025-12-06 16:35",
+    "last_updated_ts": 1765020928.889419,
+    "data": [
+      {
+        "bank_name": "Garant bank",
+        "deposit_name": "Bingo",
+        "rate": 8.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "5 000 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/garantbank.uz"
+      },
+      {
+        "bank_name": "Anorbank",
+        "deposit_name": "BALANDDA",
+        "rate": 8.0,
+        "duration": "2 yil",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://anorbank.uz/images/logo.svg"
+      },
+      {
+        "bank_name": "Universal bank",
+        "deposit_name": "Smart 8",
+        "rate": 8.0,
+        "duration": "3 yil",
+        "min_amount": "200 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg"
+      },
+      {
+        "bank_name": "MKBank",
+        "deposit_name": "FIFA-2026",
+        "rate": 7.5,
+        "duration": "3 yil",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz"
+      },
+      {
+        "bank_name": "Universal bank",
+        "deposit_name": "Invest 7.5",
+        "rate": 7.5,
+        "duration": "1.5 yil",
+        "min_amount": "200 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg"
+      },
+      {
+        "bank_name": "Infinbank",
+        "deposit_name": "Infin Premium",
+        "rate": 7.5,
+        "duration": "2 yil",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg"
+      },
+      {
+        "bank_name": "Anorbank",
+        "deposit_name": "ELITE",
+        "rate": 7.0,
+        "duration": "2 yil",
+        "min_amount": "500 000 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://anorbank.uz/images/logo.svg"
+      },
+      {
+        "bank_name": "MKBank",
+        "deposit_name": "Stimul",
+        "rate": 7.0,
+        "duration": "2 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz"
+      },
+      {
+        "bank_name": "Trastbank",
+        "deposit_name": "Ishonchli sarmoya",
+        "rate": 7.0,
+        "duration": "2 yil",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg"
+      },
+      {
+        "bank_name": "Poytaxt bank",
+        "deposit_name": "High level",
+        "rate": 7.0,
+        "duration": "1 yil 1 oy - 2 yil 1 oy",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz"
+      },
+      {
+        "bank_name": "Turon bank",
+        "deposit_name": "Turon Oltin",
+        "rate": 7.0,
+        "duration": "1.5 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/turonbank.uz"
+      },
+      {
+        "bank_name": "TBC Bank",
+        "deposit_name": "Muddatli to'ldiriladigan depozit USD",
+        "rate": 6.5,
+        "duration": "1 yil 1 oy - 2 yil",
+        "min_amount": "100dan - 50 000 AQSH dollarigacha",
+        "is_online": false,
+        "currency": "USD",
+        "logo": ""
+      },
+      {
+        "bank_name": "Infinbank",
+        "deposit_name": "Infin Ishonchli (Onlayn)",
+        "rate": 6.5,
+        "duration": "2 yil",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg"
+      },
+      {
+        "bank_name": "Anorbank",
+        "deposit_name": "QULAY",
+        "rate": 6.5,
+        "duration": "2 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://anorbank.uz/images/logo.svg"
+      },
+      {
+        "bank_name": "Aloqabank",
+        "deposit_name": "\u00abComfort\u00bb plus",
+        "rate": 6.5,
+        "duration": "2 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/aloqabank.uz"
+      },
+      {
+        "bank_name": "Aloqabank",
+        "deposit_name": "Comfort",
+        "rate": 6.0,
+        "duration": "1 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/aloqabank.uz"
+      },
+      {
+        "bank_name": "Trastbank",
+        "deposit_name": "Istiklol",
+        "rate": 6.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "500 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg"
+      },
+      {
+        "bank_name": "Infinbank",
+        "deposit_name": "Infin Barqaror (Onlayn)",
+        "rate": 6.0,
+        "duration": "1.5 yil",
+        "min_amount": "500 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg"
+      },
+      {
+        "bank_name": "Trastbank",
+        "deposit_name": "Onlayn Istiqlol",
+        "rate": 6.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "500 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg"
+      },
+      {
+        "bank_name": "Hamkorbank",
+        "deposit_name": "Comfort",
+        "rate": 6.0,
+        "duration": "1 yil 3 oy",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg"
+      },
+      {
+        "bank_name": "Uzsanoat Bank",
+        "deposit_name": "Yevro",
+        "rate": 6.0,
+        "duration": "2 yil",
+        "min_amount": "500 yevrodan",
+        "is_online": true,
+        "currency": "EUR",
+        "logo": ""
+      },
+      {
+        "bank_name": "BRB",
+        "deposit_name": "Ishonchli kapital",
+        "rate": 6.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg"
+      },
+      {
+        "bank_name": "Asia Alliance...",
+        "deposit_name": "Konstruktor USD",
+        "rate": 6.0,
+        "duration": "2 yil",
+        "min_amount": "500 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": ""
+      },
+      {
+        "bank_name": "Agrobank",
+        "deposit_name": "Stimul",
+        "rate": 5.5,
+        "duration": "2 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/agrobank.uz"
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "Maksimal foyda (usd)",
+        "rate": 5.0,
+        "duration": "1 oy - 2 yil",
+        "min_amount": "50 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "Nat'l Bank UZ",
+        "deposit_name": "Hamma uchun",
+        "rate": 5.0,
+        "duration": "3 oy - 1.5 yil",
+        "min_amount": "50 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": ""
+      },
+      {
+        "bank_name": "Trastbank",
+        "deposit_name": "Innovatsiya",
+        "rate": 5.0,
+        "duration": "2 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg"
+      },
+      {
+        "bank_name": "Universal bank",
+        "deposit_name": "Smart-5",
+        "rate": 5.0,
+        "duration": "2 yil",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg"
+      },
+      {
+        "bank_name": "Trastbank",
+        "deposit_name": "Mukofotli",
+        "rate": 5.0,
+        "duration": "2 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg"
+      },
+      {
+        "bank_name": "Ziraat Bank",
+        "deposit_name": "\u00abPROFIT-VIII-5\u00bb (D-61/206B06)",
+        "rate": 5.0,
+        "duration": "2 yil",
+        "min_amount": "500 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/ziraatbank.uz"
+      },
+      {
+        "bank_name": "Xalq Bank",
+        "deposit_name": "Stimul-2",
+        "rate": 4.5,
+        "duration": "1.5 yil",
+        "min_amount": "10 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg"
+      },
+      {
+        "bank_name": "Infinbank",
+        "deposit_name": "Infin-Sevimli",
+        "rate": 4.5,
+        "duration": "2 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg"
+      },
+      {
+        "bank_name": "Uzsanoat Bank",
+        "deposit_name": "Kapital",
+        "rate": 4.0,
+        "duration": "6 oy",
+        "min_amount": "500 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": ""
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "On-line (usd)",
+        "rate": 4.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "300 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "MKBank",
+        "deposit_name": "Luxe",
+        "rate": 4.0,
+        "duration": "1.5 yil",
+        "min_amount": "100 yevrodan",
+        "is_online": true,
+        "currency": "EUR",
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz"
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "Maksimal foyda (evro)",
+        "rate": 4.0,
+        "duration": "1 oy - 2 yil",
+        "min_amount": "50 yevrodan",
+        "is_online": false,
+        "currency": "EUR",
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "Kapitalbank",
+        "deposit_name": "Lyuks 4%",
+        "rate": 4.0,
+        "duration": "3 yil",
+        "min_amount": "500dan - 1 000 000 AQSH dollarigacha",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg"
+      },
+      {
+        "bank_name": "Turon bank",
+        "deposit_name": "Meros(xorijiy valyutada)",
+        "rate": 4.0,
+        "duration": "18 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/turonbank.uz"
+      },
+      {
+        "bank_name": "Ipak Yuli Bank",
+        "deposit_name": "Yevro",
+        "rate": 4.0,
+        "duration": "6 oy - 2 yil",
+        "min_amount": "500 yevrodan",
+        "is_online": false,
+        "currency": "EUR",
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg"
+      },
+      {
+        "bank_name": "Ziraat Bank",
+        "deposit_name": "\u00abPROFIT-VIII-4\u00bb (D-60/206A06)",
+        "rate": 4.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "500 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://logo.clearbit.com/ziraatbank.uz"
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "Avans (usd)",
+        "rate": 3.5,
+        "duration": "6 oy - 1 yil",
+        "min_amount": "100 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "On-line (evro)",
+        "rate": 3.0,
+        "duration": "1 yil 1 oy",
+        "min_amount": "300 yevrodan",
+        "is_online": false,
+        "currency": "EUR",
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "Orient Finans",
+        "deposit_name": "OFB Ultra",
+        "rate": 2.5,
+        "duration": "1 yil 4 oy",
+        "min_amount": "5 000 AQSH dollaridan",
+        "is_online": false,
+        "currency": "USD",
+        "logo": "https://ofb.uz/upload/images/logo.svg"
+      },
+      {
+        "bank_name": "Nat'l Bank UZ",
+        "deposit_name": "Yevro",
+        "rate": 2.0,
+        "duration": "3 oy",
+        "min_amount": "Ko'rsatilmagan",
+        "is_online": true,
+        "currency": "EUR",
+        "logo": ""
+      },
+      {
+        "bank_name": "Asakabank",
+        "deposit_name": "Avans (evro)",
+        "rate": 2.0,
+        "duration": "6 oy - 1 yil",
+        "min_amount": "100 yevrodan",
+        "is_online": false,
+        "currency": "EUR",
+        "logo": "https://asakabank.uz/images/logo_animate.svg"
+      },
+      {
+        "bank_name": "Hamkorbank",
+        "deposit_name": "Step oddiy",
+        "rate": 2.0,
+        "duration": "6 oy",
+        "min_amount": "1 yevrodan",
+        "is_online": false,
+        "currency": "EUR",
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg"
+      },
+      {
+        "bank_name": "Kapitalbank",
+        "deposit_name": "Yevro Onlayn",
+        "rate": 2.0,
+        "duration": "2 yil",
+        "min_amount": "100 yevrodan",
+        "is_online": true,
+        "currency": "EUR",
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg"
+      },
+      {
+        "bank_name": "Orient Finans",
+        "deposit_name": "OFB Lux",
+        "rate": 1.5,
+        "duration": "1 yil",
+        "min_amount": "1 000 AQSH dollaridan",
+        "is_online": true,
+        "currency": "USD",
+        "logo": "https://ofb.uz/upload/images/logo.svg"
+      }
+    ]
+  }
+}
