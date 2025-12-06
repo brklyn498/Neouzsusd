@@ -135,114 +135,18 @@
     ],
     "banks": [
       {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 11950.0,
-        "sell": 12040.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 11935.0,
-        "sell": 12040.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "MKBank",
+        "name": "Saderat Bank",
         "buy": 11910.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Ipak Yuli Bank",
+        "name": "Trastbank",
         "buy": 11930.0,
         "sell": 12040.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 11950.0,
-        "sell": 12040.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 11910.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Universal bank",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ziraat Bank",
-        "buy": 11930.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 11935.0,
-        "sell": 12045.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Agrobank",
-        "buy": 11910.0,
-        "sell": 12030.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 11970.0,
-        "sell": 12030.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 11950.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "KDB Bank Uzbekiston",
-        "buy": 11905.0,
-        "sell": 12045.0,
-        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Infinbank",
-        "buy": 11935.0,
-        "sell": 12045.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -255,10 +159,26 @@
         "featured": false
       },
       {
-        "name": "Tenge Bank",
+        "name": "KDB Bank Uzbekiston",
+        "buy": 11905.0,
+        "sell": 12045.0,
+        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Poytaxt bank",
         "buy": 11910.0,
-        "sell": 12000.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "sell": 12030.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 11935.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -271,34 +191,90 @@
         "featured": true
       },
       {
-        "name": "Octobank",
-        "buy": 11910.0,
-        "sell": 12000.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Saderat Bank",
-        "buy": 11910.0,
+        "name": "Kapitalbank",
+        "buy": 11935.0,
         "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Universal bank",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Poytaxt bank",
+        "name": "Ipoteka bank",
+        "buy": 11935.0,
+        "sell": 12045.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ziraat Bank",
+        "buy": 11930.0,
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 11930.0,
+        "sell": 12040.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Garant bank",
+        "buy": 11950.0,
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
         "buy": 11910.0,
         "sell": 12030.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Orient Finans Bank",
-        "buy": 11910.0,
+        "name": "Xalq Banki",
+        "buy": 11905.0,
         "sell": 12040.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 11910.0,
+        "sell": 12010.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 11910.0,
+        "sell": 12000.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 11910.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -319,18 +295,50 @@
         "featured": false
       },
       {
-        "name": "Turon bank",
-        "buy": 11935.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "name": "Anorbank",
+        "buy": 11970.0,
+        "sell": 12030.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "O\u2018zsanoatqurilishbank",
+        "name": "Octobank",
         "buy": 11910.0,
-        "sell": 12010.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "sell": 12000.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 11910.0,
+        "sell": 12040.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "MKBank",
+        "buy": 11910.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 11950.0,
+        "sell": 12040.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 11950.0,
+        "sell": 12040.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -343,18 +351,10 @@
         "featured": true
       },
       {
-        "name": "Xalq Banki",
-        "buy": 11905.0,
-        "sell": 12040.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 11930.0,
-        "sell": 12040.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "name": "Infinbank",
+        "buy": 11935.0,
+        "sell": 12045.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
       }
@@ -487,106 +487,18 @@
     ],
     "banks": [
       {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 140.0,
-        "sell": 165.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 146.0,
-        "sell": 158.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Ipak Yuli Bank",
-        "buy": 110.0,
-        "sell": 160.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 100.0,
-        "sell": 165.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 95.0,
-        "sell": 165.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 100.0,
-        "sell": 163.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 100.0,
+        "name": "Trastbank",
+        "buy": 90.0,
         "sell": 159.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 100.0,
-        "sell": 180.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Infinbank",
-        "buy": 140.0,
-        "sell": 165.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 135.0,
-        "sell": 157.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
+        "featured": true
       },
       {
         "name": "Asakabank",
         "buy": 125.0,
         "sell": 160.0,
         "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 141.0,
-        "sell": 161.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Octobank",
-        "buy": 145.0,
-        "sell": 158.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -599,34 +511,50 @@
         "featured": true
       },
       {
-        "name": "Orient Finans Bank",
-        "buy": 90.0,
-        "sell": 190.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 139.0,
-        "sell": 159.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asia Alliance Bank",
-        "buy": 135.0,
-        "sell": 163.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Turon bank",
         "buy": 100.0,
         "sell": 180.0,
         "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 141.0,
+        "sell": 161.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 146.0,
+        "sell": 158.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 100.0,
+        "sell": 163.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 110.0,
+        "sell": 160.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Garant bank",
+        "buy": 100.0,
+        "sell": 180.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -639,6 +567,78 @@
         "featured": false
       },
       {
+        "name": "Tenge Bank",
+        "buy": 135.0,
+        "sell": 157.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 95.0,
+        "sell": 165.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 139.0,
+        "sell": 159.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Anorbank",
+        "buy": 100.0,
+        "sell": 159.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 135.0,
+        "sell": 163.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Octobank",
+        "buy": 145.0,
+        "sell": 158.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 90.0,
+        "sell": 190.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 140.0,
+        "sell": 165.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 100.0,
+        "sell": 165.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "BRB",
         "buy": 130.0,
         "sell": 170.0,
@@ -647,12 +647,12 @@
         "featured": false
       },
       {
-        "name": "Trastbank",
-        "buy": 90.0,
-        "sell": 159.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "name": "Infinbank",
+        "buy": 140.0,
+        "sell": 165.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
-        "featured": true
+        "featured": false
       }
     ]
   },
@@ -783,98 +783,18 @@
     ],
     "banks": [
       {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 13720.0,
-        "sell": 14020.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 13510.0,
-        "sell": 14220.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "name": "Saderat Bank",
+        "buy": 13000.0,
+        "sell": 15500.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
         "is_mock": false,
         "featured": true
       },
       {
-        "name": "MKBank",
-        "buy": 13200.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipak Yuli Bank",
-        "buy": 13400.0,
-        "sell": 14400.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 13000.0,
-        "sell": 14200.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 13500.0,
-        "sell": 14500.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Universal bank",
-        "buy": 13000.0,
-        "sell": 15200.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Ziraat Bank",
-        "buy": 13620.0,
-        "sell": 14320.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13000.0,
-        "sell": 14150.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Agrobank",
-        "buy": 13600.0,
-        "sell": 14300.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 13180.0,
-        "sell": 14130.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 13000.0,
-        "sell": 15000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "name": "Trastbank",
+        "buy": 13450.0,
+        "sell": 14050.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -887,14 +807,6 @@
         "featured": false
       },
       {
-        "name": "Infinbank",
-        "buy": 13730.0,
-        "sell": 14115.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Asakabank",
         "buy": 13100.0,
         "sell": 14500.0,
@@ -903,66 +815,10 @@
         "featured": false
       },
       {
-        "name": "Tenge Bank",
-        "buy": 13100.0,
-        "sell": 14100.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 13600.0,
-        "sell": 14200.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 13300.0,
-        "sell": 14100.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Saderat Bank",
-        "buy": 13000.0,
-        "sell": 15500.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
         "name": "Poytaxt bank",
         "buy": 13000.0,
         "sell": 14050.0,
         "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 13300.0,
-        "sell": 15300.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Hayot Bank",
-        "buy": 13500.0,
-        "sell": 14190.0,
-        "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asia Alliance Bank",
-        "buy": 13000.0,
-        "sell": 14100.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -975,18 +831,66 @@
         "featured": false
       },
       {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 13700.0,
-        "sell": 14300.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "name": "Hamkorbank",
+        "buy": 13300.0,
+        "sell": 14100.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 13510.0,
+        "sell": 14220.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Universal bank",
+        "buy": 13000.0,
+        "sell": 15200.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 13000.0,
+        "sell": 14150.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "BRB",
+        "name": "Ziraat Bank",
+        "buy": 13620.0,
+        "sell": 14320.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 13400.0,
+        "sell": 14400.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Garant bank",
+        "buy": 13000.0,
+        "sell": 15000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
         "buy": 13600.0,
         "sell": 14300.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -999,10 +903,106 @@
         "featured": false
       },
       {
-        "name": "Trastbank",
-        "buy": 13450.0,
-        "sell": 14050.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 13700.0,
+        "sell": 14300.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Tenge Bank",
+        "buy": 13100.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Aloqabank",
+        "buy": 13500.0,
+        "sell": 14500.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hayot Bank",
+        "buy": 13500.0,
+        "sell": 14190.0,
+        "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Anorbank",
+        "buy": 13180.0,
+        "sell": 14130.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 13000.0,
+        "sell": 14100.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Octobank",
+        "buy": 13600.0,
+        "sell": 14200.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 13300.0,
+        "sell": 15300.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "MKBank",
+        "buy": 13200.0,
+        "sell": 14100.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 13720.0,
+        "sell": 14020.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 13000.0,
+        "sell": 14200.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 13600.0,
+        "sell": 14300.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Infinbank",
+        "buy": 13730.0,
+        "sell": 14115.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
       }
@@ -1135,12 +1135,12 @@
     ],
     "banks": [
       {
-        "name": "Anorbank",
-        "buy": 14.0,
-        "sell": 25.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
+        "name": "Tenge Bank",
+        "buy": 16.0,
+        "sell": 24.0,
+        "logo": "https://logo.clearbit.com/tengebank.uz",
         "is_mock": false,
-        "featured": true
+        "featured": false
       },
       {
         "name": "Turon bank",
@@ -1159,22 +1159,6 @@
         "featured": true
       },
       {
-        "name": "Kapitalbank",
-        "buy": 22.0,
-        "sell": 24.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Tenge Bank",
-        "buy": 16.0,
-        "sell": 24.0,
-        "logo": "https://logo.clearbit.com/tengebank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Xalq Banki",
         "buy": 15.0,
         "sell": 24.0,
@@ -1189,6 +1173,22 @@
         "logo": "https://logo.clearbit.com/hayotbank.uz",
         "is_mock": false,
         "featured": false
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 22.0,
+        "sell": 24.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Anorbank",
+        "buy": 14.0,
+        "sell": 25.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": true
       }
     ]
   },
@@ -1319,12 +1319,44 @@
     ],
     "banks": [
       {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 15750.0,
-        "sell": 16250.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "name": "Trastbank",
+        "buy": 15700.0,
+        "sell": 16300.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
+      },
+      {
+        "name": "Asakabank",
+        "buy": 15350.0,
+        "sell": 16550.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 15000.0,
+        "sell": 18000.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Turon bank",
+        "buy": 15000.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 15200.0,
+        "sell": 16800.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
       },
       {
         "name": "Kapitalbank",
@@ -1333,30 +1365,6 @@
         "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "MKBank",
-        "buy": 15100.0,
-        "sell": 16100.0,
-        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipak Yuli Bank",
-        "buy": 15300.0,
-        "sell": 16400.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 15300.0,
-        "sell": 16300.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
       },
       {
         "name": "Universal bank",
@@ -1375,12 +1383,12 @@
         "featured": true
       },
       {
-        "name": "Agrobank",
-        "buy": 15250.0,
-        "sell": 16350.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "name": "Ipak Yuli Bank",
+        "buy": 15300.0,
+        "sell": 16400.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
         "is_mock": false,
-        "featured": false
+        "featured": true
       },
       {
         "name": "Garant bank",
@@ -1391,18 +1399,26 @@
         "featured": false
       },
       {
-        "name": "Infinbank",
-        "buy": 15500.0,
-        "sell": 16500.0,
-        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
+        "name": "Agrobank",
+        "buy": 15250.0,
+        "sell": 16350.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Asakabank",
-        "buy": 15350.0,
-        "sell": 16550.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "name": "Xalq Banki",
+        "buy": 12500.0,
+        "sell": 19800.0,
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 15700.0,
+        "sell": 16700.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
         "is_mock": false,
         "featured": false
       },
@@ -1415,34 +1431,10 @@
         "featured": false
       },
       {
-        "name": "Octobank",
-        "buy": 15200.0,
-        "sell": 17900.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 15200.0,
-        "sell": 16800.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Poytaxt bank",
-        "buy": 15000.0,
-        "sell": 18000.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 14800.0,
-        "sell": 18000.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "name": "Aloqabank",
+        "buy": 15300.0,
+        "sell": 16300.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
@@ -1463,18 +1455,34 @@
         "featured": false
       },
       {
-        "name": "Turon bank",
-        "buy": 15000.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "name": "Octobank",
+        "buy": 15200.0,
+        "sell": 17900.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 15700.0,
-        "sell": 16700.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "name": "Orient Finans Bank",
+        "buy": 14800.0,
+        "sell": 18000.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "MKBank",
+        "buy": 15100.0,
+        "sell": 16100.0,
+        "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 15750.0,
+        "sell": 16250.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -1487,18 +1495,10 @@
         "featured": false
       },
       {
-        "name": "Xalq Banki",
-        "buy": 12500.0,
-        "sell": 19800.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Trastbank",
-        "buy": 15700.0,
-        "sell": 16300.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "name": "Infinbank",
+        "buy": 15500.0,
+        "sell": 16500.0,
+        "logo": "https://infinbank.com/upload/icons/full-logo.svg",
         "is_mock": false,
         "featured": false
       }
@@ -1531,8 +1531,8 @@
     }
   ],
   "gold_history": {
-    "last_updated": "2025-12-06 13:09",
-    "last_updated_ts": 1765026580.611415,
+    "last_updated": "2025-12-06 14:03",
+    "last_updated_ts": 1765029823.944141,
     "data": [
       {
         "date": "2025-11-02",
@@ -1689,8 +1689,8 @@
     "note": "Real market data"
   },
   "silver_history": {
-    "last_updated": "2025-12-06 13:09",
-    "last_updated_ts": 1765026580.610366,
+    "last_updated": "2025-12-06 14:03",
+    "last_updated_ts": 1765029823.941731,
     "data": [
       {
         "date": "2025-11-02",
@@ -1847,8 +1847,8 @@
     "note": "Real market data"
   },
   "bitcoin_history": {
-    "last_updated": "2025-12-06 13:09",
-    "last_updated_ts": 1765026580.61179,
+    "last_updated": "2025-12-06 14:03",
+    "last_updated_ts": 1765029823.945788,
     "data": [
       {
         "date": "2025-11-06",
@@ -2004,7 +2004,7 @@
     "source": "Polygon.io",
     "note": "Real market data"
   },
-  "last_updated": "2025-12-06 13:11",
+  "last_updated": "2025-12-06 14:05",
   "savings": {
     "last_updated": "2025-12-06 12:05",
     "last_updated_ts": 1765022746.875677,
@@ -2120,9 +2120,27 @@
     ]
   },
   "news": {
-    "last_updated": "2025-12-06 13:11",
-    "last_updated_ts": 1765026685.016346,
+    "last_updated": "2025-12-06 14:05",
+    "last_updated_ts": 1765029923.968823,
     "items": [
+      {
+        "id": "2cfd823b48f9177f7a11cdd170a9c5f0",
+        "title": "Uyqu gigiyenasi: O\u2018zbeklar orasida eng keng tarqalgan TOP\u20135 xatolar",
+        "summary": "Uyqu gigiyenasi \u2014 bu yaxshi uxlay olish uchun amalga oshirilishi kerak bo\u2018lgan odatlar va qoidalar to\u2018plami. Biroq, ko\u2018plab o\u2018zbeklar bu odatlarni buzib, uyqu sifatini pasaytirishadi. Xo\u2018sh, o\u2018zbeklar...",
+        "full_content": "Uyqu gigiyenasi \u2014 bu yaxshi uxlay olish uchun amalga oshirilishi kerak bo\u2018lgan odatlar va qoidalar to\u2018plami. Biroq, ko\u2018plab o\u2018zbeklar bu odatlarni buzib, uyqu sifatini pasaytirishadi. Xo\u2018sh, o\u2018zbeklar uyqu gigiyenasida eng ko\u2018p qanday xatolarga yo\u2018l qo\u2018yishadi? \n\nUyqu vaqti tartibsizligi\n\nKo\u2018plab o\u2018zbeklar uyquga tartibsiz kirishadi. Ba\u2019zi odamlar kechasi juda kech yotishadi, ertalab esa juda erta uyg\u2018onishadi. Uyqu vaqtining tartibsizligi biologik soatni buzadi va bu uyqu sifatiga salbiy ta\u2019sir qiladi. Yaxshi uyqu uchun har kuni bir xil vaqtda yotish va uyg\u2018onish muhim. Bu tana soatining ishlashini yaxshilaydi va uyquni chuqurlashtiradi.\n\nTelefonni uyqudan oldin ishlatish\n\nBugungi kunda telefonlar uyquning eng katta dushmaniga aylangan. Ko\u2018plab odamlar uyqudan oldin telefonni ko\u2018p vaqt davomida ishlatib, ijtimoiytarmoqlarda o\u2018tirishadi yoki video tomosha qilishadi. Bu esa miya faoliyatini uyg\u2018otadi va uxlash qiyinlashadi. Uyqudan kamida 30-60 daqiqa oldin telefonni ishlatmaslik tavsiya qilinadi. Telefonni o\u2018chirish, kitob o\u2018qish yoki meditatsiya qilish yaxshi uyquga yordam beradi.\n\nOg\u2018ir ovqatlar va kofe ichish\n\nBa\u2019zi odamlar kechqurun og\u2018ir ovqatlar yeyishadi yoki kofe ichishadi. Bu ichimliklar va ovqatlar organizmdagi haroratni oshirib, uyquni buzishi mumkin. Kofe, energetik ichimliklar va og\u2018ir ovqatlar, ayniqsa, kechqurun tanaga zarar yetkazishi mumkin. Yaxshiroq uxlash uchun kechqurun eng yaxshi yengil ovqatlar va faqat suv yoki kam miqdorda yengil ichimliklar ichish tavsiya qilinadi.\n\nUxlash uchun noto\u2018g\u2018ri muhit yaratish\n\nKo\u2018plab o\u2018zbeklar shovqinli yoki yorug\u2018likdan ta\u2019sirlangan joylarda uxlaydi. Yaxshi uyqu uchun xona shovqinsiz va qorong\u2018i bo\u2018lishi kerak. Bundan tashqari, xona harorati ham juda muhim. Juda issiq yoki sovuqxonada uxlash qiyin bo\u2018ladi. Xonada yaxshi shamollash va kerakli haroratni saqlash uyqu sifatini yaxshilashga yordam beradi.\n\nJismoniy faoliyatni kamaytirish\n\nAksariyat odamlar uyqudan oldin ko\u2018p vaqtni yotib o\u2018tkazadilar, lekin bu holat",
+        "source": "WorldNews",
+        "source_url": "https://www.uz24.uz/uz/articles/uyqu-25-12-6",
+        "category": "General",
+        "language": "EN",
+        "published_at": "2025-12-06 17:00:00",
+        "published_ts": 1765040400.0,
+        "image_url": "https://uz24.uz/uploads/image/39a76364cb36b07fb24b9d1b320ccd8a/large.jpg",
+        "is_breaking": false,
+        "is_worldnews_api": true,
+        "reliability_tier": "aggregator",
+        "reliability_score": 0.3,
+        "reliability_label": "AGGREGATOR"
+      },
       {
         "id": "3a5fef263923b4eeaba671d469177b62",
         "title": "Kechish uchun 1 yil: AI-80 benziniga qarshi reydlar boshlandi",
@@ -2140,6 +2158,125 @@
         "reliability_tier": "aggregator",
         "reliability_score": 0.3,
         "reliability_label": "AGGREGATOR"
+      },
+      {
+        "id": "07a838123308be26c22725b746631817",
+        "title": "Vehicle Seized in Andijan Region with 5,000 Potent Medications",
+        "summary": "Law enforcement authorities in Andijan Region have intercepted the illegal trafficking of potent medications smuggled from Kyrgyzstan, the State Security Service (SSG) press office reported.",
+        "full_content": "Law enforcement authorities in Andijan Region have intercepted the illegal trafficking of potent medications smuggled from Kyrgyzstan, the State Security Service (SSG) press office reported.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/vehicle-seized-in-andijan-region-with-5000-potent-medications/",
+        "category": "Regulation",
+        "language": "EN",
+        "published_at": "2025-12-06T19:01:00+05:00",
+        "published_ts": 1765029660.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "299fbd7cfa0c5142a9fb95c4c742f040",
+        "title": "Ticket Counters at 14 Tashkent Metro Stations to Close from 9 December",
+        "summary": "Starting from 9 December, ticket counters at all 14 stations of the above-ground circle line of the Tashkent Metro will be closed, the metro press service announced.",
+        "full_content": "Starting from 9 December, ticket counters at all 14 stations of the above-ground circle line of the Tashkent Metro will be closed, the metro press service announced.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/ticket-counters-at-14-tashkent-metro-stations-to-close-from-9-december/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T18:51:00+05:00",
+        "published_ts": 1765029060.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "2ab5cfe8f0cf815acc14c27f8e9e7f6f",
+        "title": "Uzbek National Sentenced to Four Years for Mercenary Activity in Ukraine",
+        "summary": "The Pastdargom District Criminal Court has sentenced 27-year-old Uzbek citizen A. J. for participating in the armed conflict in Ukraine on the side of Russian forces.",
+        "full_content": "The Pastdargom District Criminal Court has sentenced 27-year-old Uzbek citizen A. J. for participating in the armed conflict in Ukraine on the side of Russian forces.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbek-national-sentenced-to-four-years-for-mercenary-activity-in-ukraine/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T18:40:00+05:00",
+        "published_ts": 1765028400.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "f8095cc6172c6b073901ec00c3eeaf15",
+        "title": "\u0412\u00a0\u041d\u043e\u0432\u043e\u043c \u041d\u0430\u043c\u0430\u043d\u0433\u0430\u043d\u0435 \u043d\u0430\u0447\u0430\u043b\u043e\u0441\u044c \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0441\u0430 China Town \u0437\u0430 $750 \u043c\u043b\u043d",
+        "summary": "\u0412\u00a0\u043d\u0435\u0433\u043e \u0432\u043e\u0439\u0434\u0443\u0442 \u0436\u0438\u043b\u044b\u0435 \u0434\u043e\u043c\u0430, \u0431\u0438\u0437\u043d\u0435\u0441-\u0446\u0435\u043d\u0442\u0440\u044b, \u043f\u044f\u0442\u0438\u0437\u0432\u0435\u0437\u0434\u043e\u0447\u043d\u044b\u0435 \u0433\u043e\u0441\u0442\u0438\u043d\u0438\u0446\u044b \u0438\u00a0\u0442\u043e\u0440\u0433\u043e\u0432\u044b\u0435 \u043e\u0431\u044a\u0435\u043a\u0442\u044b.",
+        "full_content": "\u0412\u00a0\u043d\u0435\u0433\u043e \u0432\u043e\u0439\u0434\u0443\u0442 \u0436\u0438\u043b\u044b\u0435 \u0434\u043e\u043c\u0430, \u0431\u0438\u0437\u043d\u0435\u0441-\u0446\u0435\u043d\u0442\u0440\u044b, \u043f\u044f\u0442\u0438\u0437\u0432\u0435\u0437\u0434\u043e\u0447\u043d\u044b\u0435 \u0433\u043e\u0441\u0442\u0438\u043d\u0438\u0446\u044b \u0438\u00a0\u0442\u043e\u0440\u0433\u043e\u0432\u044b\u0435 \u043e\u0431\u044a\u0435\u043a\u0442\u044b.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/ru/2025/12/06/namangan-chinatown/",
+        "category": "Business",
+        "language": "RU",
+        "published_at": "2025-12-06T13:40:00+00:00",
+        "published_ts": 1765028400.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "588b764c326d5c56e4b8482a716679ed",
+        "title": "Uzbekistan\u2019s Tourism Sector Shows Steady Growth in January\u2013November 2025",
+        "summary": "Over the first eleven months of 2025, Uzbekistan\u2019s tourism sector continued to grow at an accelerated pace.",
+        "full_content": "Over the first eleven months of 2025, Uzbekistan\u2019s tourism sector continued to grow at an accelerated pace.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekistans-tourism-sector-shows-steady-growth-in-january-november-2025/",
+        "category": "Economy",
+        "language": "EN",
+        "published_at": "2025-12-06T18:32:00+05:00",
+        "published_ts": 1765027920.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "2f1a04a64d77969af3898ebe9a0747a6",
+        "title": "Uzbekneftegaz and SOCAR Begin Geological Exploration on the Ustyurt Plateau",
+        "summary": "Uzbek state company Uzbekneftegaz and the Azerbaijani state corporation SOCAR have begun practical implementation of a joint project on the Ustyurt Plateau, Chairman of the Board of Uzbekneftegaz Baho...",
+        "full_content": "Uzbek state company Uzbekneftegaz and the Azerbaijani state corporation SOCAR have begun practical implementation of a joint project on the Ustyurt Plateau, Chairman of the Board of Uzbekneftegaz Bahodirjon Sidikov told Uzbekiston 24 TV.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekneftegaz-and-socar-begin-geological-exploration-on-the-ustyurt-plateau/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T18:21:00+05:00",
+        "published_ts": 1765027260.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "f7160b87a21804f3a71124046ad02a74",
+        "title": "Japan\u2013Central Asia Summit Could Be Held in Tokyo on 19\u201320 December",
+        "summary": "The Japanese government is working to organize a summit with the five Central Asian countries, scheduled to take place on 19\u201320 December in Tokyo, according to Jiji Press.",
+        "full_content": "The Japanese government is working to organize a summit with the five Central Asian countries, scheduled to take place on 19\u201320 December in Tokyo, according to Jiji Press.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/japan-central-asia-summit-could-be-held-in-tokyo-on-19-20-december/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T18:11:00+05:00",
+        "published_ts": 1765026660.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "3a562941be5a436f2c1e01ada82e21f3",
@@ -2261,23 +2398,6 @@
         "reliability_label": "VERIFIED"
       },
       {
-        "id": "fe87a942035f6afb7e840b08d4d4af34",
-        "title": "Uzbekistan\u2019s NDC 3.0: from promises to reality \u2014 why declarations don\u2019t protect against smog",
-        "summary": "NDC 3.0 and the harsh reality of air quality",
-        "full_content": "NDC 3.0 and the harsh reality of air quality",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistans-ndc-30-from-promises-to-reality-why-declarations-dont-protect-against-smog/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T17:26:00+05:00",
-        "published_ts": 1765023960.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
         "id": "273eb607b71a605b620c4bddf18c3727",
         "title": "\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d \u0432\u00a0\u0440\u0430\u043c\u043a\u0430\u0445 iCRAFT \u0441\u043e\u043a\u0440\u0430\u0442\u0438\u043b \u0432\u044b\u0431\u0440\u043e\u0441\u044b \u043f\u0430\u0440\u043d\u0438\u043a\u043e\u0432\u044b\u0445 \u0433\u0430\u0437\u043e\u0432 \u043d\u0430\u00a023 \u043c\u043b\u043d \u0442\u043e\u043d\u043d\u00a0\u2014 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442",
         "summary": "\u0414\u043e\u00a0\u043a\u043e\u043d\u0446\u0430 2027 \u0433\u043e\u0434\u0430 \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b \u00ab\u0437\u0435\u043b\u0435\u043d\u043e\u0439\u00bb \u044d\u043d\u0435\u0440\u0433\u0438\u0438 \u0431\u0443\u0434\u0443\u0442 \u0432\u043d\u0435\u0434\u0440\u0435\u043d\u044b \u0432\u00a0100 \u043a\u0440\u0443\u043f\u043d\u044b\u0445 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\u0445.",
@@ -2344,6 +2464,24 @@
         "reliability_tier": "verified",
         "reliability_score": 0.8,
         "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "036fc31891ca177dabec00308e4cdd73",
+        "title": "Uzbekistan\u2019s President Mirziyoyev meets Saudi business leaders on energy and infrastructure projects - Daryo.uz",
+        "summary": "President of Uzbekistan Shavkat Mirziyoyev received a high-level delegation of leading Saudi companies led by Mohammad Abunayyan, co-chairman of the Uzbek\u2013Saudi Business Council and head of ACWA Power...",
+        "full_content": "President of Uzbekistan Shavkat Mirziyoyev received a high-level delegation of leading Saudi companies led by Mohammad Abunayyan, co-chairman of the Uzbek\u2013Saudi Business Council and head of ACWA Power, to review progress on joint projects and outline new areas of cooperation.\n\nDuring the meeting, the sides discussed ways to further expand practical collaboration and accelerate priority initiatives. President Mirziyoyev noted with satisfaction the strong momentum in Uzbekistan\u2019s partnership with ACWA Power, describing the company as a strategic investor driving the country\u2019s green energy transformation.\n\nEarlier in the day, Uzbekistan and ACWA Power launched several major renewable energy projects. Four new wind power plants with a combined capacity of 752 MW were officially connected to the national grid.\n\nConstruction also began on five additional power plants with a total capacity of 2.3 GW, along with 300 MW of energy storage systems in the Republic of Karakalpakstan and the Bukhara region.\n\nWork has also commenced on a 500 kV transmission line spanning 1,790 kilometers, designed to strengthen power connectivity between Samarkand and Tashkent regions, as well as between Karakalpakstan and Bukhara.\n\nThe meeting also highlighted plans to deepen cooperation beyond energy. Both sides emphasized expanding joint initiatives in transport and logistics infrastructure, IT development, healthcare, agriculture, and other key sectors of the Uzbek economy.",
+        "source": "WorldNews",
+        "source_url": "https://daryo.uz/en/2025/12/06/uzbekistans-president-mirziyoyev-meets-saudi-business-leaders-on-energy-and-infrastructure-projects",
+        "category": "General",
+        "language": "EN",
+        "published_at": "2025-12-06 11:08:35",
+        "published_ts": 1765019315.0,
+        "image_url": "https://data.daryo.uz/media/2025/12/06/1764961696677227198_IMG_0085.jpg",
+        "is_breaking": false,
+        "is_worldnews_api": true,
+        "reliability_tier": "aggregator",
+        "reliability_score": 0.3,
+        "reliability_label": "AGGREGATOR"
       },
       {
         "id": "8f57227173f3ce22c17d67f2f81a999c",
@@ -2431,72 +2569,40 @@
         "reliability_label": "VERIFIED"
       },
       {
-        "id": "41ff09606993453a5a4f6c491c5df76d",
-        "title": "Uzbekistan Joins Global \u201cNational Health Compacts\u201d Initiative",
-        "summary": "Uzbekistan has joined an international coalition of fifteen countries that presented their \u201cNational Health Compacts\u201d in Tokyo \u2014 strategic agreements aimed at accelerating progress toward universal he...",
-        "full_content": "Uzbekistan has joined an international coalition of fifteen countries that presented their \u201cNational Health Compacts\u201d in Tokyo \u2014 strategic agreements aimed at accelerating progress toward universal health coverage (UHC).",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-joins-global-national-health-compacts-initiative/",
-        "category": "Business",
+        "id": "089051e2608a3833e733375524c24af7",
+        "title": "Uzbekistan, UAE discuss expansion of cooperation and major joint investments - Daryo.uz",
+        "summary": "President of Uzbekistan Shavkat Mirziyoyev held talks on December 5 with a high-level delegation from the United Arab Emirates led by Suhail Al Mazrouei, Minister of Energy and Infrastructure, to asse...",
+        "full_content": "President of Uzbekistan Shavkat Mirziyoyev held talks on December 5 with a high-level delegation from the United Arab Emirates led by Suhail Al Mazrouei, Minister of Energy and Infrastructure, to assess progress on major joint investment projects.\n\nThe meeting was attended by senior executives of leading Emirati companies, including Masdar CEO Mohamed Jameel Al Ramahi, Etihad Water & Electricity CEO Yousif Al Ali, and TAQA Water Solutions CEO Ahmad Al Shamsi.\n\nAt the outset, Minister Al Mazrouei conveyed the greetings of UAE President Sheikh Mohamed Al Nahyan, Vice President and Prime Minister Sheikh Mohammed Al Maktoum, and Abu Dhabi Crown Prince Sheikh Khaled Al Nahyan.\n\nThe two sides discussed the continued expansion of Uzbek\u2013Emirati cooperation, noting steady growth in trade, joint ventures, and direct flights. The bilateral investment portfolio has now reached $20bn.\n\nDiscussions focused on advancing projects in priority sectors such as transport and logistics, food production, mining and metallurgy, and energy. Officials highlighted successful collaboration in the energy sector, where six projects worth $1.5bn have been implemented in recent years with Masdar.\n\nOn the same day, Uzbekistan commissioned a new solar power plant and an energy storage system in the Bukhara region, while construction began on similar facilities in Kashkadarya valued at over $600mn.\n\nCompany representatives briefed President Mirziyoyev on upcoming initiatives, including plans to build a wind power plant, expand energy storage capacities, develop hydropower facilities, and advance wastewater treatment projects.",
+        "source": "WorldNews",
+        "source_url": "https://daryo.uz/en/2025/12/06/uzbekistan-uae-discuss-expansion-of-cooperation-and-major-joint-investments/",
+        "category": "General",
         "language": "EN",
-        "published_at": "2025-12-06T14:57:00+05:00",
-        "published_ts": 1765015020.0,
-        "image_url": null,
+        "published_at": "2025-12-06 09:40:08",
+        "published_ts": 1765014008.0,
+        "image_url": "https://data.daryo.uz/media/2025/12/06/1764962310131995257_IMG_0092.jpg",
         "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
+        "is_worldnews_api": true,
+        "reliability_tier": "aggregator",
+        "reliability_score": 0.3,
+        "reliability_label": "AGGREGATOR"
       },
       {
-        "id": "57ae6aefbceaed8d36ed6f9b867b2ee6",
-        "title": "Uzbekistan to Transfer Power Grids in Four Regions to Private Investors",
-        "summary": "President Shavkat Mirziyoyev has announced plans to hand over the management of power grids in Jizzakh and Syrdarya regions to private investors in 2026, followed by the power networks of Namangan and...",
-        "full_content": "President Shavkat Mirziyoyev has announced plans to hand over the management of power grids in Jizzakh and Syrdarya regions to private investors in 2026, followed by the power networks of Namangan and the capital region a year later.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-to-transfer-power-grids-in-four-regions-to-private-investors/",
-        "category": "Regulation",
+        "id": "f04409f774692d226b6f6c6a6f3d0a6c",
+        "title": "Uzbekistan, China deepen technological partnership as President Mirziyoyev meets leading companies - Daryo.uz",
+        "summary": "Uzbekistan and its Chinese partners are currently implementing more than 30 energy projects with a combined capacity of nearly 10 gigawatts, valued at over $9bn, according to the presidential press se...",
+        "full_content": "Uzbekistan and its Chinese partners are currently implementing more than 30 energy projects with a combined capacity of nearly 10 gigawatts, valued at over $9bn, according to the presidential press service.\n\nOn December 5, President Shavkat Mirziyoyev met with the heads of leading Chinese companies to review progress and outline new areas of cooperation.\n\nOfficials noted the growing interest of Chinese companies, highlighting that more than $15bn in Chinese direct investment is expected to be utilized this year. The overall portfolio of joint projects has now reached nearly $90bn.\n\nDuring the talks, special attention was given to the energy sector as a key driver of bilateral cooperation. On the same day, an additional 14 new projects worth nearly $2bn were launched, further expanding the partnership\u2019s scope.\n\nIn the meeting with China Datang President Zhou Yuanlong, the sides discussed expanding and constructing new photovoltaic power plants and increasing energy storage capacities. China Datang\u2019s plans to support workforce development, establish a scientific laboratory, and introduce renewable energy technologies in agriculture and livestock sectors received the President\u2019s support.\n\nPresident Mirziyoyev also met with Lu Xu of China Energy Engineering Corporation, where both sides praised the joint work on solar power plants and energy storage systems across Uzbekistan\u2019s regions. The importance of accelerating renewable projects and developing high-voltage networks was emphasized.\n\nSinoma Energy Chairman Meng Qinglin presented updates on the construction of a major wind power plant and a plant to localize wind turbine blade production. Discussions also covered technological solutions to reduce industrial emissions in the chemical and construction sectors. The President stressed the need to speed up implementation of these projects.\n\nFurther measures to accelerate wind power plant construction were discussed with Universal Energy Chairman Nan Yi.\n\nKang Hubiao, Chai",
+        "source": "WorldNews",
+        "source_url": "https://daryo.uz/en/2025/12/06/uzbekistan-china-deepen-technological-partnership-as-president-mirziyoyev-meets-leading-companies/",
+        "category": "General",
         "language": "EN",
-        "published_at": "2025-12-06T14:45:00+05:00",
-        "published_ts": 1765014300.0,
-        "image_url": null,
+        "published_at": "2025-12-06 09:40:08",
+        "published_ts": 1765014008.0,
+        "image_url": "https://data.daryo.uz/media/2025/12/06/1764961903594344349_IMG_0087.jpg",
         "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "c6eb8ca489482a5edfbd2bda25f959a5",
-        "title": "S&P Revises Navoiyuran Outlook to \u201cPositive\u201d on Rising Production",
-        "summary": "S&P Global Ratings has affirmed the long-term credit rating of Uzbekistan\u2019s uranium producer Navoiyuran at \u201cBB-\u201d while revising the outlook to \u201cpositive.\u201d",
-        "full_content": "S&P Global Ratings has affirmed the long-term credit rating of Uzbekistan\u2019s uranium producer Navoiyuran at \u201cBB-\u201d while revising the outlook to \u201cpositive.\u201d",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/sp-revises-navoiyuran-outlook-to-positive-on-rising-production/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T14:21:00+05:00",
-        "published_ts": 1765012860.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "2d1afaea8edfabffb437d23353268d24",
-        "title": "UNODC Calls for Strengthened Measures Against Synthetic Drugs in Central Asia",
-        "summary": "The Regional Representative of the United Nations Office on Drugs and Crime (UNODC), Oliver St\u00f6lpe, has called for urgent and coordinated action by Central Asian countries in response to the growing t...",
-        "full_content": "The Regional Representative of the United Nations Office on Drugs and Crime (UNODC), Oliver St\u00f6lpe, has called for urgent and coordinated action by Central Asian countries in response to the growing threats posed by synthetic drugs.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/unodc-calls-for-strengthened-measures-against-synthetic-drugs-in-central-asia/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T14:12:00+05:00",
-        "published_ts": 1765012320.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
+        "is_worldnews_api": true,
+        "reliability_tier": "aggregator",
+        "reliability_score": 0.3,
+        "reliability_label": "AGGREGATOR"
       },
       {
         "id": "340760c72e422c1f048b2dd5743b0387",
@@ -2509,41 +2615,6 @@
         "language": "UZ",
         "published_at": "2025-12-06T08:48:00+00:00",
         "published_ts": 1765010880.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "6e37a2f5eb6bf12e1fadd646dd47622e",
-        "title": "Uzbekistan, China deepen technological partnership as President Mirziyoyev meets leading companies - Daryo.uz",
-        "summary": "Uzbekistan and its Chinese partners are currently implementing more than 30 energy projects with a combined capacity of nearly 10 gigawatts, valued at over $9bn, according to the presidential press se...",
-        "full_content": "Uzbekistan and its Chinese partners are currently implementing more than 30 energy projects with a combined capacity of nearly 10 gigawatts, valued at over $9bn, according to the presidential press service.\n\nOn December 5, President Shavkat Mirziyoyev met with the heads of leading Chinese companies to review progress and outline new areas of cooperation.\n\nOfficials noted the growing interest of Chinese companies, highlighting that more than $15bn in Chinese direct investment is expected to be utilized this year. The overall portfolio of joint projects has now reached nearly $90bn.\n\nDuring the talks, special attention was given to the energy sector as a key driver of bilateral cooperation. On the same day, an additional 14 new projects worth nearly $2bn were launched, further expanding the partnership\u2019s scope.\n\nIn the meeting with China Datang President Zhou Yuanlong, the sides discussed expanding and constructing new photovoltaic power plants and increasing energy storage capacities. China Datang\u2019s plans to support workforce development, establish a scientific laboratory, and introduce renewable energy technologies in agriculture and livestock sectors received the President\u2019s support.\n\nPresident Mirziyoyev also met with Lu Xu of China Energy Engineering Corporation, where both sides praised the joint work on solar power plants and energy storage systems across Uzbekistan\u2019s regions. The importance of accelerating renewable projects and developing high-voltage networks was emphasized.\n\nSinoma Energy Chairman Meng Qinglin presented updates on the construction of a major wind power plant and a plant to localize wind turbine blade production. Discussions also covered technological solutions to reduce industrial emissions in the chemical and construction sectors. The President stressed the need to speed up implementation of these projects.\n\nFurther measures to accelerate wind power plant construction were discussed with Universal Energy Chairman Nan Yi.\n\nKang Hubiao, Chai",
-        "source": "WorldNews",
-        "source_url": "https://daryo.uz/en/2025/12/06/uzbekistan-china-deepen-technological-partnership-as-president-mirziyoyev-meets-leading-companies",
-        "category": "General",
-        "language": "EN",
-        "published_at": "2025-12-06 08:42:09",
-        "published_ts": 1765010529.0,
-        "image_url": "https://data.daryo.uz/media/2025/12/06/1764961903594344349_IMG_0087.jpg",
-        "is_breaking": false,
-        "is_worldnews_api": true,
-        "reliability_tier": "aggregator",
-        "reliability_score": 0.3,
-        "reliability_label": "AGGREGATOR"
-      },
-      {
-        "id": "2ebb55a2040ebf19cc7ce79300512c7c",
-        "title": "President of Uzbekistan Congratulates President of Kyrgyzstan on Birthday",
-        "summary": "On 6 December, during a phone conversation, the President of the Republic of Uzbekistan, Shavkat Mirziyoyev, warmly congratulated the President of the Kyrgyz Republic, Sadyr Japarov, on his birthday, ...",
-        "full_content": "On 6 December, during a phone conversation, the President of the Republic of Uzbekistan, Shavkat Mirziyoyev, warmly congratulated the President of the Kyrgyz Republic, Sadyr Japarov, on his birthday, wishing him good health, well-being, and continued prosperity for the brotherly people of Kyrgyzstan.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/president-of-uzbekistan-congratulates-president-of-kyrgyzstan-on-birthday/",
-        "category": "Regulation",
-        "language": "EN",
-        "published_at": "2025-12-06T13:23:00+05:00",
-        "published_ts": 1765009380.0,
         "image_url": null,
         "is_breaking": false,
         "reliability_tier": "verified",
@@ -2578,41 +2649,6 @@
         "language": "UZ",
         "published_at": "2025-12-06T07:14:00+00:00",
         "published_ts": 1765005240.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "73f8eec204c10d4d8bf91fbd414ff767",
-        "title": "Uzbekistan, UAE discuss expansion of cooperation and major joint investments - Daryo.uz",
-        "summary": "President of Uzbekistan Shavkat Mirziyoyev held talks on December 5 with a high-level delegation from the United Arab Emirates led by Suhail Al Mazrouei, Minister of Energy and Infrastructure, to asse...",
-        "full_content": "President of Uzbekistan Shavkat Mirziyoyev held talks on December 5 with a high-level delegation from the United Arab Emirates led by Suhail Al Mazrouei, Minister of Energy and Infrastructure, to assess progress on major joint investment projects.\n\nThe meeting was attended by senior executives of leading Emirati companies, including Masdar CEO Mohamed Jameel Al Ramahi, Etihad Water & Electricity CEO Yousif Al Ali, and TAQA Water Solutions CEO Ahmad Al Shamsi.\n\nAt the outset, Minister Al Mazrouei conveyed the greetings of UAE President Sheikh Mohamed Al Nahyan, Vice President and Prime Minister Sheikh Mohammed Al Maktoum, and Abu Dhabi Crown Prince Sheikh Khaled Al Nahyan.\n\nThe two sides discussed the continued expansion of Uzbek\u2013Emirati cooperation, noting steady growth in trade, joint ventures, and direct flights. The bilateral investment portfolio has now reached $20bn.\n\nDiscussions focused on advancing projects in priority sectors such as transport and logistics, food production, mining and metallurgy, and energy. Officials highlighted successful collaboration in the energy sector, where six projects worth $1.5bn have been implemented in recent years with Masdar.\n\nOn the same day, Uzbekistan commissioned a new solar power plant and an energy storage system in the Bukhara region, while construction began on similar facilities in Kashkadarya valued at over $600mn.\n\nCompany representatives briefed President Mirziyoyev on upcoming initiatives, including plans to build a wind power plant, expand energy storage capacities, develop hydropower facilities, and advance wastewater treatment projects.",
-        "source": "WorldNews",
-        "source_url": "https://daryo.uz/en/2025/12/06/uzbekistan-uae-discuss-expansion-of-cooperation-and-major-joint-investments",
-        "category": "General",
-        "language": "EN",
-        "published_at": "2025-12-06 06:27:39",
-        "published_ts": 1765002459.0,
-        "image_url": "https://data.daryo.uz/media/2025/12/06/1764962310131995257_IMG_0092.jpg",
-        "is_breaking": false,
-        "is_worldnews_api": true,
-        "reliability_tier": "aggregator",
-        "reliability_score": 0.3,
-        "reliability_label": "AGGREGATOR"
-      },
-      {
-        "id": "fd554672fcc3136c063942b021f6fde5",
-        "title": "Hugo Boss \u0432\u0437\u044b\u0441\u043a\u0430\u043b\u0430 \u0441\u00a0\u0443\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0441\u043a\u043e\u0439 \u0444\u0438\u0440\u043c\u044b 20 \u043c\u043b\u043d \u0441\u0443\u043c\u043e\u0432 \u0437\u0430\u00a0\u043f\u0440\u043e\u0434\u0430\u0436\u0443 \u043a\u043e\u043d\u0442\u0440\u0430\u0444\u0430\u043a\u0442\u0430",
-        "summary": "\u0421\u00a0\u043d\u0430\u0447\u0430\u043b\u0430 \u0433\u043e\u0434\u0430 \u0432\u00a0\u0441\u0442\u0440\u0430\u043d\u0435 \u0431\u044b\u043b\u043e \u0432\u044b\u044f\u0432\u043b\u0435\u043d\u043e \u0447\u0435\u0442\u044b\u0440\u0435 \u043d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u044f \u043f\u0440\u0430\u0432 \u043d\u0430\u00a0\u043d\u0435\u043c\u0435\u0446\u043a\u0443\u044e \u043c\u0430\u0440\u043a\u0443 \u043e\u0434\u0435\u0436\u0434\u044b.",
-        "full_content": "\u0421\u00a0\u043d\u0430\u0447\u0430\u043b\u0430 \u0433\u043e\u0434\u0430 \u0432\u00a0\u0441\u0442\u0440\u0430\u043d\u0435 \u0431\u044b\u043b\u043e \u0432\u044b\u044f\u0432\u043b\u0435\u043d\u043e \u0447\u0435\u0442\u044b\u0440\u0435 \u043d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u044f \u043f\u0440\u0430\u0432 \u043d\u0430\u00a0\u043d\u0435\u043c\u0435\u0446\u043a\u0443\u044e \u043c\u0430\u0440\u043a\u0443 \u043e\u0434\u0435\u0436\u0434\u044b.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/ru/2025/12/06/hugo-boss/",
-        "category": "Business",
-        "language": "RU",
-        "published_at": "2025-12-06T05:58:00+00:00",
-        "published_ts": 1765000680.0,
         "image_url": null,
         "is_breaking": false,
         "reliability_tier": "verified",
@@ -2774,78 +2810,6 @@
         "published_at": "2025-12-05 18:32:33",
         "published_ts": 1764959553.0,
         "image_url": "https://www.uzdaily.uz/media/filer_public/0d/cb/0dcbad5f-0435-4014-9831-9ef4141ed6d6/uzb_azer_05-122.jpg",
-        "is_breaking": false,
-        "is_worldnews_api": true,
-        "reliability_tier": "aggregator",
-        "reliability_score": 0.3,
-        "reliability_label": "AGGREGATOR"
-      },
-      {
-        "id": "b8cff8656c108b20042e935c1b952933",
-        "title": "Uzbekistan and Hungary Discuss Implementation of Smart City Model in Samarkand - UzDaily.uz",
-        "summary": "Tashkent, Uzbekistan (UzDaily.com) \u2014 Hungary\u2019s Minister of Public Administration and Regional Development Tibor Navracsics, who is visiting Uzbekistan, traveled to Samarkand where he held talks with t...",
-        "full_content": "Tashkent, Uzbekistan (UzDaily.com) \u2014 Hungary\u2019s Minister of Public Administration and Regional Development Tibor Navracsics, who is visiting Uzbekistan, traveled to Samarkand where he held talks with the regional governor Adiz Boboev.\n\nThe parties noted that cooperation between the two countries has been steadily strengthening, with achieved results made possible thanks to the close and trusting relationship between the leaders of Uzbekistan and Hungary.\n\nDuring the meeting, the sides discussed the prospects of introducing the Hungarian \u201cSmart City\u201d model in Samarkand, as well as issues related to improving administrative efficiency, modernizing public-sector processes, and digitalizing the city\u2019s infrastructure.\n\nBoboev stated that the city is rapidly developing and is approaching a population of one million, which requires a comprehensive approach to urban planning and the creation of a comfortable urban environment.\n\nSpecial attention was given to exchanging experience in the reconstruction of historical sites and the use of digital technologies in city management.\n\nNavracsics expressed support for Uzbekistan\u2019s initiatives and proposed exploring the possibility of establishing sister-region partnerships between Samarkand region and Hungarian cities.\n\nThe sides agreed to jointly develop this direction.\n\nFollowing the talks, the parties also preliminarily agreed to hold a business forum in Hungary with the participation of entrepreneurs and to implement several joint projects.",
-        "source": "WorldNews",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-and-hungary-discuss-implementation-of-smart-city-model-in-samarkand/",
-        "category": "General",
-        "language": "EN",
-        "published_at": "2025-12-05 18:27:38",
-        "published_ts": 1764959258.0,
-        "image_url": "https://www.uzdaily.uz/media/filer_public/54/d3/54d39011-4cff-46cf-ba8d-1cd7c87d75a4/uzb_hungary_05-12-2.jpg",
-        "is_breaking": false,
-        "is_worldnews_api": true,
-        "reliability_tier": "aggregator",
-        "reliability_score": 0.3,
-        "reliability_label": "AGGREGATOR"
-      },
-      {
-        "id": "503fc4ac0e693ea13d70f6186348343b",
-        "title": "Chinese Company to Modernize 170 km of Roads and Build a Tunnel in Tashkent - UzDaily.uz",
-        "summary": "Tashkent, Uzbekistan (UzDaily.com) \u2014 A large-scale project to modernize Tashkent\u2019s transport infrastructure will be implemented over the next four years with the participation of China Construction Fi...",
-        "full_content": "Tashkent, Uzbekistan (UzDaily.com) \u2014 A large-scale project to modernize Tashkent\u2019s transport infrastructure will be implemented over the next four years with the participation of China Construction Fifth Engineering Division Co., Ltd., according to the Roadmap for establishing an efficient transport management system in the capital.\n\nThe total cost of the works, financed through loans from the Bank of China under Uzbekistan\u2019s state guarantees, exceeds US$270 million.\n\nAs part of the first stage, the plan includes the repair and upgrade of a three-kilometer section of Shakhrisabz Street, with the introduction of a dedicated bus lane and improvements to the surrounding road infrastructure.\n\nThe project is scheduled for completion in September 2026, with a cost of US$6 million. The stage also includes modernization of an 11-kilometer section of Amir Temur Avenue and 5.5 kilometers of Yangi Sergeli Street, both with dedicated bus lanes and infrastructure upgrades. These works are expected to be completed by November 2026, with a budget of US$16.5 million.\n\nIn addition, 38 kilometers of Mukhtumkuli Street; Mirzo Ulugbek \u2013 Feruza \u2013 Yuzrabot; Lutfi; Muqimi; Nurafshon; Karatash \u2013 Kukcha Darvoza; and the Tashkent Ring Road \u2013 Parkent corridor will undergo repair and modernization, including the installation of bus lanes and upgrades to roadside infrastructure.\n\nThe cost of this stage is US$76 million, with implementation planned for 2026\u20132029.\n\nThe second stage includes repairs and upgrades of 36 kilometers of road surface and related infrastructure across 16 streets, with a project value of US$36.5 million. These works are scheduled for completion within 2026.\n\nThis stage also includes the construction of an overpass on the Small Ring Road, connecting Pakhlavon Street with Elbek Street near ZO\u2018R TV. The cost of construction is US$25.4 million, with completion expected in December 2026.\n\nThe third stage provides for the repair and modernization of 33 kilometers of roads and i",
-        "source": "WorldNews",
-        "source_url": "https://www.uzdaily.uz/en/chinese-company-to-modernize-170-km-of-roads-and-build-a-tunnel-in-tashkent/",
-        "category": "General",
-        "language": "EN",
-        "published_at": "2025-12-05 18:22:20",
-        "published_ts": 1764958940.0,
-        "image_url": "https://www.uzdaily.uz/media/filer_public/85/89/8589c433-25e2-4159-917b-ab7b64efdb3a/uzbek-chinese-flags1124.jpg",
-        "is_breaking": false,
-        "is_worldnews_api": true,
-        "reliability_tier": "aggregator",
-        "reliability_score": 0.3,
-        "reliability_label": "AGGREGATOR"
-      },
-      {
-        "id": "c59f361da630b2536106863d33192ecc",
-        "title": "Uzbekistan advances renewable and grid development with commissioning of 42 facilities - Daryo.uz",
-        "summary": "Uzbekistan expanded its national energy program on December 5 as President Shavkat Mirziyoyev inaugurated 42 new energy facilities and launched the construction of 21 additional projects aimed at stre...",
-        "full_content": "Uzbekistan expanded its national energy program on December 5 as President Shavkat Mirziyoyev inaugurated 42 new energy facilities and launched the construction of 21 additional projects aimed at strengthening generation capacity, grid stability, and renewable energy development.\n\nThe event in Tashkent brought together ministers from the UAE, Turkiye, Azerbaijan, and Kyrgyzstan, along with representatives of the World Bank, EBRD, ADB, AIIB, IsDB, and global energy companies including ACWA Power, Masdar, TotalEnergies, Siemens Energy, China Energy, Datang, and EDF.\n\n$11bn in New Energy Assets\n\nUzbekistan commissioned 42 new generation, storage, and industrial facilities worth a combined $11bn. These include 16 solar, wind, thermal, and hydropower plants totaling 3.5 GW located in Karakalpakstan and the Bukhara, Kashkadarya, and Tashkent regions.\n\nOnce fully operational, the new plants will generate around 15bn kWh of electricity annually. The country expects its overall green energy production to reach 23bn kWh next year, covering national electricity demand. The growth in renewables will save nearly 7bn cubic meters of natural gas and avoid 11mn tons of emissions.\n\nEnergy Storage and Grid Modernization\n\nTen energy storage systems with a total capacity of 1,245 MW are being put into operation, enabling an additional 1.5bn kWh of electricity to be supplied during peak hours.\n\nUzbekistan is also commissioning 11 new substations and 420 km of high-voltage power lines to support stable grid operations.\n\nTwo new manufacturing enterprises \u2014 Angren Energo and Uzhydropower \u2014 will produce transformers and hydro units, supplying equipment for domestic energy projects.\n\nRecent Progress in the Energy Sector\n\nPresident Mirziyoyev noted that Uzbekistan has attracted $35bn in foreign investment into the energy sector in recent years, commissioning 9,000 MW of new capacity. Annual electricity production has increased from 60bn kWh in 2017 to 85bn kWh in 2024.\n\nRenewable energy proje",
-        "source": "WorldNews",
-        "source_url": "https://daryo.uz/en/2025/12/05/uzbekistan-advances-renewable-and-grid-development-with-commissioning-of-42-facilities/",
-        "category": "General",
-        "language": "EN",
-        "published_at": "2025-12-05 18:09:14",
-        "published_ts": 1764958154.0,
-        "image_url": "https://data.daryo.uz/media/2025/12/05/1764932144011709652_IMG_0070.jpg",
-        "is_breaking": false,
-        "is_worldnews_api": true,
-        "reliability_tier": "aggregator",
-        "reliability_score": 0.3,
-        "reliability_label": "AGGREGATOR"
-      },
-      {
-        "id": "1524024fcf08f50b46cdf5bde56bc614",
-        "title": "UzHydromet Warns of Avalanche Risk in Uzbekistan\u2019s Mountains - UzDaily.uz",
-        "summary": "Tashkent, Uzbekistan (UzDaily.com) \u2014 According to UzHydromet, avalanche danger is expected in the country\u2019s foothill and mountainous areas from December 6 to 9 due to upcoming precipitation and sharp ...",
-        "full_content": "Tashkent, Uzbekistan (UzDaily.com) \u2014 According to UzHydromet, avalanche danger is expected in the country\u2019s foothill and mountainous areas from December 6 to 9 due to upcoming precipitation and sharp temperature fluctuations.\n\nThe risk has been forecast for the following regions:\n\nTashkent Region \u2014 Akhangaran, Bostanlyk, and Parkent districts (Chatkal mountain range)\n\nNamangan Region \u2014 Pap district\n\nResidents of foothill and mountain areas, tourists, and drivers planning trips to these regions are advised to exercise caution and avoid hazardous routes.",
-        "source": "WorldNews",
-        "source_url": "https://www.uzdaily.uz/en/uzhydromet-warns-of-avalanche-risk-in-uzbekistans-mountains/",
-        "category": "General",
-        "language": "EN",
-        "published_at": "2025-12-05 17:56:33",
-        "published_ts": 1764957393.0,
-        "image_url": "https://www.uzdaily.uz/media/filer_public/4e/0e/4e0ee01a-bcaa-4652-8d86-346f1508070f/uzgidromet.jpg",
         "is_breaking": false,
         "is_worldnews_api": true,
         "reliability_tier": "aggregator",
@@ -3099,8 +3063,8 @@
         "source_url": "https://www.worldbank.org/en/news/all?count_exact=Uzbekistan&lang_exact=English&displayconttype_exact=Feature%20Story",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-06T13:09:47.544650",
-        "published_ts": 1764853787.544648,
+        "published_at": "2025-12-06T14:03:46.088874",
+        "published_ts": 1764857026.088872,
         "image_url": null,
         "is_breaking": false,
         "is_official": true,
@@ -3152,14 +3116,48 @@
         "source_url": "https://www.worldbank.org/en/news/all?count_exact=Uzbekistan&displayconttype_exact=Results&lang_exact=English",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-06T13:09:47.544671",
-        "published_ts": 1764767387.54467,
+        "published_at": "2025-12-06T14:03:46.088896",
+        "published_ts": 1764770626.088895,
         "image_url": null,
         "is_breaking": false,
         "is_official": true,
         "reliability_tier": "official",
         "reliability_score": 1.0,
         "reliability_label": "OFFICIAL"
+      },
+      {
+        "id": "47ba9efdb19af7bf5091131557bcd301",
+        "title": "Uzbekistan, China prepare to\u00a0launch remote sensing satellite Samarqand-2028",
+        "summary": "Uzbekistan will launch the Samarqand-2028 remote sensing satellite in\u00a02026. A\u00a0Chinese company will assign this name to\u00a0one of\u00a0its hyperspectral satellites. Equipped with an\u00a0AI module, the satellite wi...",
+        "full_content": "Uzbekistan will launch the Samarqand-2028 remote sensing satellite in\u00a02026. A\u00a0Chinese company will assign this name to\u00a0one of\u00a0its hyperspectral satellites. Equipped with an\u00a0AI module, the satellite will monitor cotton and grain vegetation, first deputy digital technologies minister Oleg Pekos said.",
+        "source": "Gazeta.uz",
+        "source_url": "https://www.gazeta.uz/en/2025/12/02/satellite-samarkand2028/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-02T09:30:00+00:00",
+        "published_ts": 1764667800.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "f743af1dc0bc2d85edceda1ba5f619ca",
+        "title": "Uzbekistan to\u00a0ban covering buildings with flammable materials",
+        "summary": "Uzbekistan plans to\u00a0ban flammable materials on\u00a0building facades. The president ordered an\u00a0assessment of\u00a0fire safety in\u00a0over 44,000 multi-story buildings. Utility services and management companies are ...",
+        "full_content": "Uzbekistan plans to\u00a0ban flammable materials on\u00a0building facades. The president ordered an\u00a0assessment of\u00a0fire safety in\u00a0over 44,000 multi-story buildings. Utility services and management companies are expected to\u00a0be\u00a0integrated into the Ministry of\u00a0Emergency Situations' dispatch system.",
+        "source": "Gazeta.uz",
+        "source_url": "https://www.gazeta.uz/en/2025/12/02/fire-proof/",
+        "category": "Regulation",
+        "language": "EN",
+        "published_at": "2025-12-02T09:00:00+00:00",
+        "published_ts": 1764666000.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       }
     ]
   },
