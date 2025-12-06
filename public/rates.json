@@ -1,12 +1,12 @@
 {
   "weather": {
     "city": "Tashkent",
-    "aqi": 77,
-    "temp": 12,
-    "humidity": 50,
-    "icon": "01d",
-    "last_updated": "2025-12-06 11:39",
-    "last_updated_ts": 1765021161.129625
+    "aqi": 81,
+    "temp": 11,
+    "humidity": 47,
+    "icon": "01n",
+    "last_updated": "2025-12-06 13:09",
+    "last_updated_ts": 1765026580.993692
   },
   "usd": {
     "cbu": 11963.23,
@@ -135,46 +135,6 @@
     ],
     "banks": [
       {
-        "name": "Saderat Bank",
-        "buy": 11910.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 11910.0,
-        "sell": 12020.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Agrobank",
-        "buy": 11910.0,
-        "sell": 12030.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 11935.0,
-        "sell": 12045.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Kapitalbank",
-        "buy": 11935.0,
-        "sell": 12040.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
         "name": "O\u2018zbekiston Milliy banki",
         "buy": 11950.0,
         "sell": 12040.0,
@@ -183,100 +143,12 @@
         "featured": false
       },
       {
-        "name": "APEXBANK",
-        "buy": 11950.0,
+        "name": "Kapitalbank",
+        "buy": 11935.0,
         "sell": 12040.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 11970.0,
-        "sell": 12030.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 11910.0,
-        "sell": 12010.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Universal bank",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 11910.0,
-        "sell": 12040.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asakabank",
-        "buy": 11920.0,
-        "sell": 12020.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "KDB Bank Uzbekiston",
-        "buy": 11905.0,
-        "sell": 12045.0,
-        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "Octobank",
-        "buy": 11910.0,
-        "sell": 12000.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 11930.0,
-        "sell": 12040.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Xalq Banki",
-        "buy": 11905.0,
-        "sell": 12040.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ziraat Bank",
-        "buy": 11930.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 11950.0,
-        "sell": 12040.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
       },
       {
         "name": "MKBank",
@@ -295,26 +167,74 @@
         "featured": true
       },
       {
-        "name": "Asia Alliance Bank",
-        "buy": 11925.0,
-        "sell": 12035.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "name": "APEXBANK",
+        "buy": 11950.0,
+        "sell": 12040.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Poytaxt bank",
+        "name": "Aloqabank",
+        "buy": 11910.0,
+        "sell": 12020.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Universal bank",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ziraat Bank",
+        "buy": 11930.0,
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 11935.0,
+        "sell": 12045.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Agrobank",
         "buy": 11910.0,
         "sell": 12030.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "logo": "https://logo.clearbit.com/agrobank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Hamkorbank",
-        "buy": 11940.0,
+        "name": "Anorbank",
+        "buy": 11970.0,
+        "sell": 12030.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Garant bank",
+        "buy": 11950.0,
         "sell": 12040.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "KDB Bank Uzbekiston",
+        "buy": 11905.0,
+        "sell": 12045.0,
+        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
         "is_mock": false,
         "featured": true
       },
@@ -327,18 +247,58 @@
         "featured": false
       },
       {
-        "name": "BRB",
-        "buy": 11940.0,
-        "sell": 12050.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "name": "Asakabank",
+        "buy": 11920.0,
+        "sell": 12020.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
         "is_mock": false,
-        "featured": true
+        "featured": false
       },
       {
         "name": "Tenge Bank",
         "buy": 11910.0,
         "sell": 12000.0,
         "logo": "https://logo.clearbit.com/tengebank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 11940.0,
+        "sell": 12040.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Octobank",
+        "buy": 11910.0,
+        "sell": 12000.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Saderat Bank",
+        "buy": 11910.0,
+        "sell": 12040.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 11910.0,
+        "sell": 12030.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 11910.0,
+        "sell": 12040.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -351,10 +311,50 @@
         "featured": false
       },
       {
+        "name": "Asia Alliance Bank",
+        "buy": 11925.0,
+        "sell": 12035.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Turon bank",
         "buy": 11935.0,
         "sell": 12020.0,
         "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 11910.0,
+        "sell": 12010.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 11940.0,
+        "sell": 12050.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Xalq Banki",
+        "buy": 11905.0,
+        "sell": 12040.0,
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Trastbank",
+        "buy": 11930.0,
+        "sell": 12040.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
       }
@@ -487,6 +487,38 @@
     ],
     "banks": [
       {
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 140.0,
+        "sell": 165.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Kapitalbank",
+        "buy": 146.0,
+        "sell": 158.0,
+        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Ipak Yuli Bank",
+        "buy": 110.0,
+        "sell": 160.0,
+        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "APEXBANK",
+        "buy": 100.0,
+        "sell": 165.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Aloqabank",
         "buy": 95.0,
         "sell": 165.0,
@@ -503,76 +535,12 @@
         "featured": false
       },
       {
-        "name": "Kapitalbank",
-        "buy": 146.0,
-        "sell": 158.0,
-        "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 140.0,
-        "sell": 165.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 100.0,
-        "sell": 165.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "Anorbank",
         "buy": 100.0,
         "sell": 159.0,
         "logo": "https://anorbank.uz/images/logo.svg",
         "is_mock": false,
         "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 142.0,
-        "sell": 156.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 90.0,
-        "sell": 190.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Asakabank",
-        "buy": 125.0,
-        "sell": 160.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 145.0,
-        "sell": 158.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 90.0,
-        "sell": 159.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": true
       },
       {
         "name": "Garant bank",
@@ -583,50 +551,10 @@
         "featured": false
       },
       {
-        "name": "Asia Alliance Bank",
-        "buy": 135.0,
-        "sell": 163.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipak Yuli Bank",
-        "buy": 110.0,
-        "sell": 160.0,
-        "logo": "https://ipakyulibank.uz/images/iyb_logo_v2.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Poytaxt bank",
-        "buy": 90.0,
-        "sell": 158.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Hamkorbank",
-        "buy": 141.0,
-        "sell": 161.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
         "name": "Infinbank",
         "buy": 140.0,
         "sell": 165.0,
         "logo": "https://infinbank.com/upload/icons/full-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "BRB",
-        "buy": 130.0,
-        "sell": 170.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
         "is_mock": false,
         "featured": false
       },
@@ -639,10 +567,58 @@
         "featured": false
       },
       {
+        "name": "Asakabank",
+        "buy": 125.0,
+        "sell": 160.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 141.0,
+        "sell": 161.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Octobank",
+        "buy": 145.0,
+        "sell": 158.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 90.0,
+        "sell": 158.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 90.0,
+        "sell": 190.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Hayot Bank",
         "buy": 139.0,
         "sell": 159.0,
         "logo": "https://logo.clearbit.com/hayotbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Asia Alliance Bank",
+        "buy": 135.0,
+        "sell": 163.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -653,6 +629,30 @@
         "logo": "https://logo.clearbit.com/turonbank.uz",
         "is_mock": false,
         "featured": false
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 142.0,
+        "sell": 156.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 130.0,
+        "sell": 170.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Trastbank",
+        "buy": 90.0,
+        "sell": 159.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
+        "is_mock": false,
+        "featured": true
       }
     ]
   },
@@ -783,34 +783,10 @@
     ],
     "banks": [
       {
-        "name": "Saderat Bank",
-        "buy": 13000.0,
-        "sell": 15500.0,
-        "logo": "https://logo.clearbit.com/saderatbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Aloqabank",
-        "buy": 13500.0,
-        "sell": 14500.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Agrobank",
-        "buy": 13600.0,
-        "sell": 14300.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13000.0,
-        "sell": 14150.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 13720.0,
+        "sell": 14020.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -821,110 +797,6 @@
         "logo": "https://www.kapitalbank.uz/upload/logo/logo.svg",
         "is_mock": false,
         "featured": true
-      },
-      {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 13720.0,
-        "sell": 14020.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "APEXBANK",
-        "buy": 13000.0,
-        "sell": 14200.0,
-        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Anorbank",
-        "buy": 13180.0,
-        "sell": 14130.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 13700.0,
-        "sell": 14300.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Universal bank",
-        "buy": 13000.0,
-        "sell": 15200.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 13300.0,
-        "sell": 15300.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Asakabank",
-        "buy": 13100.0,
-        "sell": 14500.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "KDB Bank Uzbekiston",
-        "buy": 13300.0,
-        "sell": 15000.0,
-        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 13600.0,
-        "sell": 14200.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ziraat Bank",
-        "buy": 13620.0,
-        "sell": 14320.0,
-        "logo": "https://logo.clearbit.com/ziraatbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Xalq Banki",
-        "buy": 13000.0,
-        "sell": 14300.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 13450.0,
-        "sell": 14050.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Garant bank",
-        "buy": 13000.0,
-        "sell": 15000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
       },
       {
         "name": "MKBank",
@@ -943,28 +815,76 @@
         "featured": true
       },
       {
-        "name": "Asia Alliance Bank",
+        "name": "APEXBANK",
         "buy": 13000.0,
-        "sell": 14100.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "sell": 14200.0,
+        "logo": "https://apexbank.uz/local/templates/main/assets/images/logo.svg",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Poytaxt bank",
-        "buy": 13000.0,
-        "sell": 14050.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "name": "Aloqabank",
+        "buy": 13500.0,
+        "sell": 14500.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Hamkorbank",
-        "buy": 13300.0,
-        "sell": 14100.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "name": "Universal bank",
+        "buy": 13000.0,
+        "sell": 15200.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
         "is_mock": false,
         "featured": true
+      },
+      {
+        "name": "Ziraat Bank",
+        "buy": 13620.0,
+        "sell": 14320.0,
+        "logo": "https://logo.clearbit.com/ziraatbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 13000.0,
+        "sell": 14150.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Agrobank",
+        "buy": 13600.0,
+        "sell": 14300.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Anorbank",
+        "buy": 13180.0,
+        "sell": 14130.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Garant bank",
+        "buy": 13000.0,
+        "sell": 15000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "KDB Bank Uzbekiston",
+        "buy": 13300.0,
+        "sell": 15000.0,
+        "logo": "https://kdb.uz/img/navbar/KDB-logo.svg",
+        "is_mock": false,
+        "featured": false
       },
       {
         "name": "Infinbank",
@@ -975,10 +895,10 @@
         "featured": false
       },
       {
-        "name": "BRB",
-        "buy": 13600.0,
-        "sell": 14300.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "name": "Asakabank",
+        "buy": 13100.0,
+        "sell": 14500.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
         "is_mock": false,
         "featured": false
       },
@@ -991,6 +911,46 @@
         "featured": false
       },
       {
+        "name": "Octobank",
+        "buy": 13600.0,
+        "sell": 14200.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 13300.0,
+        "sell": 14100.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Saderat Bank",
+        "buy": 13000.0,
+        "sell": 15500.0,
+        "logo": "https://logo.clearbit.com/saderatbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 13000.0,
+        "sell": 14050.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 13300.0,
+        "sell": 15300.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
         "name": "Hayot Bank",
         "buy": 13500.0,
         "sell": 14190.0,
@@ -999,10 +959,50 @@
         "featured": false
       },
       {
+        "name": "Asia Alliance Bank",
+        "buy": 13000.0,
+        "sell": 14100.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Turon bank",
         "buy": 13000.0,
         "sell": 14500.0,
         "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 13700.0,
+        "sell": 14300.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 13600.0,
+        "sell": 14300.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Xalq Banki",
+        "buy": 13000.0,
+        "sell": 14300.0,
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Trastbank",
+        "buy": 13450.0,
+        "sell": 14050.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
       }
@@ -1135,10 +1135,26 @@
     ],
     "banks": [
       {
-        "name": "Xalq Banki",
+        "name": "Anorbank",
+        "buy": 14.0,
+        "sell": 25.0,
+        "logo": "https://anorbank.uz/images/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Turon bank",
+        "buy": 15.0,
+        "sell": 30.0,
+        "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "O\u2018zbekiston Milliy banki",
         "buy": 15.0,
         "sell": 24.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": true
       },
@@ -1159,10 +1175,10 @@
         "featured": false
       },
       {
-        "name": "O\u2018zbekiston Milliy banki",
+        "name": "Xalq Banki",
         "buy": 15.0,
         "sell": 24.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
         "is_mock": false,
         "featured": true
       },
@@ -1171,22 +1187,6 @@
         "buy": 15.0,
         "sell": 25.0,
         "logo": "https://logo.clearbit.com/hayotbank.uz",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Anorbank",
-        "buy": 14.0,
-        "sell": 25.0,
-        "logo": "https://anorbank.uz/images/logo.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Turon bank",
-        "buy": 15.0,
-        "sell": 30.0,
-        "logo": "https://logo.clearbit.com/turonbank.uz",
         "is_mock": false,
         "featured": false
       }
@@ -1319,28 +1319,12 @@
     ],
     "banks": [
       {
-        "name": "Aloqabank",
-        "buy": 15300.0,
-        "sell": 16300.0,
-        "logo": "https://logo.clearbit.com/aloqabank.uz",
+        "name": "O\u2018zbekiston Milliy banki",
+        "buy": 15750.0,
+        "sell": 16250.0,
+        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
         "is_mock": false,
         "featured": false
-      },
-      {
-        "name": "Agrobank",
-        "buy": 15250.0,
-        "sell": 16350.0,
-        "logo": "https://logo.clearbit.com/agrobank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Ipoteka bank",
-        "buy": 13700.0,
-        "sell": 17100.0,
-        "logo": "https://logo.clearbit.com/ipotekabank.uz",
-        "is_mock": false,
-        "featured": true
       },
       {
         "name": "Kapitalbank",
@@ -1351,90 +1335,10 @@
         "featured": true
       },
       {
-        "name": "O\u2018zbekiston Milliy banki",
-        "buy": 15750.0,
-        "sell": 16250.0,
-        "logo": "https://nbu.uz/assets/theme/nbu-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "O\u2018zsanoatqurilishbank",
-        "buy": 15700.0,
-        "sell": 16700.0,
-        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Universal bank",
-        "buy": 16000.0,
-        "sell": 18500.0,
-        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Orient Finans Bank",
-        "buy": 14800.0,
-        "sell": 18000.0,
-        "logo": "https://ofb.uz/upload/images/logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asakabank",
-        "buy": 15350.0,
-        "sell": 16550.0,
-        "logo": "https://asakabank.uz/images/logo_animate.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Octobank",
-        "buy": 15200.0,
-        "sell": 17900.0,
-        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Trastbank",
-        "buy": 15700.0,
-        "sell": 16300.0,
-        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Xalq Banki",
-        "buy": 12500.0,
-        "sell": 19800.0,
-        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
-        "is_mock": false,
-        "featured": true
-      },
-      {
-        "name": "Garant bank",
-        "buy": 14800.0,
-        "sell": 17000.0,
-        "logo": "https://logo.clearbit.com/garantbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
         "name": "MKBank",
         "buy": 15100.0,
         "sell": 16100.0,
         "logo": "https://logo.clearbit.com/mikrokreditbank.uz",
-        "is_mock": false,
-        "featured": false
-      },
-      {
-        "name": "Asia Alliance Bank",
-        "buy": 15660.0,
-        "sell": 16340.0,
-        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
         "is_mock": false,
         "featured": false
       },
@@ -1447,20 +1351,44 @@
         "featured": true
       },
       {
-        "name": "Poytaxt bank",
-        "buy": 15000.0,
-        "sell": 18000.0,
-        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "name": "Aloqabank",
+        "buy": 15300.0,
+        "sell": 16300.0,
+        "logo": "https://logo.clearbit.com/aloqabank.uz",
         "is_mock": false,
         "featured": false
       },
       {
-        "name": "Hamkorbank",
-        "buy": 15200.0,
-        "sell": 16800.0,
-        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "name": "Universal bank",
+        "buy": 16000.0,
+        "sell": 18500.0,
+        "logo": "https://universalbank.uz/_nuxt/img/logo.af9d595.svg",
         "is_mock": false,
         "featured": true
+      },
+      {
+        "name": "Ipoteka bank",
+        "buy": 13700.0,
+        "sell": 17100.0,
+        "logo": "https://logo.clearbit.com/ipotekabank.uz",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Agrobank",
+        "buy": 15250.0,
+        "sell": 16350.0,
+        "logo": "https://logo.clearbit.com/agrobank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Garant bank",
+        "buy": 14800.0,
+        "sell": 17000.0,
+        "logo": "https://logo.clearbit.com/garantbank.uz",
+        "is_mock": false,
+        "featured": false
       },
       {
         "name": "Infinbank",
@@ -1471,10 +1399,10 @@
         "featured": false
       },
       {
-        "name": "BRB",
-        "buy": 15700.0,
-        "sell": 16400.0,
-        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "name": "Asakabank",
+        "buy": 15350.0,
+        "sell": 16550.0,
+        "logo": "https://asakabank.uz/images/logo_animate.svg",
         "is_mock": false,
         "featured": false
       },
@@ -1487,6 +1415,38 @@
         "featured": false
       },
       {
+        "name": "Octobank",
+        "buy": 15200.0,
+        "sell": 17900.0,
+        "logo": "https://octobank.uz/assets/all_images/ab-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Hamkorbank",
+        "buy": 15200.0,
+        "sell": 16800.0,
+        "logo": "https://hamkorbank.uz/assets/images/static/logo.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Poytaxt bank",
+        "buy": 15000.0,
+        "sell": 18000.0,
+        "logo": "https://logo.clearbit.com/poytaxtbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Orient Finans Bank",
+        "buy": 14800.0,
+        "sell": 18000.0,
+        "logo": "https://ofb.uz/upload/images/logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Hayot Bank",
         "buy": 15300.0,
         "sell": 16500.0,
@@ -1495,10 +1455,50 @@
         "featured": false
       },
       {
+        "name": "Asia Alliance Bank",
+        "buy": 15660.0,
+        "sell": 16340.0,
+        "logo": "https://aab.uz/bitrix/templates/main_2022/ab/images/header-logo.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
         "name": "Turon bank",
         "buy": 15000.0,
         "sell": 17000.0,
         "logo": "https://logo.clearbit.com/turonbank.uz",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "O\u2018zsanoatqurilishbank",
+        "buy": 15700.0,
+        "sell": 16700.0,
+        "logo": "https://sqb.uz/local/templates/sqb/img/SQB-Logo-main.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "BRB",
+        "buy": 15700.0,
+        "sell": 16400.0,
+        "logo": "https://brb.uz/assets/logo/korotkii-logotip-brb.svg",
+        "is_mock": false,
+        "featured": false
+      },
+      {
+        "name": "Xalq Banki",
+        "buy": 12500.0,
+        "sell": 19800.0,
+        "logo": "https://xb.uz/_next/static/media/logo.9f2ead73.svg",
+        "is_mock": false,
+        "featured": true
+      },
+      {
+        "name": "Trastbank",
+        "buy": 15700.0,
+        "sell": 16300.0,
+        "logo": "https://trastbank.uz/bitrix/templates/main_2020/tb/img/footer__logo.svg",
         "is_mock": false,
         "featured": false
       }
@@ -1531,8 +1531,8 @@
     }
   ],
   "gold_history": {
-    "last_updated": "2025-12-06 11:39",
-    "last_updated_ts": 1765021160.579341,
+    "last_updated": "2025-12-06 13:09",
+    "last_updated_ts": 1765026580.611415,
     "data": [
       {
         "date": "2025-11-02",
@@ -1689,8 +1689,8 @@
     "note": "Real market data"
   },
   "silver_history": {
-    "last_updated": "2025-12-06 11:39",
-    "last_updated_ts": 1765021160.57968,
+    "last_updated": "2025-12-06 13:09",
+    "last_updated_ts": 1765026580.610366,
     "data": [
       {
         "date": "2025-11-02",
@@ -1847,8 +1847,8 @@
     "note": "Real market data"
   },
   "bitcoin_history": {
-    "last_updated": "2025-12-06 11:39",
-    "last_updated_ts": 1765021160.578849,
+    "last_updated": "2025-12-06 13:09",
+    "last_updated_ts": 1765026580.61179,
     "data": [
       {
         "date": "2025-11-06",
@@ -2004,7 +2004,7 @@
     "source": "Polygon.io",
     "note": "Real market data"
   },
-  "last_updated": "2025-12-06 12:06",
+  "last_updated": "2025-12-06 13:11",
   "savings": {
     "last_updated": "2025-12-06 12:05",
     "last_updated_ts": 1765022746.875677,
@@ -2120,8 +2120,8 @@
     ]
   },
   "news": {
-    "last_updated": "2025-12-06 12:06",
-    "last_updated_ts": 1765022794.832565,
+    "last_updated": "2025-12-06 13:11",
+    "last_updated_ts": 1765026685.016346,
     "items": [
       {
         "id": "3a5fef263923b4eeaba671d469177b62",
@@ -2140,6 +2140,193 @@
         "reliability_tier": "aggregator",
         "reliability_score": 0.3,
         "reliability_label": "AGGREGATOR"
+      },
+      {
+        "id": "3a562941be5a436f2c1e01ada82e21f3",
+        "title": "CIS Countries and Serbia Stand Against Neo-Nazism and Distortion of WWII Outcomes",
+        "summary": "The foreign ministers of Azerbaijan, Belarus, Kazakhstan, Kyrgyzstan, Russia, Serbia, Tajikistan, Turkmenistan, and Uzbekistan issued a joint statement on the occasion of the 80th anniversary of Victo...",
+        "full_content": "The foreign ministers of Azerbaijan, Belarus, Kazakhstan, Kyrgyzstan, Russia, Serbia, Tajikistan, Turkmenistan, and Uzbekistan issued a joint statement on the occasion of the 80th anniversary of Victory over Nazism in World War II.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/cis-countries-and-serbia-stand-against-neo-nazism-and-distortion-of-wwii-outcomes/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T18:04:00+05:00",
+        "published_ts": 1765026240.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "a2696927e2695315ec8fdc418466ab1b",
+        "title": "\u041a\u043e\u043c\u043f\u0430\u043d\u0438\u0438 Texnopark \u043d\u0430\u0447\u0438\u0441\u043b\u0438\u043b\u0438 \u043f\u043e\u0432\u044b\u0448\u0435\u043d\u043d\u044b\u0435 \u043a\u043e\u043c\u043f\u0435\u043d\u0441\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u043f\u043b\u0430\u0442\u0435\u0436\u0438 \u0437\u0430\u00a0\u0437\u0430\u0433\u0440\u044f\u0437\u043d\u0435\u043d\u0438\u0435 \u0432\u043e\u0437\u0434\u0443\u0445\u0430",
+        "summary": "\u0417\u0430\u00a0\u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0435 10 \u0434\u043d\u0435\u0439 \u0432\u00a0\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435 \u0438\u00a0\u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u0438\u0437-\u0437\u0430 \u043d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u0439 \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u0437\u0430\u043a\u0440\u044b\u043b\u0438 75 \u043e\u0431\u044a\u0435\u043a\u0442\u043e\u0432.",
+        "full_content": "\u0417\u0430\u00a0\u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0435 10 \u0434\u043d\u0435\u0439 \u0432\u00a0\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435 \u0438\u00a0\u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u0438\u0437-\u0437\u0430 \u043d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u0439 \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u0437\u0430\u043a\u0440\u044b\u043b\u0438 75 \u043e\u0431\u044a\u0435\u043a\u0442\u043e\u0432.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/ru/2025/12/06/texnopark/",
+        "category": "Business",
+        "language": "RU",
+        "published_at": "2025-12-06T13:04:00+00:00",
+        "published_ts": 1765026240.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "d48892d3e1fe45aeed0d6f54685901b7",
+        "title": "\u0426\u0411\u00a0\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0430 \u0432\u00a0\u043d\u043e\u044f\u0431\u0440\u0435 \u043a\u0443\u043f\u0438\u043b \u043e\u0431\u043b\u0438\u0433\u0430\u0446\u0438\u0438 \u0421\u0428\u0410 \u0431\u043e\u043b\u0435\u0435 \u0447\u0435\u043c \u043d\u0430 $500 \u043c\u043b\u043d",
+        "summary": "\u0414\u043e\u043b\u044f \u0446\u0435\u043d\u043d\u044b\u0445 \u0431\u0443\u043c\u0430\u0433 \u0432\u00a0\u0437\u043e\u043b\u043e\u0442\u043e\u0432\u0430\u043b\u044e\u0442\u043d\u044b\u0445 \u0440\u0435\u0437\u0435\u0440\u0432\u0430\u0445 \u0432\u044b\u0440\u043e\u0441\u043b\u0430 2,49%. \u0420\u0435\u0433\u0443\u043b\u044f\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0438\u0440\u0443\u0435\u0442 \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c \u0434\u0438\u0432\u0435\u0440\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e.",
+        "full_content": "\u0414\u043e\u043b\u044f \u0446\u0435\u043d\u043d\u044b\u0445 \u0431\u0443\u043c\u0430\u0433 \u0432\u00a0\u0437\u043e\u043b\u043e\u0442\u043e\u0432\u0430\u043b\u044e\u0442\u043d\u044b\u0445 \u0440\u0435\u0437\u0435\u0440\u0432\u0430\u0445 \u0432\u044b\u0440\u043e\u0441\u043b\u0430 2,49%. \u0420\u0435\u0433\u0443\u043b\u044f\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0438\u0440\u0443\u0435\u0442 \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c \u0434\u0438\u0432\u0435\u0440\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/ru/2025/12/06/cb-securities/",
+        "category": "Banking",
+        "language": "RU",
+        "published_at": "2025-12-06T12:55:00+00:00",
+        "published_ts": 1765025700.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "d25559ade63faab6179998de76ac9e12",
+        "title": "Criminal Wanted Internationally Apprehended and Deported to Uzbekistan",
+        "summary": "A criminal who had been hiding in Egypt has been deported to Uzbekistan and brought to justice, the National Central Bureau of Interpol of Uzbekistan reported.",
+        "full_content": "A criminal who had been hiding in Egypt has been deported to Uzbekistan and brought to justice, the National Central Bureau of Interpol of Uzbekistan reported.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/criminal-wanted-internationally-apprehended-and-deported-to-uzbekistan/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T17:54:00+05:00",
+        "published_ts": 1765025640.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "9868c54d80b7254e19efa90d54a12757",
+        "title": "Explosion at Shams Ltd Facility in Bukhara: 4 Dead, 4 Injured",
+        "summary": "An explosion occurred on the morning of 6 December at a workshop producing explosives for the mining industry operated by Shams Ltd in the Kagan district of the Bukhara region, the Ministry of Emergen...",
+        "full_content": "An explosion occurred on the morning of 6 December at a workshop producing explosives for the mining industry operated by Shams Ltd in the Kagan district of the Bukhara region, the Ministry of Emergency Situations of Uzbekistan reported.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/explosion-at-shams-ltd-facility-in-bukhara-4-dead-4-injured/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T17:48:00+05:00",
+        "published_ts": 1765025280.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "286bf0b3dbca12fc74734730572772f6",
+        "title": "Saida Mirziyoyeva Discusses Deepening Strategic Partnership with China",
+        "summary": "Head of the Presidential Administration of Uzbekistan Saida Mirziyoyeva held a working meeting with Long Yuxiang, Chairman of China\u2019s International Communication Center, to discuss the further deepeni...",
+        "full_content": "Head of the Presidential Administration of Uzbekistan Saida Mirziyoyeva held a working meeting with Long Yuxiang, Chairman of China\u2019s International Communication Center, to discuss the further deepening of the comprehensive strategic partnership between the two countries.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/saida-mirziyoyeva-discusses-deepening-strategic-partnership-with-china/",
+        "category": "Regulation",
+        "language": "EN",
+        "published_at": "2025-12-06T17:36:00+05:00",
+        "published_ts": 1765024560.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "f86d1f5ea73384acf5874b0126d80cfd",
+        "title": "ACWA Power uzunligi 1790 kilometrlik elektr uzatish tarmog\u2018ini qurishni boshladi",
+        "summary": "5-dekabr kuni esa kompaniya amalga oshirgan 752 megavatt quvvatli 4 ta\u00a0shamol elektr stansiyasi elektr tarmog\u2018iga ulandi.",
+        "full_content": "5-dekabr kuni esa kompaniya amalga oshirgan 752 megavatt quvvatli 4 ta\u00a0shamol elektr stansiyasi elektr tarmog\u2018iga ulandi.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/oz/2025/12/06/acwa-power/",
+        "category": "Business",
+        "language": "UZ",
+        "published_at": "2025-12-06T12:32:00+00:00",
+        "published_ts": 1765024320.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "fe87a942035f6afb7e840b08d4d4af34",
+        "title": "Uzbekistan\u2019s NDC 3.0: from promises to reality \u2014 why declarations don\u2019t protect against smog",
+        "summary": "NDC 3.0 and the harsh reality of air quality",
+        "full_content": "NDC 3.0 and the harsh reality of air quality",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekistans-ndc-30-from-promises-to-reality-why-declarations-dont-protect-against-smog/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T17:26:00+05:00",
+        "published_ts": 1765023960.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "273eb607b71a605b620c4bddf18c3727",
+        "title": "\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d \u0432\u00a0\u0440\u0430\u043c\u043a\u0430\u0445 iCRAFT \u0441\u043e\u043a\u0440\u0430\u0442\u0438\u043b \u0432\u044b\u0431\u0440\u043e\u0441\u044b \u043f\u0430\u0440\u043d\u0438\u043a\u043e\u0432\u044b\u0445 \u0433\u0430\u0437\u043e\u0432 \u043d\u0430\u00a023 \u043c\u043b\u043d \u0442\u043e\u043d\u043d\u00a0\u2014 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442",
+        "summary": "\u0414\u043e\u00a0\u043a\u043e\u043d\u0446\u0430 2027 \u0433\u043e\u0434\u0430 \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b \u00ab\u0437\u0435\u043b\u0435\u043d\u043e\u0439\u00bb \u044d\u043d\u0435\u0440\u0433\u0438\u0438 \u0431\u0443\u0434\u0443\u0442 \u0432\u043d\u0435\u0434\u0440\u0435\u043d\u044b \u0432\u00a0100 \u043a\u0440\u0443\u043f\u043d\u044b\u0445 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\u0445.",
+        "full_content": "\u0414\u043e\u00a0\u043a\u043e\u043d\u0446\u0430 2027 \u0433\u043e\u0434\u0430 \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b \u00ab\u0437\u0435\u043b\u0435\u043d\u043e\u0439\u00bb \u044d\u043d\u0435\u0440\u0433\u0438\u0438 \u0431\u0443\u0434\u0443\u0442 \u0432\u043d\u0435\u0434\u0440\u0435\u043d\u044b \u0432\u00a0100 \u043a\u0440\u0443\u043f\u043d\u044b\u0445 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\u0445.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/ru/2025/12/06/green-prospects/",
+        "category": "Markets",
+        "language": "RU",
+        "published_at": "2025-12-06T12:24:00+00:00",
+        "published_ts": 1765023840.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "87e80153e29961a458137a500c938505",
+        "title": "\u0421\u0442\u0443\u0434\u0435\u043d\u0442\u0430\u043c \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u044f\u0442 50% \u0441\u043a\u0438\u0434\u043a\u0443 \u043d\u0430\u00a0\u0431\u0438\u043b\u0435\u0442\u044b \u0432\u00a0\u043f\u0435\u0440\u0438\u043e\u0434 \u0437\u0438\u043c\u043d\u0438\u0445 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u00a0\u2014 \u041c\u0438\u043d\u0432\u0443\u0437",
+        "summary": "\u0421\u00a018\u00a0\u0434\u0435\u043a\u0430\u0431\u0440\u044f \u043f\u043e\u00a012\u00a0\u044f\u043d\u0432\u0430\u0440\u044f 2026 \u0433\u043e\u0434\u0430 \u0431\u0443\u0434\u0443\u0442 \u043f\u0440\u043e\u0434\u0430\u0432\u0430\u0442\u044c\u0441\u044f \u043b\u044c\u0433\u043e\u0442\u043d\u044b\u0435 \u0431\u0438\u043b\u0435\u0442\u044b, \u0430\u00a0\u0437\u0438\u043c\u043d\u0438\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b \u043d\u0430\u0447\u043d\u0443\u0442\u0441\u044f 28\u00a0\u0434\u0435\u043a\u0430\u0431\u0440\u044f.",
+        "full_content": "\u0421\u00a018\u00a0\u0434\u0435\u043a\u0430\u0431\u0440\u044f \u043f\u043e\u00a012\u00a0\u044f\u043d\u0432\u0430\u0440\u044f 2026 \u0433\u043e\u0434\u0430 \u0431\u0443\u0434\u0443\u0442 \u043f\u0440\u043e\u0434\u0430\u0432\u0430\u0442\u044c\u0441\u044f \u043b\u044c\u0433\u043e\u0442\u043d\u044b\u0435 \u0431\u0438\u043b\u0435\u0442\u044b, \u0430\u00a0\u0437\u0438\u043c\u043d\u0438\u0435 \u043a\u0430\u043d\u0438\u043a\u0443\u043b\u044b \u043d\u0430\u0447\u043d\u0443\u0442\u0441\u044f 28\u00a0\u0434\u0435\u043a\u0430\u0431\u0440\u044f.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/ru/2025/12/06/tickets-students/",
+        "category": "Business",
+        "language": "RU",
+        "published_at": "2025-12-06T12:19:00+00:00",
+        "published_ts": 1765023540.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "aa4bb2917bed343e266df2f12e67d119",
+        "title": "KIA O\u2018zbekistonda tashkiliy yollash uchun kadrlar tayyorlaydigan ustaxonalar ochmoqchi",
+        "summary": "Joriy yildan boshlab Janubiy Koreyada chet elliklar avtomobil kuzovlarini bo\u2018yash ishlarida ishlashi mumkin.",
+        "full_content": "Joriy yildan boshlab Janubiy Koreyada chet elliklar avtomobil kuzovlarini bo\u2018yash ishlarida ishlashi mumkin.",
+        "source": "Spot.uz",
+        "source_url": "https://www.spot.uz/oz/2025/12/06/kia-migrants/",
+        "category": "Economy",
+        "language": "UZ",
+        "published_at": "2025-12-06T12:11:00+00:00",
+        "published_ts": 1765023060.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
       },
       {
         "id": "af0d1821bf4ffd77ea7549b4717b711a",
@@ -2244,6 +2431,74 @@
         "reliability_label": "VERIFIED"
       },
       {
+        "id": "41ff09606993453a5a4f6c491c5df76d",
+        "title": "Uzbekistan Joins Global \u201cNational Health Compacts\u201d Initiative",
+        "summary": "Uzbekistan has joined an international coalition of fifteen countries that presented their \u201cNational Health Compacts\u201d in Tokyo \u2014 strategic agreements aimed at accelerating progress toward universal he...",
+        "full_content": "Uzbekistan has joined an international coalition of fifteen countries that presented their \u201cNational Health Compacts\u201d in Tokyo \u2014 strategic agreements aimed at accelerating progress toward universal health coverage (UHC).",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekistan-joins-global-national-health-compacts-initiative/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T14:57:00+05:00",
+        "published_ts": 1765015020.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "57ae6aefbceaed8d36ed6f9b867b2ee6",
+        "title": "Uzbekistan to Transfer Power Grids in Four Regions to Private Investors",
+        "summary": "President Shavkat Mirziyoyev has announced plans to hand over the management of power grids in Jizzakh and Syrdarya regions to private investors in 2026, followed by the power networks of Namangan and...",
+        "full_content": "President Shavkat Mirziyoyev has announced plans to hand over the management of power grids in Jizzakh and Syrdarya regions to private investors in 2026, followed by the power networks of Namangan and the capital region a year later.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/uzbekistan-to-transfer-power-grids-in-four-regions-to-private-investors/",
+        "category": "Regulation",
+        "language": "EN",
+        "published_at": "2025-12-06T14:45:00+05:00",
+        "published_ts": 1765014300.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "c6eb8ca489482a5edfbd2bda25f959a5",
+        "title": "S&P Revises Navoiyuran Outlook to \u201cPositive\u201d on Rising Production",
+        "summary": "S&P Global Ratings has affirmed the long-term credit rating of Uzbekistan\u2019s uranium producer Navoiyuran at \u201cBB-\u201d while revising the outlook to \u201cpositive.\u201d",
+        "full_content": "S&P Global Ratings has affirmed the long-term credit rating of Uzbekistan\u2019s uranium producer Navoiyuran at \u201cBB-\u201d while revising the outlook to \u201cpositive.\u201d",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/sp-revises-navoiyuran-outlook-to-positive-on-rising-production/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T14:21:00+05:00",
+        "published_ts": 1765012860.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
+        "id": "2d1afaea8edfabffb437d23353268d24",
+        "title": "UNODC Calls for Strengthened Measures Against Synthetic Drugs in Central Asia",
+        "summary": "The Regional Representative of the United Nations Office on Drugs and Crime (UNODC), Oliver St\u00f6lpe, has called for urgent and coordinated action by Central Asian countries in response to the growing t...",
+        "full_content": "The Regional Representative of the United Nations Office on Drugs and Crime (UNODC), Oliver St\u00f6lpe, has called for urgent and coordinated action by Central Asian countries in response to the growing threats posed by synthetic drugs.",
+        "source": "UzDaily",
+        "source_url": "https://www.uzdaily.uz/en/unodc-calls-for-strengthened-measures-against-synthetic-drugs-in-central-asia/",
+        "category": "Business",
+        "language": "EN",
+        "published_at": "2025-12-06T14:12:00+05:00",
+        "published_ts": 1765012320.0,
+        "image_url": null,
+        "is_breaking": false,
+        "reliability_tier": "verified",
+        "reliability_score": 0.8,
+        "reliability_label": "VERIFIED"
+      },
+      {
         "id": "340760c72e422c1f048b2dd5743b0387",
         "title": "Hugo Boss O\u2018zbekistondagi kompaniyadan kontrafakt savdosi uchun 20 mln so\u2018m undirdi",
         "summary": "Yil boshidan buyon mamlakatda Germaniya kiyim-kechak markalariga bo\u2018lgan huquqlarning to\u2018rt marta buzilishi aniqlangan.",
@@ -2296,23 +2551,6 @@
         "reliability_label": "VERIFIED"
       },
       {
-        "id": "eb20c840c5b30d1fa5749d5a463f6f8f",
-        "title": "Premiere of the Documentary \u201cEarth\u2019s Legacy\u201d Held at FAO Headquarters in Rome",
-        "summary": "The premiere of the documentary film \u201cEarth\u2019s Legacy\u201d took place at the headquarters of the United Nations Food and Agriculture Organization (FAO) in Rome. The film was produced with the support of th...",
-        "full_content": "The premiere of the documentary film \u201cEarth\u2019s Legacy\u201d took place at the headquarters of the United Nations Food and Agriculture Organization (FAO) in Rome. The film was produced with the support of the Ministry of Agriculture of the Republic of Uzbekistan, the FAO Representation in Uzbekistan, and the Zamin Foundation.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/premiere-of-the-documentary-earths-legacy-held-at-fao-headquarters-in-rome/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T13:11:00+05:00",
-        "published_ts": 1765008660.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
         "id": "4e38bdc96c19104cfcb92608b58c636b",
         "title": "\u0412\u00a0\u043c\u0435\u0442\u0440\u043e \u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0430 \u0441\u00a09\u00a0\u0434\u0435\u043a\u0430\u0431\u0440\u044f \u0437\u0430\u043a\u0440\u043e\u044e\u0442\u0441\u044f \u043a\u0430\u0441\u0441\u044b \u0435\u0449\u0435 \u043d\u0430\u00a016 \u0441\u0442\u0430\u043d\u0446\u0438\u044f\u0445",
         "summary": "\u0420\u0435\u0447\u044c \u0438\u0434\u0435\u0442 \u043e\u00a0\u0441\u0442\u0430\u043d\u0446\u0438\u044f\u0445 \u00ab\u041f\u0430\u0445\u0442\u0430\u043a\u043e\u0440\u00bb \u0438\u00a0\u00ab\u0410\u043b\u0438\u0448\u0435\u0440 \u041d\u0430\u0432\u043e\u0438\u00bb, \u0430\u00a0\u0442\u0430\u043a\u0436\u0435 \u043e\u00a0\u0432\u0441\u0435\u0439 \u043d\u0430\u0434\u0437\u0435\u043c\u043d\u043e\u0439 \u043b\u0438\u043d\u0438\u0438 \u043c\u0435\u0442\u0440\u043e.",
@@ -2330,91 +2568,6 @@
         "reliability_label": "VERIFIED"
       },
       {
-        "id": "83cbacf40726344e49aec8018d9757e4",
-        "title": "Paynet Increases Capital of NIPC to 815.26 Billion Soums",
-        "summary": "JSC Paynet has decided to increase the authorized capital of its subsidiary, the National Interbank Processing Center (NIPC, Humo), to 815.26 billion soums.",
-        "full_content": "JSC Paynet has decided to increase the authorized capital of its subsidiary, the National Interbank Processing Center (NIPC, Humo), to 815.26 billion soums.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/paynet-increases-capital-of-nipc-to-81526-billion-soums/",
-        "category": "Regulation",
-        "language": "EN",
-        "published_at": "2025-12-06T13:05:00+05:00",
-        "published_ts": 1765008300.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "dde7a45bda5ca41477d044a2f2acb647",
-        "title": "TBC Bank to Issue Bonds Worth 49.6 Billion Soums",
-        "summary": "TBC Bank has decided to issue bonds totaling 49.6 billion soums, with an interest rate of 19% and a maturity period of 730 days.",
-        "full_content": "TBC Bank has decided to issue bonds totaling 49.6 billion soums, with an interest rate of 19% and a maturity period of 730 days.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/tbc-bank-to-issue-bonds-worth-496-billion-soums/",
-        "category": "Banking",
-        "language": "EN",
-        "published_at": "2025-12-06T12:58:00+05:00",
-        "published_ts": 1765007880.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "fd6253a02037155f7ecfcd4b2157dcc6",
-        "title": "Ferghana State University Opens Azerbaijan Studies Classroom Named After Bakhtiyar Vahabzade",
-        "summary": "As part of the \u201cDays of Azerbaijani Art and Literature\u201d project, organized by the Heydar Aliyev Azerbaijani Cultural Center under the Embassy of Azerbaijan in Uzbekistan, Ferghana State University hel...",
-        "full_content": "As part of the \u201cDays of Azerbaijani Art and Literature\u201d project, organized by the Heydar Aliyev Azerbaijani Cultural Center under the Embassy of Azerbaijan in Uzbekistan, Ferghana State University held a ceremonial opening of an Azerbaijan Studies classroom, named in honor of the eminent Azerbaijani national poet Bakhtiyar Vahabzade.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/ferghana-state-university-opens-azerbaijan-studies-classroom-named-after-bakhtiyar-vahabzade/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T12:37:00+05:00",
-        "published_ts": 1765006620.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "bf9ebd8cbbf581e0d44116884f578ea1",
-        "title": "Paper and Paper Products Production in Uzbekistan Rises by 5.9%",
-        "summary": "In the first ten months of 2025, Uzbekistan\u2019s enterprises produced paper and paper products worth a total of 8 trillion soums, marking a 5.9% increase compared to the same period in 2024, according to...",
-        "full_content": "In the first ten months of 2025, Uzbekistan\u2019s enterprises produced paper and paper products worth a total of 8 trillion soums, marking a 5.9% increase compared to the same period in 2024, according to the National Statistics Committee.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/paper-and-paper-products-production-in-uzbekistan-rises-by-59/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T12:26:00+05:00",
-        "published_ts": 1765005960.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "80e30d5623ce8b2b2d0d658cd58aa3ff",
-        "title": "World Bank and AIIB Conduct Supervision Mission on Uzbekistan Project",
-        "summary": "The Ministry of Economy and Finance hosted a supervisory mission by donor organizations for the \u201cIntegrated Development of Medium-Sized Cities\u201d project, with participation from the World Bank and the ...",
-        "full_content": "The Ministry of Economy and Finance hosted a supervisory mission by donor organizations for the \u201cIntegrated Development of Medium-Sized Cities\u201d project, with participation from the World Bank and the Asian Infrastructure Investment Bank (AIIB).",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/world-bank-and-aiib-conduct-supervision-mission-on-uzbekistan-project/",
-        "category": "Economy",
-        "language": "EN",
-        "published_at": "2025-12-06T12:17:00+05:00",
-        "published_ts": 1765005420.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
         "id": "4d3fecbcb56b7d772b92e310a6ff09a1",
         "title": "9-dekabrdan Toshkent metrosidagi 16 ta\u00a0bekatda kassalar yopiladi",
         "summary": "Ushbu bekatlarda kassalar o\u2018rniga yangi QR-kodli chiptalar beruvchi apparatlar\u00a0\u2014 infokioskalar ishga tushirilgan.",
@@ -2425,57 +2578,6 @@
         "language": "UZ",
         "published_at": "2025-12-06T07:14:00+00:00",
         "published_ts": 1765005240.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "3ab87b77515e95f7e08eb06704baf6c3",
-        "title": "Director of Drug Safety Center Appointed Deputy Chair of GHWP",
-        "summary": "The 29th Annual Congress and Technical Committee meeting of the Global Harmonization Working Party (GHWP) on medical device requirements was held in Bangkok, Thailand.",
-        "full_content": "The 29th Annual Congress and Technical Committee meeting of the Global Harmonization Working Party (GHWP) on medical device requirements was held in Bangkok, Thailand.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/director-of-drug-safety-center-appointed-deputy-chair-of-ghwp/",
-        "category": "Regulation",
-        "language": "EN",
-        "published_at": "2025-12-06T12:05:00+05:00",
-        "published_ts": 1765004700.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "d6eeefdf092c208cd092006050298945",
-        "title": "Uzbekistan Discusses Economy Decarbonization Projects with Acta Climate",
-        "summary": "On 4 December, Akram Aliev, Deputy Minister of Investments, Industry, and Trade of the Republic of Uzbekistan, held a meeting with representatives of the European climate company Acta Climate Solution...",
-        "full_content": "On 4 December, Akram Aliev, Deputy Minister of Investments, Industry, and Trade of the Republic of Uzbekistan, held a meeting with representatives of the European climate company Acta Climate Solutions.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-discusses-economy-decarbonization-projects-with-acta-climate/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T11:58:00+05:00",
-        "published_ts": 1765004280.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "efcc9bc326491cbcea70b3a561587160",
-        "title": "Uzbekistan Discusses Digital Projects with Cerberus Frontier and Unitel",
-        "summary": "On 4 December, Akram Aliev, Deputy Minister of Investments, Industry, and Trade of the Republic of Uzbekistan, held a meeting with representatives of Cerberus Frontier and Unitel Group.",
-        "full_content": "On 4 December, Akram Aliev, Deputy Minister of Investments, Industry, and Trade of the Republic of Uzbekistan, held a meeting with representatives of Cerberus Frontier and Unitel Group.",
-        "source": "UzDaily",
-        "source_url": "https://www.uzdaily.uz/en/uzbekistan-discusses-digital-projects-with-cerberus-frontier-and-unitel/",
-        "category": "Business",
-        "language": "EN",
-        "published_at": "2025-12-06T11:50:00+05:00",
-        "published_ts": 1765003800.0,
         "image_url": null,
         "is_breaking": false,
         "reliability_tier": "verified",
@@ -2551,23 +2653,6 @@
         "reliability_tier": "aggregator",
         "reliability_score": 0.3,
         "reliability_label": "AGGREGATOR"
-      },
-      {
-        "id": "8f8337892895f541b012b2823cb14504",
-        "title": "\u041a\u0430\u043a\u0438\u0435 \u0431\u0430\u043d\u043a\u0438 \u0432\u00a0\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0435 \u0431\u0443\u0434\u0443\u0442 \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u043d\u0430\u00a0\u0414\u0435\u043d\u044c \u041a\u043e\u043d\u0441\u0442\u0438\u0442\u0443\u0446\u0438\u0438. \u0421\u043f\u0438\u0441\u043e\u043a",
-        "summary": "\u0412\u00a0\u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f\u0445 25 \u0431\u0430\u043d\u043a\u043e\u0432 \u043c\u043e\u0436\u043d\u043e \u0431\u0443\u0434\u0435\u0442 \u043e\u0431\u043c\u0435\u043d\u044f\u0442\u044c \u0432\u0430\u043b\u044e\u0442\u0443 \u0438\u00a0\u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0434\u0435\u043d\u0435\u0436\u043d\u044b\u0435 \u043f\u0435\u0440\u0435\u0432\u043e\u0434\u044b.",
-        "full_content": "\u0412\u00a0\u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f\u0445 25 \u0431\u0430\u043d\u043a\u043e\u0432 \u043c\u043e\u0436\u043d\u043e \u0431\u0443\u0434\u0435\u0442 \u043e\u0431\u043c\u0435\u043d\u044f\u0442\u044c \u0432\u0430\u043b\u044e\u0442\u0443 \u0438\u00a0\u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0434\u0435\u043d\u0435\u0436\u043d\u044b\u0435 \u043f\u0435\u0440\u0435\u0432\u043e\u0434\u044b.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/ru/2025/12/06/banks-holidays/",
-        "category": "Banking",
-        "language": "RU",
-        "published_at": "2025-12-05T20:21:00+00:00",
-        "published_ts": 1764966060.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
       },
       {
         "id": "3cbb3a64b2f5cfac7c66163f2474813c",
@@ -2785,23 +2870,6 @@
         "reliability_label": "VERIFIED"
       },
       {
-        "id": "f014d05505e565bb2f15e459e94059b1",
-        "title": "\u0417\u043e\u043b\u043e\u0442\u043e\u0432\u0430\u043b\u044e\u0442\u043d\u044b\u0435 \u0440\u0435\u0437\u0435\u0440\u0432\u044b \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0430 \u043e\u0431\u043d\u043e\u0432\u0438\u043b\u0438 \u043e\u0447\u0435\u0440\u0435\u0434\u043d\u043e\u0439 \u0440\u0435\u043a\u043e\u0440\u0434\u00a0\u2014 \u0441\u0432\u044b\u0448\u0435 $61 \u043c\u043b\u0440\u0434",
-        "summary": "\u0421\u00a0\u043d\u0430\u0447\u0430\u043b\u0430 \u0433\u043e\u0434\u0430 \u043c\u0435\u0436\u0434\u0443\u043d\u0430\u0440\u043e\u0434\u043d\u044b\u0435 \u0430\u043a\u0442\u0438\u0432\u044b \u0432\u044b\u0440\u043e\u0441\u043b\u0438 \u043f\u043e\u0447\u0442\u0438 \u043d\u0430\u043f\u043e\u043b\u043e\u0432\u0438\u043d\u0443. \u0412\u00a0\u043d\u043e\u044f\u0431\u0440\u0435 \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c \u0437\u043e\u043b\u043e\u0442\u043e\u0433\u043e \u0437\u0430\u043f\u0430\u0441\u0430 \u0432\u043f\u0435\u0440\u0432\u044b\u0435 \u043f\u0440\u0435\u0432\u044b\u0441\u0438\u043b\u0430 $50 \u043c\u043b\u0440\u0434.",
-        "full_content": "\u0421\u00a0\u043d\u0430\u0447\u0430\u043b\u0430 \u0433\u043e\u0434\u0430 \u043c\u0435\u0436\u0434\u0443\u043d\u0430\u0440\u043e\u0434\u043d\u044b\u0435 \u0430\u043a\u0442\u0438\u0432\u044b \u0432\u044b\u0440\u043e\u0441\u043b\u0438 \u043f\u043e\u0447\u0442\u0438 \u043d\u0430\u043f\u043e\u043b\u043e\u0432\u0438\u043d\u0443. \u0412\u00a0\u043d\u043e\u044f\u0431\u0440\u0435 \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c \u0437\u043e\u043b\u043e\u0442\u043e\u0433\u043e \u0437\u0430\u043f\u0430\u0441\u0430 \u0432\u043f\u0435\u0440\u0432\u044b\u0435 \u043f\u0440\u0435\u0432\u044b\u0441\u0438\u043b\u0430 $50 \u043c\u043b\u0440\u0434.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/ru/2025/12/05/reserves-november/",
-        "category": "Markets",
-        "language": "RU",
-        "published_at": "2025-12-05T15:43:00+00:00",
-        "published_ts": 1764949380.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
         "id": "9ed7f8e5e1f5b1db640c1ebe8bf90dcf",
         "title": "O\u2018zbekistonning oltin-valyuta zaxiralari rekord darajadagi $61,2 mlrdga yetdi",
         "summary": "Markaziy bankning xalqaro aktivlari bir oyda $1,89 mlrdga oshdi. Oltin qiymati rekordni yangilab, $50,8 mlrdga yetdi. Valyuta zaxiralari esa sezilarli kamaydi.",
@@ -2812,23 +2880,6 @@
         "language": "UZ",
         "published_at": "2025-12-05T15:35:00+00:00",
         "published_ts": 1764948900.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "791c48b2cc918badf85740413e47c1f4",
-        "title": "\u0421\u00a0\u0438\u044e\u043b\u044f 2026 \u0433\u043e\u0434\u0430 \u0426\u041e\u0414\u0414 \u0441\u043c\u043e\u0436\u0435\u0442 \u0432\u0432\u043e\u0434\u0438\u0442\u044c \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u0438\u044f \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u0438 \u0438\u00a0\u043f\u0440\u043e\u0435\u0437\u0434\u0430 \u043d\u0430\u00a0\u0443\u043b\u0438\u0446\u0430\u0445 \u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0430",
-        "summary": "\u0426\u0435\u043d\u0442\u0440 \u043f\u043e\u043b\u0443\u0447\u0438\u0442 \u043f\u0440\u0430\u0432\u043e \u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0442\u044c \u043b\u043e\u043a\u0430\u0446\u0438\u0438 \u0434\u043e\u0440\u043e\u0436\u043d\u044b\u0445 \u043a\u0430\u043c\u0435\u0440 \u0438\u00a0\u0432\u043d\u0435\u0434\u0440\u044f\u0442\u044c \u0430\u0432\u0442\u043e\u0431\u0443\u0441\u043d\u044b\u0435 \u043f\u043e\u043b\u043e\u0441\u044b.",
-        "full_content": "\u0426\u0435\u043d\u0442\u0440 \u043f\u043e\u043b\u0443\u0447\u0438\u0442 \u043f\u0440\u0430\u0432\u043e \u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0442\u044c \u043b\u043e\u043a\u0430\u0446\u0438\u0438 \u0434\u043e\u0440\u043e\u0436\u043d\u044b\u0445 \u043a\u0430\u043c\u0435\u0440 \u0438\u00a0\u0432\u043d\u0435\u0434\u0440\u044f\u0442\u044c \u0430\u0432\u0442\u043e\u0431\u0443\u0441\u043d\u044b\u0435 \u043f\u043e\u043b\u043e\u0441\u044b.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/ru/2025/12/05/center-functions/",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-05T15:21:00+00:00",
-        "published_ts": 1764948060.0,
         "image_url": null,
         "is_breaking": false,
         "reliability_tier": "verified",
@@ -2870,23 +2921,6 @@
         "reliability_label": "VERIFIED"
       },
       {
-        "id": "e9e5abdbbc3a95b9eff310737490828b",
-        "title": "\u041a\u0438\u0442\u0430\u0439 \u043f\u043e\u0441\u0442\u0440\u043e\u0438\u0442 \u043d\u043e\u0432\u044b\u0435 \u0441\u043e\u043b\u043d\u0435\u0447\u043d\u044b\u0435 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u0441\u0442\u0430\u043d\u0446\u0438\u0438 \u0438\u00a0\u0441\u0438\u0441\u0442\u0435\u043c\u044b \u043d\u0430\u043a\u043e\u043f\u043b\u0435\u043d\u0438\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u0438 \u0432\u00a0\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0435",
-        "summary": "Universal \u0443\u0441\u043a\u043e\u0440\u0438\u0442 \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0432\u0435\u0442\u0440\u044f\u043d\u044b\u0445 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u0441\u0442\u0430\u043d\u0446\u0438\u0439 \u0432\u00a0\u0440\u0435\u0433\u0438\u043e\u043d\u0430\u0445, \u0430\u00a0China Datang \u043e\u0442\u043a\u0440\u043e\u0435\u0442 \u043d\u0430\u0443\u0447\u043d\u0443\u044e \u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u0438\u044e.",
-        "full_content": "Universal \u0443\u0441\u043a\u043e\u0440\u0438\u0442 \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0432\u0435\u0442\u0440\u044f\u043d\u044b\u0445 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u0441\u0442\u0430\u043d\u0446\u0438\u0439 \u0432\u00a0\u0440\u0435\u0433\u0438\u043e\u043d\u0430\u0445, \u0430\u00a0China Datang \u043e\u0442\u043a\u0440\u043e\u0435\u0442 \u043d\u0430\u0443\u0447\u043d\u0443\u044e \u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u0438\u044e.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/ru/2025/12/05/china-energy/",
-        "category": "Economy",
-        "language": "RU",
-        "published_at": "2025-12-05T14:33:00+00:00",
-        "published_ts": 1764945180.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
         "id": "e9a0540e15bd46a644a953371e1c5fe3",
         "title": "\u0412 \u041d\u0430\u043c\u0430\u043d\u0433\u0430\u043d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b\u043e \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e China Town \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c\u044e $750 \u043c\u043b\u043d",
         "summary": "\u0412 \u0414\u0430\u0432\u043b\u0430\u0442\u0430\u0431\u0430\u0434\u0441\u043a\u043e\u043c \u0440\u0430\u0439\u043e\u043d\u0435 \u041d\u0430\u043c\u0430\u043d\u0433\u0430\u043d\u0441\u043a\u043e\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u043a\u0438\u0442\u0430\u0439\u0441\u043a\u0430\u044f Jiangsu Tonke Real Estate \u043f\u0440\u0438\u0441\u0442\u0443\u043f\u0438\u043b\u0430 \u043a \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u0443 \u043a\u0440\u0443\u043f\u043d\u043e\u0433\u043e \u043c\u043d\u043e\u0433\u043e\u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0441\u0430 China Town Namangan. \u041e\u0431 \u044d\u0442\u043e\u043c \u0441\u043e\u043e\u0431\u0449\u0438\u043b\u0430 \u043f\u0440\u0435\u0441\u0441-\u0441\u043b\u0443\u0436\u0431\u0430 \u043e...",
@@ -2921,23 +2955,6 @@
         "reliability_label": "VERIFIED"
       },
       {
-        "id": "ef1e086a68dfb621114f1fb784e8bbe3",
-        "title": "Netflix Warner Bros. Discovery\u2019ni $82,7 mlrdga sotib olmoqda",
-        "summary": "Bitimni 2026-yilda yakunlash rejalashtirilmoqda, ammo u\u00a0tartibga soluvchi organlar tomonidan tasdiqlanishi kerak.",
-        "full_content": "Bitimni 2026-yilda yakunlash rejalashtirilmoqda, ammo u\u00a0tartibga soluvchi organlar tomonidan tasdiqlanishi kerak.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/oz/2025/12/05/netflix-warner-bros/",
-        "category": "Business",
-        "language": "UZ",
-        "published_at": "2025-12-05T13:04:00+00:00",
-        "published_ts": 1764939840.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
         "id": "d0f6d6f8b8aa80a0ad64752ab9d0ca78",
         "title": "\u041c\u043e\u0449\u043d\u043e\u0441\u0442\u044c \u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u0410\u042d\u0421 \u0432 \u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d\u0435 \u043f\u043b\u0430\u043d\u0438\u0440\u0443\u044e\u0442 \u0434\u043e\u0432\u0435\u0441\u0442\u0438 \u0434\u043e 4 \u0413\u0412\u0442 \u043a 2040 \u0433\u043e\u0434\u0443",
         "summary": "\u0421\u0445\u0435\u043c\u0430 \u0440\u0430\u0437\u043c\u0435\u0449\u0435\u043d\u0438\u044f \u0438\u043d\u0442\u0435\u0433\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u0439 \u0430\u0442\u043e\u043c\u043d\u043e\u0439 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u0441\u0442\u0430\u043d\u0446\u0438\u0438 \u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442 \u043f\u043b\u0430\u043d\u044b \u043f\u043e \u0432\u043e\u0437\u0432\u0435\u0434\u0435\u043d\u0438\u044e \u0447\u0435\u0442\u044b\u0440\u0435\u0445 \u0440\u0435\u0430\u043a\u0442\u043e\u0440\u043e\u0432 \u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u043c\u043e\u0449\u043d\u043e\u0441\u0442\u0438 \u043d\u0430 \u0431\u0430\u0437\u0435 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438 \u0412\u0412\u042d\u0420-1000. \u0421\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u0438\u0432\u043e\u0434\u044f\u0442\u0441\u044f \u0432 \u0440\u0435\u043f\u043e\u0440\u0442\u0430\u0436\u0435...",
@@ -2948,23 +2965,6 @@
         "language": "RU",
         "published_at": "2025-12-05T12:30:51+00:00",
         "published_ts": 1764937851.0,
-        "image_url": null,
-        "is_breaking": false,
-        "reliability_tier": "verified",
-        "reliability_score": 0.8,
-        "reliability_label": "VERIFIED"
-      },
-      {
-        "id": "f5236c5053c7a98864a8223c58077308",
-        "title": "Toshkentda intellektual transport tizimi yo\u2018lga qo\u2018yiladi",
-        "summary": "Bu\u00a0orqali transport, piyoda va\u00a0yo\u2018lovchi oqimlari to\u2018g\u2018risida ma\u02bclumotlar yig\u2018iladi, shu asosda svetoforlar boshqariladi.",
-        "full_content": "Bu\u00a0orqali transport, piyoda va\u00a0yo\u2018lovchi oqimlari to\u2018g\u2018risida ma\u02bclumotlar yig\u2018iladi, shu asosda svetoforlar boshqariladi.",
-        "source": "Spot.uz",
-        "source_url": "https://www.spot.uz/oz/2025/12/05/intelligent-transport/",
-        "category": "Business",
-        "language": "UZ",
-        "published_at": "2025-12-05T12:26:00+00:00",
-        "published_ts": 1764937560.0,
         "image_url": null,
         "is_breaking": false,
         "reliability_tier": "verified",
@@ -3099,8 +3099,8 @@
         "source_url": "https://www.worldbank.org/en/news/all?count_exact=Uzbekistan&lang_exact=English&displayconttype_exact=Feature%20Story",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-06T12:05:41.226772",
-        "published_ts": 1764849941.22677,
+        "published_at": "2025-12-06T13:09:47.544650",
+        "published_ts": 1764853787.544648,
         "image_url": null,
         "is_breaking": false,
         "is_official": true,
@@ -3152,8 +3152,8 @@
         "source_url": "https://www.worldbank.org/en/news/all?count_exact=Uzbekistan&displayconttype_exact=Results&lang_exact=English",
         "category": "Economy",
         "language": "EN",
-        "published_at": "2025-12-06T12:05:41.226794",
-        "published_ts": 1764763541.226793,
+        "published_at": "2025-12-06T13:09:47.544671",
+        "published_ts": 1764767387.54467,
         "image_url": null,
         "is_breaking": false,
         "is_official": true,
